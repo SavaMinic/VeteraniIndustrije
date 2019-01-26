@@ -801,7 +801,7 @@ MonoBehaviour:
   - {fileID: 660202925908225519, guid: 9bc0c46c267514722946ff6e28342aae, type: 3}
   - {fileID: 660202925908225519, guid: ba526797e4bfd4f6f87443ad6bed7eac, type: 3}
   InitialGuestCount: 2
-  DelayForGeneratingGuests: 30
+  DelayForGeneratingGuests: 7
 --- !u!1 &850073347
 GameObject:
   m_ObjectHideFlags: 0
