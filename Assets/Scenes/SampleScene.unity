@@ -1296,18 +1296,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GuestSittingPositions:
-  - {x: 11.13, y: 0, z: 8.44}
-  - {x: 11.09, y: 0, z: -1.05}
-  - {x: 3.43, y: 0, z: 11.77}
-  - {x: -4.17, y: 0, z: -2.56}
-  - {x: 1.8, y: 0, z: -6.55}
-  - {x: -4.49, y: 0, z: 7.63}
+  - {x: 10.64, y: 0, z: 8.44}
+  - {x: 10.65, y: 0, z: -1.05}
+  - {x: 3.47, y: 0, z: 11.77}
+  - {x: -4.23, y: 0, z: -2.56}
+  - {x: 1.55, y: 0, z: -6.55}
+  - {x: -3.69, y: 0, z: 7.63}
+  GuestSittingFlipped: 010100000100
   GuestPrefabs:
   - {fileID: 660202925908225519, guid: 9bc0c46c267514722946ff6e28342aae, type: 3}
   - {fileID: 660202925908225519, guid: ba526797e4bfd4f6f87443ad6bed7eac, type: 3}
   - {fileID: 660202925908225519, guid: 2d0a5e3265d4a4da9bc7bd79f37495ad, type: 3}
   InitialGuestCount: 6
-  DelayForGeneratingGuests: 20
+  DelayForGeneratingGuests: 30
 --- !u!1 &850073347
 GameObject:
   m_ObjectHideFlags: 0
@@ -3460,8 +3461,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958506852}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 4.5, y: 1.1, z: -0.3}
-  m_LocalScale: {x: 2.51, y: 10.44, z: 2.36}
+  m_LocalPosition: {x: 4.5, y: 1.1, z: -0.59}
+  m_LocalScale: {x: 2.51, y: 11.98, z: 2.8}
   m_Children: []
   m_Father: {fileID: 1482049867}
   m_RootOrder: 8

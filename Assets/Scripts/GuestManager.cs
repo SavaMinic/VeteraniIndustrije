@@ -26,6 +26,7 @@ public class GuestManager : MonoBehaviour
     #region Properties
 
     public List<Vector3> GuestSittingPositions = new List<Vector3>();
+    public List<bool> GuestSittingFlipped = new List<bool>();
     
     public List<GameObject> GuestPrefabs = new List<GameObject>();
 
@@ -102,7 +103,8 @@ public class GuestManager : MonoBehaviour
         guestObject.transform.SetParent(transform);
 
         var guest = guestObject.GetComponent<Guest>();
-        guest.SitHere(index, GuestSittingPositions[index]);
+        var isFlipped = index < GuestSittingFlipped.Count && GuestSittingFlipped[index];
+        guest.SitHere(index, GuestSittingPositions[index], isFlipped);
         
         CanvasController.I.AddNewGuestWish(guest);
     }

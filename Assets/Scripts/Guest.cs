@@ -37,11 +37,18 @@ public class Guest : MonoBehaviour
     private Vector3 sittingPosition;
     private int sittingIndex;
 
+    private SpriteRenderer spriteRenderer;
+
     #region Mono
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer.transform.localScale = Vector3.one;
+    }
 
     private void Start()
     {
-        GetComponentInChildren<SpriteRenderer>().transform.localScale = Vector3.one;
         
         // TODO: do the walking first
         var initialDelay = Random.Range(0f, 2f) * DelayAfterWish;
@@ -113,7 +120,7 @@ public class Guest : MonoBehaviour
 
     #region Public
 
-    public void SitHere(int sitIndex, Vector3 sitPosition)
+    public void SitHere(int sitIndex, Vector3 sitPosition, bool isFlipped)
     {
         // keep the y position
         sitPosition.y = transform.position.y;
@@ -121,6 +128,8 @@ public class Guest : MonoBehaviour
         // save data
         sittingPosition = sitPosition;
         sittingIndex = sitIndex;
+        
+        spriteRenderer.flipX = isFlipped;
         
         // TODO: set target position for guest, and he should move to it
         transform.position = sittingPosition;
