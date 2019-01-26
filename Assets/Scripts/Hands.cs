@@ -20,6 +20,14 @@ public class Hands : MonoBehaviour
         if (closestItem) Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
 
         // Special cases:
+
+        // Menjanje kanala TV
+        if (!heldItem && closestItem is TV)
+        {
+            var tv = closestItem as TV;
+
+            tv.SwitchChannel();
+        }
         // Otvaranje vrata i prozora:
         if (!heldItem && closestItem is Door)
         {
