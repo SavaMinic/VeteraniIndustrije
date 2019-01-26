@@ -5,6 +5,8 @@ using UnityEngine;
 public class MainPlayer : MonoBehaviour
 {
     public float speed;
+    public string HorizontalAxis;
+    public string VerticalAxis;
 
     private Rigidbody rb;
     
@@ -18,8 +20,8 @@ public class MainPlayer : MonoBehaviour
         if (!Application.isPlaying)
             return;
         
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float h = Input.GetAxis(HorizontalAxis);
+        float v = Input.GetAxis(VerticalAxis);
 
         // since camera is rotated, recalculate the movement so x/z axis are appropriate for camera
         // minus is there because camera is looking back
