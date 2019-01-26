@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: RoomBack
+    uniqueID: 874921213
+    locked: 0
+  - name: Front
+    uniqueID: 264130509
+    locked: 0
+  - name: Overlay
+    uniqueID: 1951356961
+    locked: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 660202925908225522}
   - component: {fileID: 660202925908225521}
   m_Layer: 0
-  m_Name: RandomGuest
+  m_Name: CrazyAunt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,9 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa485f9ebc754fa49c8f489a5c84a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 1
-  NumberOfWishes: 3
-  WaitingTimePerWish: 20
+  Type: 3
+  NumberOfWishes: 5
+  WaitingTimePerWish: 30
   DelayAfterWish: 5
   CurrentState: 0
   AllWishes: []
@@ -196,7 +196,7 @@ SpriteRenderer:
   m_SortingLayerID: 264130509
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0827bd6ee807e4545bb0688e4792ef27, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bc6db216e9ac74069b5df468bb56ce98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

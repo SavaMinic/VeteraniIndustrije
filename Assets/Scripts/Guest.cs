@@ -41,6 +41,7 @@ public class Guest : MonoBehaviour
 
     private void Start()
     {
+        GetComponentInChildren<SpriteRenderer>().transform.localScale = Vector3.one;
         // TODO: do the walking first
         RequestingWish();
     }
