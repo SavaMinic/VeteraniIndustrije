@@ -20,7 +20,13 @@ public class Hands : MonoBehaviour
         if (closestItem) Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
 
         // Special cases:
+        // Otvaranje vrata i prozora:
+        if (!heldItem && closestItem is Door)
+        {
+            var door = closestItem as Door;
 
+            door.Toggle();
+        }
         // Sipanje sarme iz lonca u tanjir
         if (closestItem is Plate && heldItem is LonacSarme)
         {
@@ -108,7 +114,7 @@ public class Hands : MonoBehaviour
         {
             if (!heldItem)
             {
-                if (closestItem)
+                if (closestItem && closestItem.isTakeable)
                 {
                     Item item = closestItem.Take(this);
 

@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
     #region Cache and closest item
     public static Item[] allItems;
 
+    public bool isTakeable = true;
     public bool isHeld;
 
     Hands inHands;
