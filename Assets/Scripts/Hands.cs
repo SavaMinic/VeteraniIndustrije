@@ -26,8 +26,8 @@ public class Hands : MonoBehaviour
         {
             if (Input.GetKey(interactionKey))
             {
-                Dzezva dzezva = heldItem as Dzezva;
-                Cup cup = closestItem as Cup;
+                var dzezva = heldItem as Dzezva;
+                var cup = closestItem as Cup;
 
                 Debug.DrawLine(transform.position, cup.transform.position);
 
@@ -39,6 +39,28 @@ public class Hands : MonoBehaviour
 
                     dzezva.amount -= pourAmount;
                     if (dzezva.amount < 0) pourAmount += Mathf.Abs(dzezva.amount);
+
+                    cup.amount += pourAmount;
+                }
+            }
+        }
+        if (closestItem is Cup && heldItem is Bottle) // copied
+        {
+            if (Input.GetKey(interactionKey))
+            {
+                var bottle = heldItem as Bottle;
+                var cup = closestItem as Cup;
+
+                Debug.DrawLine(transform.position, cup.transform.position);
+
+                if ((cup.amount == 0 || cup.drinkType == bottle.drinkType) && bottle.amount > 0)
+                {
+                    cup.drinkType = bottle.drinkType;
+
+                    float pourAmount = Time.deltaTime * 1; // TODO: add mult
+
+                    bottle.amount -= pourAmount;
+                    if (bottle.amount < 0) pourAmount += Mathf.Abs(bottle.amount);
 
                     cup.amount += pourAmount;
                 }
