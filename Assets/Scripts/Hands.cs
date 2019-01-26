@@ -20,6 +20,7 @@ public class Hands : MonoBehaviour
 
         // Special cases:
 
+        // Sipanje kafe u solju:
         if (closestItem is Cup && heldItem is Dzezva)
         {
             if (Input.GetKey(interactionKey))
@@ -40,6 +41,15 @@ public class Hands : MonoBehaviour
 
                     cup.amount += pourAmount;
                 }
+            }
+        }
+        // Sipanje kafe u dzezvu:
+        else if (closestItem is Dzezva && heldItem is Coffee)
+        {
+            if (Input.GetKeyDown(interactionKey))
+            {
+                Dzezva dzezva = closestItem as Dzezva;
+                dzezva.drinkType = Drink.Coffee;
             }
         }
         // TODO: metla
