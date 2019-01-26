@@ -10,7 +10,7 @@ public class Item : MonoBehaviour
     public bool isHeld;
 
     Hands inHands;
-    Slot inSlot;
+    public Slot inSlot;
 
     private void Start()
     {
