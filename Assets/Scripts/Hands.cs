@@ -44,7 +44,8 @@ public class Hands : MonoBehaviour
                 }
             }
         }
-        if (closestItem is Cup && heldItem is Bottle) // copied
+        // Sipanje iz flase u solju/casu - kopirano ozgo
+        if (closestItem is Cup && heldItem is Bottle)
         {
             if (Input.GetKey(interactionKey))
             {
@@ -53,7 +54,8 @@ public class Hands : MonoBehaviour
 
                 Debug.DrawLine(transform.position, cup.transform.position);
 
-                if ((cup.amount == 0 || cup.drinkType == bottle.drinkType) && bottle.amount > 0)
+                if ((cup.amount == 0 || cup.drinkType == bottle.drinkType)
+                    && bottle.amount > 0 && cup.amount < 1)
                 {
                     cup.drinkType = bottle.drinkType;
 
