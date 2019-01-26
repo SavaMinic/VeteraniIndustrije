@@ -38,6 +38,7 @@ public class CanvasController : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 60;
         MainCanvas = GetComponent<Canvas>();
     }
 
@@ -52,6 +53,7 @@ public class CanvasController : MonoBehaviour
         {
             var wishPanelObject = Instantiate(guestWishPanelPrefab);
             wishPanelObject.transform.SetParent(transform);
+            wishPanelObject.transform.localScale = Vector3.one;
             availableWishPanel = wishPanelObject.GetComponent<GuestWishPanel>();
             guestWishPanels.Add(availableWishPanel);
         }

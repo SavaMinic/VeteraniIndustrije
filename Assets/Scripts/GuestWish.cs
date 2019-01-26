@@ -13,11 +13,16 @@ public class GuestWish
         Random,
         Coffee,
         Rakija,
-        Sarma,
-        OpenWindow,
-        CloseWindow,
-        TvPink,
-        TvRts,
+        Fruit,
+        
+        // window wishes
+        //OpenWindow,
+        //CloseWindow,
+        
+        // tv wishes
+        TvBasketball,
+        TvWeather,
+        TvFarma
     }
 
     public GuestWishType Type;

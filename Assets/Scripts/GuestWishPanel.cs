@@ -5,19 +5,33 @@ using UnityEngine.UI;
 
 public class GuestWishPanel : MonoBehaviour
 {
+    #region Enums
+
+    [System.Serializable]
+    public class GuestWishSprite
+    {
+        public GuestWish.GuestWishType WishType;
+        public Sprite WishSprite;
+    }
+
+    #endregion
+    
     #region Properties/Fields
 
     [SerializeField]
     private Vector3 offset;
 
     [SerializeField]
+    private List<GuestWishSprite> guestWishSprites;
+
+    [SerializeField]
     private float fadeDuration;
 
     [SerializeField]
-    private Image wishBackground;
+    private Image wishImage;
 
     [SerializeField]
-    private Image wishImage;
+    private Image wishFillImage;
 
     private CanvasGroup canvasGroup;
 
@@ -60,7 +74,7 @@ public class GuestWishPanel : MonoBehaviour
         var guestState = guest.CurrentState;
         if (guestState == Guest.GuestState.WaitingForService && !isShown)
         {
-            wishBackground.color = Color.white;
+            wishImage.color = Color.white;
             isShown = true;
             StartCoroutine(FadeTo(1f, fadeDuration));
         }
@@ -74,7 +88,13 @@ public class GuestWishPanel : MonoBehaviour
         var currentWish = guest.CurrentWish;
         if (guestState == Guest.GuestState.WaitingForService && currentWish != null)
         {
-            wishBackground.color = Color.Lerp(Color.white, Color.red, guest.CurrentWish.Progress);
+            var guestWishSprite = guestWishSprites.Find(w => w.WishType == currentWish.Type);
+            if (guestWishSprite != null)
+            {
+                wishImage.sprite = guestWishSprite.WishSprite;
+                wishFillImage.sprite = guestWishSprite.WishSprite;
+            }
+            wishFillImage.fillAmount = guest.CurrentWish.Progress;
             // todo: update wish icon
             //wishImage.sprite = "";
         }
