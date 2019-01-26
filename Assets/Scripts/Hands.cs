@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hands : MonoBehaviour
 {
+    public string interactionKey = "Fire1";
     public Item heldItem;
 
     public Vector3 holdOffset;
@@ -11,15 +12,13 @@ public class Hands : MonoBehaviour
 
     private void Update()
     {
-        KeyCode interactionKey = KeyCode.Space;
-
         Slot closestSlot = Slot.FindClosest(transform.position, interactRange);
         if (closestSlot) Debug.DrawLine(transform.position, closestSlot.transform.position, Color.red);
 
         Item closestItem = Item.FindClosest(transform.position, interactRange);
         if (closestItem) Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
 
-        bool btn = Input.GetKeyDown(interactionKey);
+        bool btn = Input.GetAxis(interactionKey) > 0f;
 
         // Special cases:
 
@@ -50,7 +49,7 @@ public class Hands : MonoBehaviour
         // Sipanje sarme iz lonca u tanjir
         if (closestItem is Plate && heldItem is LonacSarme)
         {
-            if (Input.GetKeyDown(interactionKey))
+            if (Input.GetAxis(interactionKey) > 0f)
             {
                 var plateContainer = closestItem.GetComponent<FoodContainer>();
                 var lonacContainer = heldItem.GetComponent<FoodContainer>();
@@ -74,7 +73,7 @@ public class Hands : MonoBehaviour
         // Sipanje kafe u solju:
         else if (closestItem is Cup && heldItem is Dzezva)
         {
-            if (Input.GetKey(interactionKey))
+            if (Input.GetAxis(interactionKey) > 0f)
             {
                 var dzezva = heldItem as Dzezva;
                 var cup = closestItem as Cup;
@@ -97,7 +96,7 @@ public class Hands : MonoBehaviour
         // Sipanje iz flase u solju/casu - kopirano ozgo
         if (closestItem is Cup && heldItem is Bottle)
         {
-            if (Input.GetKey(interactionKey))
+            if (Input.GetAxis(interactionKey) > 0f)
             {
                 var bottle = heldItem as Bottle;
                 var cup = closestItem as Cup;
@@ -121,7 +120,7 @@ public class Hands : MonoBehaviour
         // Sipanje kafe u dzezvu:
         else if (closestItem is Dzezva && heldItem is Coffee)
         {
-            if (Input.GetKeyDown(interactionKey))
+            if (Input.GetAxis(interactionKey) > 0f)
             {
                 Dzezva dzezva = closestItem as Dzezva;
                 dzezva.drinkType = Drink.Coffee;
@@ -130,7 +129,7 @@ public class Hands : MonoBehaviour
         }
         // TODO: metla
         // General case: Take / Place item
-        else if (Input.GetKeyDown(interactionKey))
+        else if (Input.GetAxis(interactionKey) > 0f)
         {
             if (!heldItem)
             {
