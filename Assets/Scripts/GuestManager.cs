@@ -103,6 +103,8 @@ public class GuestManager : MonoBehaviour
 
         var guest = guestObject.GetComponent<Guest>();
         guest.SitHere(index, GuestSittingPositions[index]);
+        
+        CanvasController.I.AddNewGuestWish(guest);
     }
 
     #endregion
