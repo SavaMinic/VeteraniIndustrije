@@ -19,17 +19,29 @@ public class Hands : MonoBehaviour
         Item closestItem = Item.FindClosest(transform.position, interactRange);
         if (closestItem) Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
 
+        bool btn = Input.GetKeyDown(interactionKey);
+
         // Special cases:
 
+        // Chop and take salata
+        if (!heldItem && closestItem is Salata && btn)
+        {
+            var salata = closestItem as Salata;
+
+            if (!salata.IsChoppedAndReady)
+                salata.Chop();
+            else
+                salata.Take(this);
+        }
         // Menjanje kanala TV
-        if (!heldItem && closestItem is TV)
+        if (!heldItem && closestItem is TV && btn)
         {
             var tv = closestItem as TV;
 
             tv.SwitchChannel();
         }
         // Otvaranje vrata i prozora:
-        if (!heldItem && closestItem is Door)
+        if (!heldItem && closestItem is Door && btn)
         {
             var door = closestItem as Door;
 
@@ -139,7 +151,5 @@ public class Hands : MonoBehaviour
                 }
             }
         }
-
-
     }
 }
