@@ -58,8 +58,10 @@ public class Hands : MonoBehaviour
         {
             if (!heldItem)
             {
-                heldItem = closestItem.Take(this);
-                //if (heldItem)
+                Item item = closestItem.Take(this);
+
+                if (item != null)
+                    heldItem = item;
             }
             else
             {

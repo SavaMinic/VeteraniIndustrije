@@ -46,7 +46,11 @@ public class Item : MonoBehaviour
     {
         if (hands.heldItem) return null; // cant take in occupied hands
 
-        if (inSlot) OnRemovedFromSlot(inSlot);
+        if (inSlot)
+        {
+            inSlot.itemInSlot = null;
+            OnRemovedFromSlot(inSlot);
+        }
 
         inSlot = null;
 
@@ -66,6 +70,8 @@ public class Item : MonoBehaviour
         transform.localPosition = Vector3.zero; // temp, TODO: Animate
         isHeld = false;
         inSlot = slot;
+
+        slot.itemInSlot = this;
 
         OnPlacedInSlot(slot);
     }
