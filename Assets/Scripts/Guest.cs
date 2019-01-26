@@ -42,8 +42,10 @@ public class Guest : MonoBehaviour
     private void Start()
     {
         GetComponentInChildren<SpriteRenderer>().transform.localScale = Vector3.one;
+        
         // TODO: do the walking first
-        RequestingWish();
+        var initialDelay = Random.Range(0f, 2f) * DelayAfterWish;
+        Delay(initialDelay);
     }
 
     private void Update()

@@ -451,7 +451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &270356935
 Transform:
   m_ObjectHideFlags: 0
@@ -841,17 +841,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GuestSittingPositions:
-  - {x: 11.14, y: 0, z: 3.7}
-  - {x: 3.83, y: 0, z: 0.98}
-  - {x: 3.81, y: 0, z: 7.59}
-  - {x: -0.36, y: 0, z: 0.89}
-  - {x: -0.36, y: 0, z: 7.63}
+  - {x: 11.46, y: 0, z: 8.44}
+  - {x: 12.05, y: 0, z: -3.37}
+  - {x: 2.16, y: 0, z: 12.45}
+  - {x: -2.9, y: 0, z: 0.89}
+  - {x: 1.15, y: 0, z: -7.67}
+  - {x: -6.47, y: 0, z: 7.63}
   GuestPrefabs:
   - {fileID: 660202925908225519, guid: 9bc0c46c267514722946ff6e28342aae, type: 3}
   - {fileID: 660202925908225519, guid: ba526797e4bfd4f6f87443ad6bed7eac, type: 3}
   - {fileID: 660202925908225519, guid: 2d0a5e3265d4a4da9bc7bd79f37495ad, type: 3}
-  InitialGuestCount: 2
-  DelayForGeneratingGuests: 7
+  InitialGuestCount: 6
+  DelayForGeneratingGuests: 20
 --- !u!1 &850073347
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +940,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850073347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8, y: 1, z: -1.1}
+  m_LocalPosition: {x: -14.6, y: 1, z: -0.3}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1180725380}
@@ -1872,7 +1873,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500462508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.1, y: 1, z: -9.9}
+  m_LocalPosition: {x: 15, y: 1, z: -9.9}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1161941418}

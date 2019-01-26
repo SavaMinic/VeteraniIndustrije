@@ -108,14 +108,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   NumberOfWishes: 3
-  WaitingTimePerWish: 20
-  DelayAfterWish: 5
+  WaitingTimePerWish: 30
+  DelayAfterWish: 10
   CurrentState: 0
   AllWishes:
   - Type: 2
-    WaitingTime: 10
+    WaitingTime: 60
   - Type: 2
-    WaitingTime: 10
+    WaitingTime: 60
+  - Type: 2
+    WaitingTime: 60
 --- !u!54 &660202925908225521
 Rigidbody:
   m_ObjectHideFlags: 0

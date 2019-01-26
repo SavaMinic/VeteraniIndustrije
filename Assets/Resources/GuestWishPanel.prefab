@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1014e4c30195a422695027d64bbfee8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 2, y: 4, z: 0}
+  offset: {x: 3, y: 5, z: 0}
   guestWishSprites:
   - WishType: 1
     WishSprite: {fileID: 21300000, guid: b644180142f584d06b0cd1a16f894978, type: 3}

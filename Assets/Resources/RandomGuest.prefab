@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   NumberOfWishes: 3
-  WaitingTimePerWish: 20
+  WaitingTimePerWish: 30
   DelayAfterWish: 5
   CurrentState: 0
   AllWishes: []
