@@ -537,6 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 174529019}
   - component: {fileID: 174529020}
+  - component: {fileID: 174529021}
   m_Layer: 0
   m_Name: Dzezva
   m_TagString: Untagged
@@ -606,6 +607,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &174529021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174529018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11f7fffeb44d39439f7ac09e919c1d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTakeable: 1
+  isHeld: 0
+  inSlot: {fileID: 0}
+  hasCoffee: 0
+  amount: 0
+  drinkType: 2
+  temperature: 0
+  kipi: 0
+  heatingSpeed: 0.1
+  kipiSpeed: 0.1
+  coolingSpeed: 0.01
+  ringla: {fileID: 0}
+  slavina: {fileID: 0}
 --- !u!1 &182184397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,6 +1515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 506414006}
   - component: {fileID: 506414007}
+  - component: {fileID: 506414008}
   m_Layer: 0
   m_Name: Coffee
   m_TagString: Untagged
@@ -1558,6 +1585,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &506414008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506414005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72483c507a990474ca52810ce80eef9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTakeable: 1
+  isHeld: 0
+  inSlot: {fileID: 0}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,6 +2266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 795757964}
   - component: {fileID: 795757965}
+  - component: {fileID: 795757966}
   m_Layer: 0
   m_Name: Sink
   m_TagString: Untagged
@@ -2281,7 +2324,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 264130509
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6093bfbd9eeff4f56b35a4a66e834cc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2293,6 +2336,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &795757966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795757963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448f04acc76150c4282b3b9a574ab2e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemInSlot: {fileID: 0}
+  fillSpeed: 0.5
+  runningWaterGraphics: {fileID: 0}
 --- !u!1 &850073347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,6 +2366,7 @@ GameObject:
   - component: {fileID: 850073353}
   - component: {fileID: 850073348}
   - component: {fileID: 850073354}
+  - component: {fileID: 850073355}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -2438,6 +2497,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &850073355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850073347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870cb8f1b7f06af4d901e1d670a98ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heldItem: {fileID: 0}
+  holdOffset: {x: 0, y: 0, z: 0}
+  interactRange: 1
 --- !u!1 &866842690
 GameObject:
   m_ObjectHideFlags: 0
