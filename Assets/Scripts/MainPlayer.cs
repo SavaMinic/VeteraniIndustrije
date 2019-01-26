@@ -18,10 +18,12 @@ public class MainPlayer : MonoBehaviour
         if (!Application.isPlaying)
             return;
         
-        float moveHorizontal = -Input.GetAxis("Horizontal");
-        float moveVertical = -Input.GetAxis("Vertical");
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+        // since camera is rotated, recalculate the movement so x/z axis are appropriate for camera
+        // minus is there because camera is looking back
+        Vector3 movement =  - new Vector3(v + h, 0.0f, v - h);
 
         rb.AddForce (movement * speed);
     }
