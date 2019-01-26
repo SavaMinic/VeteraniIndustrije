@@ -18,7 +18,7 @@ public class Item : MonoBehaviour
             allItems = FindObjectsOfType<Item>();
     }
 
-    public static Item FindClosest(Vector3 target)
+    public static Item FindClosest(Vector3 target, float maxRange = Mathf.Infinity)
     {
         if (allItems == null) return null;
 
@@ -37,6 +37,9 @@ public class Item : MonoBehaviour
                 closest = allItems[i];
             }
         }
+
+        if (closestDistance > maxRange * maxRange)
+            return null;
 
         return closest;
     }

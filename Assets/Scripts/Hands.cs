@@ -7,16 +7,17 @@ public class Hands : MonoBehaviour
     public Item heldItem;
 
     public Vector3 holdOffset;
+    public float interactRange = 1;
 
     private void Update()
     {
         KeyCode interactionKey = KeyCode.Space;
 
-        Slot closestSlot = Slot.FindClosest(transform.position);
-        Debug.DrawLine(transform.position, closestSlot.transform.position, Color.red);
+        Slot closestSlot = Slot.FindClosest(transform.position, interactRange);
+        if (closestSlot) Debug.DrawLine(transform.position, closestSlot.transform.position, Color.red);
 
-        Item closestItem = Item.FindClosest(transform.position);
-        Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
+        Item closestItem = Item.FindClosest(transform.position, interactRange);
+        if (closestItem) Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
 
         // Special cases:
 
@@ -50,6 +51,7 @@ public class Hands : MonoBehaviour
             {
                 Dzezva dzezva = closestItem as Dzezva;
                 dzezva.drinkType = Drink.Coffee;
+                Debug.Log("Dzezva");
             }
         }
         // TODO: metla
@@ -58,10 +60,13 @@ public class Hands : MonoBehaviour
         {
             if (!heldItem)
             {
-                Item item = closestItem.Take(this);
+                if (closestItem)
+                {
+                    Item item = closestItem.Take(this);
 
-                if (item != null)
-                    heldItem = item;
+                    if (item != null)
+                        heldItem = item;
+                }
             }
             else
             {

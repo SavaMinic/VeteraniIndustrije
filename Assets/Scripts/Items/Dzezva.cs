@@ -21,7 +21,7 @@ public class Dzezva : Item
 
     private void Update()
     {
-        if (ringla && ringla.isOn && amount == 1)
+        if (ringla && ringla.isOn && amount >= 1)
         {
             temperature += Time.deltaTime * heatingSpeed;
 
@@ -46,7 +46,7 @@ public class Dzezva : Item
         // Debug lines
         DebugUtils.Meter(temperature, transform.position, 0.2f, Color.red);
         DebugUtils.Meter(kipi, transform.position, 0.3f, Color.yellow);
-        DebugUtils.Meter(amount, transform.position, 0.4f, Color.blue);
+        DebugUtils.Meter(amount, transform.position, 0.4f, DrinkFoodUtils.GetColor(drinkType));
     }
 
     protected override void OnPlacedInSlot(Slot slot)
