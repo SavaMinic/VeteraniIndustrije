@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public Item itemInSlot;
-
     #region Cache and closest item
     public static Item[] allItems;
 
@@ -45,6 +43,8 @@ public class Item : MonoBehaviour
     {
         if (hands.heldItem) return null; // cant take in occupied hands
 
+        if (inSlot) OnRemovedFromSlot(inSlot);
+
         inSlot = null;
 
         transform.SetParent(hands.transform);
@@ -63,5 +63,10 @@ public class Item : MonoBehaviour
         transform.localPosition = Vector3.zero; // temp, TODO: Animate
         isHeld = false;
         inSlot = slot;
+
+        OnPlacedInSlot(slot);
     }
+
+    protected virtual void OnPlacedInSlot(Slot slot) { }
+    protected virtual void OnRemovedFromSlot(Slot slot) { }
 }
