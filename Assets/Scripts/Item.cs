@@ -27,6 +27,9 @@ public class Item : MonoBehaviour
 
         for (int i = 0; i < allItems.Length; i++)
         {
+            // skip held item
+            if (allItems[i].isHeld) continue;
+
             float sqrdist = (target - allItems[i].transform.position).sqrMagnitude;
             if (sqrdist < closestDistance)
             {

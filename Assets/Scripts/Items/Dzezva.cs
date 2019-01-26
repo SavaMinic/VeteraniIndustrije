@@ -5,7 +5,9 @@ using UnityEngine;
 public class Dzezva : Item
 {
     public bool hasCoffee;
-    public float water;
+    public float amount;
+
+    public Drink drinkType = Drink.Water;
 
     public float temperature;
     public float kipi;
@@ -19,7 +21,7 @@ public class Dzezva : Item
 
     private void Update()
     {
-        if (ringla && ringla.isOn && water == 1)
+        if (ringla && ringla.isOn && amount == 1)
         {
             temperature += Time.deltaTime * heatingSpeed;
 
@@ -34,23 +36,17 @@ public class Dzezva : Item
 
         if (slavina)
         {
-            water += Time.deltaTime * slavina.fillSpeed;
+            amount += Time.deltaTime * slavina.fillSpeed;
         }
 
         temperature = Mathf.Clamp01(temperature);
         kipi = Mathf.Clamp01(kipi);
-        water = Mathf.Clamp01(water);
+        amount = Mathf.Clamp01(amount);
 
         // Debug lines
-        DebugLine(temperature, 0.2f, Color.red);
-        DebugLine(kipi, 0.3f, Color.yellow);
-        DebugLine(water, 0.4f, Color.blue);
-    }
-
-    void DebugLine(float value, float dist, Color color)
-    {
-        Debug.DrawRay(transform.position + Vector3.right * dist, Vector3.up, Color.gray);
-        Debug.DrawRay(transform.position + Vector3.right * dist, Vector3.up * value, color);
+        DebugUtils.Meter(temperature, transform.position, 0.2f, Color.red);
+        DebugUtils.Meter(kipi, transform.position, 0.3f, Color.yellow);
+        DebugUtils.Meter(amount, transform.position, 0.4f, Color.blue);
     }
 
     protected override void OnPlacedInSlot(Slot slot)
