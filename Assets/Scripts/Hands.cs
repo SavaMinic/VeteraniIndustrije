@@ -26,6 +26,14 @@ public class Hands : MonoBehaviour
         {
             if (Input.GetKeyDown(interactionKey))
             {
+                var plateContainer = closestItem.GetComponent<FoodContainer>();
+                var lonacContainer = heldItem.GetComponent<FoodContainer>();
+
+                bool success = lonacContainer.TransferFoodTo(plateContainer, 1);
+
+                if (success) { } // play sound, effects
+
+                /*
                 var plate = closestItem as Plate;
                 var lonac = heldItem as LonacSarme;
 
@@ -34,7 +42,7 @@ public class Hands : MonoBehaviour
                     plate.foodContainer.foodType = Food.Sarma;
                     plate.foodContainer.amount = 1;
                     // intantiate sarma
-                }
+                }*/
             }
         }
         // Sipanje kafe u solju:
