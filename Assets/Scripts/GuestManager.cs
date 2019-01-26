@@ -120,6 +120,7 @@ public class GuestManager : MonoBehaviour
         {
             Gizmos.color = color;
             Gizmos.DrawSphere(GuestSittingPositions[i], 1f);
+            UnityEditor.Handles.Label(GuestSittingPositions[i], (i + 1).ToString());
         }
     }
 
