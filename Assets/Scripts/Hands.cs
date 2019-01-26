@@ -21,8 +21,24 @@ public class Hands : MonoBehaviour
 
         // Special cases:
 
+        // Sipanje sarme iz lonca u tanjir
+        if (closestItem is Plate && heldItem is LonacSarme)
+        {
+            if (Input.GetKeyDown(interactionKey))
+            {
+                var plate = closestItem as Plate;
+                var lonac = heldItem as LonacSarme;
+
+                if (plate.foodContainer.amount == 0)
+                {
+                    plate.foodContainer.foodType = Food.Sarma;
+                    plate.foodContainer.amount = 1;
+                    // intantiate sarma
+                }
+            }
+        }
         // Sipanje kafe u solju:
-        if (closestItem is Cup && heldItem is Dzezva)
+        else if (closestItem is Cup && heldItem is Dzezva)
         {
             if (Input.GetKey(interactionKey))
             {
@@ -79,7 +95,7 @@ public class Hands : MonoBehaviour
             }
         }
         // TODO: metla
-        // Take / Place item
+        // General case: Take / Place item
         else if (Input.GetKeyDown(interactionKey))
         {
             if (!heldItem)
