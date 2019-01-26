@@ -2307,6 +2307,7 @@ GameObject:
   - component: {fileID: 850073352}
   - component: {fileID: 850073353}
   - component: {fileID: 850073348}
+  - component: {fileID: 850073354}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -2418,6 +2419,25 @@ MonoBehaviour:
   speed: 13
   HorizontalAxis: Horizontal
   VerticalAxis: Vertical
+--- !u!95 &850073354
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850073347}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: abba2bffa9c484ead8abde556079e7e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &866842690
 GameObject:
   m_ObjectHideFlags: 0
@@ -4392,6 +4412,7 @@ GameObject:
   - component: {fileID: 1500462511}
   - component: {fileID: 1500462510}
   - component: {fileID: 1500462509}
+  - component: {fileID: 1500462515}
   m_Layer: 0
   m_Name: TestPlayer (1)
   m_TagString: Untagged
@@ -4503,6 +4524,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1500462515
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500462508}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: abba2bffa9c484ead8abde556079e7e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1546830528
 GameObject:
   m_ObjectHideFlags: 0
