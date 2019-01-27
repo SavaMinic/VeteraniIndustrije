@@ -44,8 +44,19 @@ public class Hands : MonoBehaviour
 
         // Special cases:
 
+        // Sipanje sarme u gosta
+        if (closestItem is Consumer && heldItem && heldItem.GetComponent<FoodContainer>())
+        {
+            if (btn_down)
+            {
+                Consumer gost = closestItem as Consumer;
+                FoodContainer drc = heldItem.GetComponent<FoodContainer>();
+
+                bool success = drc.TransferFoodTo(gost.foodContainer, 1);
+            }
+        }
         // Sipanje pica u gosta
-        if (closestItem is Consumer && heldItem && heldItem.GetComponent<DrinkContainer>())
+        else if (closestItem is Consumer && heldItem && heldItem.GetComponent<DrinkContainer>())
         {
             if (btn_held)
             {
@@ -85,6 +96,7 @@ public class Hands : MonoBehaviour
             var prozor = closestItem as Prozor;
             prozor.Toggle();
         }
+
         // Sipanje sarme iz lonca u tanjir
         else if (closestItem is Plate && heldItem is LonacSarme)
         {

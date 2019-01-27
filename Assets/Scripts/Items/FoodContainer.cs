@@ -26,7 +26,7 @@ public class FoodContainer : MonoBehaviour
             return false;
         }
 
-        if (foodContainer.amount > foodContainer.maxAmount) return false;
+        if (foodContainer.amount >= foodContainer.maxAmount) return false;
 
         foodContainer.amount += pourAmount;
         amount -= pourAmount;
