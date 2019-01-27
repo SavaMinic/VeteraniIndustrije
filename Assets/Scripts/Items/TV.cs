@@ -7,6 +7,7 @@ public class TV : Item
     public int channel;
 
     public GameObject[] channelSprites;
+    public GuestWish.GuestWishType[] channelTypes;
 
     private void Start()
     {

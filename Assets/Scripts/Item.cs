@@ -61,8 +61,18 @@ public class Item : MonoBehaviour
     {
         var sprite = GetComponent<SpriteRenderer>();
 
-        if (!sprite) return;
+        if (sprite)
+        {
+            sprite.color = b ? highlightColor : Color.white;
+        }
 
-        sprite.color = b ? highlightColor : Color.white;
+        var childSprites = GetComponentsInChildren<SpriteRenderer>();
+        if (childSprites != null && childSprites.Length > 0)
+        {
+            for (int i = 0; i < childSprites.Length; i++)
+            {
+                childSprites[i].color = b ? highlightColor : Color.white;
+            }
+        }
     }
 }
