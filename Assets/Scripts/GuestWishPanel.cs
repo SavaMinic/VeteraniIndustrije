@@ -33,6 +33,11 @@ public class GuestWishPanel : MonoBehaviour
     [SerializeField]
     private Image wishFillImage;
 
+    [SerializeField]
+    private Color successColor;
+
+    private Color timingColor;
+
     private CanvasGroup canvasGroup;
 
     private Guest guest;
@@ -48,6 +53,7 @@ public class GuestWishPanel : MonoBehaviour
         canvasGroup = GetComponent<CanvasGroup>();
         isShown = false;
         canvasGroup.alpha = 0f;
+        timingColor = wishFillImage.color;
     }
 
     private void OnDestroy()
@@ -75,12 +81,19 @@ public class GuestWishPanel : MonoBehaviour
         if (guestState == Guest.GuestState.WaitingForService && !isShown)
         {
             wishImage.color = Color.white;
+            wishFillImage.color = timingColor;
             isShown = true;
             StartCoroutine(FadeTo(1f, fadeDuration));
         }
         else if (guestState != Guest.GuestState.WaitingForService && isShown)
         {
             isShown = false;
+            var lastFinishedWish = guest.LastFinishedWish;
+            if (lastFinishedWish.IsSuccess.HasValue && lastFinishedWish.IsSuccess.Value)
+            {
+                wishFillImage.fillAmount = 1f;
+                wishFillImage.color = successColor;
+            }
             StartCoroutine(FadeTo(0f, fadeDuration));
         }
         

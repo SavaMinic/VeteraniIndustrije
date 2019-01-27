@@ -32,12 +32,15 @@ public class Guest : MonoBehaviour
     public List<GuestWish> AllWishes = new List<GuestWish>();
 
     public GuestWish CurrentWish => AllWishes.Find(w => !w.IsFinished);
+    public GuestWish LastFinishedWish => AllWishes.FindLast(w => w.IsFinished);
 
     private float timeForNewWish;
     private Vector3 sittingPosition;
     private int sittingIndex;
 
     private SpriteRenderer spriteRenderer;
+
+    private float timeForTvWish = -1f;
 
     #region Mono
 
@@ -111,6 +114,32 @@ public class Guest : MonoBehaviour
                 else if (!currentWish.IsActive)
                 {
                     currentWish.ActivateWish();
+                }
+                else if (currentWish.IsTvWish)
+                {
+                    var selectedChannel = TV.SelectedChannel;
+                    // correct channel is activated
+                    if (selectedChannel == currentWish.Type)
+                    {
+                        // we have time set
+                        if (timeForTvWish >= 0)
+                        {
+                            timeForTvWish -= Time.deltaTime;
+                            if (timeForTvWish <= 0f)
+                            {
+                                FinishActiveWish();
+                            }
+                        }
+                        else
+                        {
+                            // set the timer
+                            timeForTvWish = 3f;
+                        }
+                    }
+                    else
+                    {
+                        timeForTvWish = -1f;
+                    }
                 }
                 break;
         }

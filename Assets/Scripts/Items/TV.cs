@@ -9,6 +9,9 @@ public class TV : Item
     public GameObject[] channelSprites;
     public GuestWish.GuestWishType[] channelTypes;
 
+    // there is only one tv, no need to get references
+    public static GuestWish.GuestWishType SelectedChannel { get; private set; }
+
     private void Start()
     {
         SetChannel();
@@ -30,5 +33,6 @@ public class TV : Item
             channelSprites[i].SetActive(false);
 
         channelSprites[channel].SetActive(true);
+        SelectedChannel = channelTypes[channel];
     }
 }
