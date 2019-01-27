@@ -27,6 +27,7 @@ public class Guest : MonoBehaviour
     public int NumberOfWishes;
     public float WaitingTimePerWish;
     public float DelayAfterWish;
+    public float InitialDelay = 5f;
 
     public GuestState CurrentState;
     public List<GuestWish> AllWishes = new List<GuestWish>();
@@ -55,8 +56,7 @@ public class Guest : MonoBehaviour
     {
         
         // TODO: do the walking first
-        var initialDelay = Random.Range(0f, 2f) * DelayAfterWish;
-        Delay(initialDelay);
+        Delay(Random.Range(0f, 2f) * InitialDelay);
     }
 
     private void Update()
