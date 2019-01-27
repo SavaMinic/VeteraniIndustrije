@@ -22,8 +22,8 @@ public class GuestWish
         Sok,
         
         // window wishes
-        //OpenWindow,
-        //CloseWindow,
+        OpenWindow,
+        CloseWindow,
     }
 
     public GuestWishType Type;
@@ -36,11 +36,20 @@ public class GuestWish
     public bool? IsSuccess { get; private set; }
     public bool IsFinished => IsSuccess.HasValue;
 
+    public bool IsTvWish => Type == GuestWishType.TvBasketball 
+                            || Type == GuestWishType.TvWeather 
+                            || Type == GuestWishType.TvFarma;
+    
+    public bool IsWindowWish => Type == GuestWishType.OpenWindow 
+                            || Type == GuestWishType.CloseWindow;
+
     public GuestWish(GuestWishType type, float waitingTime)
     {
         if (type == GuestWishType.Random)
         {
             type = (GuestWishType)Random.Range(1, Enum.GetValues(typeof(GuestWishType)).Length);
+            //type = (GuestWishType)Random.Range((int)GuestWishType.TvBasketball, (int)GuestWishType.TvFarma + 1);
+            //type = (GuestWishType)Random.Range((int)GuestWishType.OpenWindow, (int)GuestWishType.CloseWindow + 1);
         }
         Type = type;
 
