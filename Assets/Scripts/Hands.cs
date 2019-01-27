@@ -12,10 +12,10 @@ public class Hands : MonoBehaviour
 
     private void Update()
     {
-        Slot closestSlot = Slot.FindClosest(transform.position, interactRange);
+        Slot closestSlot = Util.FindClosest(Slot.all, transform.position, interactRange);
         if (closestSlot) Debug.DrawLine(transform.position, closestSlot.transform.position, Color.red);
 
-        Item closestItem = Item.FindClosest(transform.position, interactRange);
+        Item closestItem = Util.FindClosest(Item.all, transform.position, interactRange);
         if (closestItem) Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
 
         bool btn = Input.GetAxis(interactionKey) > 0f;

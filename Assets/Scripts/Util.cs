@@ -15,4 +15,28 @@ public static class Util
         //Convert the local point to world point
         return parentCanvas.transform.TransformPoint(movePos);
     }
+
+    public static T FindClosest<T>(T[] array, Vector3 target, float maxRange = Mathf.Infinity) where T : Component
+    {
+        if (array == null) return null;
+
+        float closestDistance = Mathf.Infinity;
+        T closest = null;
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            float sqrdist = (target - array[i].transform.position).sqrMagnitude;
+
+            if (sqrdist < closestDistance)
+            {
+                closestDistance = sqrdist;
+                closest = array[i];
+            }
+        }
+
+        if (closestDistance > maxRange * maxRange)
+            return null;
+
+        return closest;
+    }
 }
