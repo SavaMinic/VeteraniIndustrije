@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.496413, b: 0.5748175, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -538,6 +538,7 @@ GameObject:
   - component: {fileID: 174529019}
   - component: {fileID: 174529020}
   - component: {fileID: 174529021}
+  - component: {fileID: 174529022}
   m_Layer: 0
   m_Name: Dzezva
   m_TagString: Untagged
@@ -623,16 +624,32 @@ MonoBehaviour:
   isHeld: 0
   inSlot: {fileID: 848471160}
   highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
+  sprite: {fileID: 0}
+  container: {fileID: 174529022}
   hasCoffee: 0
-  amount: 0
-  drinkType: 2
-  temperature: 0
   kipi: 0
   heatingSpeed: 0.1
   kipiSpeed: 0.1
   coolingSpeed: 0.01
   ringla: {fileID: 0}
   slavina: {fileID: 0}
+--- !u!114 &174529022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174529018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117d2c623d24fe848a22497f19ec29f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drinkType: 0
+  amount: 0
+  maxAmount: 1
+  temperature: 0
+  coolingSpeed: 0.01
 --- !u!1 &182184397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,6 +1716,7 @@ MonoBehaviour:
   isHeld: 0
   inSlot: {fileID: 261795758}
   highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
+  sprite: {fileID: 0}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,12 +2528,6 @@ MonoBehaviour:
   - {fileID: 660202925908225519, guid: 2d0a5e3265d4a4da9bc7bd79f37495ad, type: 3}
   InitialGuestCount: 2
   DelayForGeneratingGuests: 30
-  entryMessages:
-  - Srecna slava, domacine!
-  - Pomoz' Bog!
-  - Domacice, sve najbolje!
-  - Komsija, kuco stara.
-  - Ziveli!
 --- !u!1 &739222717
 GameObject:
   m_ObjectHideFlags: 0
@@ -5294,6 +5306,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1593061152}
   - component: {fileID: 1593061153}
+  - component: {fileID: 1593061155}
+  - component: {fileID: 1593061154}
   m_Layer: 0
   m_Name: Rakija
   m_TagString: Untagged
@@ -5363,6 +5377,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1593061154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593061151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117d2c623d24fe848a22497f19ec29f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drinkType: 1
+  amount: 10
+  maxAmount: 10
+  temperature: 0
+  coolingSpeed: 0.01
+--- !u!114 &1593061155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593061151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 825167c59c334a74e9b8a89fe930e58d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTakeable: 1
+  isHeld: 0
+  inSlot: {fileID: 0}
+  highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
+  sprite: {fileID: 0}
+  container: {fileID: 1593061154}
 --- !u!1 &1594760314
 GameObject:
   m_ObjectHideFlags: 0
@@ -6979,6 +7028,7 @@ MonoBehaviour:
   isHeld: 0
   inSlot: {fileID: 0}
   highlightColor: {r: 0.7362522, g: 1, b: 0, a: 1}
+  sprite: {fileID: 0}
   channel: 0
   channelSprites:
   - {fileID: 661618209}
@@ -7222,6 +7272,7 @@ MonoBehaviour:
   isHeld: 0
   inSlot: {fileID: 0}
   highlightColor: {r: 0.7362522, g: 1, b: 0, a: 1}
+  sprite: {fileID: 0}
   openGraphics: {fileID: 471602067}
   closedGraphics: {fileID: 403131521}
 --- !u!1 &2075588053
@@ -7273,6 +7324,7 @@ MonoBehaviour:
   isHeld: 0
   inSlot: {fileID: 0}
   highlightColor: {r: 0.7362522, g: 1, b: 0, a: 1}
+  sprite: {fileID: 0}
   openGraphics: {fileID: 1610906498}
   closedGraphics: {fileID: 131619654}
 --- !u!1 &2088241661
