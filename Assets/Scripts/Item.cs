@@ -25,7 +25,11 @@ public class Item : MonoBehaviour
 
         if (!sprite)
             sprite = GetComponent<SpriteRenderer>();
+        
+        OnStart();
     }
+    
+    protected virtual void OnStart() { }
 
     private void OnDestroy()
     {
