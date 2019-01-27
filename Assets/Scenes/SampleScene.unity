@@ -2603,7 +2603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInSlot: {fileID: 0}
-  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  highlightColor: {r: 0.4292453, g: 0.852531, b: 1, a: 1}
   fillSpeed: 0.5
   runningWaterGraphics: {fileID: 0}
 --- !u!1001 &848471158
