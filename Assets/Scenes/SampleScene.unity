@@ -2510,6 +2510,12 @@ MonoBehaviour:
   - {fileID: 660202925908225519, guid: 2d0a5e3265d4a4da9bc7bd79f37495ad, type: 3}
   InitialGuestCount: 2
   DelayForGeneratingGuests: 30
+  entryMessages:
+  - Srecna slava, domacine!
+  - Pomoz' Bog!
+  - Domacice, sve najbolje!
+  - Komsija, kuco stara.
+  - Ziveli!
 --- !u!1 &739222717
 GameObject:
   m_ObjectHideFlags: 0
