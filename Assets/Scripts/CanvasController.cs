@@ -60,7 +60,7 @@ public class CanvasController : MonoBehaviour
     public void AddStars(int stars)
     {
         starsCount += stars;
-        starsCountText.text = "STARS: " + stars;
+        starsCountText.text = "STARS: " + starsCount;
     }
     
     public void AddNewGuestWish(Guest guest)
