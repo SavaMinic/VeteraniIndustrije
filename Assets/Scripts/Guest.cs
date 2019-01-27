@@ -71,8 +71,8 @@ public class Guest : MonoBehaviour
             case GuestState.GoingOut:
                 // TODO: walking
                 Debug.Log(sittingIndex + " BYE!");
-                GameObject.Destroy(this);
-                break;
+                Destroy(gameObject);
+                return;
             case GuestState.Delay:
                 // currently delayed after the wish
                 timeForNewWish -= Time.deltaTime;
