@@ -18,12 +18,13 @@ public class Hands : MonoBehaviour
         Item closestItem = Util.FindClosest(Item.all, transform.position, interactRange);
         if (closestItem) Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
 
-        bool btn = Input.GetAxis(interactionKey) > 0f;
+        bool btn_down = Input.GetButtonDown(interactionKey);
+        bool btn_held = Input.GetAxis(interactionKey) > 0f;
 
         // Special cases:
 
         // Chop and take salata
-        if (!heldItem && closestItem is Salata && btn)
+        if (!heldItem && closestItem is Salata && btn_down)
         {
             var salata = closestItem as Salata;
 
@@ -33,14 +34,14 @@ public class Hands : MonoBehaviour
                 salata.Take(this);
         }
         // Menjanje kanala TV
-        if (!heldItem && closestItem is TV && btn)
+        if (!heldItem && closestItem is TV && btn_down)
         {
             var tv = closestItem as TV;
 
             tv.SwitchChannel();
         }
         // Otvaranje vrata i prozora:
-        if (!heldItem && closestItem is Door && btn)
+        if (!heldItem && closestItem is Door && btn_down)
         {
             var door = closestItem as Door;
 
@@ -73,7 +74,7 @@ public class Hands : MonoBehaviour
         // Sipanje kafe u solju:
         else if (closestItem is Cup && heldItem is Dzezva)
         {
-            if (Input.GetAxis(interactionKey) > 0f)
+            if (btn_held)
             {
                 var dzezva = heldItem as Dzezva;
                 var cup = closestItem as Cup;
@@ -96,7 +97,7 @@ public class Hands : MonoBehaviour
         // Sipanje iz flase u solju/casu - kopirano ozgo
         if (closestItem is Cup && heldItem is Bottle)
         {
-            if (Input.GetAxis(interactionKey) > 0f)
+            if (btn_held)
             {
                 var bottle = heldItem as Bottle;
                 var cup = closestItem as Cup;
@@ -120,7 +121,7 @@ public class Hands : MonoBehaviour
         // Sipanje kafe u dzezvu:
         else if (closestItem is Dzezva && heldItem is Coffee)
         {
-            if (Input.GetAxis(interactionKey) > 0f)
+            if (btn_held)
             {
                 Dzezva dzezva = closestItem as Dzezva;
                 dzezva.drinkType = Drink.Coffee;
@@ -129,7 +130,7 @@ public class Hands : MonoBehaviour
         }
         // TODO: metla
         // General case: Take / Place item
-        else if (Input.GetAxis(interactionKey) > 0f)
+        else if (btn_down)
         {
             if (!heldItem)
             {
