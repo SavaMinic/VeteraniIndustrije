@@ -28,3 +28,5 @@
 - Sarma shljap
 - Kafa - kljucanje brbotj
 - Kafa - sipanje
+- Otvaranje zatvaranje vrata
+- 

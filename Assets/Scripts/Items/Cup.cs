@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Cup : Item
 {
-    public Drink drinkType;
-    public float amount;
+    public DrinkContainer container;
 
     Slavina slavina;
 
     private void Update()
     {
-        DebugUtils.Meter(amount, transform.position, 0.2f, DrinkFoodUtils.GetColor(drinkType));
+        DebugUtils.Meter(container.amount, transform.position, 0.2f, DrinkFoodUtils.GetColor(container.drinkType));
 
+        /*
         if (slavina)
         {
-            amount += Time.deltaTime * slavina.fillSpeed;
-        }
+            container.amount += Time.deltaTime * slavina.fillSpeed;
+        }*/
     }
 
     protected override void OnPlacedInSlot(Slot slot)
@@ -24,13 +24,14 @@ public class Cup : Item
         if (slot is Slavina)
         {
             slavina = slot as Slavina;
-            slavina.PourWater();
+            slavina.ShowMlaz();
 
-            if (drinkType != Drink.Water)
+            /*
+            if (container.drinkType != Drink.Water)
             {
-                amount = 0;
-                drinkType = Drink.Water;
-            }
+                container.amount = 0;
+                container.drinkType = Drink.Water;
+            }*/
         }
     }
 

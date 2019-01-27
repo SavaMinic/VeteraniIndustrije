@@ -31,4 +31,9 @@ public class FoodContainer : MonoBehaviour
         temperature -= Time.deltaTime * coolingSpeed;
         temperature = Mathf.Clamp01(temperature);
     }
+
+    public void DebugAmount(float offset)
+    {
+        DebugUtils.Meter(amount / maxAmount, transform.position, offset, Color.yellow);
+    }
 }

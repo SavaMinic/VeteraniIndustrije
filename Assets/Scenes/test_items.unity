@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
   fillSpeed: 0.5
   runningWaterGraphics: {fileID: 1329300975}
 --- !u!4 &31609939
@@ -161,7 +162,7 @@ Transform:
   - {fileID: 1714077186}
   - {fileID: 1329300976}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &41662312
 GameObject:
@@ -195,8 +196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1582ce5f1d660c41813c28a28d1cc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTakeable: 1
   isHeld: 0
   inSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!135 &41662314
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -267,7 +270,7 @@ Transform:
   m_LocalScale: {x: 0.38107, y: 0.38107, z: 0.38107}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &88715304
 GameObject:
@@ -467,6 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &207158499
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,6 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &240824242
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -682,8 +687,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1582ce5f1d660c41813c28a28d1cc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTakeable: 1
   isHeld: 0
   inSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!135 &262577256
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -754,7 +761,7 @@ Transform:
   m_LocalScale: {x: 0.38107, y: 0.38107, z: 0.38107}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &320233438
 GameObject:
@@ -788,8 +795,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1582ce5f1d660c41813c28a28d1cc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTakeable: 1
   isHeld: 0
   inSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!135 &320233440
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -860,7 +869,7 @@ Transform:
   m_LocalScale: {x: 0.38107, y: 0.38107, z: 0.38107}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &353365209
 GameObject:
@@ -1065,6 +1074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &463382958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,7 +1105,7 @@ Transform:
   m_Children:
   - {fileID: 1518974176}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &463382960
 MonoBehaviour:
@@ -1110,6 +1120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
   isOn: 1
 --- !u!1 &465533444
 GameObject:
@@ -1602,6 +1613,83 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795415775}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &842209783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 842209784}
+  - component: {fileID: 842209786}
+  - component: {fileID: 842209785}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &842209784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842209783}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.70626, y: 3.3465, z: 0.69193}
+  m_Children: []
+  m_Father: {fileID: 992316823}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &842209785
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842209783}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &842209786
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842209783}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &875162756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,9 +1719,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870cb8f1b7f06af4d901e1d670a98ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionKey: Fire1
   heldItem: {fileID: 0}
   holdOffset: {x: 0.2, y: 0, z: 0}
   interactRange: 1
+  useViewSpaceDistance: 0
 --- !u!4 &875162758
 Transform:
   m_ObjectHideFlags: 0
@@ -1642,12 +1732,98 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875162756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.84, y: -0.36454633, z: 0.45}
+  m_LocalPosition: {x: 1.5, y: -0.36454633, z: 0.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 600598902}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &992316819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 992316823}
+  - component: {fileID: 992316822}
+  - component: {fileID: 992316821}
+  - component: {fileID: 992316820}
+  m_Layer: 0
+  m_Name: Consumer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &992316820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992316819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117d2c623d24fe848a22497f19ec29f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drinkType: 0
+  amount: 0
+  maxAmount: 1
+  temperature: 0
+  coolingSpeed: 0.01
+--- !u!114 &992316821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992316819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8cf1d10ec4a3364ab88015be40c8c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodType: 0
+  amount: 0
+  maxAmount: 1
+  temperature: 0
+  coolingSpeed: 0.01
+--- !u!114 &992316822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992316819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c45573aa74c11469a8ff5ca9f07be0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTakeable: 0
+  isHeld: 0
+  inSlot: {fileID: 0}
+  highlightColor: {r: 1, g: 0, b: 0, a: 1}
+  foodContainer: {fileID: 992316821}
+  drinkContainer: {fileID: 992316820}
+--- !u!4 &992316823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992316819}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.59, y: -0.65, z: 0.68}
+  m_LocalScale: {x: 0.38107, y: 0.38107, z: 0.38107}
+  m_Children:
+  - {fileID: 842209784}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &995806180
 GameObject:
@@ -1816,7 +1992,7 @@ Transform:
   m_Children:
   - {fileID: 457697399}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1036424133
 GameObject:
@@ -1848,6 +2024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1036424135
 Transform:
   m_ObjectHideFlags: 0
@@ -1906,6 +2083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1226659099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,8 +2131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0962e8a863429b84290f7e0db8ce541a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTakeable: 1
   isHeld: 0
   inSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
   foodContainer: {fileID: 1226659100}
 --- !u!4 &1226659102
 Transform:
@@ -1969,7 +2149,7 @@ Transform:
   m_Children:
   - {fileID: 995806181}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1275356281
 GameObject:
@@ -1981,6 +2161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1275356283}
   - component: {fileID: 1275356282}
+  - component: {fileID: 1275356284}
   m_Layer: 0
   m_Name: Cup
   m_TagString: Untagged
@@ -2000,10 +2181,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c94d6785d464eb4594b553261bffccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTakeable: 1
   isHeld: 0
   inSlot: {fileID: 0}
-  drinkType: 0
-  amount: 0
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  container: {fileID: 1275356284}
 --- !u!4 &1275356283
 Transform:
   m_ObjectHideFlags: 0
@@ -2018,8 +2200,25 @@ Transform:
   - {fileID: 705253871}
   - {fileID: 207158500}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1275356284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275356281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117d2c623d24fe848a22497f19ec29f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drinkType: 0
+  amount: 0
+  maxAmount: 1
+  temperature: 0
+  coolingSpeed: 0.01
 --- !u!1 &1315513564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,6 +2229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1315513566}
   - component: {fileID: 1315513565}
+  - component: {fileID: 1315513567}
   m_Layer: 0
   m_Name: Dzezva
   m_TagString: Untagged
@@ -2049,12 +2249,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f7fffeb44d39439f7ac09e919c1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTakeable: 1
   isHeld: 0
   inSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  container: {fileID: 1315513567}
   hasCoffee: 0
-  amount: 0
-  drinkType: 2
-  temperature: 0
   kipi: 0
   heatingSpeed: 0.1
   kipiSpeed: 0.1
@@ -2075,8 +2275,25 @@ Transform:
   - {fileID: 465533445}
   - {fileID: 502776368}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1315513567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315513564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117d2c623d24fe848a22497f19ec29f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drinkType: 0
+  amount: 0
+  maxAmount: 1
+  temperature: 0
+  coolingSpeed: 0.01
 --- !u!1 &1329300975
 GameObject:
   m_ObjectHideFlags: 0
@@ -2260,8 +2477,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72483c507a990474ca52810ce80eef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTakeable: 1
   isHeld: 0
   inSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1356226162
 Transform:
   m_ObjectHideFlags: 0
@@ -2275,7 +2494,7 @@ Transform:
   m_Children:
   - {fileID: 1883777933}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1428838295
 GameObject:
@@ -2321,6 +2540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1443468292
 GameObject:
   m_ObjectHideFlags: 0
@@ -2411,7 +2631,7 @@ Transform:
   m_Children:
   - {fileID: 124740110}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1518974175
 GameObject:
@@ -2500,8 +2720,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1673080095}
   - component: {fileID: 1673080094}
+  - component: {fileID: 1673080096}
   m_Layer: 0
-  m_Name: Flasa
+  m_Name: Flasa Rakija
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2519,11 +2740,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825167c59c334a74e9b8a89fe930e58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTakeable: 1
   isHeld: 0
   inSlot: {fileID: 0}
-  drinkType: 1
-  amount: 10
-  maxAmount: 10
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  container: {fileID: 0}
 --- !u!4 &1673080095
 Transform:
   m_ObjectHideFlags: 0
@@ -2538,8 +2759,25 @@ Transform:
   - {fileID: 353365210}
   - {fileID: 1336098291}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1673080096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673080093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117d2c623d24fe848a22497f19ec29f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drinkType: 1
+  amount: 10
+  maxAmount: 10
+  temperature: 0
+  coolingSpeed: 0.01
 --- !u!1 &1714077185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,8 +3116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78dd6fb1d518014ab80bb2a378ae761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTakeable: 1
   isHeld: 0
   inSlot: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1970062812
 Transform:
   m_ObjectHideFlags: 0
@@ -2896,7 +3136,7 @@ Transform:
   - {fileID: 1974804408}
   - {fileID: 1792870085}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1970062813
 MonoBehaviour:
@@ -3151,5 +3391,5 @@ Transform:
   m_Children:
   - {fileID: 1101966046}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

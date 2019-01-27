@@ -11,12 +11,11 @@ public interface IDrinkContainer
 
 public class Bottle : Item//, IDrinkContainer
 {
-    public Drink drinkType;
-    public float amount;
-    public float maxAmount = 10;
+    public DrinkContainer container;
 
     private void OnDrawGizmos()
     {
-        DebugUtils.Meter(amount / maxAmount, transform.position, 0.2f, DrinkFoodUtils.GetColor(drinkType));
+        if (container)
+            DebugUtils.Meter(container.amount / container.maxAmount, transform.position, 0.2f, DrinkFoodUtils.GetColor(container.drinkType));
     }
 }

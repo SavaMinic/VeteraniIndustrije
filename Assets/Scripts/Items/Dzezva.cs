@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Dzezva : Item
 {
+    public DrinkContainer container;
     public bool hasCoffee;
-    public float amount;
 
-    public Drink drinkType = Drink.Water;
-
-    public float temperature;
     public float kipi;
 
     public float heatingSpeed = 0.1f;
@@ -19,34 +16,37 @@ public class Dzezva : Item
     public Ringla ringla;
     public Slavina slavina;
 
+
     private void Update()
     {
-        if (ringla && ringla.isOn && amount >= 1)
+        if (ringla && ringla.isOn && container.amount >= 1)
         {
-            temperature += Time.deltaTime * heatingSpeed;
+            container.temperature += Time.deltaTime * heatingSpeed;
 
-            if (temperature >= 1)
+            if (container.temperature >= 1)
                 kipi += Time.deltaTime * kipiSpeed;
         }
         else
         {
-            temperature -= Time.deltaTime * coolingSpeed;
+            container.temperature -= Time.deltaTime * coolingSpeed;
             kipi -= Time.deltaTime * kipiSpeed;
         }
 
+        /*
         if (slavina)
         {
-            amount += Time.deltaTime * slavina.fillSpeed;
-        }
+            container.drinkType = Drink.Water;
+            container.amount += Time.deltaTime * slavina.fillSpeed;
+        }*/
 
-        temperature = Mathf.Clamp01(temperature);
+        container.temperature = Mathf.Clamp01(container.temperature);
         kipi = Mathf.Clamp01(kipi);
-        amount = Mathf.Clamp01(amount);
+        container.amount = Mathf.Clamp01(container.amount);
 
         // Debug lines
-        DebugUtils.Meter(temperature, transform.position, 0.2f, Color.red);
+        DebugUtils.Meter(container.temperature, transform.position, 0.2f, Color.red);
         DebugUtils.Meter(kipi, transform.position, 0.3f, Color.yellow);
-        DebugUtils.Meter(amount, transform.position, 0.4f, DrinkFoodUtils.GetColor(drinkType));
+        DebugUtils.Meter(container.amount, transform.position, 0.4f, DrinkFoodUtils.GetColor(container.drinkType));
     }
 
     protected override void OnPlacedInSlot(Slot slot)
@@ -54,10 +54,12 @@ public class Dzezva : Item
         if (slot is Ringla)
             ringla = slot as Ringla;
 
+
         if (slot is Slavina)
         {
+            //container.drinkType = Drink.Water;
             slavina = slot as Slavina;
-            slavina.PourWater();
+            slavina.ShowMlaz();
         }
     }
 
