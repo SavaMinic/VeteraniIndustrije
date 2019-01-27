@@ -52,6 +52,16 @@ public class GuestManager : MonoBehaviour
         "Dajte da popijemo poneku!",
         "Komsinice, stavi kafu!",
     };
+
+    private List<List<string>> exitMessages = new List<List<string>>
+    {
+        new List<string> { "?!?!?", "***** ** *****", "uff zurim kuci" },
+        new List<string> { "Mlaka sarma", "Vruce pivo?" },
+        new List<string> { "Bice bolje dogodine" },
+        new List<string> { "Nit' smrdi nit' mirise", "Zbogom" },
+        new List<string> { "Vise vina", "I dogodine" },
+        new List<string> { "Svaka cast, domacine!", "Sve najbolje!" },
+    };
     
     #endregion
 
@@ -96,6 +106,11 @@ public class GuestManager : MonoBehaviour
     public void SittingPlaceAvailable(Guest guest, int sitPositionIndex)
     {
         availableSittingPositionIndex.Add(sitPositionIndex);
+
+        var numberOfStars = Mathf.Clamp(Mathf.RoundToInt(guest.NumberOfStars), 0, 5);
+        var messages = exitMessages[numberOfStars];
+        var exitMessage = messages[UnityEngine.Random.Range(0, messages.Count)];
+        CanvasController.I.ShowNotification(guest, exitMessage, numberOfStars, guest.NumberOfWishes);
     }
 
     #endregion
