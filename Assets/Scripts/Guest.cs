@@ -19,6 +19,7 @@ public class Guest : MonoBehaviour
     {
         WalkingIn,
         WaitingForService,
+        Consuming,
         Delay,
         GoingOut,
     }
@@ -34,6 +35,8 @@ public class Guest : MonoBehaviour
 
     public GuestWish CurrentWish => AllWishes.Find(w => !w.IsFinished);
     public GuestWish LastFinishedWish => AllWishes.FindLast(w => w.IsFinished);
+
+    public Consumer consumer;
 
     private float timeForNewWish;
     private Vector3 sittingPosition;
@@ -54,7 +57,7 @@ public class Guest : MonoBehaviour
 
     private void Start()
     {
-        
+
         // TODO: do the walking first
         Delay(Random.Range(0f, 2f) * InitialDelay);
     }
@@ -74,6 +77,9 @@ public class Guest : MonoBehaviour
                 Debug.Log(sittingIndex + " BYE!");
                 Destroy(gameObject);
                 return;
+            case GuestState.Consuming:
+
+                return;
             case GuestState.Delay:
                 // currently delayed after the wish
                 timeForNewWish -= Time.deltaTime;
@@ -85,7 +91,7 @@ public class Guest : MonoBehaviour
                 break;
             case GuestState.WaitingForService:
                 var currentWish = CurrentWish;
-                
+
                 // update all wishes
                 for (int i = 0; i < AllWishes.Count; i++)
                 {
@@ -167,6 +173,42 @@ public class Guest : MonoBehaviour
                     else
                     {
                         timeForWindowWish = -1f;
+                    }
+                }
+                else if (currentWish.IsDrinkWish)
+                {
+                    var dc = consumer.drinkContainer;
+
+                    const float minimumAmount = 0.5f;
+
+                    bool correctDrink = false;
+
+                    if (dc.amount > minimumAmount)
+                    {
+                        if (currentWish.Type == GuestWish.GuestWishType.Water
+                            && dc.drinkType == Drink.Water)
+                            correctDrink = true;
+
+                        if (currentWish.Type == GuestWish.GuestWishType.Coffee
+                            && dc.drinkType == Drink.Coffee)
+                            correctDrink = true;
+
+                        if (currentWish.Type == GuestWish.GuestWishType.Rakija
+                            && dc.drinkType == Drink.Rakija)
+                            correctDrink = true;
+
+                        if (currentWish.Type == GuestWish.GuestWishType.ZutiSok
+                            && dc.drinkType == Drink.ZutiSok)
+                            correctDrink = true;
+
+                        if (currentWish.Type == GuestWish.GuestWishType.CrniSok
+                            && dc.drinkType == Drink.CrniSok)
+                            correctDrink = true;
+
+                        if (correctDrink)
+                        {
+                            FinishActiveWish();
+                        }
                     }
                 }
                 break;
