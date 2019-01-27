@@ -54,7 +54,7 @@ public class Hands : MonoBehaviour
 
                 bool success = drc.TranferDrinkTo(gost.drinkContainer, Time.deltaTime); // TODO: Tweak speed
 
-                if (success) Debug.Log("Sipa se u gosta");
+                //if (success) Debug.Log("Sipa se u gosta");
             }
         }
         // Chop and take salata

@@ -11,15 +11,27 @@ public class FoodContainer : MonoBehaviour
 
     public float coolingSpeed = 0.01f;
 
-    public bool TransferFoodTo(FoodContainer foodContainer, float amount)
+    public bool TransferFoodTo(FoodContainer foodContainer, float pourAmount)
     {
-        if (amount > 0 && foodType != foodContainer.foodType)
+        if (amount <= 0) return false;
+
+        if (pourAmount <= 0) return false;
+
+        if (foodContainer.amount > 0 && foodType != foodContainer.foodType)
             return false;
+
+        if (foodContainer.amount > foodContainer.maxAmount)
+        {
+            foodContainer.amount = foodContainer.maxAmount;
+            return false;
+        }
 
         if (foodContainer.amount > foodContainer.maxAmount) return false;
 
-        foodContainer.amount += amount;
-        amount -= amount;
+        foodContainer.amount += pourAmount;
+        amount -= pourAmount;
+
+        if (amount <= 0) amount = 0;
 
         foodContainer.temperature = temperature;
 

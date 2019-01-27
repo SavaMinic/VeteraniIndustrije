@@ -11,11 +11,13 @@ public class DrinkContainer : MonoBehaviour
 
     public float coolingSpeed = 0.01f;
 
-    public bool TranferDrinkTo(DrinkContainer drinkContainer, float amount)
+    public bool TranferDrinkTo(DrinkContainer drinkContainer, float pourAmount)
     {
         if (amount <= 0) return false;
 
-        if (amount > 0 && drinkType != drinkContainer.drinkType)
+        if (pourAmount <= 0) return false;
+
+        if (drinkContainer.amount > 0 && drinkType != drinkContainer.drinkType)
             return false;
 
         if (drinkContainer.amount > drinkContainer.maxAmount)
@@ -24,10 +26,14 @@ public class DrinkContainer : MonoBehaviour
             return false;
         }
 
+        //Debug.Log("Pouring from: " + name + " to: " + drinkContainer.name);
+
         drinkContainer.drinkType = drinkType;
 
-        drinkContainer.amount += amount;
-        amount -= amount;
+        drinkContainer.amount += pourAmount;
+        amount -= pourAmount;
+
+        if (amount <= 0) amount = 0;
 
         drinkContainer.temperature = temperature;
 
