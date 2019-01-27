@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasController : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class CanvasController : MonoBehaviour
 
     public RectTransform notificationsPanel;
 
+    public Text starsCountText;
+
     public GameObject notificationRendererPrefab;
 
     private List<GuestWishPanel> guestWishPanels = new List<GuestWishPanel>();
@@ -36,6 +39,8 @@ public class CanvasController : MonoBehaviour
     public Canvas MainCanvas { get; private set; }
     
     private List<int> availableNotificationIndexes;
+
+    private int starsCount;
 
     #endregion
     
@@ -52,6 +57,12 @@ public class CanvasController : MonoBehaviour
     
     #region Public
 
+    public void AddStars(int stars)
+    {
+        starsCount += stars;
+        starsCountText.text = "STARS: " + stars;
+    }
+    
     public void AddNewGuestWish(Guest guest)
     {
         var availableWishPanel = guestWishPanels.Find(p => !p.gameObject.activeSelf);

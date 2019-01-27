@@ -18,7 +18,7 @@ public class TV : Item
     // there is only one tv, no need to get references
     public static GuestWish.GuestWishType SelectedChannel { get; private set; }
 
-    private void Start()
+    protected override void OnStart()
     {
         SetChannel();
     }

@@ -78,6 +78,13 @@ public class GuestWishPanel : MonoBehaviour
         
         // fade in/fade out
         var guestState = guest.CurrentState;
+        if (guestState == Guest.GuestState.GoingOut)
+        {
+            guest = null;
+            gameObject.SetActive(false);
+            return;
+        }
+        
         if (guestState == Guest.GuestState.WaitingForService && !isShown)
         {
             wishImage.color = Color.white;
@@ -89,7 +96,7 @@ public class GuestWishPanel : MonoBehaviour
         {
             isShown = false;
             var lastFinishedWish = guest.LastFinishedWish;
-            if (lastFinishedWish.IsSuccess.HasValue && lastFinishedWish.IsSuccess.Value)
+            if (lastFinishedWish != null && lastFinishedWish.IsSuccess.HasValue && lastFinishedWish.IsSuccess.Value)
             {
                 wishFillImage.fillAmount = 1f;
                 wishFillImage.color = successColor;
@@ -133,6 +140,7 @@ public class GuestWishPanel : MonoBehaviour
             canvasGroup.alpha = Mathf.Lerp(alpha,aValue,t);
             yield return null;
         }
+        canvasGroup.alpha = aValue;
     }
 
     #endregion

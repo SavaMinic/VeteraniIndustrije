@@ -111,6 +111,8 @@ public class GuestManager : MonoBehaviour
         var messages = exitMessages[numberOfStars];
         var exitMessage = messages[UnityEngine.Random.Range(0, messages.Count)];
         CanvasController.I.ShowNotification(guest, exitMessage, numberOfStars, guest.NumberOfWishes);
+
+        CanvasController.I.AddStars(numberOfStars);
     }
 
     #endregion

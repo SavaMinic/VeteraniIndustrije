@@ -49,6 +49,8 @@ public class Guest : MonoBehaviour
 
     public int NumberOfStars => AllWishes.Count(w => w.IsSuccess.HasValue && w.IsSuccess.Value);
 
+    private bool isFadeOut;
+
     #region Mono
 
     private void Awake()
@@ -76,8 +78,12 @@ public class Guest : MonoBehaviour
                 break;
             case GuestState.GoingOut:
                 // TODO: walking
-                Debug.Log(sittingIndex + " BYE!");
-                Destroy(gameObject);
+                if (!isFadeOut)
+                {
+                    isFadeOut = true;
+                    Debug.Log(sittingIndex + " BYE!");
+                    StartCoroutine(DelayDestroy(1.2f));
+                }
                 return;
             case GuestState.Consuming:
 
@@ -298,6 +304,19 @@ public class Guest : MonoBehaviour
         Debug.Log(sittingIndex + " Going home");
         CurrentState = GuestState.GoingOut;
         GuestManager.I.SittingPlaceAvailable(this, sittingIndex);
+    }
+
+    private IEnumerator DelayDestroy(float delay)
+    {
+        var startColor = Color.white;
+        var endColor = new Color(1f, 1f, 1f, 0f);
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / delay)
+        {
+            spriteRenderer.color = Color.Lerp(startColor, endColor, t);
+            yield return null;
+        }
+        Destroy(gameObject);
+        
     }
 
     #endregion
