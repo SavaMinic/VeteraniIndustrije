@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    #region Cache and closest item
     public static Item[] all;
 
     public bool isTakeable = true;
@@ -13,12 +12,13 @@ public class Item : MonoBehaviour
     Hands inHands;
     public Slot inSlot;
 
+    public Color highlightColor;
+
     private void Start()
     {
         if (all == null)
             all = FindObjectsOfType<Item>();
     }
-    #endregion
 
     public Item Take(Hands hands)
     {
@@ -56,4 +56,13 @@ public class Item : MonoBehaviour
 
     protected virtual void OnPlacedInSlot(Slot slot) { }
     protected virtual void OnRemovedFromSlot(Slot slot) { }
+
+    public void Highlight(bool b)
+    {
+        var sprite = GetComponent<SpriteRenderer>();
+
+        if (!sprite) return;
+
+        sprite.color = b ? highlightColor : Color.white;
+    }
 }

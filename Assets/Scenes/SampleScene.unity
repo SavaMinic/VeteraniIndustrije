@@ -622,6 +622,7 @@ MonoBehaviour:
   isTakeable: 1
   isHeld: 0
   inSlot: {fileID: 1019078774}
+  highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
   hasCoffee: 0
   amount: 0
   drinkType: 2
@@ -1600,6 +1601,7 @@ MonoBehaviour:
   isTakeable: 1
   isHeld: 0
   inSlot: {fileID: 652827192}
+  highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,7 +2559,7 @@ MonoBehaviour:
   interactionKey: Fire1
   heldItem: {fileID: 0}
   holdOffset: {x: 0, y: 0, z: 0}
-  interactRange: 5
+  interactRange: 3
   useViewSpaceDistance: 1
 --- !u!1 &866842690
 GameObject:
@@ -4773,7 +4775,7 @@ MonoBehaviour:
   interactionKey: P2_Fire1
   heldItem: {fileID: 0}
   holdOffset: {x: 0, y: 0, z: 0}
-  interactRange: 5
+  interactRange: 3
   useViewSpaceDistance: 1
 --- !u!1 &1521371869
 GameObject:

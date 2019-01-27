@@ -11,13 +11,24 @@ public class Hands : MonoBehaviour
     public float interactRange = 1;
     public bool useViewSpaceDistance = true;
 
+    Item lastClosestItem;
+
     private void Update()
     {
-        Slot closestSlot = Util.FindClosest(Slot.all, transform.position, interactRange, useViewSpaceDistance);
+        Slot closestSlot = Util.FindClosest(Slot.all, null, transform.position, interactRange, useViewSpaceDistance);
         if (closestSlot) Debug.DrawLine(transform.position, closestSlot.transform.position, Color.red);
 
-        Item closestItem = Util.FindClosest(Item.all, transform.position, interactRange, useViewSpaceDistance);
-        if (closestItem) Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
+        Item closestItem = Util.FindClosest(Item.all, heldItem, transform.position, interactRange, useViewSpaceDistance);
+        if (closestItem)
+        {
+            Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
+            closestItem.Highlight(true);
+        }
+
+        if (closestItem != lastClosestItem && lastClosestItem)
+            lastClosestItem.Highlight(false);
+
+        lastClosestItem = closestItem;
 
         bool btn_down = Input.GetButtonDown(interactionKey);
         bool btn_held = Input.GetAxis(interactionKey) > 0f;
@@ -140,7 +151,10 @@ public class Hands : MonoBehaviour
                     Item item = closestItem.Take(this);
 
                     if (item != null)
+                    {
                         heldItem = item;
+                        item.Highlight(false);
+                    }
                 }
             }
             else
