@@ -25,12 +25,17 @@ public class CanvasController : MonoBehaviour
     
     #region Properties/Fields
 
-    [SerializeField]
-    private GameObject guestWishPanelPrefab;
+    public GameObject guestWishPanelPrefab;
+
+    public RectTransform notificationsPanel;
+
+    public GameObject notificationRendererPrefab;
 
     private List<GuestWishPanel> guestWishPanels = new List<GuestWishPanel>();
     
     public Canvas MainCanvas { get; private set; }
+    
+    private List<int> availableNotificationIndexes;
 
     #endregion
     
@@ -40,6 +45,7 @@ public class CanvasController : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         MainCanvas = GetComponent<Canvas>();
+        availableNotificationIndexes = new List<int> {0, 1, 2, 3};
     }
 
     #endregion
@@ -58,6 +64,25 @@ public class CanvasController : MonoBehaviour
             guestWishPanels.Add(availableWishPanel);
         }
         availableWishPanel.SetGuest(guest);
+    }
+
+    public void ShowNotification(string text, int numberOfStars = -1)
+    {
+        var notificationObject = Instantiate(notificationRendererPrefab);
+        notificationObject.transform.SetParent(notificationsPanel.transform);
+        notificationObject.transform.localScale = Vector3.one;
+
+        var notification = notificationObject.GetComponent<NotificationRenderer>();
+
+        var index = availableNotificationIndexes[0];
+        availableNotificationIndexes.RemoveAt(0);
+        notification.Show(index, text, numberOfStars);
+    }
+
+    public void NotificationEnded(int index)
+    {
+        availableNotificationIndexes.Add(index);
+        availableNotificationIndexes.Sort();
     }
     
     #endregion

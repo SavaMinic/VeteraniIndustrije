@@ -36,6 +36,8 @@ public class GuestManager : MonoBehaviour
     private float timeToGenerateNewGuests;
 
     private List<int> availableSittingPositionIndex = new List<int>();
+
+    public List<string> entryMessages;
     
     #endregion
 
@@ -107,6 +109,13 @@ public class GuestManager : MonoBehaviour
         guest.SitHere(index, GuestSittingPositions[index], isFlipped);
         
         CanvasController.I.AddNewGuestWish(guest);
+
+        string entryMessage = "Srecna slava, domacine!";
+        if (entryMessages.Count > 0)
+        {
+            entryMessage = entryMessages[UnityEngine.Random.Range(0, entryMessages.Count)];
+        }
+        CanvasController.I.ShowNotification(entryMessage);
     }
 
     #endregion
