@@ -37,7 +37,15 @@ public class GuestManager : MonoBehaviour
 
     private List<int> availableSittingPositionIndex = new List<int>();
 
-    public List<string> entryMessages;
+    private List<string> entryMessages = new List<string>
+    {
+        "Srecna slava, domacine!",
+        "Pomaze bog, komsija!",
+        "Domacice, sve najbolje!",
+        "Nek je srecna slava!",
+        "Dajte da popijemo poneku!",
+        "Komsinice, stavi kafu!",
+    };
     
     #endregion
 
@@ -110,11 +118,7 @@ public class GuestManager : MonoBehaviour
         
         CanvasController.I.AddNewGuestWish(guest);
 
-        string entryMessage = "Srecna slava, domacine!";
-        if (entryMessages.Count > 0)
-        {
-            entryMessage = entryMessages[UnityEngine.Random.Range(0, entryMessages.Count)];
-        }
+        var entryMessage = entryMessages[UnityEngine.Random.Range(0, entryMessages.Count)];
         CanvasController.I.ShowNotification(entryMessage);
     }
 
