@@ -209,8 +209,31 @@ public class Guest : MonoBehaviour
                         {
                             FinishActiveWish();
                         }
+                        // else wrong drink!!!
                     }
                 }
+                else if (currentWish.IsFoodWish)
+                {
+                    var fc = consumer.foodContainer;
+
+                    const float minimumAmount = 0.5f;
+
+                    bool correctFood = false;
+
+                    if (fc.amount > minimumAmount)
+                    {
+                        if (currentWish.Type == GuestWish.GuestWishType.Sarma
+                            && fc.foodType == Food.Sarma)
+                            correctFood = true;
+
+                        if (correctFood)
+                        {
+                            FinishActiveWish();
+                        }
+                        // else wrong food!!!
+                    }
+                }
+
                 break;
         }
     }
@@ -223,13 +246,13 @@ public class Guest : MonoBehaviour
     {
         // keep the y position
         sitPosition.y = transform.position.y;
-        
+
         // save data
         sittingPosition = sitPosition;
         sittingIndex = sitIndex;
-        
+
         spriteRenderer.flipX = isFlipped;
-        
+
         // TODO: set target position for guest, and he should move to it
         transform.position = sittingPosition;
     }
@@ -239,7 +262,7 @@ public class Guest : MonoBehaviour
         var activeWish = CurrentWish;
         if (activeWish == null || CurrentState != GuestState.WaitingForService)
             return;
-        
+
         Debug.Log(sittingIndex + " Finished active wish, start delay");
         activeWish.FinishWish();
         Delay(DelayAfterWish);
