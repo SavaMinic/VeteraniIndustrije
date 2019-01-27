@@ -133,6 +133,7 @@ public class GuestWishPanel : MonoBehaviour
             canvasGroup.alpha = Mathf.Lerp(alpha,aValue,t);
             yield return null;
         }
+        canvasGroup.alpha = aValue;
     }
 
     #endregion
