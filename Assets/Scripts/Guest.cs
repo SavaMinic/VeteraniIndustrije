@@ -47,7 +47,7 @@ public class Guest : MonoBehaviour
     private float timeForTvWish = -1f;
     private float timeForWindowWish = -1f;
 
-    public int NumberOfStars { get; private set; }
+    public int NumberOfStars => AllWishes.Count(w => w.IsSuccess.HasValue && w.IsSuccess.Value);
 
     #region Mono
 
@@ -264,8 +264,6 @@ public class Guest : MonoBehaviour
         var activeWish = CurrentWish;
         if (activeWish == null || CurrentState != GuestState.WaitingForService)
             return;
-
-        NumberOfStars++;
 
         Debug.Log(sittingIndex + " Finished active wish, start delay");
         activeWish.FinishWish();
