@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     #region Cache and closest item
-    public static Item[] allItems;
+    public static Item[] all;
 
     public bool isTakeable = true;
     public bool isHeld;
@@ -15,34 +15,8 @@ public class Item : MonoBehaviour
 
     private void Start()
     {
-        if (allItems == null)
-            allItems = FindObjectsOfType<Item>();
-    }
-
-    public static Item FindClosest(Vector3 target, float maxRange = Mathf.Infinity)
-    {
-        if (allItems == null) return null;
-
-        float closestDistance = Mathf.Infinity;
-        Item closest = null;
-
-        for (int i = 0; i < allItems.Length; i++)
-        {
-            // skip held item
-            if (allItems[i].isHeld) continue;
-
-            float sqrdist = (target - allItems[i].transform.position).sqrMagnitude;
-            if (sqrdist < closestDistance)
-            {
-                closestDistance = sqrdist;
-                closest = allItems[i];
-            }
-        }
-
-        if (closestDistance > maxRange * maxRange)
-            return null;
-
-        return closest;
+        if (all == null)
+            all = FindObjectsOfType<Item>();
     }
     #endregion
 
