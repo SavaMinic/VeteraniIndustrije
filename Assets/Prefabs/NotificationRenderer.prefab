@@ -74,7 +74,7 @@ MonoBehaviour:
   stayDuration: 4
   sizePerIndex: 225
   iconImage: {fileID: 2428328260799278575}
-  sizeOffset: -100
+  sizeOffset: -70
   iconImageSprites:
   - {fileID: 21300000, guid: f523fc0b6ea9142b984113673ed9fa07, type: 3}
   - {fileID: 21300000, guid: 977881281fdca436c8d8de7e7f642355, type: 3}
