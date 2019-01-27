@@ -152,7 +152,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'STARS: 0'
+  m_Text: 'SLAVA: 0'
 --- !u!1 &8268893804343198070
 GameObject:
   m_ObjectHideFlags: 0
