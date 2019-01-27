@@ -44,7 +44,7 @@ public class NotificationRenderer : MonoBehaviour
 
     #region Public
 
-    public void Show(int index, Guest guest, string text, int numberOfStars = -1)
+    public void Show(int index, Guest guest, string text, int numberOfStars = -1, int maxStars = -1)
     {
         myIndex = index;
         starsPanel.gameObject.SetActive(numberOfStars >= 0);
@@ -52,7 +52,8 @@ public class NotificationRenderer : MonoBehaviour
 
         for (int i = 0; i < starImages.Length; i++)
         {
-            starImages[i].color = numberOfStars > i ? goodColor : Color.white;
+            starImages[i].color = i < numberOfStars ? goodColor : badColor;
+            starImages[i].gameObject.SetActive(i < maxStars);
         }
 
         iconImage.sprite = iconImageSprites[(int)guest.Type];
