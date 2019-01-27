@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInSlot: {fileID: 0}
+  dontRenderWhenNotHighlighted: 1
   highlightColor: {r: 0.7362522, g: 1, b: 0, a: 1}
 --- !u!212 &911855694241107746
 SpriteRenderer:
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 264130509
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b45a0674ff214fcd89a20370c3d1aca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17eeba6f34ae18b45a91f9e965b7d597, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

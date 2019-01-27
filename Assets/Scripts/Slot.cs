@@ -8,12 +8,16 @@ public class Slot : MonoBehaviour
 
     public Item itemInSlot;
 
+    public bool dontRenderWhenNotHighlighted;
     public Color highlightColor;
 
     private void Start()
     {
         if (all == null)
             all = FindObjectsOfType<Slot>();
+
+        if (dontRenderWhenNotHighlighted)
+            Highlight(false);
     }
 
     public void Highlight(bool b)
@@ -23,5 +27,8 @@ public class Slot : MonoBehaviour
         if (!sprite) return;
 
         sprite.color = b ? highlightColor : Color.white;
+
+        if (dontRenderWhenNotHighlighted)
+            sprite.enabled = b;
     }
 }
