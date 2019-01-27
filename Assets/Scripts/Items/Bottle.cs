@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using NDraw;
+
 /*
 public interface IDrinkContainer
 {
@@ -14,6 +16,12 @@ public class Bottle : Item//, IDrinkContainer
     public DrinkContainer container;
 
     Slavina slavina;
+
+    private void Update()
+    {
+        //if (container.amount > 0)
+            //DebugUtils.InGameMeter(container.amount / container.maxAmount, transform.position, 20, DrinkFoodUtils.GetColor(container.drinkType));
+    }
 
     private void OnDrawGizmos()
     {

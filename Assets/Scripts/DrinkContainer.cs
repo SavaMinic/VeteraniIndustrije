@@ -44,10 +44,14 @@ public class DrinkContainer : MonoBehaviour
     {
         temperature -= Time.deltaTime * coolingSpeed;
         temperature = Mathf.Clamp01(temperature);
+
+        if (amount > 0)
+            DebugUtils.InGameMeter(amount / maxAmount, transform.position, 20, DrinkFoodUtils.GetColor(drinkType));
     }
 
     public void DebugAmount(float offset)
     {
+
         DebugUtils.Meter(amount / maxAmount, transform.position, offset, DrinkFoodUtils.GetColor(drinkType));
     }
 }
