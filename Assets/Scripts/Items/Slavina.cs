@@ -35,5 +35,8 @@ public class Slavina : Slot
     {
         if (runningWaterGraphics)
             runningWaterGraphics.SetActive(false);
+
+        if (offSprite && onSprite)
+            GetComponent<SpriteRenderer>().sprite = offSprite;
     }
 }
