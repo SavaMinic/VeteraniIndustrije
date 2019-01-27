@@ -10,11 +10,13 @@ public class Slavina : Slot
 
     public void PourWater()
     {
-        runningWaterGraphics.SetActive(true);
+        if (runningWaterGraphics)
+            runningWaterGraphics.SetActive(true);
     }
 
     public void EndPouringWater()
     {
-        runningWaterGraphics.SetActive(false);
+        if (runningWaterGraphics)
+            runningWaterGraphics.SetActive(false);
     }
 }
