@@ -23,7 +23,7 @@ public class Hands : MonoBehaviour
             closestSlot.Highlight(true);
         }
 
-        Item closestItem = Util.FindClosest(Item.all, heldItem, transform.position, interactRange, useViewSpaceDistance);
+        Item closestItem = Util.FindClosest(Item.all.ToArray(), heldItem, transform.position, interactRange, useViewSpaceDistance);
         if (closestItem)
         {
             Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);

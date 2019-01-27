@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public static Item[] all;
-
+    public static List<Item> all;
 
     public bool isTakeable = true;
     public bool isHeld;
@@ -19,10 +18,18 @@ public class Item : MonoBehaviour
     private void Start()
     {
         if (all == null)
-            all = FindObjectsOfType<Item>();
+            all = new List<Item>();
+        //all = new List<Item>(FindObectsOfType<Item>());
+
+        all.Add(this);
 
         if (!sprite)
             sprite = GetComponent<SpriteRenderer>();
+    }
+
+    private void OnDestroy()
+    {
+        all.Remove(this);
     }
 
     public Item Take(Hands hands)
