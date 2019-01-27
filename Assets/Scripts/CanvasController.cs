@@ -66,7 +66,7 @@ public class CanvasController : MonoBehaviour
         availableWishPanel.SetGuest(guest);
     }
 
-    public void ShowNotification(string text, int numberOfStars = -1)
+    public void ShowNotification(Guest guest, string text, int numberOfStars = -1)
     {
         var notificationObject = Instantiate(notificationRendererPrefab);
         notificationObject.transform.SetParent(notificationsPanel.transform);
@@ -76,7 +76,7 @@ public class CanvasController : MonoBehaviour
 
         var index = availableNotificationIndexes[0];
         availableNotificationIndexes.RemoveAt(0);
-        notification.Show(index, text, numberOfStars);
+        notification.Show(index, guest, text, numberOfStars);
     }
 
     public void NotificationEnded(int index)

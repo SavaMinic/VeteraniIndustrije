@@ -15,6 +15,10 @@ public class NotificationRenderer : MonoBehaviour
     public float moveTime = 0.8f;
     public float stayDuration = 4f;
     public float sizePerIndex = 200f;
+    public Image iconImage;
+    public float sizeOffset = -100f;
+
+    public Sprite[] iconImageSprites;
 
     public AnimationCurve MoveAnimation;
     public AnimationCurve MoveOutAnimation;
@@ -40,7 +44,7 @@ public class NotificationRenderer : MonoBehaviour
 
     #region Public
 
-    public void Show(int index, string text, int numberOfStars = -1)
+    public void Show(int index, Guest guest, string text, int numberOfStars = -1)
     {
         myIndex = index;
         starsPanel.gameObject.SetActive(numberOfStars >= 0);
@@ -51,8 +55,10 @@ public class NotificationRenderer : MonoBehaviour
             starImages[i].color = numberOfStars > i ? goodColor : Color.white;
         }
 
+        iconImage.sprite = iconImageSprites[(int)guest.Type];
+
         SetVerticalPosition(-sizePerIndex);
-        StartCoroutine(AnimateNotification(sizePerIndex * (index + 1), 1200f));
+        StartCoroutine(AnimateNotification(sizePerIndex * (index + 1) + sizeOffset, 1200f));
     }
 
     #endregion
@@ -62,6 +68,7 @@ public class NotificationRenderer : MonoBehaviour
     private void SetVerticalPosition(float verticalPos)
     {
         var anchPos = mainRectTransform.anchoredPosition;
+        anchPos.x = 0f;
         anchPos.y = verticalPos;
         mainRectTransform.anchoredPosition = anchPos;
     }

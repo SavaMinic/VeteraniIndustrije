@@ -87,7 +87,7 @@ public class GuestManager : MonoBehaviour
 
     #region Public
 
-    public void SittingPlaceAvailable(int sitPositionIndex)
+    public void SittingPlaceAvailable(Guest guest, int sitPositionIndex)
     {
         availableSittingPositionIndex.Add(sitPositionIndex);
     }
@@ -119,7 +119,7 @@ public class GuestManager : MonoBehaviour
         CanvasController.I.AddNewGuestWish(guest);
 
         var entryMessage = entryMessages[UnityEngine.Random.Range(0, entryMessages.Count)];
-        CanvasController.I.ShowNotification(entryMessage);
+        CanvasController.I.ShowNotification(guest, entryMessage);
     }
 
     #endregion
