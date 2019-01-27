@@ -15,14 +15,15 @@ public class GuestWish
         Rakija,
         Fruit,
         
-        // window wishes
-        //OpenWindow,
-        //CloseWindow,
-        
         // tv wishes
         TvBasketball,
         TvWeather,
-        TvFarma
+        TvFarma,
+        Sok,
+        
+        // window wishes
+        //OpenWindow,
+        //CloseWindow,
     }
 
     public GuestWishType Type;
