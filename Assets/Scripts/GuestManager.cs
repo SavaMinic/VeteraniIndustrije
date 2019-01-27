@@ -57,9 +57,7 @@ public class GuestManager : MonoBehaviour
     {
         new List<string> { "?!?!?", "***** ** *****", "uff zurim kuci" },
         new List<string> { "Mlaka sarma", "Vruce pivo?" },
-        new List<string> { "Bice bolje dogodine" },
-        new List<string> { "Nit' smrdi nit' mirise", "Zbogom" },
-        new List<string> { "Vise vina", "I dogodine" },
+        new List<string> { "Vise vina", "I dogodine", "Bice bolje dogodine" },
         new List<string> { "Svaka cast, domacine!", "Sve najbolje!" },
     };
     
@@ -107,7 +105,7 @@ public class GuestManager : MonoBehaviour
     {
         availableSittingPositionIndex.Add(sitPositionIndex);
 
-        var numberOfStars = Mathf.Clamp(Mathf.RoundToInt(guest.NumberOfStars), 0, 5);
+        var numberOfStars = Mathf.Clamp(Mathf.RoundToInt(guest.NumberOfStars), 0, 3);
         var messages = exitMessages[numberOfStars];
         var exitMessage = messages[UnityEngine.Random.Range(0, messages.Count)];
         CanvasController.I.ShowNotification(guest, exitMessage, numberOfStars, guest.NumberOfWishes);

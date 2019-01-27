@@ -46,7 +46,7 @@ public class CanvasController : MonoBehaviour
     
     #region Mono
 
-    private void Start()
+    private void Awake()
     {
         Application.targetFrameRate = 60;
         MainCanvas = GetComponent<Canvas>();
