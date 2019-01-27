@@ -6,6 +6,9 @@ public class Slavina : Slot
 {
     public float fillSpeed = 0.5f;
 
+    public Sprite offSprite;
+    public Sprite onSprite;
+
     public GameObject runningWaterGraphics;
 
     private void Update()
@@ -23,6 +26,9 @@ public class Slavina : Slot
     {
         if (runningWaterGraphics)
             runningWaterGraphics.SetActive(true);
+
+        if (offSprite && onSprite)
+            GetComponent<SpriteRenderer>().sprite = onSprite;
     }
 
     public void EndPouringWater()
