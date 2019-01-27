@@ -230,7 +230,7 @@ public class Guest : MonoBehaviour
     {
         Debug.Log(sittingIndex + " Going home");
         CurrentState = GuestState.GoingOut;
-        GuestManager.I.SittingPlaceAvailable(sittingIndex);
+        GuestManager.I.SittingPlaceAvailable(this, sittingIndex);
     }
 
     #endregion
