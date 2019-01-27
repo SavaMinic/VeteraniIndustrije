@@ -6,6 +6,7 @@ public class Item : MonoBehaviour
 {
     public static Item[] all;
 
+
     public bool isTakeable = true;
     public bool isHeld;
 
@@ -13,11 +14,15 @@ public class Item : MonoBehaviour
     public Slot inSlot;
 
     public Color highlightColor;
+    public SpriteRenderer sprite;
 
     private void Start()
     {
         if (all == null)
             all = FindObjectsOfType<Item>();
+
+        if (!sprite)
+            sprite = GetComponent<SpriteRenderer>();
     }
 
     public Item Take(Hands hands)
@@ -59,8 +64,6 @@ public class Item : MonoBehaviour
 
     public void Highlight(bool b)
     {
-        var sprite = GetComponent<SpriteRenderer>();
-
         if (sprite)
         {
             sprite.color = b ? highlightColor : Color.white;
