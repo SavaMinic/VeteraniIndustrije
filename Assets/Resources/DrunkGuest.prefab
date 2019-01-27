@@ -120,6 +120,7 @@ MonoBehaviour:
     WaitingTime: 60
   - Type: 2
     WaitingTime: 60
+  consumer: {fileID: 1289059072281246411}
 --- !u!54 &660202925908225521
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -295,3 +296,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 64788206026964743}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1289059072281246411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1226532580599154124, guid: df5616d581bea814fb899dc870d1dcf6,
+    type: 3}
+  m_PrefabInstance: {fileID: 64788206026964743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c45573aa74c11469a8ff5ca9f07be0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

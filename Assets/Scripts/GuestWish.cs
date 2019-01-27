@@ -11,16 +11,20 @@ public class GuestWish
     public enum GuestWishType
     {
         Random,
+
         Coffee,
         Rakija,
-        Fruit,
-        
+        ZutiSok,
+        CrniSok,
+        Water,
+
+        Sarma,
+
         // tv wishes
         TvBasketball,
         TvWeather,
         TvFarma,
-        Sok,
-        
+
         // window wishes
         OpenWindow,
         CloseWindow,
@@ -28,7 +32,7 @@ public class GuestWish
 
     public GuestWishType Type;
     public float WaitingTime;
-    
+
     public float RemainingWaitingTime { get; private set; }
     public float Progress => 1f - RemainingWaitingTime / WaitingTime;
 
@@ -36,12 +40,21 @@ public class GuestWish
     public bool? IsSuccess { get; private set; }
     public bool IsFinished => IsSuccess.HasValue;
 
-    public bool IsTvWish => Type == GuestWishType.TvBasketball 
-                            || Type == GuestWishType.TvWeather 
+    public bool IsTvWish => Type == GuestWishType.TvBasketball
+                            || Type == GuestWishType.TvWeather
                             || Type == GuestWishType.TvFarma;
-    
-    public bool IsWindowWish => Type == GuestWishType.OpenWindow 
+
+    public bool IsWindowWish => Type == GuestWishType.OpenWindow
                             || Type == GuestWishType.CloseWindow;
+
+    public bool IsDrinkWish => Type == GuestWishType.Coffee
+                            || Type == GuestWishType.Rakija
+                            || Type == GuestWishType.ZutiSok
+                            || Type == GuestWishType.CrniSok
+                            || Type == GuestWishType.Water;
+
+    public bool IsFoodWish => Type == GuestWishType.Sarma;
+
 
     public GuestWish(GuestWishType type, float waitingTime)
     {
@@ -54,7 +67,7 @@ public class GuestWish
         Type = type;
 
         WaitingTime = waitingTime;
-        Debug.Log("GENERATE " + type + " " +  waitingTime);
+        Debug.Log("GENERATE " + type + " " + waitingTime);
     }
 
     public void ActivateWish()

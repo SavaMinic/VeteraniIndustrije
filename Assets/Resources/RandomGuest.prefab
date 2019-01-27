@@ -114,6 +114,7 @@ MonoBehaviour:
   InitialDelay: 5
   CurrentState: 0
   AllWishes: []
+  consumer: {fileID: 4374823325404149134}
 --- !u!54 &660202925908225521
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -289,3 +290,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3293250907701047362}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4374823325404149134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1226532580599154124, guid: df5616d581bea814fb899dc870d1dcf6,
+    type: 3}
+  m_PrefabInstance: {fileID: 3293250907701047362}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c45573aa74c11469a8ff5ca9f07be0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
