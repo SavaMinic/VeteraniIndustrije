@@ -41,6 +41,7 @@ public class Guest : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private float timeForTvWish = -1f;
+    private float timeForWindowWish = -1f;
 
     #region Mono
 
@@ -139,6 +140,33 @@ public class Guest : MonoBehaviour
                     else
                     {
                         timeForTvWish = -1f;
+                    }
+                }
+                else if (currentWish.IsWindowWish)
+                {
+                    var isWindowOpen = Prozor.IsOpen;
+                    // windows is as we like it
+                    if ((currentWish.Type == GuestWish.GuestWishType.OpenWindow && isWindowOpen)
+                        || (currentWish.Type == GuestWish.GuestWishType.CloseWindow && !isWindowOpen))
+                    {
+                        // we have time set
+                        if (timeForWindowWish >= 0)
+                        {
+                            timeForWindowWish -= Time.deltaTime;
+                            if (timeForWindowWish <= 0f)
+                            {
+                                FinishActiveWish();
+                            }
+                        }
+                        else
+                        {
+                            // set the timer
+                            timeForWindowWish = 3f;
+                        }
+                    }
+                    else
+                    {
+                        timeForWindowWish = -1f;
                     }
                 }
                 break;

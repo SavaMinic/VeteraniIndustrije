@@ -65,8 +65,12 @@ public class Hands : MonoBehaviour
         if (!heldItem && closestItem is Door && btn_down)
         {
             var door = closestItem as Door;
-
             door.Toggle();
+        }
+        if (!heldItem && closestItem is Prozor && btn_down)
+        {
+            var prozor = closestItem as Prozor;
+            prozor.Toggle();
         }
         // Sipanje sarme iz lonca u tanjir
         if (closestItem is Plate && heldItem is LonacSarme)

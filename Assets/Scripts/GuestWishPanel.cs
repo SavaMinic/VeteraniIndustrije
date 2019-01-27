@@ -108,8 +108,6 @@ public class GuestWishPanel : MonoBehaviour
                 wishFillImage.sprite = guestWishSprite.WishSprite;
             }
             wishFillImage.fillAmount = guest.CurrentWish.Progress;
-            // todo: update wish icon
-            //wishImage.sprite = "";
         }
     }
 
