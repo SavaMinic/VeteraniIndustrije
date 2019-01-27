@@ -31,7 +31,13 @@ public class GuestManager : MonoBehaviour
     public List<GameObject> GuestPrefabs = new List<GameObject>();
 
     public int InitialGuestCount;
-    public float DelayForGeneratingGuests;
+    public float DelayForGeneratingGuestsSlow = 10f;
+    public float DelayForGeneratingGuestsFast = 25f;
+
+    public float DelayForGeneratingGuests => 
+        availableSittingPositionIndex.Count > 3
+        ? DelayForGeneratingGuestsFast
+        : DelayForGeneratingGuestsSlow;
     
     private float timeToGenerateNewGuests;
 

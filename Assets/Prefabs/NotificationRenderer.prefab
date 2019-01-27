@@ -78,8 +78,8 @@ MonoBehaviour:
   iconImageSprites:
   - {fileID: 21300000, guid: f523fc0b6ea9142b984113673ed9fa07, type: 3}
   - {fileID: 21300000, guid: 977881281fdca436c8d8de7e7f642355, type: 3}
-  - {fileID: 21300000, guid: e4e0f31c04a004e88b11aa4c160cb775, type: 3}
   - {fileID: 21300000, guid: fc5b596cd09794a35ac22002043b249b, type: 3}
+  - {fileID: 21300000, guid: e4e0f31c04a004e88b11aa4c160cb775, type: 3}
   MoveAnimation:
     serializedVersion: 2
     m_Curve:
