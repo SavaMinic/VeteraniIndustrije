@@ -16,16 +16,24 @@ public static class Util
         return parentCanvas.transform.TransformPoint(movePos);
     }
 
-    public static T FindClosest<T>(T[] array, Vector3 target, float maxRange = Mathf.Infinity) where T : Component
+    public static T FindClosest<T>(T[] array, Vector3 target, float maxRange = Mathf.Infinity, bool inViewSpace = false) where T : Component
     {
         if (array == null) return null;
 
         float closestDistance = Mathf.Infinity;
         T closest = null;
 
+        if (inViewSpace)
+        {
+            target = GetCameraSpacePoint(target);
+        }
+
         for (int i = 0; i < array.Length; i++)
         {
-            float sqrdist = (target - array[i].transform.position).sqrMagnitude;
+            Vector3 pos = array[i].transform.position;
+            if (inViewSpace) pos = GetCameraSpacePoint(pos);
+
+            float sqrdist = (target - pos).sqrMagnitude;
 
             if (sqrdist < closestDistance)
             {
@@ -38,5 +46,12 @@ public static class Util
             return null;
 
         return closest;
+    }
+
+    public static Vector3 GetCameraSpacePoint(Vector3 v3)
+    {
+        v3 = Camera.main.transform.InverseTransformPoint(v3);
+        v3.z = 0;
+        return v3;
     }
 }

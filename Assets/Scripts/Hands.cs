@@ -9,13 +9,14 @@ public class Hands : MonoBehaviour
 
     public Vector3 holdOffset;
     public float interactRange = 1;
+    public bool useViewSpaceDistance = true;
 
     private void Update()
     {
-        Slot closestSlot = Util.FindClosest(Slot.all, transform.position, interactRange);
+        Slot closestSlot = Util.FindClosest(Slot.all, transform.position, interactRange, useViewSpaceDistance);
         if (closestSlot) Debug.DrawLine(transform.position, closestSlot.transform.position, Color.red);
 
-        Item closestItem = Util.FindClosest(Item.all, transform.position, interactRange);
+        Item closestItem = Util.FindClosest(Item.all, transform.position, interactRange, useViewSpaceDistance);
         if (closestItem) Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
 
         bool btn_down = Input.GetButtonDown(interactionKey);
