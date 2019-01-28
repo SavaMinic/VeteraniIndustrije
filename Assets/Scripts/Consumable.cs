@@ -7,6 +7,10 @@ public class Consumable : ScriptableObject
 {
     public Color color = Color.white;
 
+    public float goodTemperatureLevel = 0.5f;
+    public enum Side { Below, Above }
+    public Side goodTemperatureSide;
+
     [System.Serializable]
     public class Quips
     {

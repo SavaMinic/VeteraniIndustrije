@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Rakija
   m_EditorClassIdentifier: 
   color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
+  goodTemperatureLevel: 0.5
+  goodTemperatureSide: 0
   quips:
     perfect:
     - Dooooobraaa dooomaca!
