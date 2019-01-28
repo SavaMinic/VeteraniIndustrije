@@ -11,6 +11,8 @@ public class Consumable : ScriptableObject
     public enum Side { Below, Above }
     public Side goodTemperatureSide;
 
+    public GuestWish.GuestWishType wishType;
+
     [System.Serializable]
     public class Quips
     {

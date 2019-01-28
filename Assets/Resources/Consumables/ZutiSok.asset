@@ -15,6 +15,7 @@ MonoBehaviour:
   color: {r: 1, g: 0.87417996, b: 0.36320752, a: 1}
   goodTemperatureLevel: 0.5
   goodTemperatureSide: 0
+  wishType: 3
   quips:
     perfect:
     - K'o Fanta

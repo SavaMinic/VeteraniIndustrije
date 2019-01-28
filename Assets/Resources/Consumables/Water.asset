@@ -15,6 +15,7 @@ MonoBehaviour:
   color: {r: 0, g: 0.50931454, b: 1, a: 1}
   goodTemperatureLevel: 0.5
   goodTemperatureSide: 0
+  wishType: 5
   quips:
     perfect:
     - Fala

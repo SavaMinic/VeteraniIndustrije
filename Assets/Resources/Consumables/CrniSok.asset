@@ -15,6 +15,7 @@ MonoBehaviour:
   color: {r: 0.2264151, g: 0.03951584, b: 0.13110526, a: 1}
   goodTemperatureLevel: 0.5
   goodTemperatureSide: 0
+  wishType: 4
   quips:
     perfect:
     - K'o kola

@@ -7937,7 +7937,7 @@ GameObject:
   - component: {fileID: 1893395510}
   - component: {fileID: 1893395509}
   m_Layer: 0
-  m_Name: ColorDB
+  m_Name: Database
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

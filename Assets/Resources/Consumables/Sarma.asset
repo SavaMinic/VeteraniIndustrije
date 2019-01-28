@@ -15,6 +15,7 @@ MonoBehaviour:
   color: {r: 0.735849, g: 0.45398825, b: 0.17007832, a: 1}
   goodTemperatureLevel: 0.5
   goodTemperatureSide: 1
+  wishType: 6
   quips:
     perfect:
     - Sarma kida

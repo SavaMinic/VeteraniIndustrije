@@ -48,6 +48,8 @@ public class Container : MonoBehaviour
         return true;
     }
 
+    #region Public
+
     public void AddDrink(Consumable _type, float _amount)
     {
         type = _type;
@@ -60,6 +62,23 @@ public class Container : MonoBehaviour
         temperature += heat;
         temperature = Mathf.Clamp01(temperature);
     }
+
+    public bool IsAtGoodTemperature()
+    {
+        Debug.Assert(type, "Type is null. Not allowed!");
+
+        if (type.goodTemperatureSide == Consumable.Side.Below
+        && temperature <= type.goodTemperatureLevel)
+            return true;
+
+        if (type.goodTemperatureSide == Consumable.Side.Above
+            && temperature >= type.goodTemperatureLevel)
+            return true;
+
+        return false;
+    }
+
+    #endregion
 
     private void Update()
     {

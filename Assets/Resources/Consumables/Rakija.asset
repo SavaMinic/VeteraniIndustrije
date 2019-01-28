@@ -15,6 +15,7 @@ MonoBehaviour:
   color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   goodTemperatureLevel: 0.5
   goodTemperatureSide: 0
+  wishType: 2
   quips:
     perfect:
     - Dooooobraaa dooomaca!
