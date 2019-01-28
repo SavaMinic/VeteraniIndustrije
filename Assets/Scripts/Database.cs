@@ -11,6 +11,4 @@ public class Database : MonoBehaviour
 
     public Consumable[] foods;
     public Consumable[] drinks;
-
-    public Color[] drinkColors;
 }
