@@ -12,7 +12,8 @@ public class DrinkContainer : MonoBehaviour
     public float coolingSpeed = 0.01f;
 
     public bool canBeRefilledAtSlavina;
-    public bool neverShowMeter;
+    public bool showAmount = true;
+    public bool showTemperature = true;
 
     public bool TranferDrinkTo(DrinkContainer drinkContainer, float pourAmount)
     {
@@ -48,14 +49,11 @@ public class DrinkContainer : MonoBehaviour
         temperature -= Time.deltaTime * coolingSpeed;
         temperature = Mathf.Clamp01(temperature);
 
-        if (!neverShowMeter)
-        {
-            if (amount > 0)
-                DebugUtils.InGameMeter(amount / maxAmount, transform.position, 20, DrinkFoodUtils.GetColor(drinkType));
+        if (showAmount && amount > 0)
+            DebugUtils.InGameMeter(amount / maxAmount, transform.position, 20, DrinkFoodUtils.GetColor(drinkType));
 
-            if (temperature > 0)
-                DebugUtils.InGameMeter(temperature, transform.position, 30, Color.red);
-        }
+        if (showTemperature && temperature > 0)
+            DebugUtils.InGameMeter(temperature, transform.position, 30, Color.red);
     }
 
     public void DebugAmount(float offset)

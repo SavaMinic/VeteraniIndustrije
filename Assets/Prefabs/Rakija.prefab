@@ -116,4 +116,6 @@ MonoBehaviour:
   maxAmount: 100
   temperature: 0
   coolingSpeed: 0.01
-  neverShowMeter: 1
+  canBeRefilledAtSlavina: 0
+  showAmount: 0
+  showTemperature: 1
