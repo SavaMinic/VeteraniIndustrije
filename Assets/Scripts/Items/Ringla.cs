@@ -6,6 +6,8 @@ public class Ringla : Slot
 {
     public bool isOn;
 
+    public AnimationCurve vriVolumePerTemperature;
+
     public AudioSource vriSource;
 
     public AudioClip turnOnClip;
@@ -13,7 +15,14 @@ public class Ringla : Slot
 
     private void Update()
     {
+        var dzezva = itemInSlot as Dzezva;
+
         vriSource.enabled = itemInSlot == true;
+
+        if (dzezva)
+        {
+            vriSource.volume = vriVolumePerTemperature.Evaluate(dzezva.container.temperature);
+        }
     }
 
     public override void OnItemPlaced()

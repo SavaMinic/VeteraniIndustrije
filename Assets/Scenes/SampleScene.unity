@@ -5430,7 +5430,7 @@ GameObject:
   - component: {fileID: 1383001009}
   - component: {fileID: 1383001010}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5460,7 +5460,7 @@ AudioSource:
   m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6e1be8d5ff5e8f442a1b344541d60dd5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 660c60e002d53e041af6c22c9ce51b45, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6324,7 +6324,51 @@ MonoBehaviour:
   dontRenderWhenNotHighlighted: 0
   highlightColor: {r: 0, g: 0, b: 0, a: 0}
   isOn: 1
+  vriVolumePerTemperature:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.69647443
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.87316567
+      value: 0.333259
+      inSlope: 3.36069
+      outSlope: 3.36069
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.26725352
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.25235254
+      outSlope: 0.25235254
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.536064
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   vriSource: {fileID: 1383001010}
+  turnOnClip: {fileID: 8300000, guid: d4fdf81594c0399429e7a173d494f93e, type: 3}
+  turnOffClip: {fileID: 8300000, guid: 7d8e0a1f6b947f643872abc70170a12f, type: 3}
 --- !u!1 &1546830528
 GameObject:
   m_ObjectHideFlags: 0
@@ -7955,6 +7999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc00029ef857f844ea3b4d7637d420b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allConsumables: []
   foods:
   - {fileID: 11400000, guid: 0111ff78089df144fa9aae2f4dcccc4d, type: 2}
   drinks:
@@ -7963,12 +8008,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 656a7bffa0db57549baf49212929cd70, type: 2}
   - {fileID: 11400000, guid: b6a50c19bbac3574f8fc488a908ee4bb, type: 2}
   - {fileID: 11400000, guid: 540c885b3994a67459228662578721b9, type: 2}
-  drinkColors:
-  - {r: 0.5188679, g: 0.3481945, b: 0.28635636, a: 1}
-  - {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
-  - {r: 0.2783019, g: 0.68202674, b: 1, a: 1}
-  - {r: 0.14150941, g: 0.07809718, b: 0.104594916, a: 1}
-  - {r: 1, g: 0.86192405, b: 0.36320752, a: 1}
 --- !u!4 &1893395510
 Transform:
   m_ObjectHideFlags: 0
@@ -9639,6 +9678,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio
       objectReference: {fileID: 0}
+    - target: {fileID: 7114955489635824969, guid: adba3a598651fd34e941d13b0240b9f0,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b2f1f7e5e1fa1b43bc447a99dbfae91, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adba3a598651fd34e941d13b0240b9f0, type: 3}
 --- !u!1001 &7646861229551086604
