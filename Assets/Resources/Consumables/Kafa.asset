@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4770e45cfa17cf7478a94d1a76157a80, type: 3}
+  m_Name: Kafa
+  m_EditorClassIdentifier: 
+  color: {r: 0.735849, g: 0.45398825, b: 0.17007832, a: 1}
+  quips:
+    perfect:
+    - Dobraaaaa kaaafaaaa
+    - Uf, dobra domaca
+    - Kafa, bas kako treba
+    - Domacine, kafa kida
+    wrongTemperature:
+    - Brate, ladna kafa
+    - Uh al je ladna kafa
+    - Sta je bre ovo, losa kafa
+    wrongConsumable:
+    - Alo bre ovo nije kafa
+    - Reko sam kafu bre...
+    - '''Tedoh kafu'
+    tooLate:
+    - Cekam kafu 300 godina..
