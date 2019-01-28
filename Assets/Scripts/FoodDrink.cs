@@ -35,4 +35,15 @@ public static class DrinkFoodUtils
             default: return Color.white;
         }*/
     }
+
+    public static Color GetFoodColor(Food food)
+    {
+        switch (food)
+        {
+            case Food.Sarma: return Color.yellow;
+            case Food.Salata: return Color.green;
+            case Food.Orasnica: return Color.gray;
+            default: return Color.white;
+        }
+    }
 }
