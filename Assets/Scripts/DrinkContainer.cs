@@ -15,6 +15,8 @@ public class DrinkContainer : MonoBehaviour
     public bool showAmount = true;
     public bool showTemperature = true;
 
+    const float boilingLossSpeed = 0.05f;
+
     public bool TranferDrinkTo(DrinkContainer drinkContainer, float pourAmount)
     {
         if (amount <= 0) return false;
@@ -48,7 +50,7 @@ public class DrinkContainer : MonoBehaviour
     {
         drinkType = _drinkType;
         amount += _amount;
-        if (amount > maxAmount) amount = maxAmount;
+        amount = Mathf.Clamp(amount, 0, maxAmount);
     }
 
     public void AddHeat(float heat)
@@ -59,9 +61,18 @@ public class DrinkContainer : MonoBehaviour
 
     private void Update()
     {
+
+        if (temperature >= 1)
+            amount -= Time.deltaTime * boilingLossSpeed;
+        
+        // constant cooling
         temperature -= Time.deltaTime * coolingSpeed;
+
+        // clamp
+        amount = Mathf.Clamp(amount, 0, maxAmount);
         temperature = Mathf.Clamp01(temperature);
 
+        // show meters
         if (showAmount && amount > 0)
             DebugUtils.InGameMeter(amount / maxAmount, transform.position, 20, DrinkFoodUtils.GetColor(drinkType));
 
