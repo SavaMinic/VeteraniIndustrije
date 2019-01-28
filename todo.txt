@@ -1,28 +1,46 @@
-- Sarma - podgrevanje, sluzenje // 
-- Dzezva - sipanje vode, kuvanje, sluzenje //
-- kafa - kafa // 
-- Rakija - sluzenje //
+
+//----------------
+// Implementation
+//----------------
+
+done:
+- Sarma - podgrevanje, sluzenje
+- Dzezva - sipanje vode, kuvanje, sluzenje
+- kafa - kafa
+- Rakija - sluzenje
+- Prozor - otvaranje zatvaranje
+- Vrata - otvaranje zatvaranje
+- TV - stanice
+- Cesmusa - sipanje vode, sluzenje
+- Crni sok - sluzenje
+- Zuti sok - sluzenje
+
+TODO:
+- Connect temperature to wish success
+- Zito
+- Ulaz/izlaz
 - Metla - brisanje
 - Blato - brisanje metlom
-- Prozor - otvaranje zatvaranje //
-- Vrata - otvaranje zatvaranje //
-- TV - stanice //
 - Salata - seckanje, sluzenje
-- Cesmusa - sipanje vode, sluzenje
-- Crni sok - sluzenje //
-- Zuti sok - sluzenje //
+- Frizider
 
 //-----
 // ART
 //-----
 
+done:
 - running water animation
 - empty slot
+
+TODO:
+- bokal
+
 
 //-------
 // SOUND
 //-------
 
+done:
 - Slavina running / punjenje
 - Slavina turn on / off
 - Sarma shljap
@@ -32,3 +50,11 @@
 - Jelo om nom nom nom
 - TV Kanali
 - 
+
+TODO:
+- Drop/pickup:
+	- Casa
+	- Metal (dzezva)
+	- Tacna
+	- Sarma
+	- Otvaranje rerne
