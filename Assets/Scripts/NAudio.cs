@@ -28,7 +28,7 @@ public static class NAudio
 {
 #if POOLING
     public static Queue<AudioSource> sourcePool;
-    const int POOL_SIZE = 50;
+    const int POOL_SIZE = 20;
 #else
     // Just to make sure destroy won't cut the sound short in case of an increased latency
     const float DESTROY_AFTER_MARGIN_SECONDS = 0.2f;
@@ -66,7 +66,7 @@ public static class NAudio
 
         return source;
     }
-    
+
     public static void InitializePool(int size = POOL_SIZE)
     {
         sourcePool = new Queue<AudioSource>(size);
