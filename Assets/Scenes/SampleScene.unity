@@ -1902,6 +1902,7 @@ MonoBehaviour:
   inSlot: {fileID: 261795758}
   highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
   sprite: {fileID: 0}
+  coffeeConsumable: {fileID: 11400000, guid: dec9825596b45094d96e5a6719f2aeca, type: 2}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
