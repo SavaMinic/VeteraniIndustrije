@@ -32,7 +32,6 @@ public class Dzezva : Interactable
 
         container.temperature = Mathf.Clamp01(container.temperature);
         kipi = Mathf.Clamp01(kipi);
-        container.amount = Mathf.Clamp01(container.amount);
 
         // Debug lines
         DebugUtils.Meter(container.temperature, transform.position, 0.2f, Color.red);
