@@ -54,7 +54,7 @@ public class DrinkContainer : MonoBehaviour
                 DebugUtils.InGameMeter(amount / maxAmount, transform.position, 20, DrinkFoodUtils.GetColor(drinkType));
 
             if (temperature > 0)
-                DebugUtils.InGameMeter(temperature, transform.position, 29, Color.red);
+                DebugUtils.InGameMeter(temperature, transform.position, 30, Color.red);
         }
     }
 
