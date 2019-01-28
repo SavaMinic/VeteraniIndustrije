@@ -18,8 +18,8 @@ MonoBehaviour:
   wishType: 4
   quips:
     perfect:
-    - K'o kola
-    - Fala
+    - Bolja nego kola!
+    - Fala fala
     wrongTemperature:
     - Nije ladan sok uopste...
     wrongConsumable:
