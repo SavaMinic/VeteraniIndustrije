@@ -15,6 +15,10 @@ public abstract class Interactable : MonoBehaviour
     public Color highlightColor;
     public SpriteRenderer sprite;
 
+    public float soundVolume = 0.5f;
+    public AudioClip pickupClip;
+    public AudioClip putClip;
+
     private void Start()
     {
         if (all == null)
@@ -54,6 +58,8 @@ public abstract class Interactable : MonoBehaviour
         isHeld = true;
         inHands = hands;
 
+        if (pickupClip) pickupClip.Play2D(soundVolume);
+
         return this;
     }
 
@@ -70,6 +76,8 @@ public abstract class Interactable : MonoBehaviour
 
         OnPlacedInSlot(slot);
         slot.OnItemPlaced();
+
+        if (putClip) putClip.Play2D(soundVolume);
     }
 
     protected virtual void OnPlacedInSlot(Slot slot) { }

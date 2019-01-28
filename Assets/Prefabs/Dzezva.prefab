@@ -98,6 +98,9 @@ MonoBehaviour:
   inSlot: {fileID: 0}
   highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
   sprite: {fileID: 0}
+  soundVolume: 0.3
+  pickupClip: {fileID: 8300000, guid: 9174b228a0f4b6c49817de3b911c0fbe, type: 3}
+  putClip: {fileID: 8300000, guid: 1445334d87a180e48a7223f7c4e402c9, type: 3}
   container: {fileID: 5148026827958725187}
   hasCoffee: 0
   heatingSpeed: 0.1

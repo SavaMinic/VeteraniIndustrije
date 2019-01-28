@@ -98,6 +98,9 @@ MonoBehaviour:
   inSlot: {fileID: 0}
   highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
   sprite: {fileID: 0}
+  soundVolume: 0.5
+  pickupClip: {fileID: 0}
+  putClip: {fileID: 8300000, guid: 9174b228a0f4b6c49817de3b911c0fbe, type: 3}
 --- !u!114 &7681031699381208422
 MonoBehaviour:
   m_ObjectHideFlags: 0
