@@ -21,7 +21,7 @@ public class Container : MonoBehaviour
 
     const float boilingLossSpeed = 0.05f;
 
-    public bool TrasferTo(Container toContainer, float pourAmount)
+    public bool TransferTo(Container toContainer, float pourAmount)
     {
         if (amount <= 0) return false;
 
