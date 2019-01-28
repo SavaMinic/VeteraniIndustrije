@@ -190,30 +190,46 @@ public class Guest : MonoBehaviour
                     const float minimumAmount = 0.5f;
 
                     bool correctDrink = false;
+                    bool correctTemperature = false;
 
                     if (dc.amount > minimumAmount)
                     {
                         if (currentWish.Type == GuestWish.GuestWishType.Water
                             && dc.drinkType == Drink.Water)
+                        {
                             correctDrink = true;
+                            if (dc.temperature < 0.5f) correctTemperature = true;
+                        }
 
                         if (currentWish.Type == GuestWish.GuestWishType.Coffee
                             && dc.drinkType == Drink.Coffee)
+                        {
                             correctDrink = true;
+                            if (dc.temperature > 0.5f) correctTemperature = true;
+                        }
 
                         if (currentWish.Type == GuestWish.GuestWishType.Rakija
                             && dc.drinkType == Drink.Rakija)
+                        {
                             correctDrink = true;
+                            if (dc.temperature < 0.5f) correctTemperature = true;
+                        }
 
                         if (currentWish.Type == GuestWish.GuestWishType.ZutiSok
                             && dc.drinkType == Drink.ZutiSok)
+                        {
                             correctDrink = true;
+                            if (dc.temperature < 0.5f) correctTemperature = true;
+                        }
 
                         if (currentWish.Type == GuestWish.GuestWishType.CrniSok
                             && dc.drinkType == Drink.CrniSok)
+                        {
                             correctDrink = true;
+                            if (dc.temperature < 0.5f) correctTemperature = true;
+                        }
 
-                        if (correctDrink)
+                        if (correctDrink && correctTemperature)
                         {
                             FinishActiveWish();
                         }
@@ -227,14 +243,18 @@ public class Guest : MonoBehaviour
                     const float minimumAmount = 0.5f;
 
                     bool correctFood = false;
+                    bool correctTemperature = false;
 
                     if (fc.amount > minimumAmount)
                     {
                         if (currentWish.Type == GuestWish.GuestWishType.Sarma
                             && fc.foodType == Food.Sarma)
+                        {
                             correctFood = true;
+                            if (fc.temperature > 0.5f) correctTemperature = true;
+                        }
 
-                        if (correctFood)
+                        if (correctFood && correctTemperature)
                         {
                             FinishActiveWish();
                         }
@@ -316,7 +336,7 @@ public class Guest : MonoBehaviour
             yield return null;
         }
         Destroy(gameObject);
-        
+
     }
 
     #endregion
