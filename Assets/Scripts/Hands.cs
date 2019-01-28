@@ -5,13 +5,13 @@ using UnityEngine;
 public class Hands : MonoBehaviour
 {
     public string interactionKey = "Fire1";
-    public Item heldItem;
+    public Interactable heldItem;
 
     public Vector3 holdOffset;
     public float interactRange = 1;
     public bool useViewSpaceDistance = true;
 
-    Item lastClosestItem;
+    Interactable lastClosestItem;
     Slot lastClosestSlot;
 
     private void Update()
@@ -24,7 +24,7 @@ public class Hands : MonoBehaviour
                 closestSlot.Highlight(true);
         }
 
-        Item closestItem = Util.FindClosest(Item.all.ToArray(), heldItem, transform.position, interactRange, useViewSpaceDistance);
+        Interactable closestItem = Util.FindClosest(Interactable.all.ToArray(), heldItem, transform.position, interactRange, useViewSpaceDistance);
         if (closestItem)
         {
             Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
@@ -192,7 +192,7 @@ public class Hands : MonoBehaviour
             {
                 if (closestItem && closestItem.isTakeable)
                 {
-                    Item item = closestItem.Take(this);
+                    Interactable item = closestItem.Take(this);
 
                     if (item != null)
                     {

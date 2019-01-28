@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TV : Item
+public class TV : Interactable
 {
     public int channel;
 

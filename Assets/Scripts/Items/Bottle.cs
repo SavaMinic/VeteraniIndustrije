@@ -11,7 +11,7 @@ public interface IDrinkContainer
     float amount { get; set; }
 }*/
 
-public class Bottle : Item//, IDrinkContainer
+public class Bottle : Interactable//, IDrinkContainer
 {
     public DrinkContainer container;
 

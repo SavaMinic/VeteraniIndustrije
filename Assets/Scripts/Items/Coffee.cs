@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coffee : Item
+public class Coffee : Interactable
 {
 
 }

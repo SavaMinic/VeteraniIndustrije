@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cup : Item
+public class Cup : Interactable
 {
     public DrinkContainer container;
 

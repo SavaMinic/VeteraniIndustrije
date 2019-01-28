@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
-    public static List<Item> all;
+    public static List<Interactable> all;
 
     public bool isTakeable = true;
     public bool isHeld;
@@ -18,17 +18,17 @@ public class Item : MonoBehaviour
     private void Start()
     {
         if (all == null)
-            all = new List<Item>();
+            all = new List<Interactable>();
         //all = new List<Item>(FindObectsOfType<Item>());
 
         all.Add(this);
 
         if (!sprite)
             sprite = GetComponent<SpriteRenderer>();
-        
+
         OnStart();
     }
-    
+
     protected virtual void OnStart() { }
 
     private void OnDestroy()
@@ -36,7 +36,7 @@ public class Item : MonoBehaviour
         all.Remove(this);
     }
 
-    public Item Take(Hands hands)
+    public Interactable Take(Hands hands)
     {
         if (hands.heldItem) return null; // cant take in occupied hands
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Prozor : Item
+public class Prozor : Interactable
 {
     public static bool IsOpen { get; private set; }
 

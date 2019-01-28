@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Salata : Item
+public class Salata : Interactable
 {
     FoodContainer foodContainer;
 

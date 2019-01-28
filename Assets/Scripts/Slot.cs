@@ -6,7 +6,7 @@ public class Slot : MonoBehaviour
 {
     public static Slot[] all;
 
-    public Item itemInSlot;
+    public Interactable itemInSlot;
 
     public bool dontRenderWhenNotHighlighted;
     public Color highlightColor;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : Item
+public class Door : Interactable
 {
     public static bool IsOpen { get; private set; }
 
