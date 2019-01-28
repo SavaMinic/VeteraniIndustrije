@@ -10,9 +10,10 @@ public class Slavina : Slot
 
     private void Update()
     {
-        if (itemInSlot && itemInSlot.GetComponent<DrinkContainer>())
+        DrinkContainer dc = itemInSlot?.GetComponent<DrinkContainer>();
+
+        if (dc && dc.canBeRefilledAtSlavina)
         {
-            DrinkContainer dc = itemInSlot.GetComponent<DrinkContainer>();
             dc.drinkType = Drink.Water;
             dc.amount += Time.deltaTime * fillSpeed;
             if (dc.amount > dc.maxAmount) dc.amount = dc.maxAmount;
@@ -27,7 +28,10 @@ public class Slavina : Slot
 
     public override void OnItemPlaced()
     {
-        ShowMlaz(true);
+        DrinkContainer dc = itemInSlot?.GetComponent<DrinkContainer>();
+
+        if (dc && dc.canBeRefilledAtSlavina)
+            ShowMlaz(true);
     }
 
     public override void OnItemRemoved()

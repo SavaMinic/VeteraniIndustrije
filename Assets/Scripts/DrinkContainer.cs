@@ -11,6 +11,7 @@ public class DrinkContainer : MonoBehaviour
 
     public float coolingSpeed = 0.01f;
 
+    public bool canBeRefilledAtSlavina;
     public bool neverShowMeter;
 
     public bool TranferDrinkTo(DrinkContainer drinkContainer, float pourAmount)
