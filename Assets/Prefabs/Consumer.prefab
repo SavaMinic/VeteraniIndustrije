@@ -88,3 +88,6 @@ MonoBehaviour:
   maxAmount: 1
   temperature: 0
   coolingSpeed: 0.01
+  canBeRefilledAtSlavina: 0
+  showAmount: 1
+  showTemperature: 1
