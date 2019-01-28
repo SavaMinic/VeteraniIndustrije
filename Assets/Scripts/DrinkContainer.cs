@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Obsolete]
 public class DrinkContainer : MonoBehaviour
 {
     public Drink drinkType;
