@@ -45,28 +45,20 @@ public class Hands : MonoBehaviour
 
         // Special cases:
 
-        // Sipanje sarme u gosta
-        if (closestItem is Consumer && heldItem && heldItem.GetComponent<FoodContainer>())
+        // Sipanje hrane i pica u gosta
+        if (closestItem is Consumer && heldItem && heldItem.GetComponent<Container>())
         {
-            if (btn_down)
-            {
-                Consumer gost = closestItem as Consumer;
-                Container drc = heldItem.GetComponent<Container>();
+            Consumer gost = closestItem as Consumer;
+            Container drc = heldItem.GetComponent<Container>();
 
-                bool success = drc.TransferTo(gost.foodContainer, 1);
+            if (drc.containsType == Container.ContainsType.Food && btn_down)
+            {
+                drc.TransferTo(gost.foodContainer, 1);
             }
-        }
-        // Sipanje pica u gosta
-        else if (closestItem is Consumer && heldItem && heldItem.GetComponent<DrinkContainer>())
-        {
-            if (btn_held)
+
+            if (drc.containsType == Container.ContainsType.Drink && btn_held)
             {
-                Consumer gost = closestItem as Consumer;
-                Container drc = heldItem.GetComponent<Container>();
-
-                bool success = drc.TransferTo(gost.drinkContainer, Time.deltaTime); // TODO: Tweak speed
-
-                //if (success) Debug.Log("Sipa se u gosta");
+                drc.TransferTo(gost.drinkContainer, Time.deltaTime); // TODO: Tweak speed
             }
         }
         // Chop and take salata
@@ -98,7 +90,8 @@ public class Hands : MonoBehaviour
             prozor.Toggle();
         }
 
-        // Sipanje sarme iz lonca u tanjir
+        // Sipanje sarme iz lonca u tanjir - unused
+        /*
         else if (closestItem is Plate && heldItem is LonacSarme)
         {
             if (Input.GetAxis(interactionKey) > 0f)
@@ -110,18 +103,18 @@ public class Hands : MonoBehaviour
 
                 if (success) { } // play sound, effects
 
-                /*
-                var plate = closestItem as Plate;
-                var lonac = heldItem as LonacSarme;
+                
+                //var plate = closestItem as Plate;
+                //var lonac = heldItem as LonacSarme;
 
-                if (plate.foodContainer.amount == 0)
-                {
-                    plate.foodContainer.foodType = Food.Sarma;
-                    plate.foodContainer.amount = 1;
-                    // intantiate sarma
-                }*/
+                //if (plate.foodContainer.amount == 0)
+                //{
+                //    plate.foodContainer.foodType = Food.Sarma;
+                //    plate.foodContainer.amount = 1;
+                //}
             }
-        }
+        }*/
+
         // Sipanje kafe u solju:
         else if (heldItem is Dzezva && closestItem is Cup)
         {
@@ -180,7 +173,6 @@ public class Hands : MonoBehaviour
         {
             if (btn_down)
             {
-
                 Dzezva dzezva = closestItem as Dzezva;
                 dzezva.container.type = (heldItem as Coffee).coffeeConsumable;
             }
