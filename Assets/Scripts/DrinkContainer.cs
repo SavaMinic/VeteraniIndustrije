@@ -11,6 +11,8 @@ public class DrinkContainer : MonoBehaviour
 
     public float coolingSpeed = 0.01f;
 
+    public bool neverShowMeter;
+
     public bool TranferDrinkTo(DrinkContainer drinkContainer, float pourAmount)
     {
         if (amount <= 0) return false;
@@ -45,7 +47,7 @@ public class DrinkContainer : MonoBehaviour
         temperature -= Time.deltaTime * coolingSpeed;
         temperature = Mathf.Clamp01(temperature);
 
-        if (amount > 0)
+        if (amount > 0 && !neverShowMeter)
             DebugUtils.InGameMeter(amount / maxAmount, transform.position, 20, DrinkFoodUtils.GetColor(drinkType));
     }
 

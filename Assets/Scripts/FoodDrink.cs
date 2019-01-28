@@ -20,6 +20,8 @@ public static class DrinkFoodUtils
 {
     public static Color GetColor(Drink drink)
     {
+        if (!Application.isPlaying) return Color.clear;
+
         return ColorDB.e.drinkColors[(int)drink];
 
         /*
