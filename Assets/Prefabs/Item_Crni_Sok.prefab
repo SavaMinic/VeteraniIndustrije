@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5125499822339499295}
   - component: {fileID: 7746530810756783940}
   - component: {fileID: 5558494791440403735}
-  - component: {fileID: 6472548012248722349}
+  - component: {fileID: 2909243529413254915}
   m_Layer: 0
   m_Name: Item_Crni_Sok
   m_TagString: Untagged
@@ -98,8 +98,8 @@ MonoBehaviour:
   inSlot: {fileID: 0}
   highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
   sprite: {fileID: 0}
-  container: {fileID: 6472548012248722349}
---- !u!114 &6472548012248722349
+  container: {fileID: 2909243529413254915}
+--- !u!114 &2909243529413254915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,10 +108,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4981006895041489540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 117d2c623d24fe848a22497f19ec29f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 02164751485c90141b48ca9379b8542f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drinkType: 3
+  containsType: 1
+  type: {fileID: 11400000, guid: b6a50c19bbac3574f8fc488a908ee4bb, type: 2}
   amount: 100
   maxAmount: 100
   temperature: 0

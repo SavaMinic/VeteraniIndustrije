@@ -51,9 +51,9 @@ public class Hands : MonoBehaviour
             if (btn_down)
             {
                 Consumer gost = closestItem as Consumer;
-                FoodContainer drc = heldItem.GetComponent<FoodContainer>();
+                Container drc = heldItem.GetComponent<Container>();
 
-                bool success = drc.TransferFoodTo(gost.foodContainer, 1);
+                bool success = drc.TransferTo(gost.foodContainer, 1);
             }
         }
         // Sipanje pica u gosta
@@ -62,9 +62,9 @@ public class Hands : MonoBehaviour
             if (btn_held)
             {
                 Consumer gost = closestItem as Consumer;
-                DrinkContainer drc = heldItem.GetComponent<DrinkContainer>();
+                Container drc = heldItem.GetComponent<Container>();
 
-                bool success = drc.TranferDrinkTo(gost.drinkContainer, Time.deltaTime); // TODO: Tweak speed
+                bool success = drc.TransferTo(gost.drinkContainer, Time.deltaTime); // TODO: Tweak speed
 
                 //if (success) Debug.Log("Sipa se u gosta");
             }
@@ -132,7 +132,7 @@ public class Hands : MonoBehaviour
 
                 Debug.DrawLine(transform.position, cup.transform.position);
 
-                dzezva.container.TranferDrinkTo(cup.container, Time.deltaTime); // TODO: Add speed
+                dzezva.container.TransferTo(cup.container, Time.deltaTime); // TODO: Add speed
 
                 /*
                 if ((cup.amount == 0 || cup.drinkType == dzezva.drinkType) && dzezva.amount > 0)
@@ -158,7 +158,7 @@ public class Hands : MonoBehaviour
 
                 Debug.DrawLine(transform.position, cup.transform.position);
 
-                bottle.container.TranferDrinkTo(cup.container, Time.deltaTime); // TODO: Add speed
+                bottle.container.TransferTo(cup.container, Time.deltaTime); // TODO: Add speed
 
                 /*
                 if ((cup.amount == 0 || cup.drinkType == bottle.drinkType)
@@ -180,8 +180,9 @@ public class Hands : MonoBehaviour
         {
             if (btn_down)
             {
+
                 Dzezva dzezva = closestItem as Dzezva;
-                dzezva.container.drinkType = Drink.Coffee;
+                dzezva.container.type = (heldItem as Coffee).coffeeConsumable;
             }
         }
         // TODO: metla

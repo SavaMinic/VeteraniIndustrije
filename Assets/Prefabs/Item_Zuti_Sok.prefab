@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7449730699238213638}
   - component: {fileID: 6117857673294821106}
   - component: {fileID: 8377803630347974816}
-  - component: {fileID: 3095416339490521266}
+  - component: {fileID: 1337624483826618636}
   m_Layer: 0
   m_Name: Item_Zuti_Sok
   m_TagString: Untagged
@@ -98,8 +98,8 @@ MonoBehaviour:
   inSlot: {fileID: 0}
   highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
   sprite: {fileID: 0}
-  container: {fileID: 3095416339490521266}
---- !u!114 &3095416339490521266
+  container: {fileID: 1337624483826618636}
+--- !u!114 &1337624483826618636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,10 +108,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2658830082177315029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 117d2c623d24fe848a22497f19ec29f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 02164751485c90141b48ca9379b8542f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drinkType: 4
+  containsType: 1
+  type: {fileID: 11400000, guid: 540c885b3994a67459228662578721b9, type: 2}
   amount: 100
   maxAmount: 100
   temperature: 0

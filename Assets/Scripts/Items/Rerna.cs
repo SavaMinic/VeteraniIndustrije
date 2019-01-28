@@ -10,9 +10,8 @@ public class Rerna : Slot
     {
         if (itemInSlot is LonacSarme)
         {
-            FoodContainer container = itemInSlot.GetComponent<FoodContainer>();
-            container.temperature += Time.deltaTime * heatingSpeed;
-            container.temperature = Mathf.Clamp01(container.temperature);
+            Container container = itemInSlot.GetComponent<Container>();
+            container.AddHeat(Time.deltaTime * heatingSpeed);
         }
     }
 }

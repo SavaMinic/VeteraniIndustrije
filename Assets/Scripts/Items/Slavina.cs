@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Slavina : Slot
 {
+    public Consumable liquidType;
+
     public float fillSpeed = 0.5f;
     public float coolingSpeed = 0.2f;
 
@@ -11,12 +13,12 @@ public class Slavina : Slot
 
     private void Update()
     {
-        DrinkContainer dc = itemInSlot?.GetComponent<DrinkContainer>();
+        Container c = itemInSlot?.GetComponent<Container>();
 
-        if (dc && dc.canBeRefilledAtSlavina)
+        if (c && c.canBeRefilledAtSlavina)
         {
-            dc.AddDrink(Drink.Water, Time.deltaTime * fillSpeed);
-            dc.AddHeat(-coolingSpeed * Time.deltaTime);
+            c.AddDrink(liquidType, Time.deltaTime * fillSpeed);
+            c.AddHeat(-coolingSpeed * Time.deltaTime);
         }
     }
 
@@ -28,7 +30,7 @@ public class Slavina : Slot
 
     public override void OnItemPlaced()
     {
-        DrinkContainer dc = itemInSlot?.GetComponent<DrinkContainer>();
+        Container dc = itemInSlot?.GetComponent<Container>();
 
         if (dc && dc.canBeRefilledAtSlavina)
             ShowMlaz(true);

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Consumer : Interactable
 {
-    public FoodContainer foodContainer;
-    public DrinkContainer drinkContainer;
+    public Container foodContainer;
+    public Container drinkContainer;
 
     public float drinkingSpeed = 0.1f;
     public float eatingSpeed = 0.1f;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 884190577763758608}
   - component: {fileID: 884190577763758607}
   - component: {fileID: 884190577763758606}
-  - component: {fileID: 884190577763758609}
+  - component: {fileID: 7681031699381208422}
   m_Layer: 0
   m_Name: Item_Sarma
   m_TagString: Untagged
@@ -98,7 +98,7 @@ MonoBehaviour:
   inSlot: {fileID: 0}
   highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
   sprite: {fileID: 0}
---- !u!114 &884190577763758609
+--- !u!114 &7681031699381208422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,13 +107,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 884190577763758605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8cf1d10ec4a3364ab88015be40c8c34, type: 3}
+  m_Script: {fileID: 11500000, guid: 02164751485c90141b48ca9379b8542f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodType: 0
+  containsType: 0
+  type: {fileID: 11400000, guid: 0111ff78089df144fa9aae2f4dcccc4d, type: 2}
   amount: 1000000
   maxAmount: 1000000
   temperature: 0
+  coolingSpeed: 0.01
+  canBeRefilledAtSlavina: 0
   showAmount: 0
   showTemperature: 1
-  coolingSpeed: 0.01

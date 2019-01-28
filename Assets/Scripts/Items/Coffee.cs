@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Coffee : Interactable
 {
-
+    public Consumable coffeeConsumable;
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dzezva : Interactable
 {
-    public DrinkContainer container;
+    public Container container;
     public bool hasCoffee;
 
     public float heatingSpeed = 0.1f;
@@ -18,7 +18,7 @@ public class Dzezva : Interactable
 
         // Debug lines
         DebugUtils.Meter(container.temperature, transform.position, 0.2f, Color.red);
-        DebugUtils.Meter(container.amount, transform.position, 0.4f, DrinkFoodUtils.GetColor(container.drinkType));
+        DebugUtils.Meter(container.amount, transform.position, 0.4f, container.type.color);
     }
 
     protected override void OnPlacedInSlot(Slot slot)

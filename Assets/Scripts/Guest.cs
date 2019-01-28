@@ -194,6 +194,7 @@ public class Guest : MonoBehaviour
 
                     if (dc.amount > minimumAmount)
                     {
+                        /*
                         if (currentWish.Type == GuestWish.GuestWishType.Water
                             && dc.drinkType == Drink.Water)
                         {
@@ -233,6 +234,7 @@ public class Guest : MonoBehaviour
                             FinishActiveWish(true);
                         else
                             FinishActiveWish(false);
+                            */
                     }
                 }
                 else if (currentWish.IsFoodWish)
@@ -244,6 +246,7 @@ public class Guest : MonoBehaviour
                     bool correctFood = false;
                     bool correctTemperature = false;
 
+                    /*
                     if (fc.amount > minimumAmount)
                     {
                         if (currentWish.Type == GuestWish.GuestWishType.Sarma
@@ -258,6 +261,7 @@ public class Guest : MonoBehaviour
                         else
                             FinishActiveWish(false);
                     }
+                    */
                 }
 
                 break;

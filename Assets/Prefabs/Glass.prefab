@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7646861230477593118}
   - component: {fileID: 7646861230477593119}
   - component: {fileID: 7646861230477593113}
-  - component: {fileID: 7646861230477593112}
+  - component: {fileID: 3989540018019774505}
   m_Layer: 0
   m_Name: Glass
   m_TagString: Untagged
@@ -98,8 +98,8 @@ MonoBehaviour:
   inSlot: {fileID: 0}
   highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
   sprite: {fileID: 0}
-  container: {fileID: 7646861230477593112}
---- !u!114 &7646861230477593112
+  container: {fileID: 3989540018019774505}
+--- !u!114 &3989540018019774505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,13 +108,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7646861230477593117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 117d2c623d24fe848a22497f19ec29f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 02164751485c90141b48ca9379b8542f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drinkType: 2
+  containsType: 1
+  type: {fileID: 11400000, guid: 656a7bffa0db57549baf49212929cd70, type: 2}
   amount: 0
   maxAmount: 1
   temperature: 0
   coolingSpeed: 0.01
   canBeRefilledAtSlavina: 1
-  neverShowMeter: 0
+  showAmount: 1
+  showTemperature: 1
