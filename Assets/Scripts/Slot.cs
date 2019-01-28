@@ -31,4 +31,7 @@ public class Slot : MonoBehaviour
         if (dontRenderWhenNotHighlighted)
             sprite.enabled = b;
     }
+
+    public virtual void OnItemPlaced() { }
+    public virtual void OnItemRemoved() { }
 }

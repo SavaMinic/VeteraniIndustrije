@@ -14,9 +14,7 @@ public interface IDrinkContainer
 public class Bottle : Interactable//, IDrinkContainer
 {
     public DrinkContainer container;
-
-    Slavina slavina;
-
+    
     private void Update()
     {
         //if (container.amount > 0)
@@ -27,22 +25,5 @@ public class Bottle : Interactable//, IDrinkContainer
     {
         if (container)
             DebugUtils.Meter(container.amount / container.maxAmount, transform.position, 0.2f, DrinkFoodUtils.GetColor(container.drinkType));
-    }
-
-    protected override void OnPlacedInSlot(Slot slot)
-    {
-        if (slot is Slavina)
-        {
-            slavina = slot as Slavina;
-            slavina.ShowMlaz();
-        }
-    }
-
-    protected override void OnRemovedFromSlot(Slot slot)
-    {
-        if (slot is Slavina)
-        {
-            slavina.EndPouringWater();
-        }
     }
 }

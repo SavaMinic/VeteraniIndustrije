@@ -42,8 +42,9 @@ public abstract class Interactable : MonoBehaviour
 
         if (inSlot)
         {
-            inSlot.itemInSlot = null;
             OnRemovedFromSlot(inSlot);
+            inSlot.OnItemRemoved();
+            inSlot.itemInSlot = null;
         }
 
         inSlot = null;
@@ -68,6 +69,7 @@ public abstract class Interactable : MonoBehaviour
         slot.itemInSlot = this;
 
         OnPlacedInSlot(slot);
+        slot.OnItemPlaced();
     }
 
     protected virtual void OnPlacedInSlot(Slot slot) { }

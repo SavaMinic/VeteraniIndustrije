@@ -14,8 +14,6 @@ public class Dzezva : Interactable
     public float coolingSpeed = 0.01f;
 
     public Ringla ringla;
-    public Slavina slavina;
-
 
     private void Update()
     {
@@ -32,13 +30,6 @@ public class Dzezva : Interactable
             kipi -= Time.deltaTime * kipiSpeed;
         }
 
-        /*
-        if (slavina)
-        {
-            container.drinkType = Drink.Water;
-            container.amount += Time.deltaTime * slavina.fillSpeed;
-        }*/
-
         container.temperature = Mathf.Clamp01(container.temperature);
         kipi = Mathf.Clamp01(kipi);
         container.amount = Mathf.Clamp01(container.amount);
@@ -53,24 +44,10 @@ public class Dzezva : Interactable
     {
         if (slot is Ringla)
             ringla = slot as Ringla;
-
-
-        if (slot is Slavina)
-        {
-            //container.drinkType = Drink.Water;
-            slavina = slot as Slavina;
-            slavina.ShowMlaz();
-        }
     }
 
     protected override void OnRemovedFromSlot(Slot slot)
     {
-        if (slavina)
-        {
-            slavina.EndPouringWater();
-        }
-
         ringla = null;
-        slavina = null;
     }
 }

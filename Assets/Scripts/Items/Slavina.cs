@@ -6,9 +6,6 @@ public class Slavina : Slot
 {
     public float fillSpeed = 0.5f;
 
-    public Sprite offSprite;
-    public Sprite onSprite;
-
     public GameObject runningWaterGraphics;
 
     private void Update()
@@ -22,21 +19,19 @@ public class Slavina : Slot
         }
     }
 
-    public void ShowMlaz()
+    public void ShowMlaz(bool b)
     {
         if (runningWaterGraphics)
-            runningWaterGraphics.SetActive(true);
-
-        if (offSprite && onSprite)
-            GetComponent<SpriteRenderer>().sprite = onSprite;
+            runningWaterGraphics.SetActive(b);
     }
 
-    public void EndPouringWater()
+    public override void OnItemPlaced()
     {
-        if (runningWaterGraphics)
-            runningWaterGraphics.SetActive(false);
+        ShowMlaz(true);
+    }
 
-        if (offSprite && onSprite)
-            GetComponent<SpriteRenderer>().sprite = offSprite;
+    public override void OnItemRemoved()
+    {
+        ShowMlaz(false);
     }
 }
