@@ -16,6 +16,7 @@ done:
 - Zuti sok - sluzenje
 
 TODO:
+- Skip already fulfilled wishes (don't wish a closed window if already closed)
 - Connect temperature to wish success
 - Zito
 - Ulaz/izlaz
@@ -23,6 +24,7 @@ TODO:
 - Blato - brisanje metlom
 - Salata - seckanje, sluzenje
 - Frizider
+- Pivo
 
 //-----
 // ART
