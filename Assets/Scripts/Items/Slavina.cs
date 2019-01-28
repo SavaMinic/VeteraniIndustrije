@@ -5,6 +5,7 @@ using UnityEngine;
 public class Slavina : Slot
 {
     public float fillSpeed = 0.5f;
+    public float coolingSpeed = 0.2f;
 
     public GameObject runningWaterGraphics;
 
@@ -15,7 +16,7 @@ public class Slavina : Slot
         if (dc && dc.canBeRefilledAtSlavina)
         {
             dc.AddDrink(Drink.Water, Time.deltaTime * fillSpeed);
-            dc.AddHeat(-1f * Time.deltaTime);
+            dc.AddHeat(-coolingSpeed * Time.deltaTime);
         }
     }
 
