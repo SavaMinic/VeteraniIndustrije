@@ -189,19 +189,11 @@ public class Guest : MonoBehaviour
 
                     const float minimumAmount = 0.5f;
 
-                    bool correctConsumable = false;
-                    bool correctTemperature = false;
+                    bool correctConsumable = currentWish.Type == container.type.wishType;
+                    bool correctTemperature = container.IsAtGoodTemperature();
 
                     if (container.amount > minimumAmount)
                     {
-                        if (currentWish.Type == container.type.wishType)
-                        {
-                            correctConsumable = true;
-
-                            if (container.IsAtGoodTemperature())
-                                correctTemperature = true;
-                        }
-
                         if (correctConsumable && correctTemperature)
                             FinishActiveWish(true);
                         else
