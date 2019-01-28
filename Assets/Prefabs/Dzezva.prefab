@@ -105,7 +105,6 @@ MonoBehaviour:
   kipiSpeed: 0.1
   coolingSpeed: 0.01
   ringla: {fileID: 0}
-  slavina: {fileID: 0}
 --- !u!114 &6986363191995350882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,4 +122,5 @@ MonoBehaviour:
   maxAmount: 3
   temperature: 0
   coolingSpeed: 0.01
+  canBeRefilledAtSlavina: 1
   neverShowMeter: 0

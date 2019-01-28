@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7646861230477593113}
   - component: {fileID: 7646861230477593112}
   m_Layer: 0
-  m_Name: Glass (2)
+  m_Name: Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,3 +116,5 @@ MonoBehaviour:
   maxAmount: 1
   temperature: 0
   coolingSpeed: 0.01
+  canBeRefilledAtSlavina: 1
+  neverShowMeter: 0
