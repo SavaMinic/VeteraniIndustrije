@@ -8,10 +8,10 @@ public class DrinkContainer : MonoBehaviour
     public float amount;
     public float maxAmount = 1;
     public float temperature;
-
     public float coolingSpeed = 0.01f;
 
     public bool canBeRefilledAtSlavina;
+
     public bool showAmount = true;
     public bool showTemperature = true;
 
@@ -42,6 +42,19 @@ public class DrinkContainer : MonoBehaviour
         drinkContainer.temperature = temperature;
 
         return true;
+    }
+
+    public void AddDrink(Drink _drinkType, float _amount)
+    {
+        drinkType = _drinkType;
+        amount += _amount;
+        if (amount > maxAmount) amount = maxAmount;
+    }
+
+    public void AddHeat(float heat)
+    {
+        temperature += heat;
+        temperature = Mathf.Clamp01(temperature);
     }
 
     private void Update()

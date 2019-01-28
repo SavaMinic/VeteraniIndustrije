@@ -14,9 +14,8 @@ public class Slavina : Slot
 
         if (dc && dc.canBeRefilledAtSlavina)
         {
-            dc.drinkType = Drink.Water;
-            dc.amount += Time.deltaTime * fillSpeed;
-            if (dc.amount > dc.maxAmount) dc.amount = dc.maxAmount;
+            dc.AddDrink(Drink.Water, Time.deltaTime * fillSpeed);
+            dc.AddHeat(-1f * Time.deltaTime);
         }
     }
 
