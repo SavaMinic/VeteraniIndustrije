@@ -87,9 +87,9 @@ public class GuestWish
         }
     }
 
-    public void FinishWish()
+    public void FinishWish(bool success)
     {
         RemainingWaitingTime = 0f;
-        IsSuccess = true;
+        IsSuccess = success;
     }
 }

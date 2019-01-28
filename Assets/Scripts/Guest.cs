@@ -230,10 +230,9 @@ public class Guest : MonoBehaviour
                         }
 
                         if (correctDrink && correctTemperature)
-                        {
-                            FinishActiveWish();
-                        }
-                        // else wrong drink!!!
+                            FinishActiveWish(true);
+                        else
+                            FinishActiveWish(false);
                     }
                 }
                 else if (currentWish.IsFoodWish)
@@ -255,10 +254,9 @@ public class Guest : MonoBehaviour
                         }
 
                         if (correctFood && correctTemperature)
-                        {
-                            FinishActiveWish();
-                        }
-                        // else wrong food!!!
+                            FinishActiveWish(true);
+                        else
+                            FinishActiveWish(false);
                     }
                 }
 
@@ -285,14 +283,14 @@ public class Guest : MonoBehaviour
         transform.position = sittingPosition;
     }
 
-    public void FinishActiveWish()
+    public void FinishActiveWish(bool success = true)
     {
         var activeWish = CurrentWish;
         if (activeWish == null || CurrentState != GuestState.WaitingForService)
             return;
 
         Debug.Log(sittingIndex + " Finished active wish, start delay");
-        activeWish.FinishWish();
+        activeWish.FinishWish(success);
         Delay(DelayAfterWish);
     }
 
