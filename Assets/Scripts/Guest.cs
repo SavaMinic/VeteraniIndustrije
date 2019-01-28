@@ -192,12 +192,17 @@ public class Guest : MonoBehaviour
                     bool correctConsumable = currentWish.Type == container.type.wishType;
                     bool correctTemperature = container.IsAtGoodTemperature();
 
+
                     if (container.amount > minimumAmount)
                     {
+                        Consumable.Quips q = container.type.quips;
+
                         if (correctConsumable && correctTemperature)
-                            FinishActiveWish(true);
+                            FinishActiveWish(true, q.perfect[Random.Range(0, q.perfect.Length)]);
+                        else if (correctConsumable)
+                            FinishActiveWish(false, q.wrongTemperature[Random.Range(0, q.wrongTemperature.Length)]);
                         else
-                            FinishActiveWish(false);
+                            FinishActiveWish(false, q.wrongConsumable[Random.Range(0, q.wrongConsumable.Length)]);
                     }
                 }
 
@@ -224,7 +229,7 @@ public class Guest : MonoBehaviour
         transform.position = sittingPosition;
     }
 
-    public void FinishActiveWish(bool success = true)
+    public void FinishActiveWish(bool success = true, string message = "")
     {
         var activeWish = CurrentWish;
         if (activeWish == null || CurrentState != GuestState.WaitingForService)
@@ -233,6 +238,9 @@ public class Guest : MonoBehaviour
         Debug.Log(sittingIndex + " Finished active wish, start delay");
         activeWish.FinishWish(success);
         Delay(DelayAfterWish);
+
+        if (!string.IsNullOrEmpty(message))
+            CanvasController.I.ShowNotification(this, message);
     }
 
     #endregion
