@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Salata : Interactable
 {
-    FoodContainer foodContainer;
+    Container foodContainer;
 
     public int choppingAmount = 0;
     public int maxChopping = 10;
@@ -14,6 +14,4 @@ public class Salata : Interactable
     {
         choppingAmount++;
     }
-
-
 }
