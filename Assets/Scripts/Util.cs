@@ -50,6 +50,40 @@ public static class Util
         return closest;
     }
 
+    public static T FindClosest<T>(List<T> list, T skip, Vector3 target, float maxRange = Mathf.Infinity, bool inViewSpace = false) where T : Component
+    {
+        if (list == null) return null;
+
+        float closestDistance = Mathf.Infinity;
+        T closest = null;
+
+        if (inViewSpace)
+        {
+            target = GetCameraSpacePoint(target);
+        }
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i] == skip) continue;
+
+            Vector3 pos = list[i].transform.position;
+            if (inViewSpace) pos = GetCameraSpacePoint(pos);
+
+            float sqrdist = (target - pos).sqrMagnitude;
+
+            if (sqrdist < closestDistance)
+            {
+                closestDistance = sqrdist;
+                closest = list[i];
+            }
+        }
+
+        if (closestDistance > maxRange * maxRange)
+            return null;
+
+        return closest;
+    }
+
     public static Vector3 GetCameraSpacePoint(Vector3 v3)
     {
         v3 = Camera.main.transform.InverseTransformPoint(v3);
