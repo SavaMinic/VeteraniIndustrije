@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Guest : MonoBehaviour
 {
-
     public enum GuestType
     {
         Default,
@@ -125,6 +124,7 @@ public class Guest : MonoBehaviour
                 else if (!currentWish.IsActive)
                 {
                     currentWish.ActivateWish();
+
                 }
                 else if (currentWish.IsTvWish)
                 {
@@ -255,6 +255,14 @@ public class Guest : MonoBehaviour
         var wish = new GuestWish(wishType, WaitingTimePerWish);
         AllWishes.Add(wish);
         wish.ActivateWish();
+
+        // Display a request quip
+        WishQuip quip = GuestManager.I.GetWishQuip(wish.Type);
+        if (quip != null)
+        {
+            string quipText = quip.GetRequest();
+            if (quipText != "") CanvasController.I.ShowNotification(this, quipText);
+        }
     }
 
     private void RequestingWish()

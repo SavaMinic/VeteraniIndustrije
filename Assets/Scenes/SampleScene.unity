@@ -2842,6 +2842,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6b6b6b128b447d2b84b83a5d6c4647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wishQuips:
+  - {fileID: 11400000, guid: 53bb70def9310a844916328e873b128c, type: 2}
+  - {fileID: 11400000, guid: ff00b4a2be1889c4e94802cc7a18a38a, type: 2}
+  - {fileID: 11400000, guid: c7e5a80ab8d1ac847980915adc10a525, type: 2}
+  - {fileID: 11400000, guid: 743332b3a0cb2924298a857debe76525, type: 2}
+  - {fileID: 11400000, guid: b31abd91ef6def74aaaee2ecbb8d4cf1, type: 2}
   GuestSittingPositions:
   - {x: 10.64, y: 0, z: 8.44}
   - {x: 10.65, y: 0, z: -1.05}
@@ -9700,6 +9706,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item_Sarma
       objectReference: {fileID: 0}
+    - target: {fileID: 884190577763758606, guid: 744aaeba5073b844b8a4061fa5bce99d,
+        type: 3}
+      propertyPath: inSlot
+      value: 
+      objectReference: {fileID: 33808835}
     - target: {fileID: 884190577763758608, guid: 744aaeba5073b844b8a4061fa5bce99d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9755,11 +9766,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 884190577763758606, guid: 744aaeba5073b844b8a4061fa5bce99d,
-        type: 3}
-      propertyPath: inSlot
-      value: 
-      objectReference: {fileID: 33808835}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 744aaeba5073b844b8a4061fa5bce99d, type: 3}
 --- !u!1001 &1744135290900549131

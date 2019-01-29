@@ -20,25 +20,27 @@ public class GuestManager : MonoBehaviour
             return instance;
         }
     }
-    
+
     #endregion
-    
+
     #region Properties
+
+    [SerializeField] WishQuip[] wishQuips;
 
     public List<Vector3> GuestSittingPositions = new List<Vector3>();
     public List<bool> GuestSittingFlipped = new List<bool>();
-    
+
     public List<GameObject> GuestPrefabs = new List<GameObject>();
 
     public int InitialGuestCount;
     public float DelayForGeneratingGuestsSlow = 10f;
     public float DelayForGeneratingGuestsFast = 25f;
 
-    public float DelayForGeneratingGuests => 
+    public float DelayForGeneratingGuests =>
         availableSittingPositionIndex.Count > 3
         ? DelayForGeneratingGuestsFast
         : DelayForGeneratingGuestsSlow;
-    
+
     private float timeToGenerateNewGuests;
 
     private List<int> availableSittingPositionIndex = new List<int>();
@@ -60,7 +62,7 @@ public class GuestManager : MonoBehaviour
         new List<string> { "Vise vina", "I dogodine", "Bice bolje dogodine" },
         new List<string> { "Svaka cast, domacine!", "Sve najbolje!" },
     };
-    
+
     #endregion
 
     #region Mono
@@ -73,7 +75,7 @@ public class GuestManager : MonoBehaviour
         {
             availableSittingPositionIndex.Add(i);
         }
-        
+
         // generate initial guests
         for (int i = 0; i < InitialGuestCount; i++)
         {
@@ -113,6 +115,17 @@ public class GuestManager : MonoBehaviour
         CanvasController.I.AddStars(numberOfStars);
     }
 
+    public WishQuip GetWishQuip(GuestWish.GuestWishType wishType)
+    {
+        for (int i = 0; i < wishQuips.Length; i++)
+        {
+            if (wishQuips[i].wishType == wishType)
+                return wishQuips[i];
+        }
+
+        return null;
+    }
+
     #endregion
 
     #region Private
@@ -124,7 +137,7 @@ public class GuestManager : MonoBehaviour
             Debug.Log("No sitting position");
             return;
         }
-        
+
         Debug.Log("Generating new guest");
         var index = availableSittingPositionIndex[UnityEngine.Random.Range(0, availableSittingPositionIndex.Count)];
         availableSittingPositionIndex.Remove(index);
@@ -136,7 +149,7 @@ public class GuestManager : MonoBehaviour
         var guest = guestObject.GetComponent<Guest>();
         var isFlipped = index < GuestSittingFlipped.Count && GuestSittingFlipped[index];
         guest.SitHere(index, GuestSittingPositions[index], isFlipped);
-        
+
         CanvasController.I.AddNewGuestWish(guest);
 
         var entryMessage = entryMessages[UnityEngine.Random.Range(0, entryMessages.Count)];
@@ -144,8 +157,8 @@ public class GuestManager : MonoBehaviour
     }
 
     #endregion
-    
-    #if UNITY_EDITOR
+
+#if UNITY_EDITOR
 
     private void OnDrawGizmos()
     {
