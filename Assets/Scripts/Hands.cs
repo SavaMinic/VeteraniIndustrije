@@ -45,14 +45,13 @@ public class Hands : MonoBehaviour
         bool btn_down = Input.GetButtonDown(interactionKey);
         bool btn_held = Input.GetAxis(interactionKey) > 0f;
 
-        // Sipanje hrane i pica u gosta
-        // Matches
+        // Sibice
         if (heldItem is Matches && closestItem is Candle && btn_down)
         {
-            Debug.Log("Lighting the candle!");
             (closestItem as Candle).Ignite();
         }
-        if (closestItem is Consumer && heldItem?.GetComponent<Container>())
+        // Sipanje hrane i pica u gosta
+        else if (closestItem is Consumer && heldItem?.GetComponent<Container>())
         {
             Consumer gost = closestItem as Consumer;
             Container drc = heldItem.GetComponent<Container>();
