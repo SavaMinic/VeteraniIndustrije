@@ -63,11 +63,13 @@ public class GuestManager : MonoBehaviour
         new List<string> { "Svaka cast, domacine!", "Sve najbolje!" },
     };
 
+    private bool slavaHasStarted;
+
     #endregion
 
     #region Mono
 
-    private void Start()
+    private void StartSlava()
     {
         timeToGenerateNewGuests = DelayForGeneratingGuests;
         // fill in available sitting index
@@ -81,12 +83,21 @@ public class GuestManager : MonoBehaviour
         {
             GenerateNewGuest();
         }
+
+        slavaHasStarted = true;
     }
 
     private void Update()
     {
         if (!Application.isPlaying)
             return;
+
+        if (!Candle.e.isBurning)
+        {
+            return;
+        }
+        else if (!slavaHasStarted)
+            StartSlava();
 
         if (timeToGenerateNewGuests > 0f)
         {
