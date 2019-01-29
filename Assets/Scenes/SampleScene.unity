@@ -8465,7 +8465,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc00029ef857f844ea3b4d7637d420b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allConsumables: []
+  consumables:
+  - {fileID: 11400000, guid: b6a50c19bbac3574f8fc488a908ee4bb, type: 2}
+  - {fileID: 11400000, guid: dec9825596b45094d96e5a6719f2aeca, type: 2}
+  - {fileID: 11400000, guid: 1df7f0e37a916d54198c02cc8b8638a2, type: 2}
+  - {fileID: 11400000, guid: 0111ff78089df144fa9aae2f4dcccc4d, type: 2}
+  - {fileID: 11400000, guid: 656a7bffa0db57549baf49212929cd70, type: 2}
+  - {fileID: 11400000, guid: 540c885b3994a67459228662578721b9, type: 2}
   foods:
   - {fileID: 11400000, guid: 0111ff78089df144fa9aae2f4dcccc4d, type: 2}
   drinks:

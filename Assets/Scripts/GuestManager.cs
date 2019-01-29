@@ -51,8 +51,8 @@ public class GuestManager : MonoBehaviour
         "Pomaze bog, komsija!",
         "Domacice, sve najbolje!",
         "Nek je srecna slava!",
-        "Dajte da popijemo poneku!",
-        "Komsinice, stavi kafu!",
+        //"Dajte da popijemo poneku!",
+        //"Komsinice, stavi kafu!",
     };
 
     private List<List<string>> exitMessages = new List<List<string>>
