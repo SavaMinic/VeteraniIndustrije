@@ -33,6 +33,7 @@ TODO:
 - Promaja turns candle off
 - Failures should flash red, not just fadeout
 - Add happy / unhappy faces to notificaions
+- Stavi kafu komsinice - should predict coffee
 - Working sveca
 - Zito
 - Ulaz/izlaz
