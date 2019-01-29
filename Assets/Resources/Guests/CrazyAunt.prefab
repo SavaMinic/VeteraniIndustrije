@@ -222,35 +222,40 @@ PrefabInstance:
       propertyPath: m_Name
       value: Consumer
       objectReference: {fileID: 0}
+    - target: {fileID: 1226532580599154124, guid: df5616d581bea814fb899dc870d1dcf6,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 375601730789128233}
     - target: {fileID: 1226532580599154125, guid: df5616d581bea814fb899dc870d1dcf6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.59
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1226532580599154125, guid: df5616d581bea814fb899dc870d1dcf6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.65
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1226532580599154125, guid: df5616d581bea814fb899dc870d1dcf6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.68
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1226532580599154125, guid: df5616d581bea814fb899dc870d1dcf6,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1226532580599154125, guid: df5616d581bea814fb899dc870d1dcf6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1226532580599154125, guid: df5616d581bea814fb899dc870d1dcf6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1226532580599154125, guid: df5616d581bea814fb899dc870d1dcf6,
         type: 3}
@@ -277,11 +282,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1226532580599154124, guid: df5616d581bea814fb899dc870d1dcf6,
+    - target: {fileID: 1226532580599154125, guid: df5616d581bea814fb899dc870d1dcf6,
         type: 3}
-      propertyPath: sprite
-      value: 
-      objectReference: {fileID: 375601730789128233}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226532580599154125, guid: df5616d581bea814fb899dc870d1dcf6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226532580599154125, guid: df5616d581bea814fb899dc870d1dcf6,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df5616d581bea814fb899dc870d1dcf6, type: 3}
 --- !u!4 &4225508492946516113 stripped
