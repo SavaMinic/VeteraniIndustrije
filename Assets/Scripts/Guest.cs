@@ -19,7 +19,6 @@ public class Guest : MonoBehaviour
     {
         WalkingIn,
         WaitingForService,
-        Consuming,
         Delay,
         GoingOut,
     }
@@ -84,9 +83,6 @@ public class Guest : MonoBehaviour
                     Debug.Log(sittingIndex + " BYE!");
                     StartCoroutine(DelayDestroy(1.2f));
                 }
-                return;
-            case GuestState.Consuming:
-
                 return;
             case GuestState.Delay:
                 // currently delayed after the wish
