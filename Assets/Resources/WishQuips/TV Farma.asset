@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0477eafa17b8b47834d94009b00b3c, type: 3}
   m_Name: TV Farma
   m_EditorClassIdentifier: 
-  wishType: 9
+  wishType: 10
   request:
   - Daj prebaci na farmu
   success: []

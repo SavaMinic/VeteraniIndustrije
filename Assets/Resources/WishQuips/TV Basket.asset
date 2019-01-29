@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0477eafa17b8b47834d94009b00b3c, type: 3}
   m_Name: TV Basket
   m_EditorClassIdentifier: 
-  wishType: 7
+  wishType: 8
   request:
   - Daj prebaci da vidim rezultat
   - Domacine, aj basket okreni

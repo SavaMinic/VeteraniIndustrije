@@ -21,6 +21,7 @@ public class GuestWish
         Sarma,
 
         // tv wishes
+        TvOff,
         TvBasketball,
         TvWeather,
         TvFarma,
@@ -40,7 +41,8 @@ public class GuestWish
     public bool? IsSuccess { get; private set; }
     public bool IsFinished => IsSuccess.HasValue;
 
-    public bool IsTvWish => Type == GuestWishType.TvBasketball
+    public bool IsTvWish => Type == GuestWishType.TvOff
+                            || Type == GuestWishType.TvBasketball
                             || Type == GuestWishType.TvWeather
                             || Type == GuestWishType.TvFarma;
 

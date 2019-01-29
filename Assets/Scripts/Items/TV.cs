@@ -10,6 +10,7 @@ public class TV : Interactable
 
     private GuestWish.GuestWishType[] channelTypes =
     {
+        GuestWish.GuestWishType.TvOff,
         GuestWish.GuestWishType.TvBasketball,
         GuestWish.GuestWishType.TvWeather,
         GuestWish.GuestWishType.TvFarma,

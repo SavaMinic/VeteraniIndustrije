@@ -134,17 +134,19 @@ MonoBehaviour:
     WishSprite: {fileID: 21300000, guid: 4d319a46335c4455ebaa8529fdc83051, type: 3}
   - WishType: 2
     WishSprite: {fileID: 21300000, guid: 037fde2100c7e4c39b6d87b6a176b27b, type: 3}
-  - WishType: 9
-    WishSprite: {fileID: 21300000, guid: c8c4839d0bd3e43b3addee5319e399f6, type: 3}
-  - WishType: 8
-    WishSprite: {fileID: 21300000, guid: c3eed9b68ece34e9cb21879dda087da0, type: 3}
   - WishType: 7
+    WishSprite: {fileID: 21300000, guid: 8fe508d2fa1f6904ab62eff88b86a36a, type: 3}
+  - WishType: 10
+    WishSprite: {fileID: 21300000, guid: c8c4839d0bd3e43b3addee5319e399f6, type: 3}
+  - WishType: 9
+    WishSprite: {fileID: 21300000, guid: c3eed9b68ece34e9cb21879dda087da0, type: 3}
+  - WishType: 8
     WishSprite: {fileID: 21300000, guid: c018b0c0773924f9ea5eb96fd4b1d0a0, type: 3}
   - WishType: 4
     WishSprite: {fileID: 21300000, guid: 4dd937f26a2db401c86ecb449130f65f, type: 3}
-  - WishType: 10
-    WishSprite: {fileID: 21300000, guid: b473372218b2b478eb73384d83e3b615, type: 3}
   - WishType: 11
+    WishSprite: {fileID: 21300000, guid: b473372218b2b478eb73384d83e3b615, type: 3}
+  - WishType: 12
     WishSprite: {fileID: 21300000, guid: 72d76096b4df84d318df593a2487abcc, type: 3}
   - WishType: 5
     WishSprite: {fileID: 21300000, guid: 2251d1ca9a3dc40e49fd628da67a3ff3, type: 3}

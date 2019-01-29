@@ -98,7 +98,14 @@ TODO:
 - boiling animation
 - zito
 - sveca > sibice notifikacija
-- orasica / ratluk
+- orasica / ratluk ?
+- zito na tacni
+
+- woodpile
+- single wood log
+
+- stan:
+	- terasa / porch
 
 - Glavni meni
 - Skor

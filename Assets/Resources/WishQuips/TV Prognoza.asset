@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0477eafa17b8b47834d94009b00b3c, type: 3}
   m_Name: TV Prognoza
   m_EditorClassIdentifier: 
-  wishType: 8
+  wishType: 9
   request:
   - Daj da vidimo hoce biti snega
   - Ocu stici ja kuci, daj da vidimo prognozu
