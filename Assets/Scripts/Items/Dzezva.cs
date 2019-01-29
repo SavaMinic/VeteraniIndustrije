@@ -13,7 +13,7 @@ public class Dzezva : Interactable
 
     private void Update()
     {
-        if (ringla && ringla.isOn && container.amount >= 1)
+        if (ringla && ringla.isOn)
             container.AddHeat(Time.deltaTime * heatingSpeed);
 
         // Debug lines
