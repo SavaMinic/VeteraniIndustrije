@@ -14,6 +14,8 @@ public class Hands : MonoBehaviour
     Interactable lastClosestItem;
     Slot lastClosestSlot;
 
+    public PouringSound pouringSound;
+
     private void Update()
     {
         Slot closestSlot = Util.FindClosest(Slot.all, null, transform.position, interactRange, useViewSpaceDistance);
@@ -53,7 +55,10 @@ public class Hands : MonoBehaviour
                 drc.TransferTo(gost.foodContainer, 1);
 
             if (drc.containsType == Container.ContainsType.Drink && btn_held)
+            {
+                pouringSound?.Pour();
                 drc.TransferTo(gost.drinkContainer, Time.deltaTime); // TODO: Tweak speed
+            }
         }
         // Chop and take salata
         else if (!heldItem && closestItem is Salata && btn_down)
