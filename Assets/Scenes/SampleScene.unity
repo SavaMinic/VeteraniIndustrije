@@ -2306,11 +2306,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587065723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.36715645, z: 0.9962723}
+  m_LocalPosition: {x: 0.021213055, y: 0.76078916, z: 0.25511563}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1833406188}
-  m_RootOrder: 0
+  m_Father: {fileID: 1959196459}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 35, y: -135, z: 0}
 --- !u!212 &587065725
 SpriteRenderer:
@@ -4711,7 +4711,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1959196459}
-  - {fileID: 1833406188}
   m_Father: {fileID: 1069036236}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8238,13 +8237,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833406187}
-  m_LocalRotation: {x: 0.1150751, y: -0.8811196, z: 0.27781588, w: 0.36497167}
-  m_LocalPosition: {x: 3.57, y: 2.67, z: 3.06}
-  m_LocalScale: {x: 2, y: 2, z: 1}
-  m_Children:
-  - {fileID: 587065724}
-  m_Father: {fileID: 1124992712}
-  m_RootOrder: 1
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.021213181, y: 0.082, z: -0.31}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1959196459}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 35, y: -135, z: 0}
 --- !u!212 &1833406189
 SpriteRenderer:
@@ -8850,6 +8848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1959196459}
   - component: {fileID: 1959196460}
+  - component: {fileID: 1959196461}
   m_Layer: 0
   m_Name: Postolje
   m_TagString: Untagged
@@ -8867,7 +8866,9 @@ Transform:
   m_LocalRotation: {x: 0.1150751, y: -0.8811196, z: 0.27781588, w: 0.36497167}
   m_LocalPosition: {x: 3.49, y: 1.6, z: 2.92}
   m_LocalScale: {x: 2, y: 2, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1833406188}
+  - {fileID: 587065724}
   m_Father: {fileID: 1124992712}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 35, y: -135, z: 0}
@@ -8919,6 +8920,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1959196461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959196458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39a9b190307f0143843312fd7d80e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTakeable: 1
+  isHeld: 0
+  inSlot: {fileID: 0}
+  highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
+  sprite: {fileID: 1959196460}
+  soundVolume: 0.5
+  pickupClip: {fileID: 0}
+  putClip: {fileID: 0}
+  isBurning: 1
+  flame: {fileID: 587065723}
+  body: {fileID: 1833406187}
+  burnProgress: 0
+  flameStartPosition: {x: 0.02121305, y: 0.7607892, z: 0.2551156}
+  flameEndPosition: {x: 0.02121305, y: 0.14, z: 0.2551156}
 --- !u!1 &1994088382
 GameObject:
   m_ObjectHideFlags: 0
