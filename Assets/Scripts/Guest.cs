@@ -138,7 +138,10 @@ public class Guest : MonoBehaviour
                             timeForTvWish -= Time.deltaTime;
                             if (timeForTvWish <= 0f)
                             {
-                                FinishActiveWish();
+                                WishQuip quip = GuestManager.I.GetWishQuip(currentWish.Type);
+                                string quipText = quip ? quip.GetSuccess() : "";
+
+                                FinishActiveWish(message: quipText);
                             }
                         }
                         else
@@ -165,7 +168,10 @@ public class Guest : MonoBehaviour
                             timeForWindowWish -= Time.deltaTime;
                             if (timeForWindowWish <= 0f)
                             {
-                                FinishActiveWish();
+                                WishQuip quip = GuestManager.I.GetWishQuip(currentWish.Type);
+                                string quipText = quip ? quip.GetSuccess() : "";
+
+                                FinishActiveWish(message: quipText);
                             }
                         }
                         else
