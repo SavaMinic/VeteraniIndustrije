@@ -267,12 +267,18 @@ public class Guest : MonoBehaviour
         string quipText = "";
         if (wish.IsDrinkWish || wish.IsFoodWish)
         {
-            var container = wish.IsDrinkWish ? consumer.drinkContainer : consumer.foodContainer;
-            Consumable.Quips quip = container.type.quips;
+            Consumable.Quips quip = null;
+            foreach (var consumable in Database.e.consumables)
+            {
+                if (consumable.wishType == wish.Type)
+                {
+                    quip = consumable.quips;
+                    break;
+                }
+            }
 
-            quipText = quip.request[Random.Range(0, quip.request.Length)];
-
-            Debug.Log("Drink quip: " + quipText);
+            if (quip != null)
+                quipText = quip.request[Random.Range(0, quip.request.Length)];
         }
         else
         {

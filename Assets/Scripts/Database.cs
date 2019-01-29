@@ -7,7 +7,7 @@ public class Database : MonoBehaviour
     public static Database e;
     private void Awake() { e = this; }
 
-    public Consumable[] allConsumables;
+    public Consumable[] consumables;
 
     public Consumable[] foods;
     public Consumable[] drinks;
