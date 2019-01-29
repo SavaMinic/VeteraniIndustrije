@@ -27,6 +27,13 @@ TODO:
 - Success/Wrong rate influencing number of stars
 - Don't highlight items when holding and item
 - Consumable quips wrong drink is inverted.
+- Empty glasses also produce sound when pouring
+- Make pouring rakija quicker
+- Kalabuka sound should be proportional to number of guests 
+- Promaja turns candle off
+- Failures should flash red, not just fadeout
+- Add happy / unhappy faces to notificaions
+- Working sveca
 - Zito
 - Ulaz/izlaz
 - Metla - brisanje
