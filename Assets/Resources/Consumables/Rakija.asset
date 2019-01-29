@@ -17,6 +17,8 @@ MonoBehaviour:
   goodTemperatureSide: 0
   wishType: 2
   quips:
+    request:
+    - Ajmo po jednu
     perfect:
     - Dooooobraaa dooomaca!
     - Kida radza

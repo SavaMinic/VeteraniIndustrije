@@ -17,6 +17,8 @@ MonoBehaviour:
   goodTemperatureSide: 0
   wishType: 4
   quips:
+    request:
+    - Daj sok crni
     perfect:
     - Bolja nego kola!
     - Fala fala

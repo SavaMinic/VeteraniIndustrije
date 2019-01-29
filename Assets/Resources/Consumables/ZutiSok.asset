@@ -17,6 +17,8 @@ MonoBehaviour:
   goodTemperatureSide: 0
   wishType: 3
   quips:
+    request:
+    - Moze zuti slok?
     perfect:
     - Skoro ko fanta!
     - Fala

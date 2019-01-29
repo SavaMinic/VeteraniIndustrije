@@ -263,12 +263,27 @@ public class Guest : MonoBehaviour
         wish.ActivateWish();
 
         // Display a request quip
-        WishQuip quip = GuestManager.I.GetWishQuip(wish.Type);
-        if (quip != null)
+
+        string quipText = "";
+        if (wish.IsDrinkWish || wish.IsFoodWish)
         {
-            string quipText = quip.GetRequest();
-            if (quipText != "") CanvasController.I.ShowNotification(this, quipText);
+            var container = wish.IsDrinkWish ? consumer.drinkContainer : consumer.foodContainer;
+            Consumable.Quips quip = container.type.quips;
+
+            quipText = quip.request[Random.Range(0, quip.request.Length)];
+
+            Debug.Log("Drink quip: " + quipText);
         }
+        else
+        {
+            WishQuip quip = GuestManager.I.GetWishQuip(wish.Type);
+            if (quip != null)
+            {
+                quipText = quip.GetRequest();
+            }
+        }
+
+        if (quipText != "") CanvasController.I.ShowNotification(this, quipText);
     }
 
     private void RequestingWish()

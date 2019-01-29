@@ -17,6 +17,8 @@ MonoBehaviour:
   goodTemperatureSide: 1
   wishType: 6
   quips:
+    request:
+    - Jel to sarma mirise? Pa moooze jedna
     perfect:
     - Sarma kida
     - Mmmmm miris sarme

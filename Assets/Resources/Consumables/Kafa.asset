@@ -17,6 +17,8 @@ MonoBehaviour:
   goodTemperatureSide: 1
   wishType: 1
   quips:
+    request:
+    - Stavi kafu domacine!
     perfect:
     - Dobraaaaa kaaafaaaa
     - Uf, dobra domaca

@@ -17,6 +17,8 @@ MonoBehaviour:
   goodTemperatureSide: 0
   wishType: 5
   quips:
+    request:
+    - Sipaj vode da ugasim
     perfect:
     - Fala
     - E hvala domacine

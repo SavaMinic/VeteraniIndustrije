@@ -16,6 +16,7 @@ public class Consumable : ScriptableObject
     [System.Serializable]
     public class Quips
     {
+        public string[] request;
         public string[] perfect;
         public string[] wrongTemperature;
         public string[] wrongConsumable;
