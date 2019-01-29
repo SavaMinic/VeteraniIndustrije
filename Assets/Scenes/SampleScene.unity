@@ -8881,6 +8881,9 @@ MonoBehaviour:
   - {fileID: 661618209}
   - {fileID: 1837749286}
   - {fileID: 2142227672}
+  switchVolume: 0.5
+  switchClip: {fileID: 8300000, guid: 8923997b2ede5964ebc07287a30d143f, type: 3}
+  switchOffClip: {fileID: 8300000, guid: aa9efcaf0661a8c42abda97412e9efc0, type: 3}
 --- !u!1 &1997606835
 GameObject:
   m_ObjectHideFlags: 0

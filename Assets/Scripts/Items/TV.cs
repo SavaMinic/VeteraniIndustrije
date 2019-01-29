@@ -8,6 +8,10 @@ public class TV : Interactable
 
     public GameObject[] channelSprites;
 
+    public float switchVolume = 1;
+    public AudioClip switchClip;
+    public AudioClip switchOffClip;
+
     private GuestWish.GuestWishType[] channelTypes =
     {
         GuestWish.GuestWishType.TvOff,
@@ -32,6 +36,11 @@ public class TV : Interactable
             channel = 0;
 
         SetChannel();
+
+        if (channel == 0)
+            switchOffClip.Play2D(switchVolume);
+        else
+            switchClip.Play2D(switchVolume);
     }
 
     void SetChannel()
