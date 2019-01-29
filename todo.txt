@@ -6,7 +6,7 @@
 done:
 - Sarma - podgrevanje, sluzenje
 - Dzezva - sipanje vode, kuvanje, sluzenje
-- kafa - kafa
+- kafa - kafa 
 - Rakija - sluzenje
 - Prozor - otvaranje zatvaranje
 - Vrata - otvaranje zatvaranje
@@ -21,27 +21,63 @@ done:
 - Pick/drop sounds
 - Guest quips on success/wrong drinkfood
 - Fix: Putting glass on sporet activates boiling sound
-
-TODO:
-- Skip already fulfilled wishes (don't wish a closed window if already closed)
-- Success/Wrong rate influencing number of stars
-- Don't highlight items when holding and item
-- Consumable quips wrong drink is inverted.
-- Empty glasses also produce sound when pouring
-- Make pouring rakija quicker
-- Kalabuka sound should be proportional to number of guests 
-- Promaja turns candle off
-- Failures should flash red, not just fadeout
-- Add happy / unhappy faces to notificaions
 - Stavi kafu komsinice - should predict coffee
 - Working sveca
-- Zito
-- Ulaz/izlaz
-- Metla - brisanje
-- Blato - brisanje metlom
-- Salata - seckanje, sluzenje
+
+Discard:
 - Frizider
-- Pivo
+- Salata - seckanje, sluzenje
+
+## TODO ##
+
+# Small stuff:
+	- Skip already fulfilled wishes (don't wish a closed window if already closed)
+	- Consumable quips wrong drink is inverted
+	- Don't highlight items when holding an item, unless it's interactable with the current item
+	- Spots don't get unhighlighted when picking up an item
+	- Empty glasses also produce sound when pouring
+	- Make pouring rakija quicker
+	- Kalabuka sound should be proportional to number of guests 
+	- Failures should flash red, not just fadeout
+	- Off tv channel
+	- Success/Wrong rate influencing number of stars
+	- Smederevac / Kaljeva pec, requires wood
+	- Orasnica
+
+# Big stuff:
+	- Guest movement
+		- Bell ringing
+		- Working ulaz / izlaz
+		- Waiting for zito ?
+		- Walking to the table spot
+	- Promaja,
+		- Activated when door and window are open
+		- Promaja turns off the candle ?
+		- Promaja speeds up guest requests
+	- Porch / terasa
+		- Beer stash
+		- Wood pile
+	- Improved notifications
+		- Smaller ?
+		- Colored ?
+		- Only faces ?
+		- Flying off people ?
+	- Blato i brisanje
+	- Levels
+		- Morning:
+			- Kafa, zuti sok
+		- Afternoon:
+			- Rains, blato introduction
+			- Sarma is ready to be served
+		- Evening:
+			- Basketball game
+	- Main menu
+		- Credits
+
+- Items:
+	- Pivo
+	- Zito
+	- Metla
 
 //-----
 // ART
@@ -49,19 +85,20 @@ TODO:
 
 discard:
 - frizider
+- glava kupusa
+- noz
+- tabla za nozeve
 
 done:
 - running water animation
 - empty slot
+- replace glass with bokal
 
 TODO:
-- replace glass with bokal
 - boiling animation
-- glava kupusa
-- noz
-- tabla za nozeve
 - zito
-- sveca notifikacija (sibice)
+- sveca > sibice notifikacija
+- orasica / ratluk
 
 - Glavni meni
 - Skor
@@ -80,12 +117,13 @@ done:
 - Otvaranje zatvaranje vrata
 - Jelo om nom nom nom
 - TV Kanali
-- 
-
-TODO:
 - Drop/pickup:
 	- Casa
 	- Metal (dzezva)
 	- Tacna
-	- Sarma
-	- Otvaranje rerne
+
+
+TODO:
+- Otvaranje rerne
+- Sarma
+- TV switch
