@@ -20,14 +20,12 @@ public class PouringSound : MonoBehaviour
     {
         if (pourThisFrame && !pouredLastFrame)
         {
-            Debug.LogWarning("POURING");
             source.enabled = true;
             source.Play();
         }
 
         if (!pourThisFrame && pouredLastFrame)
         {
-            Debug.LogWarning("Ended pouring!");
             source.enabled = false;
         }
 
