@@ -42,24 +42,18 @@ public class Hands : MonoBehaviour
 
         bool btn_down = Input.GetButtonDown(interactionKey);
         bool btn_held = Input.GetAxis(interactionKey) > 0f;
-
-        // Special cases:
-
+        
         // Sipanje hrane i pica u gosta
-        if (closestItem is Consumer && heldItem && heldItem.GetComponent<Container>())
+        if (closestItem is Consumer && heldItem?.GetComponent<Container>())
         {
             Consumer gost = closestItem as Consumer;
             Container drc = heldItem.GetComponent<Container>();
 
             if (drc.containsType == Container.ContainsType.Food && btn_down)
-            {
                 drc.TransferTo(gost.foodContainer, 1);
-            }
 
             if (drc.containsType == Container.ContainsType.Drink && btn_held)
-            {
                 drc.TransferTo(gost.drinkContainer, Time.deltaTime); // TODO: Tweak speed
-            }
         }
         // Chop and take salata
         else if (!heldItem && closestItem is Salata && btn_down)
@@ -89,85 +83,6 @@ public class Hands : MonoBehaviour
             var prozor = closestItem as Prozor;
             prozor.Toggle();
         }
-
-        // Sipanje sarme iz lonca u tanjir - unused
-        /*
-        else if (closestItem is Plate && heldItem is LonacSarme)
-        {
-            if (Input.GetAxis(interactionKey) > 0f)
-            {
-                var plateContainer = closestItem.GetComponent<FoodContainer>();
-                var lonacContainer = heldItem.GetComponent<FoodContainer>();
-
-                bool success = lonacContainer.TransferFoodTo(plateContainer, 1);
-
-                if (success) { } // play sound, effects
-
-                
-                //var plate = closestItem as Plate;
-                //var lonac = heldItem as LonacSarme;
-
-                //if (plate.foodContainer.amount == 0)
-                //{
-                //    plate.foodContainer.foodType = Food.Sarma;
-                //    plate.foodContainer.amount = 1;
-                //}
-            }
-        }*/
-
-        // Sipanje kafe u solju:
-        else if (heldItem is Dzezva && closestItem is Cup)
-        {
-            if (btn_held)
-            {
-                var dzezva = heldItem as Dzezva;
-                var cup = closestItem as Cup;
-
-                Debug.DrawLine(transform.position, cup.transform.position);
-
-                dzezva.container.TransferTo(cup.container, Time.deltaTime); // TODO: Add speed
-
-                /*
-                if ((cup.amount == 0 || cup.drinkType == dzezva.drinkType) && dzezva.amount > 0)
-                {
-                    cup.drinkType = dzezva.drinkType;
-
-                    float pourAmount = Time.deltaTime * 1; // TODO: add mult
-
-                    dzezva.amount -= pourAmount;
-                    if (dzezva.amount < 0) pourAmount += Mathf.Abs(dzezva.amount);
-
-                    cup.amount += pourAmount;
-                }*/
-            }
-        }
-        // Sipanje iz flase u solju/casu - kopirano ozgo
-        else if (closestItem is Cup && heldItem is Bottle)
-        {
-            if (btn_held)
-            {
-                var bottle = heldItem as Bottle;
-                var cup = closestItem as Cup;
-
-                Debug.DrawLine(transform.position, cup.transform.position);
-
-                bottle.container.TransferTo(cup.container, Time.deltaTime); // TODO: Add speed
-
-                /*
-                if ((cup.amount == 0 || cup.drinkType == bottle.drinkType)
-                    && bottle.amount > 0 && cup.amount < 1)
-                {
-                    cup.drinkType = bottle.drinkType;
-
-                    float pourAmount = Time.deltaTime * 1; // TODO: add mult
-
-                    bottle.amount -= pourAmount;
-                    if (bottle.amount < 0) pourAmount += Mathf.Abs(bottle.amount);
-
-                    cup.amount += pourAmount;
-                }*/
-            }
-        }
         // Sipanje kafe u dzezvu:
         else if (closestItem is Dzezva && heldItem is Coffee)
         {
@@ -177,8 +92,15 @@ public class Hands : MonoBehaviour
                 dzezva.container.type = (heldItem as Coffee).coffeeConsumable;
             }
         }
-        // TODO: metla
-        // General case: Take / Place item
+        else if (heldItem?.GetComponent<Container>() && closestItem?.GetComponent<Container>())
+        {
+            Container heldContainer = heldItem.GetComponent<Container>();
+            Container closeContainer = closestItem.GetComponent<Container>();
+
+            if (btn_held)
+                heldContainer.TransferTo(closeContainer, Time.deltaTime);
+        }
+        // Take / Place item
         else if (btn_down)
         {
             if (!heldItem)
