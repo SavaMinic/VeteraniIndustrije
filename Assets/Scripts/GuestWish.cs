@@ -31,6 +31,23 @@ public class GuestWish
         CloseWindow,
     }
 
+    // DON'T FORGET TO PUT AVAILABLE WISHES HERE!
+    public readonly IReadOnlyList<GuestWishType> AvailableWishTypes = new List<GuestWishType>
+    {
+        GuestWishType.Coffee,
+        GuestWishType.Rakija,
+        GuestWishType.ZutiSok,
+        GuestWishType.CrniSok,
+        GuestWishType.Water,
+        GuestWishType.Sarma,
+        GuestWishType.TvOff,
+        GuestWishType.TvBasketball,
+        GuestWishType.TvWeather,
+        GuestWishType.TvFarma,
+        GuestWishType.OpenWindow,
+        GuestWishType.CloseWindow,
+    };
+
     public GuestWishType Type;
     public float WaitingTime;
 
@@ -57,14 +74,24 @@ public class GuestWish
 
     public bool IsFoodWish => Type == GuestWishType.Sarma;
 
-
     public GuestWish(GuestWishType type, float waitingTime)
     {
         if (type == GuestWishType.Random)
         {
-            type = (GuestWishType)Random.Range(1, Enum.GetValues(typeof(GuestWishType)).Length);
+            type = AvailableWishTypes[Random.Range(0, AvailableWishTypes.Count)];
             //type = (GuestWishType)Random.Range((int)GuestWishType.TvBasketball, (int)GuestWishType.TvFarma + 1);
             //type = (GuestWishType)Random.Range((int)GuestWishType.OpenWindow, (int)GuestWishType.CloseWindow + 1);
+        }
+        // check if wish is already fullfillable
+        if (type == TV.SelectedChannel
+            || (Prozor.IsOpen && type == GuestWishType.OpenWindow)
+            || (!Prozor.IsOpen && type == GuestWishType.CloseWindow)
+        )
+        {
+            // pick any other
+            var availableWishes = new List<GuestWishType>(AvailableWishTypes);
+            availableWishes.Remove(type);
+            type = availableWishes[Random.Range(0, availableWishes.Count)];
         }
         Type = type;
 
