@@ -60,6 +60,12 @@ TODO:
 - glava kupusa
 - noz
 - tabla za nozeve
+- zito
+- sveca notifikacija (sibice)
+
+- Glavni meni
+- Skor
+- Credits
 
 //-------
 // SOUND
