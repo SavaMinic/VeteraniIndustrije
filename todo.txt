@@ -47,6 +47,9 @@ TODO:
 // ART
 //-----
 
+discard:
+- frizider
+
 done:
 - running water animation
 - empty slot
@@ -54,9 +57,9 @@ done:
 TODO:
 - replace glass with bokal
 - boiling animation
-- frizider
 - glava kupusa
-- z order donjih stolova
+- noz
+- tabla za nozeve
 
 //-------
 // SOUND
