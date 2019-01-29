@@ -42,7 +42,7 @@ public class Hands : MonoBehaviour
 
         bool btn_down = Input.GetButtonDown(interactionKey);
         bool btn_held = Input.GetAxis(interactionKey) > 0f;
-        
+
         // Sipanje hrane i pica u gosta
         if (closestItem is Consumer && heldItem?.GetComponent<Container>())
         {
@@ -92,13 +92,16 @@ public class Hands : MonoBehaviour
                 dzezva.container.type = (heldItem as Coffee).coffeeConsumable;
             }
         }
+        // General pouring stuff from container to container
         else if (heldItem?.GetComponent<Container>() && closestItem?.GetComponent<Container>())
         {
-            Container heldContainer = heldItem.GetComponent<Container>();
-            Container closeContainer = closestItem.GetComponent<Container>();
+            Container inC = heldItem.GetComponent<Container>();
+            Container toC = closestItem.GetComponent<Container>();
 
-            if (btn_held)
-                heldContainer.TransferTo(closeContainer, Time.deltaTime);
+            if (inC.containsType == Container.ContainsType.Drink &&
+                toC.containsType == Container.ContainsType.Drink &&
+                btn_held)
+                inC.TransferTo(toC, Time.deltaTime);
         }
         // Take / Place item
         else if (btn_down)
