@@ -6,8 +6,11 @@ public class Ringla : Slot
 {
     public bool isOn;
 
+    public AnimationCurve shumiVolumePerTemperature;
     public AnimationCurve vriVolumePerTemperature;
 
+
+    public AudioSource shumiSource;
     public AudioSource vriSource;
 
     public AudioClip turnOnClip;
@@ -17,10 +20,9 @@ public class Ringla : Slot
     {
         var dzezva = itemInSlot as Dzezva;
 
-        vriSource.enabled = itemInSlot == true;
-
         if (dzezva)
         {
+            shumiSource.volume = shumiVolumePerTemperature.Evaluate(dzezva.container.temperature);
             vriSource.volume = vriVolumePerTemperature.Evaluate(dzezva.container.temperature);
         }
     }
@@ -28,12 +30,21 @@ public class Ringla : Slot
     public override void OnItemPlaced()
     {
         if (itemInSlot && itemInSlot is Dzezva)
+        {
+            vriSource.enabled = true;
+            shumiSource.enabled = true;
             turnOnClip.Play2D();
+        }
     }
 
     public override void OnItemRemoved()
     {
         if (itemInSlot && itemInSlot is Dzezva)
+        {
             turnOffClip.Play2D();
+            vriSource.enabled = false;
+            shumiSource.enabled = false;
+        }
+
     }
 }
