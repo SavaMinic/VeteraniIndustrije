@@ -11,8 +11,9 @@ public class Candle : Interactable
     public float burnTime = 60;
 
     public bool isBurning;
-    public GameObject flame;
+    public GameObject top;
     public GameObject body;
+    public GameObject flame;
 
     [Range(0, 1)]
     public float burnProgress;
@@ -20,6 +21,13 @@ public class Candle : Interactable
     public Vector3 flameStartPosition;
     public Vector3 flameEndPosition;
 
+    protected override void OnStart()
+    {
+        if (isBurning)
+            Ignite();
+        else
+            Extinguish();
+    }
 
     void Update()
     {
@@ -27,7 +35,7 @@ public class Candle : Interactable
         if (isBurning)
         {
             burnProgress += Time.deltaTime / burnTime;
-            flame.transform.localPosition = Vector3.Lerp(flameStartPosition, flameEndPosition, burnProgress);
+            top.transform.localPosition = Vector3.Lerp(flameStartPosition, flameEndPosition, burnProgress);
             body.transform.localScale = new Vector3(1, 1 - burnProgress, 1);
         }
 
@@ -37,5 +45,12 @@ public class Candle : Interactable
     public void Ignite()
     {
         flame.SetActive(true);
+        isBurning = true;
+    }
+
+    public void Extinguish()
+    {
+        flame.SetActive(false);
+        isBurning = false;
     }
 }

@@ -47,7 +47,7 @@ public class Hands : MonoBehaviour
 
         // Sipanje hrane i pica u gosta
         // Matches
-        if (heldItem is Matches && closestItem is Candle)
+        if (heldItem is Matches && closestItem is Candle && btn_down)
         {
             Debug.Log("Lighting the candle!");
             (closestItem as Candle).Ignite();
