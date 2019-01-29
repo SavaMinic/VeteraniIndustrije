@@ -15,9 +15,18 @@ done:
 - Crni sok - sluzenje
 - Zuti sok - sluzenje
 
+= Post Jam:
+- Connect temperature to wish success
+- Pouring sounds
+- Pick/drop sounds
+- Guest quips on success/wrong drinkfood
+- Fix: Putting glass on sporet activates boiling sound
+
 TODO:
 - Skip already fulfilled wishes (don't wish a closed window if already closed)
-- Connect temperature to wish success
+- Success/Wrong rate influencing number of stars
+- Don't highlight items when holding and item
+- Consumable quips wrong drink is inverted.
 - Zito
 - Ulaz/izlaz
 - Metla - brisanje
@@ -35,8 +44,11 @@ done:
 - empty slot
 
 TODO:
-- bokal
-
+- replace glass with bokal
+- boiling animation
+- frizider
+- glava kupusa
+- z order donjih stolova
 
 //-------
 // SOUND
