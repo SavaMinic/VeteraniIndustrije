@@ -30,7 +30,11 @@ public class Hands : MonoBehaviour
         if (closestItem)
         {
             Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
-            closestItem.Highlight(true);
+            // if we are not holding or if we are holding and this item is interactable
+            if (!heldItem || InteractionControl.I.CanInteract(heldItem.gameObject, closestItem.gameObject))
+            {
+                closestItem.Highlight(true);
+            }
         }
 
         if (closestItem != lastClosestItem && lastClosestItem)
@@ -103,7 +107,9 @@ public class Hands : MonoBehaviour
             }
         }
         // General pouring stuff from container to container
-        else if (heldItem?.GetComponent<Container>() && closestItem?.GetComponent<Container>())
+        else if (heldItem?.GetComponent<Container>() && closestItem?.GetComponent<Container>()
+                 // if this 2 items can interact
+                 && InteractionControl.I.CanInteract(heldItem?.gameObject, closestItem?.gameObject))
         {
             Container inC = heldItem.GetComponent<Container>();
             Container toC = closestItem.GetComponent<Container>();
