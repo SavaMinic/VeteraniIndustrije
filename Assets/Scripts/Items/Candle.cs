@@ -44,6 +44,11 @@ public class Candle : Interactable
 
     public void Ignite()
     {
+        if (Promaja.IsActive)
+        {
+            Debug.LogWarning("AL DUVA PROMAJA");
+            return;
+        }
         flame.SetActive(true);
         isBurning = true;
     }

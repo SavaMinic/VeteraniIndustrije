@@ -29,6 +29,10 @@ done:
 - Kalabuka sound should be proportional to number of guests 
 - Make pouring rakija quicker
 - Consumable quips wrong drink is inverted
+- Promaja,
+	- Activated when door and window are open
+	- Promaja turns off the candle ?
+	- Promaja speeds up guest requests
 
 Discard:
 - Frizider
@@ -50,10 +54,6 @@ Discard:
 		- Working ulaz / izlaz
 		- Waiting for zito ?
 		- Walking to the table spot
-	- Promaja,
-		- Activated when door and window are open
-		- Promaja turns off the candle ?
-		- Promaja speeds up guest requests
 	- Porch / terasa
 		- Beer stash
 		- Wood pile

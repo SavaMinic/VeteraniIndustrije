@@ -15,5 +15,7 @@ public class Door : Interactable
 
         openGraphics.SetActive(IsOpen);
         closedGraphics.SetActive(!IsOpen);
+        
+        Promaja.Refresh();
     }
 }

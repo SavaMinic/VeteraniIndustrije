@@ -34,6 +34,8 @@ public class CanvasController : MonoBehaviour
 
     public GameObject notificationRendererPrefab;
 
+    public Text promajaAlertLabel;
+
     private List<GuestWishPanel> guestWishPanels = new List<GuestWishPanel>();
 
     public Canvas MainCanvas { get; private set; }
@@ -51,6 +53,14 @@ public class CanvasController : MonoBehaviour
         Application.targetFrameRate = 60;
         MainCanvas = GetComponent<Canvas>();
         availableNotificationIndexes = new List<int> { 0, 1, 2, 3 };
+    }
+
+    private void Update()
+    {
+        if (!Application.isPlaying)
+            return;
+        
+        promajaAlertLabel.gameObject.SetActive(Promaja.IsActive);
     }
 
     #endregion

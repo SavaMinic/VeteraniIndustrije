@@ -15,5 +15,7 @@ public class Prozor : Interactable
 
         openGraphics.SetActive(IsOpen);
         closedGraphics.SetActive(!IsOpen);
+        
+        Promaja.Refresh();
     }
 }
