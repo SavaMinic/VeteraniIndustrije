@@ -36,6 +36,9 @@ public class GuestManager : MonoBehaviour
     public float DelayForGeneratingGuestsSlow = 10f;
     public float DelayForGeneratingGuestsFast = 25f;
 
+    public int GuestCount => GuestSittingPositions.Count - availableSittingPositionIndex.Count;
+    public float GuestCountRatio => (float)GuestCount / availableSittingPositionIndex.Count;
+
     public float DelayForGeneratingGuests =>
         availableSittingPositionIndex.Count > 3
         ? DelayForGeneratingGuestsFast
@@ -69,28 +72,17 @@ public class GuestManager : MonoBehaviour
 
     #region Mono
 
-    private void StartSlava()
+    private void Start()
     {
-        timeToGenerateNewGuests = DelayForGeneratingGuests;
-        // fill in available sitting index
-        for (int i = 0; i < GuestSittingPositions.Count; i++)
-        {
-            availableSittingPositionIndex.Add(i);
-        }
-
-        // generate initial guests
-        for (int i = 0; i < InitialGuestCount; i++)
-        {
-            GenerateNewGuest();
-        }
-
-        slavaHasStarted = true;
+        InitializeSeatingPositions();
     }
 
     private void Update()
     {
         if (!Application.isPlaying)
             return;
+
+        Debug.Log(GuestCountRatio);
 
         if (!Candle.e.isBurning)
         {
@@ -140,6 +132,28 @@ public class GuestManager : MonoBehaviour
     #endregion
 
     #region Private
+
+    private void InitializeSeatingPositions()
+    {
+        // fill in available sitting index
+        for (int i = 0; i < GuestSittingPositions.Count; i++)
+        {
+            availableSittingPositionIndex.Add(i);
+        }
+    }
+
+    private void StartSlava()
+    {
+        timeToGenerateNewGuests = DelayForGeneratingGuests;
+
+        // generate initial guests
+        for (int i = 0; i < InitialGuestCount; i++)
+        {
+            GenerateNewGuest();
+        }
+
+        slavaHasStarted = true;
+    }
 
     private void GenerateNewGuest()
     {
