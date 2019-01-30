@@ -82,8 +82,6 @@ public class GuestManager : MonoBehaviour
         if (!Application.isPlaying)
             return;
 
-        Debug.Log(GuestCountRatio);
-
         if (!Candle.e.isBurning)
         {
             return;
