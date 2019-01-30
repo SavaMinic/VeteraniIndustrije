@@ -62,7 +62,7 @@ public class Hands : MonoBehaviour
             if (drc.containsType == Container.ContainsType.Drink && btn_held)
             {
                 pouringSound?.Pour();
-                drc.TransferTo(gost.drinkContainer, Time.deltaTime); // TODO: Tweak speed
+                drc.TransferTo(gost.drinkContainer); // TODO: Tweak speed
             }
         }
         // Chop and take salata

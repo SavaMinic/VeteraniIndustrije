@@ -13,6 +13,7 @@ public class Container : MonoBehaviour
     public float maxAmount = 1;
     public float temperature;
     public float coolingSpeed = 0.01f;
+    public float pouringSpeed = 1;
 
     public bool canBeRefilledAtSlavina;
 
@@ -20,6 +21,11 @@ public class Container : MonoBehaviour
     public bool showTemperature = true;
 
     const float boilingLossSpeed = 0.05f;
+
+    public bool TransferTo(Container toContainer)
+    {
+        return TransferTo(toContainer, pouringSpeed * Time.deltaTime);
+    }
 
     public bool TransferTo(Container toContainer, float pourAmount)
     {

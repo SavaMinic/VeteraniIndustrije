@@ -120,6 +120,7 @@ MonoBehaviour:
   maxAmount: 100
   temperature: 0
   coolingSpeed: 0.01
+  pouringSpeed: 2
   canBeRefilledAtSlavina: 0
   showAmount: 0
   showTemperature: 1
