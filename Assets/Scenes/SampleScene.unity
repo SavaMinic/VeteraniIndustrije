@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInSlot: {fileID: 542713678}
+  useInteractionControl: 1
   dontRenderWhenNotHighlighted: 0
   highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
   heatingSpeed: 0.1
@@ -2793,6 +2794,8 @@ MonoBehaviour:
     interactionObject2: {fileID: 345046432}
   - interactionObject1: {fileID: 1950723839}
     interactionObject2: {fileID: 1318850547}
+  - interactionObject1: {fileID: 1521371869}
+    interactionObject2: {fileID: 345046432}
 --- !u!4 &668136694
 Transform:
   m_ObjectHideFlags: 0
@@ -6580,6 +6583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInSlot: {fileID: 0}
+  useInteractionControl: 1
   dontRenderWhenNotHighlighted: 0
   highlightColor: {r: 0.7362522, g: 1, b: 0, a: 1}
   isOn: 1
@@ -10230,6 +10234,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 4b2f1f7e5e1fa1b43bc447a99dbfae91, type: 3}
+    - target: {fileID: 7114955488962281507, guid: adba3a598651fd34e941d13b0240b9f0,
+        type: 3}
+      propertyPath: useInteractionControl
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adba3a598651fd34e941d13b0240b9f0, type: 3}
 --- !u!1001 &8268893803459539379

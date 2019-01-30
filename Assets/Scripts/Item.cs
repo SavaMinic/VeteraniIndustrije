@@ -65,7 +65,12 @@ public abstract class Interactable : MonoBehaviour
 
     public bool PlaceInSlot(Slot slot)
     {
-        if (slot.itemInSlot) return false; // cant place in occupied slot
+        // cant place in occupied slot
+        if (slot.itemInSlot)
+            return false; 
+        // cant place if that slot doesn't interact with this item
+        if (slot.useInteractionControl && !InteractionControl.I.CanInteract(gameObject, slot.gameObject))
+            return false;
 
         transform.SetParent(slot.transform);
         transform.localPosition = Vector3.zero; // temp, TODO: Animate

@@ -22,7 +22,12 @@ public class Hands : MonoBehaviour
         if (closestSlot)
         {
             Debug.DrawLine(transform.position, closestSlot.transform.position, Color.red);
-            if (heldItem)
+            // if we hold item...
+            if (heldItem && 
+                // ... and slot is either generic ...
+                (!closestSlot.useInteractionControl || 
+                 // or it can interact with the item
+                 InteractionControl.I.CanInteract(heldItem.gameObject, closestSlot.gameObject)))
                 closestSlot.Highlight(true);
         }
 

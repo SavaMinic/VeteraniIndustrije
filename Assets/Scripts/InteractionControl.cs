@@ -33,6 +33,8 @@ public class InteractionControl : MonoBehaviour
 
     public bool CanInteract(GameObject obj1, GameObject obj2)
     {
+        if (obj1.GetComponent<Consumer>() || obj2.GetComponent<Consumer>())
+            return true;
         return InteractionObjectData.Exists(d => 
             (d.interactionObject1 == obj1 && d.interactionObject2 == obj2)
             ||

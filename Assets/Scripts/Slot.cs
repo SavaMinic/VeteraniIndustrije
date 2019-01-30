@@ -8,6 +8,8 @@ public class Slot : MonoBehaviour
 
     public Interactable itemInSlot;
 
+    public bool useInteractionControl;
+
     public bool dontRenderWhenNotHighlighted;
     public Color highlightColor;
 
