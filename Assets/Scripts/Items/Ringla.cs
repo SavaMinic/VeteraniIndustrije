@@ -29,6 +29,7 @@ public class Ringla : Slot
 
     public override void OnItemPlaced()
     {
+        base.OnItemPlaced();
         if (itemInSlot && itemInSlot is Dzezva)
         {
             vriSource.enabled = true;
@@ -39,6 +40,7 @@ public class Ringla : Slot
 
     public override void OnItemRemoved()
     {
+        base.OnItemRemoved();
         if (itemInSlot && itemInSlot is Dzezva)
         {
             turnOffClip.Play2D();

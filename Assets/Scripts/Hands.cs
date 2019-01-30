@@ -18,7 +18,7 @@ public class Hands : MonoBehaviour
 
     private void Update()
     {
-        Slot closestSlot = Util.FindClosest(Slot.all, null, transform.position, interactRange, useViewSpaceDistance);
+        Slot closestSlot = Util.FindClosest(Slot.all, null, transform.position, interactRange, useViewSpaceDistance, s => s.itemInSlot);
         if (closestSlot)
         {
             Debug.DrawLine(transform.position, closestSlot.transform.position, Color.red);
@@ -133,9 +133,9 @@ public class Hands : MonoBehaviour
             {
                 if (closestSlot)
                 {
-                    closestSlot.Highlight(false);
                     if (heldItem.PlaceInSlot(closestSlot))
                     {
+                        closestSlot.Highlight(false);
                         heldItem = null;
                     }
                 }

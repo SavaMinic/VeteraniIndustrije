@@ -30,6 +30,7 @@ public class Slavina : Slot
 
     public override void OnItemPlaced()
     {
+        base.OnItemPlaced();
         Container dc = itemInSlot?.GetComponent<Container>();
 
         if (dc && dc.canBeRefilledAtSlavina)
@@ -38,6 +39,7 @@ public class Slavina : Slot
 
     public override void OnItemRemoved()
     {
+        base.OnItemRemoved();
         ShowMlaz(false);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ public static class Util
         return parentCanvas.transform.TransformPoint(movePos);
     }
 
-    public static T FindClosest<T>(T[] array, T skip, Vector3 target, float maxRange = Mathf.Infinity, bool inViewSpace = false) where T : Component
+    public static T FindClosest<T>(T[] array, T skip, Vector3 target, float maxRange = Mathf.Infinity, bool inViewSpace = false, Func<T, bool> skipCheck = null) where T : Component
     {
         if (array == null) return null;
 
@@ -31,6 +32,7 @@ public static class Util
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] == skip) continue;
+            if (skipCheck != null && skipCheck(array[i])) continue;
 
             Vector3 pos = array[i].transform.position;
             if (inViewSpace) pos = GetCameraSpacePoint(pos);
