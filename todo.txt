@@ -23,9 +23,8 @@ done:
 - Fix: Putting glass on sporet activates boiling sound
 - Stavi kafu komsinice - should predict coffee
 - Working sveca
-- Skip already fulfilled wishes (don't wish a closed window if already closed)
-- Spots don't get unhighlighted when picking up an item
 - Off tv channel
+- Kalabuka sound should be proportional to number of guests 
 
 Discard:
 - Frizider
@@ -34,11 +33,12 @@ Discard:
 ## TODO ##
 
 # Small stuff:
+	- Skip already fulfilled wishes (don't wish a closed window if already closed)
 	- Consumable quips wrong drink is inverted
 	- Don't highlight items when holding an item, unless it's interactable with the current item
+	- Spots don't get unhighlighted when picking up an item
 	- Empty glasses also produce sound when pouring
 	- Make pouring rakija quicker
-	- Kalabuka sound should be proportional to number of guests 
 	- Failures should flash red, not just fadeout
 	- Success/Wrong rate influencing number of stars
 	- Smederevac / Kaljeva pec, requires wood
