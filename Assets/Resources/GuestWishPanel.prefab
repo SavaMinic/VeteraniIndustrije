@@ -156,6 +156,7 @@ MonoBehaviour:
   wishImage: {fileID: 1714659734730863751}
   wishFillImage: {fileID: 6519493374307143138}
   successColor: {r: 0, g: 1, b: 0.0029821396, a: 1}
+  failureColor: {r: 0.6226415, g: 0, b: 0, a: 1}
 --- !u!222 &1714659734991803409
 CanvasRenderer:
   m_ObjectHideFlags: 0

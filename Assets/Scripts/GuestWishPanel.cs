@@ -36,6 +36,9 @@ public class GuestWishPanel : MonoBehaviour
     [SerializeField]
     private Color successColor;
 
+    [SerializeField]
+    private Color failureColor;
+
     private Color timingColor;
 
     private CanvasGroup canvasGroup;
@@ -96,12 +99,14 @@ public class GuestWishPanel : MonoBehaviour
         {
             isShown = false;
             var lastFinishedWish = guest.LastFinishedWish;
-            if (lastFinishedWish != null && lastFinishedWish.IsSuccess.HasValue && lastFinishedWish.IsSuccess.Value)
+            var delay = 0f;
+            if (lastFinishedWish != null && lastFinishedWish.IsSuccess.HasValue)
             {
                 wishFillImage.fillAmount = 1f;
-                wishFillImage.color = successColor;
+                wishFillImage.color = lastFinishedWish.IsSuccess.Value ? successColor : failureColor;
+                delay = 0.3f;
             }
-            StartCoroutine(FadeTo(0f, fadeDuration));
+            StartCoroutine(FadeTo(0f, fadeDuration, delay));
         }
         
         // update progress
@@ -132,8 +137,12 @@ public class GuestWishPanel : MonoBehaviour
 
     #region Private
 
-    IEnumerator FadeTo(float aValue, float aTime)
+    IEnumerator FadeTo(float aValue, float aTime, float delay = 0f)
     {
+        if (delay > 0)
+        {
+            yield return new WaitForSecondsRealtime(delay);
+        }
         float alpha = canvasGroup.alpha;
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
         {
