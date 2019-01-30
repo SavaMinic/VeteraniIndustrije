@@ -63,9 +63,9 @@ public abstract class Interactable : MonoBehaviour
         return this;
     }
 
-    public void PlaceInSlot(Slot slot)
+    public bool PlaceInSlot(Slot slot)
     {
-        if (slot.itemInSlot) return; // cant place in occupied slot
+        if (slot.itemInSlot) return false; // cant place in occupied slot
 
         transform.SetParent(slot.transform);
         transform.localPosition = Vector3.zero; // temp, TODO: Animate
@@ -78,6 +78,7 @@ public abstract class Interactable : MonoBehaviour
         slot.OnItemPlaced();
 
         if (putClip) putClip.Play2D(soundVolume);
+        return true;
     }
 
     protected virtual void OnPlacedInSlot(Slot slot) { }

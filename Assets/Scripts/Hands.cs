@@ -134,8 +134,10 @@ public class Hands : MonoBehaviour
                 if (closestSlot)
                 {
                     closestSlot.Highlight(false);
-                    heldItem.PlaceInSlot(closestSlot);
-                    heldItem = null;
+                    if (heldItem.PlaceInSlot(closestSlot))
+                    {
+                        heldItem = null;
+                    }
                 }
             }
         }
