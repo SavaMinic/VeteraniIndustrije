@@ -27,10 +27,12 @@ public class GuestManager : MonoBehaviour
 
     [SerializeField] WishQuip[] wishQuips;
 
+    public Transform entrancePosition;
     public List<Vector3> GuestSittingPositions = new List<Vector3>();
     public List<bool> GuestSittingFlipped = new List<bool>();
 
     public List<GameObject> GuestPrefabs = new List<GameObject>();
+    public GameObject guestAgentPrefab;
 
     public int InitialGuestCount;
     public float DelayForGeneratingGuestsSlow = 10f;
@@ -172,6 +174,10 @@ public class GuestManager : MonoBehaviour
         var guest = guestObject.GetComponent<Guest>();
         var isFlipped = index < GuestSittingFlipped.Count && GuestSittingFlipped[index];
         guest.SitHere(index, GuestSittingPositions[index], isFlipped);
+
+        var guestAgent = Instantiate(guestAgentPrefab).GetComponent<GuestAI>();
+        guestAgent.transform.position = entrancePosition.position;
+        guest.AI = guestAgent;
 
         CanvasController.I.AddNewGuestWish(guest);
 

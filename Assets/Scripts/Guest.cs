@@ -49,6 +49,8 @@ public class Guest : MonoBehaviour
 
     private bool isFadeOut;
 
+    public GuestAI AI { private get; set; }
+
     #region Mono
 
     private void Awake()
@@ -68,6 +70,9 @@ public class Guest : MonoBehaviour
     {
         if (!Application.isPlaying)
             return;
+
+        // Follow guest
+        transform.position = AI.transform.position + Vector3.up;
 
         switch (CurrentState)
         {
@@ -314,7 +319,7 @@ public class Guest : MonoBehaviour
             yield return null;
         }
         Destroy(gameObject);
-
+        Destroy(AI.gameObject);
     }
 
     #endregion
