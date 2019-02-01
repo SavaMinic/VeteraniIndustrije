@@ -28,6 +28,7 @@ public class GuestManager : MonoBehaviour
     [SerializeField] WishQuip[] wishQuips;
 
     public Transform entrancePosition;
+    public Transform[] guestSittingPivots;
     public List<Vector3> GuestSittingPositions = new List<Vector3>();
     public List<bool> GuestSittingFlipped = new List<bool>();
 
@@ -135,6 +136,9 @@ public class GuestManager : MonoBehaviour
 
     private void InitializeSeatingPositions()
     {
+        for (int i = 0; i < guestSittingPivots.Length; i++)
+            GuestSittingPositions.Add(guestSittingPivots[i].position);
+
         // fill in available sitting index
         for (int i = 0; i < GuestSittingPositions.Count; i++)
         {

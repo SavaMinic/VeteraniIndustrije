@@ -223,6 +223,8 @@ public class Guest : MonoBehaviour
 
     public void SitHere(int sitIndex, Vector3 sitPosition, bool isFlipped)
     {
+        AI.enabled = false;
+
         // keep the y position
         sitPosition.y = transform.position.y;
 
