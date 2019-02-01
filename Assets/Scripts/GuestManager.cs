@@ -28,9 +28,7 @@ public class GuestManager : MonoBehaviour
     [SerializeField] WishQuip[] wishQuips;
 
     public Transform entrancePosition;
-    public Transform[] guestSittingPivots;
-    List<Vector3> GuestSittingPositions = new List<Vector3>();
-    public List<bool> GuestSittingFlipped = new List<bool>();
+    public Seat[] guestSeats;
 
     public List<GameObject> GuestPrefabs = new List<GameObject>();
     public GameObject guestAgentPrefab;
@@ -39,7 +37,7 @@ public class GuestManager : MonoBehaviour
     public float DelayForGeneratingGuestsSlow = 10f;
     public float DelayForGeneratingGuestsFast = 25f;
 
-    public int GuestCount => GuestSittingPositions.Count - availableSittingPositionIndex.Count;
+    public int GuestCount => guestSeats.Length - availableSittingPositionIndex.Count;
     public float GuestCountRatio => (float)GuestCount / availableSittingPositionIndex.Count;
 
     public float DelayForGeneratingGuests =>
@@ -136,11 +134,8 @@ public class GuestManager : MonoBehaviour
 
     private void InitializeSeatingPositions()
     {
-        for (int i = 0; i < guestSittingPivots.Length; i++)
-            GuestSittingPositions.Add(guestSittingPivots[i].position);
-
         // fill in available sitting index
-        for (int i = 0; i < GuestSittingPositions.Count; i++)
+        for (int i = 0; i < guestSeats.Length; i++)
         {
             availableSittingPositionIndex.Add(i);
         }
@@ -176,8 +171,8 @@ public class GuestManager : MonoBehaviour
         guestObject.transform.SetParent(transform);
 
         var guest = guestObject.GetComponent<Guest>();
-        var isFlipped = index < GuestSittingFlipped.Count && GuestSittingFlipped[index];
-        guest.SitHere(index, GuestSittingPositions[index], isFlipped);
+
+        guest.SitHere(index, guestSeats[index]);
 
         var guestAgent = Instantiate(guestAgentPrefab).GetComponent<GuestAI>();
         guestAgent.transform.position = entrancePosition.position;
@@ -196,12 +191,13 @@ public class GuestManager : MonoBehaviour
     private void OnDrawGizmos()
     {
         var color = new Color(1f, 1f, 0f, 0.5f);
-        for (int i = 0; i < guestSittingPivots.Length; i++)
-        {
-            Gizmos.color = color;
-            Gizmos.DrawSphere(guestSittingPivots[i].position, 1f);
-            UnityEditor.Handles.Label(guestSittingPivots[i].position, (i + 1).ToString());
-        }
+        if (guestSeats.Length > 0)
+            for (int i = 0; i < guestSeats.Length; i++)
+            {
+                Gizmos.color = color;
+                Gizmos.DrawSphere(guestSeats[i].transform.position, 1f);
+                UnityEditor.Handles.Label(guestSeats[i].transform.position, (i + 1).ToString());
+            }
     }
 
 #endif

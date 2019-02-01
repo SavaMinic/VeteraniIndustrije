@@ -221,21 +221,22 @@ public class Guest : MonoBehaviour
 
     #region Public
 
-    public void SitHere(int sitIndex, Vector3 sitPosition, bool isFlipped)
+    public void SitHere(int sitIndex, Seat seat)
     {
-        AI.enabled = false;
-
         // keep the y position
-        sitPosition.y = transform.position.y;
+        Vector3 v = seat.transform.position;
+        v.y = transform.position.y;
+        seat.transform.position = v;
 
         // save data
-        sittingPosition = sitPosition;
+        sittingPosition = seat.transform.position;
         sittingIndex = sitIndex;
 
-        spriteRenderer.flipX = isFlipped;
+        spriteRenderer.flipX = seat.isFlipped;
 
         // TODO: set target position for guest, and he should move to it
         transform.position = sittingPosition;
+        AI.seatDestination = seat.transform;
     }
 
     public void FinishActiveWish(bool success = true, string message = "")

@@ -547,6 +547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 150487918}
+  - component: {fileID: 150487919}
   m_Layer: 0
   m_Name: Seat 3
   m_TagString: Untagged
@@ -568,6 +569,20 @@ Transform:
   m_Father: {fileID: 1905085264}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &150487919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150487917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33299cc7b7e6ca143b2861a2843794a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFlipped: 0
+  available: 0
 --- !u!1 &153646057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,6 +1321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 362184448}
+  - component: {fileID: 362184449}
   m_Layer: 0
   m_Name: Seat 1
   m_TagString: Untagged
@@ -1327,6 +1343,20 @@ Transform:
   m_Father: {fileID: 1905085264}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &362184449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362184447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33299cc7b7e6ca143b2861a2843794a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFlipped: 1
+  available: 0
 --- !u!1 &392769061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3441751427881646955, guid: 0cadd0f9512583c4b8e2db5b89e254ef,
@@ -3035,21 +3065,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 743332b3a0cb2924298a857debe76525, type: 2}
   - {fileID: 11400000, guid: b31abd91ef6def74aaaee2ecbb8d4cf1, type: 2}
   entrancePosition: {fileID: 1145266691}
-  guestSittingPivots:
-  - {fileID: 362184448}
-  - {fileID: 1203342819}
-  - {fileID: 150487918}
-  - {fileID: 1806138100}
-  - {fileID: 678084646}
-  - {fileID: 1892693713}
-  GuestSittingPositions:
-  - {x: 10.64, y: 0, z: 8.44}
-  - {x: 10.65, y: 0, z: -1.05}
-  - {x: 3.47, y: 0, z: 11.77}
-  - {x: -4.23, y: 0, z: -2.56}
-  - {x: 1.55, y: 0, z: -6.55}
-  - {x: -3.69, y: 0, z: 7.63}
-  GuestSittingFlipped: 010100000100
+  guestSeats:
+  - {fileID: 362184449}
+  - {fileID: 1203342820}
+  - {fileID: 150487919}
+  - {fileID: 1806138101}
+  - {fileID: 678084647}
+  - {fileID: 1892693714}
   GuestPrefabs:
   - {fileID: 660202925908225519, guid: 9bc0c46c267514722946ff6e28342aae, type: 3}
   - {fileID: 660202925908225519, guid: ba526797e4bfd4f6f87443ad6bed7eac, type: 3}
@@ -3067,6 +3089,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 678084646}
+  - component: {fileID: 678084647}
   m_Layer: 0
   m_Name: Seat 5
   m_TagString: Untagged
@@ -3088,6 +3111,20 @@ Transform:
   m_Father: {fileID: 1905085264}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &678084647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678084645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33299cc7b7e6ca143b2861a2843794a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFlipped: 1
+  available: 0
 --- !u!1 &717600988
 GameObject:
   m_ObjectHideFlags: 0
@@ -5382,6 +5419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1203342819}
+  - component: {fileID: 1203342820}
   m_Layer: 0
   m_Name: Seat 2
   m_TagString: Untagged
@@ -5403,6 +5441,20 @@ Transform:
   m_Father: {fileID: 1905085264}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1203342820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203342818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33299cc7b7e6ca143b2861a2843794a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFlipped: 1
+  available: 0
 --- !u!1 &1242927396
 GameObject:
   m_ObjectHideFlags: 0
@@ -8427,6 +8479,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1806138100}
+  - component: {fileID: 1806138101}
   m_Layer: 0
   m_Name: Seat 4
   m_TagString: Untagged
@@ -8448,6 +8501,20 @@ Transform:
   m_Father: {fileID: 1905085264}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1806138101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806138099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33299cc7b7e6ca143b2861a2843794a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFlipped: 0
+  available: 0
 --- !u!1 &1827907257
 GameObject:
   m_ObjectHideFlags: 0
@@ -8828,6 +8895,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1892693713}
+  - component: {fileID: 1892693714}
   m_Layer: 0
   m_Name: Seat 6
   m_TagString: Untagged
@@ -8849,6 +8917,20 @@ Transform:
   m_Father: {fileID: 1905085264}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1892693714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892693712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33299cc7b7e6ca143b2861a2843794a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFlipped: 0
+  available: 0
 --- !u!1 &1893395508
 GameObject:
   m_ObjectHideFlags: 0
