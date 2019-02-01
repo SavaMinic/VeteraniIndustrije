@@ -172,11 +172,11 @@ public class GuestManager : MonoBehaviour
 
         var guest = guestObject.GetComponent<Guest>();
 
-        guest.SitHere(index, guestSeats[index]);
-
         var guestAgent = Instantiate(guestAgentPrefab).GetComponent<GuestAI>();
         guestAgent.transform.position = entrancePosition.position;
         guest.AI = guestAgent;
+
+        guest.AssignSeat(index, guestSeats[index]);
 
         CanvasController.I.AddNewGuestWish(guest);
 

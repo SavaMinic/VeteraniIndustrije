@@ -16,6 +16,7 @@ public class Guest : MonoBehaviour
 
     public enum GuestState
     {
+        WaitingAtTheDoor,
         WalkingIn,
         WaitingForService,
         Delay,
@@ -50,6 +51,7 @@ public class Guest : MonoBehaviour
     private bool isFadeOut;
 
     public GuestAI AI { private get; set; }
+    Seat seat;
 
     #region Mono
 
@@ -61,9 +63,12 @@ public class Guest : MonoBehaviour
 
     private void Start()
     {
+        WalkIn();
+    }
 
-        // TODO: do the walking first
-        Delay(Random.Range(0f, 2f) * InitialDelay);
+    void WalkIn()
+    {
+        CurrentState = GuestState.WalkingIn;
     }
 
     private void Update()
@@ -76,8 +81,18 @@ public class Guest : MonoBehaviour
 
         switch (CurrentState)
         {
+            case GuestState.WaitingAtTheDoor:
+                // Wait for the domacin to open the door
+                break;
             case GuestState.WalkingIn:
-                // TODO: walking
+                // Check if guest is within range of the seat
+                DoMoveFlipping();
+
+                if (Vector3.Distance(transform.position, seat.transform.position) < 0.5f)
+                {
+                    Sit();
+                    Delay(Random.Range(0f, 2f) * InitialDelay);
+                }
                 break;
             case GuestState.GoingOut:
                 // TODO: walking
@@ -221,7 +236,7 @@ public class Guest : MonoBehaviour
 
     #region Public
 
-    public void SitHere(int sitIndex, Seat seat)
+    public void AssignSeat(int sitIndex, Seat seat)
     {
         // keep the y position
         Vector3 v = seat.transform.position;
@@ -232,11 +247,16 @@ public class Guest : MonoBehaviour
         sittingPosition = seat.transform.position;
         sittingIndex = sitIndex;
 
-        spriteRenderer.flipX = seat.isFlipped;
+        this.seat = seat;
 
-        // TODO: set target position for guest, and he should move to it
-        transform.position = sittingPosition;
         AI.seatDestination = seat.transform;
+    }
+
+    void Sit()
+    {
+        spriteRenderer.flipX = seat.isFlipped;
+        transform.position = seat.transform.position;
+        Debug.Log("Sat down");
     }
 
     public void FinishActiveWish(bool success = true, string message = "")
@@ -261,6 +281,11 @@ public class Guest : MonoBehaviour
     {
         CurrentState = GuestState.Delay;
         timeForNewWish = delayTime;
+    }
+
+    void DoMoveFlipping()
+    {
+
     }
 
     private void GenerateNewWish()
