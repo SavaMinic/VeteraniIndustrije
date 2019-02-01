@@ -29,7 +29,7 @@ public class GuestManager : MonoBehaviour
 
     public Transform entrancePosition;
     public Transform[] guestSittingPivots;
-    public List<Vector3> GuestSittingPositions = new List<Vector3>();
+    List<Vector3> GuestSittingPositions = new List<Vector3>();
     public List<bool> GuestSittingFlipped = new List<bool>();
 
     public List<GameObject> GuestPrefabs = new List<GameObject>();
@@ -196,11 +196,11 @@ public class GuestManager : MonoBehaviour
     private void OnDrawGizmos()
     {
         var color = new Color(1f, 1f, 0f, 0.5f);
-        for (int i = 0; i < GuestSittingPositions.Count; i++)
+        for (int i = 0; i < guestSittingPivots.Length; i++)
         {
             Gizmos.color = color;
-            Gizmos.DrawSphere(GuestSittingPositions[i], 1f);
-            UnityEditor.Handles.Label(GuestSittingPositions[i], (i + 1).ToString());
+            Gizmos.DrawSphere(guestSittingPivots[i].position, 1f);
+            UnityEditor.Handles.Label(guestSittingPivots[i].position, (i + 1).ToString());
         }
     }
 
