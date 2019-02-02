@@ -27,15 +27,15 @@ RectTransform:
   m_GameObject: {fileID: 495672076792971031}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000027, y: 1.0000027, z: 1.0000027}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8268893804343198074}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 82.99823, y: -149.29999}
-  m_SizeDelta: {x: 560.3, y: 152.6}
+  m_AnchoredPosition: {x: 50.001953, y: -228.20001}
+  m_SizeDelta: {x: 560.3, y: 134.4}
   m_Pivot: {x: 0, y: 1.0000002}
 --- !u!222 &2650694925247910132
 CanvasRenderer:
@@ -67,10 +67,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: c615bd64a3fa94a09bd7fbc47b7b5ffc, type: 3}
-    m_FontSize: 60
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 60
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -189,7 +189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 83, y: -56}
+  m_AnchoredPosition: {x: 50.00183, y: -26.700012}
   m_SizeDelta: {x: 560.3, y: 93.3}
   m_Pivot: {x: 0.00000029057264, y: 1.0000002}
 --- !u!222 &2602294511419793653
@@ -234,6 +234,85 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'SLAVA: 0'
+--- !u!1 &4958143851508776645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3180282534689934007}
+  - component: {fileID: 4540442925283734651}
+  - component: {fileID: 9039732308699872904}
+  m_Layer: 5
+  m_Name: flekeAlert
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &3180282534689934007
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958143851508776645}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000014, y: 1.0000014, z: 1.0000014}
+  m_Children: []
+  m_Father: {fileID: 8268893804343198074}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50, y: 960.11}
+  m_SizeDelta: {x: 560, y: 108.2}
+  m_Pivot: {x: 0, y: 1.0000002}
+--- !u!222 &4540442925283734651
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958143851508776645}
+  m_CullTransparentMesh: 0
+--- !u!114 &9039732308699872904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958143851508776645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8207547, g: 0.34198996, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c615bd64a3fa94a09bd7fbc47b7b5ffc, type: 3}
+    m_FontSize: 48
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 60
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "KUKU LELE \n\u0160TO JE PRLJAVO"
 --- !u!1 &8268893804343198070
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +347,7 @@ RectTransform:
   - {fileID: 5720921592651539652}
   - {fileID: 5447665519016158877}
   - {fileID: 3930734774795239064}
+  - {fileID: 3180282534689934007}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -355,3 +435,4 @@ MonoBehaviour:
   notificationRendererPrefab: {fileID: 839184417545873283, guid: c34bf6258d2e04d4a81fcac9c32d945b,
     type: 3}
   promajaAlertLabel: {fileID: 4844434708892078194}
+  flekeAlertLabel: {fileID: 9039732308699872904}

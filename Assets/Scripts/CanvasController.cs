@@ -35,6 +35,7 @@ public class CanvasController : MonoBehaviour
     public GameObject notificationRendererPrefab;
 
     public Text promajaAlertLabel;
+    public Text flekeAlertLabel;
 
     private List<GuestWishPanel> guestWishPanels = new List<GuestWishPanel>();
 
@@ -61,6 +62,7 @@ public class CanvasController : MonoBehaviour
             return;
         
         promajaAlertLabel.gameObject.SetActive(Promaja.IsActive);
+        flekeAlertLabel.gameObject.SetActive(Fleka.Prljavo);
     }
 
     #endregion

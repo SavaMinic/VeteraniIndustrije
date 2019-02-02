@@ -5,6 +5,11 @@ using UnityEngine;
 public class Fleka : Interactable
 {
 
+    public static int Count;
+    public static bool Prljavo => Count >= 2;
+
+    public static float GuestWishModifier => Prljavo ? 1.4f : 1f;
+    
     private SpriteRenderer spriteRenderer;
     private bool isFading;
     
@@ -13,6 +18,8 @@ public class Fleka : Interactable
         base.OnStart();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        Count++;
     }
 
     public void Remove()
@@ -21,6 +28,7 @@ public class Fleka : Interactable
             return;
 
         isFading = true;
+        Count--;
         StartCoroutine(DelayDestroy(0.8f));
     }
     

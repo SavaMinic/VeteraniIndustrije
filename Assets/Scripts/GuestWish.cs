@@ -111,7 +111,7 @@ public class GuestWish
         if (IsFinished || !IsActive)
             return;
 
-        RemainingWaitingTime -= dt * Promaja.GuestWishModifier;
+        RemainingWaitingTime -= dt * Promaja.GuestWishModifier * Fleka.GuestWishModifier;
         if (RemainingWaitingTime <= 0)
         {
             IsSuccess = false;
