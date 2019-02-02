@@ -63,13 +63,19 @@ public class Hands : MonoBehaviour
         bool btn_down = Input.GetButtonDown(interactionKey);
         bool btn_held = Input.GetAxis(interactionKey) > 0f;
 
-        if (closestItem is Gajba && !heldItem && btn_down)
+        if (closestItem is Gajba && heldItem is Pivo && btn_down)
         {
-            Interactable pivo = Database.e.GetPivo();
-            pivo.Take(this);
+            Pivo pivo = heldItem as Pivo;
+            pivo.Remove();
+            Debug.Log("Pivo removed!");
+        }
+        else if (closestItem is Gajba && !heldItem && btn_down)
+        {
+            Interactable pivo = Database.e.CreatePivo();
+            heldItem = pivo.Take(this);
         }
         // Sibice
-        if (heldItem is Matches && closestItem is Candle && btn_down)
+        else if (heldItem is Matches && closestItem is Candle && btn_down)
         {
             (closestItem as Candle).Ignite();
         }

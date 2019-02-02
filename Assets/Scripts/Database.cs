@@ -15,7 +15,7 @@ public class Database : MonoBehaviour
 
     public GameObject pivoPrefab;
 
-    public Interactable GetPivo()
+    public Interactable CreatePivo()
     {
         GameObject go = Instantiate(pivoPrefab);
         return go.GetComponent<Pivo>();

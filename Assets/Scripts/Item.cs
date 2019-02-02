@@ -70,6 +70,8 @@ public abstract class Interactable : MonoBehaviour, IProximityFindable
 
         if (pickupClip) pickupClip.Play2D(soundVolume);
 
+        Debug.Log($"Took {name}");
+
         return this;
     }
 
@@ -97,6 +99,22 @@ public abstract class Interactable : MonoBehaviour, IProximityFindable
 
         if (putClip) putClip.Play2D(soundVolume);
         return true;
+    }
+
+    public void Remove()
+    {
+        if (inSlot)
+        {
+            inSlot.itemInSlot = null;
+        }
+
+        if (inHands)
+        {
+            isHeld = false;
+            inHands.heldItem = null;
+        }
+
+        Destroy(gameObject);
     }
 
     protected virtual void OnPlacedInSlot(Slot slot) { }
