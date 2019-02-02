@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,4 +12,12 @@ public class Database : MonoBehaviour
 
     public Consumable[] foods;
     public Consumable[] drinks;
+
+    public GameObject pivoPrefab;
+
+    public Interactable GetPivo()
+    {
+        GameObject go = Instantiate(pivoPrefab);
+        return go.GetComponent<Pivo>();
+    }
 }

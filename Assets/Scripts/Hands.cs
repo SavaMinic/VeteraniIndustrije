@@ -20,8 +20,8 @@ public class Hands : MonoBehaviour
     {
         if (!Application.isPlaying || GameController.I.IsPaused)
             return;
-        
-        Slot closestSlot = Util.FindClosest(Slot.all, null, transform.position, interactRange, useViewSpaceDistance, 
+
+        Slot closestSlot = Util.FindClosest(Slot.all, null, transform.position, interactRange, useViewSpaceDistance,
             s => s.itemInSlot);
         if (closestSlot)
         {
@@ -29,7 +29,7 @@ public class Hands : MonoBehaviour
             // if we hold item...
             if (heldItem && (!closestSlot.onlyInteractsWith || closestSlot.onlyInteractsWith == heldItem)
                 // ... and slot is either generic ...
-                && (!closestSlot.useInteractionControl || 
+                && (!closestSlot.useInteractionControl ||
                  // or it can interact with the item
                  InteractionControl.I.CanInteract(heldItem.gameObject, closestSlot.gameObject)))
                 closestSlot.Highlight(true);
@@ -63,6 +63,11 @@ public class Hands : MonoBehaviour
         bool btn_down = Input.GetButtonDown(interactionKey);
         bool btn_held = Input.GetAxis(interactionKey) > 0f;
 
+        if (closestItem is Gajba && !heldItem && btn_down)
+        {
+            Interactable pivo = Database.e.GetPivo();
+            pivo.Take(this);
+        }
         // Sibice
         if (heldItem is Matches && closestItem is Candle && btn_down)
         {

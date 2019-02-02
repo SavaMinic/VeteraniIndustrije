@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2996396469446090817}
   - component: {fileID: 7627806455057984553}
+  - component: {fileID: 2729635029460893420}
   m_Layer: 0
   m_Name: Gajba
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35, y: -135, z: 0}
 --- !u!212 &7627806455057984553
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -79,3 +80,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2729635029460893420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2867173226647415494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df30677831a9db42885a1a760dba3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTakeable: 0
+  isHeld: 0
+  inSlot: {fileID: 0}
+  highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
+  sprite: {fileID: 0}
+  soundVolume: 0.5
+  pickupClip: {fileID: 0}
+  putClip: {fileID: 0}
