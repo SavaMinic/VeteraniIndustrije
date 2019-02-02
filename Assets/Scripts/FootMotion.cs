@@ -58,11 +58,14 @@ public class FootMotion : MonoBehaviour
         leg.x += velo.x * Time.deltaTime * 60;
         float xt = -(leg.x + offset) * 30;
 
+        float xstat = Mathf.Clamp01(Mathf.Abs(velo.x) * 100);
+        float ystat = Mathf.Clamp01(velo.magnitude * 100);
+
         leg.y += Mathf.Max(Mathf.Abs(velo.y), Mathf.Abs(velo.x)) * Time.deltaTime * 60;
         float yt = (leg.y + offset) * 30;
 
-        float x = Mathf.Cos(xt) * sidewaysMult * Mathf.Clamp01(Mathf.Abs(velo.x) * 100);
-        float y = Mathf.Sin(yt) * heightMult;
+        float x = Mathf.Cos(xt) * sidewaysMult * xstat;
+        float y = Mathf.Sin(yt) * heightMult * ystat;
         y = Mathf.Clamp(y, 0, 1);
 
         Vector3 addPos = new Vector3(x, y, 0);
