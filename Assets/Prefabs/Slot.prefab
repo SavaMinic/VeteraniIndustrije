@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00abcf940bfaae49853555444b63b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onlyInteractsWith: {fileID: 0}
   itemInSlot: {fileID: 0}
+  useInteractionControl: 0
   dontRenderWhenNotHighlighted: 1
   highlightColor: {r: 0.7362522, g: 1, b: 0, a: 1}
 --- !u!212 &911855694241107746
