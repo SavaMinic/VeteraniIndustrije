@@ -30,6 +30,8 @@ public class LevelSettings : ScriptableObject
     {
         public string Name;
         public int CandleDuration;
+        public List<GuestWish.GuestWishType> AvailableWishes;
+        public bool IsRaining;
     }
     
     #endregion

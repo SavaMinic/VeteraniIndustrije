@@ -33,23 +33,6 @@ public class GuestWish
         Zito,
     }
 
-    // DON'T FORGET TO PUT AVAILABLE WISHES HERE!
-    public readonly IReadOnlyList<GuestWishType> AvailableWishTypes = new List<GuestWishType>
-    {
-        GuestWishType.Coffee,
-        GuestWishType.Rakija,
-        GuestWishType.ZutiSok,
-        GuestWishType.CrniSok,
-        GuestWishType.Water,
-        GuestWishType.Sarma,
-        GuestWishType.TvOff,
-        GuestWishType.TvBasketball,
-        GuestWishType.TvWeather,
-        GuestWishType.TvFarma,
-        GuestWishType.OpenWindow,
-        GuestWishType.CloseWindow,
-    };
-
     public GuestWishType Type;
     public float WaitingTime;
 
@@ -78,9 +61,16 @@ public class GuestWish
 
     public GuestWish(GuestWishType type, float waitingTime)
     {
+        var availableWishTypes = GameController.I.Level.AvailableWishes;
+        // if there is no wish, get random
+        if (type != GuestWishType.Random && !availableWishTypes.Contains(type))
+        {
+            Debug.LogWarning("Guest wants non-used " + type);
+            type = GuestWishType.Random;
+        }
         if (type == GuestWishType.Random)
         {
-            type = AvailableWishTypes[Random.Range(0, AvailableWishTypes.Count)];
+            type = availableWishTypes[Random.Range(0, availableWishTypes.Count)];
             //type = (GuestWishType)Random.Range((int)GuestWishType.TvBasketball, (int)GuestWishType.TvFarma + 1);
             //type = (GuestWishType)Random.Range((int)GuestWishType.OpenWindow, (int)GuestWishType.CloseWindow + 1);
         }
@@ -91,7 +81,7 @@ public class GuestWish
         )
         {
             // pick any other
-            var availableWishes = new List<GuestWishType>(AvailableWishTypes);
+            var availableWishes = new List<GuestWishType>(availableWishTypes);
             availableWishes.Remove(type);
             type = availableWishes[Random.Range(0, availableWishes.Count)];
         }

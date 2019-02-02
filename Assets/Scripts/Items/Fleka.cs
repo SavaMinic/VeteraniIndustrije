@@ -6,7 +6,7 @@ public class Fleka : Interactable
 {
 
     public static int Count;
-    public static bool Prljavo => Count >= 2;
+    public static bool Prljavo => Count >= 3;
 
     public static float GuestWishModifier => Prljavo ? 1.4f : 1f;
     

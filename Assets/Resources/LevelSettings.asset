@@ -13,5 +13,19 @@ MonoBehaviour:
   m_Name: LevelSettings
   m_EditorClassIdentifier: 
   LevelsData:
-  - Name: Test
-    CandleDuration: 10
+  - Name: Jutro
+    CandleDuration: 180
+    AvailableWishes: 0d00000002000000030000000400000005000000
+    IsRaining: 0
+  - Name: Popodne
+    CandleDuration: 300
+    AvailableWishes: 0d00000002000000030000000400000005000000060000000700000009000000
+    IsRaining: 1
+  - Name: "Predve\u010De"
+    CandleDuration: 300
+    AvailableWishes: 0d000000020000000300000004000000050000000600000007000000090000000a00000008000000
+    IsRaining: 0
+  - Name: "Uve\u010De"
+    CandleDuration: 360
+    AvailableWishes: 0d0000000200000003000000040000000500000006000000070000000a000000010000000b0000000c000000
+    IsRaining: 1

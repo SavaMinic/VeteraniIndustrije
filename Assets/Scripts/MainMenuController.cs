@@ -10,6 +10,9 @@ public class MainMenuController : MonoBehaviour
     public Button playButton;
     public Button exitButton;
 
+    public GameObject levelButtonPrefab;
+    public Transform levelPanel;
+
     #endregion
 
     #region Mono
@@ -18,6 +21,18 @@ public class MainMenuController : MonoBehaviour
     {
         playButton.onClick.AddListener(OnPlayButtonClick);
         exitButton.onClick.AddListener(OnExitButtonClick);
+        
+        // generate levels buttons
+        var levels = LevelSettings.I.LevelsData;
+        for (int i = 0; i < levels.Count; i++)
+        {
+            var button = Instantiate(levelButtonPrefab);
+            button.transform.SetParent(levelPanel);
+            button.transform.localScale = Vector3.one;
+
+            var levelButton = button.GetComponent<LevelButton>();
+            levelButton.SetLevelName(levels[i].Name, i == 0);
+        }
     }
 
     private void OnDestroy()
@@ -32,7 +47,7 @@ public class MainMenuController : MonoBehaviour
 
     private void OnPlayButtonClick()
     {
-        GameController.I.LoadLevel("Test");
+        GameController.I.LoadLevel(LevelButton.SelectedButton.LevelName);
     }
 
     private void OnExitButtonClick()

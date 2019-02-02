@@ -33,6 +33,7 @@ public class CanvasController : MonoBehaviour
     public RectTransform notificationsPanel;
 
     public Text starsCountText;
+    public Text levelNameText;
 
     public GameObject notificationRendererPrefab;
 
@@ -65,6 +66,8 @@ public class CanvasController : MonoBehaviour
     private void Start()
     {
         closeButton.onClick.AddListener(OnCloseClick);
+
+        levelNameText.text = GameController.I.Level.Name ?? "NIVO TEST";
     }
 
     private void Update()

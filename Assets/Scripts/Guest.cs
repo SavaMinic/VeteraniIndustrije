@@ -71,7 +71,7 @@ public class Guest : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.transform.localScale = Vector3.one;
 
-        hasDirtyShoes = Random.value <= dirtyShoesChance;
+        hasDirtyShoes = GameController.I.Level.IsRaining && Random.value <= dirtyShoesChance;
         if (hasDirtyShoes)
             Debug.LogWarning("DIRTY SHOES");
     }
