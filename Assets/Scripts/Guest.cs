@@ -90,6 +90,8 @@ public class Guest : MonoBehaviour
         switch (CurrentState)
         {
             case GuestState.WaitingAtTheDoor:
+                DoMoveFlipping();
+
                 // Wait for the domacin to open the door
                 if (Vector3.Distance(transform.position, AI.zitoDestination.position) < 1.5f)
                 {
