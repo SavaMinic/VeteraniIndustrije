@@ -21,7 +21,7 @@ public abstract class Interactable : MonoBehaviour, IProximityFindable
     public AudioClip pickupClip;
     public AudioClip putClip;
 
-    private void Start()
+    protected void Start()
     {
         if (all == null)
             all = new List<Interactable>();
@@ -36,9 +36,11 @@ public abstract class Interactable : MonoBehaviour, IProximityFindable
     }
 
     protected virtual void OnStart() { }
+    protected virtual void OnBeforeDestroy() { }
 
-    private void OnDestroy()
+    protected void OnDestroy()
     {
+        OnBeforeDestroy();
         all.Remove(this);
     }
 

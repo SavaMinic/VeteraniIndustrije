@@ -3468,6 +3468,7 @@ MonoBehaviour:
   InitialGuestCount: 1
   DelayForGeneratingGuestsSlow: 10
   DelayForGeneratingGuestsFast: 15
+  LimitGuestNumber: 0
 --- !u!1 &678084645
 GameObject:
   m_ObjectHideFlags: 0
@@ -11946,6 +11947,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -26.700073
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447665519016158877, guid: 15661031997d040b2b027783d93e5358,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 50.001953
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15661031997d040b2b027783d93e5358, type: 3}

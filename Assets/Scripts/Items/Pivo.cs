@@ -19,7 +19,7 @@ public class Pivo : Interactable
         InteractionControl.I.InteractionObjectData.Add(id);
     }
 
-    private void OnDestroy()
+    protected override void OnBeforeDestroy()
     {
         InteractionControl.I.InteractionObjectData.Remove(id);
     }
