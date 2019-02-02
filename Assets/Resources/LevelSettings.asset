@@ -29,8 +29,8 @@ MonoBehaviour:
     CandleDuration: 360
     AvailableWishes: 0d0000000200000003000000040000000500000006000000070000000a000000010000000b0000000c000000
     IsRaining: 1
-  - Name: Finale
-    CandleDuration: 600
+  - Name: Endless
+    CandleDuration: -1
     AvailableWishes: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d000000
     IsRaining: 1
   InteractableObjectsNames:

@@ -34,7 +34,7 @@ public class Candle : Interactable
         if (!Application.isPlaying || GameController.I.IsPaused)
             return;
         
-        if (isBurning)
+        if (isBurning && burnTime > 0)
         {
             burnProgress += Time.deltaTime / burnTime;
             top.transform.localPosition = Vector3.Lerp(flameStartPosition, flameEndPosition, burnProgress);
