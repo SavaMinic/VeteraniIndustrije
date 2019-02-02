@@ -31,6 +31,10 @@ public class Guest : MonoBehaviour
     public float DelayAfterWish;
     public float InitialDelay = 5f;
 
+    public GameObject flekaPrefab;
+    private bool hasDirtyShoes;
+    public float dirtyShoesChance;
+
     public GuestState CurrentState;
     public List<GuestWish> AllWishes = new List<GuestWish>();
 
@@ -58,6 +62,7 @@ public class Guest : MonoBehaviour
     bool followAI = true;
 
     private GuestWish entryWish;
+    
 
     #region Mono
 
@@ -65,6 +70,10 @@ public class Guest : MonoBehaviour
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.transform.localScale = Vector3.one;
+
+        hasDirtyShoes = Random.value <= dirtyShoesChance;
+        if (hasDirtyShoes)
+            Debug.LogWarning("DIRTY SHOES");
     }
 
     private void Start()
@@ -85,7 +94,9 @@ public class Guest : MonoBehaviour
         // Follow guest
 
         if (followAI)
+        {
             transform.position = AI.transform.position + Vector3.up;
+        }
 
         switch (CurrentState)
         {
@@ -264,6 +275,11 @@ public class Guest : MonoBehaviour
                         AI.GoToSeat();
                         followAI = true;
                         CurrentState = GuestState.WalkingIn;
+
+                        if (hasDirtyShoes)
+                        {
+                            StartCoroutine(MakeFleka(Random.Range(1.2f, 3f)));
+                        }
                     }
                     else
                     {
@@ -414,6 +430,14 @@ public class Guest : MonoBehaviour
         }
         Destroy(gameObject);
         Destroy(AI.gameObject);
+    }
+
+    private IEnumerator MakeFleka(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+
+        var flekaObject = Instantiate(flekaPrefab);
+        flekaObject.transform.position = transform.position;
     }
 
     bool IsCloseTo(Vector3 point)

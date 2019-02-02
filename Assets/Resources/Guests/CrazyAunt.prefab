@@ -112,6 +112,9 @@ MonoBehaviour:
   WaitingTimePerWish: 30
   DelayAfterWish: 5
   InitialDelay: 5
+  flekaPrefab: {fileID: 5307429312243580653, guid: fe603c77947324131b6a0ef33df61a18,
+    type: 3}
+  dirtyShoesChance: 0.3
   CurrentState: 0
   AllWishes: []
   consumer: {fileID: 4225508492946516112}

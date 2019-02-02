@@ -41,6 +41,11 @@ public class Hands : MonoBehaviour
             {
                 closestItem.Highlight(true);
             }
+            // FLEKA IS SPECIAL
+            if (closestItem is Fleka)
+            {
+                closestItem.Highlight(heldItem is Metla);
+            }
         }
 
         if (closestItem != lastClosestItem && lastClosestItem)
@@ -143,7 +148,12 @@ public class Hands : MonoBehaviour
             }
             else
             {
-                if (closestSlot)
+                if (closestItem is Fleka && heldItem is Metla)
+                {
+                    var fleka = closestItem as Fleka;
+                    fleka.Remove();
+                }
+                else if (closestSlot)
                 {
                     if (heldItem.PlaceInSlot(closestSlot))
                     {
