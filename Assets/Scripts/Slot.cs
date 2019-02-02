@@ -6,6 +6,9 @@ public class Slot : MonoBehaviour
 {
     public static Slot[] all;
 
+    // if this is set, only this item can be put in slot
+    public Interactable onlyInteractsWith;
+
     public Interactable itemInSlot;
 
     public bool useInteractionControl;

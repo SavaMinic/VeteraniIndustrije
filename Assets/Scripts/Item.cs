@@ -72,6 +72,9 @@ public abstract class Interactable : MonoBehaviour
         if (slot.useInteractionControl && !InteractionControl.I.CanInteract(gameObject, slot.gameObject))
             return false;
 
+        if (slot.onlyInteractsWith && slot.onlyInteractsWith != this)
+            return false;
+
         transform.SetParent(slot.transform);
         transform.localPosition = Vector3.zero; // temp, TODO: Animate
         isHeld = false;

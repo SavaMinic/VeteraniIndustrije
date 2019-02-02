@@ -18,14 +18,15 @@ public class Hands : MonoBehaviour
 
     private void Update()
     {
-        Slot closestSlot = Util.FindClosest(Slot.all, null, transform.position, interactRange, useViewSpaceDistance, s => s.itemInSlot);
+        Slot closestSlot = Util.FindClosest(Slot.all, null, transform.position, interactRange, useViewSpaceDistance, 
+            s => s.itemInSlot);
         if (closestSlot)
         {
             Debug.DrawLine(transform.position, closestSlot.transform.position, Color.red);
             // if we hold item...
-            if (heldItem && 
+            if (heldItem && (!closestSlot.onlyInteractsWith || closestSlot.onlyInteractsWith == heldItem)
                 // ... and slot is either generic ...
-                (!closestSlot.useInteractionControl || 
+                && (!closestSlot.useInteractionControl || 
                  // or it can interact with the item
                  InteractionControl.I.CanInteract(heldItem.gameObject, closestSlot.gameObject)))
                 closestSlot.Highlight(true);
