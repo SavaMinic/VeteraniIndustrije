@@ -109,6 +109,8 @@ public class GameController : MonoBehaviour
         var candle = FindObjectOfType<Candle>();
         candle.burnTime = Level.CandleDuration;
 
+        GuestManager.I.LimitGuestNumber = Level.LimitGuestNumber;
+
         var availableWishes = Level.AvailableWishes;
         var objectsThatCanBeDisabled = LevelSettings.I.InteractableObjectsNames;
         for (int i = 0; i < objectsThatCanBeDisabled.Count; i++)

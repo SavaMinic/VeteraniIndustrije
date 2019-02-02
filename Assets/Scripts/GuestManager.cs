@@ -39,6 +39,9 @@ public class GuestManager : MonoBehaviour
     public float DelayForGeneratingGuestsSlow = 10f;
     public float DelayForGeneratingGuestsFast = 25f;
 
+    // if != 0, then it will limit sitting position to this
+    public int LimitGuestNumber;
+
     public int GuestCount => guestSeats.Length - availableSittingPositionIndex.Count;
     public float GuestCountRatio => (float)GuestCount / availableSittingPositionIndex.Count;
 
@@ -154,6 +157,13 @@ public class GuestManager : MonoBehaviour
         for (int i = 0; i < guestSeats.Length; i++)
         {
             availableSittingPositionIndex.Add(i);
+        }
+
+        if (LimitGuestNumber > 0)
+        {
+            var limit = Mathf.Min(LimitGuestNumber, availableSittingPositionIndex.Count);
+            availableSittingPositionIndex.Shuffle();
+            availableSittingPositionIndex.RemoveRange(0, availableSittingPositionIndex.Count - limit);
         }
     }
 
