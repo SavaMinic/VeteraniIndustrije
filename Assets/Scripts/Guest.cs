@@ -93,7 +93,7 @@ public class Guest : MonoBehaviour
                 // Check if guest is within range of the seat
                 DoMoveFlipping();
 
-                if (Vector3.Distance(transform.position, seat.transform.position) < 0.5f)
+                if (Vector3.Distance(transform.position, seat.transform.position) < 1.5f)
                 {
                     Sit();
                     Delay(Random.Range(0f, 2f) * InitialDelay);
