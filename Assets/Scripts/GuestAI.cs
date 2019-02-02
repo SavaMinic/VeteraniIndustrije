@@ -22,29 +22,30 @@ public class GuestAI : MonoBehaviour
 
     public void GoToZito()
     {
-        obstacle.enabled = false;
-        agent.enabled = true;
+        StartMoving();
 
         agent.SetDestination(zitoDestination.position);
     }
 
     public void GoToSeat()
     {
-        obstacle.enabled = false;
-        agent.enabled = true;
+        StartMoving();
 
         agent.SetDestination(seatDestination.position);
     }
 
     public void GoToExit()
     {
-        obstacle.enabled = false;
-        agent.enabled = true;
-
+        StartMoving();
         agent.SetDestination(exitDestination.position);
     }
 
     public void Stop()
+    {
+        agent.isStopped = true;
+    }
+
+    public void FullStop()
     {
         agent.enabled = false;
         obstacle.enabled = true;
@@ -60,6 +61,13 @@ public class GuestAI : MonoBehaviour
 
         Debug.Log(v.x);
         return v.x;
+    }
+
+    void StartMoving()
+    {
+        obstacle.enabled = false;
+        agent.enabled = true;
+        agent.isStopped = false;
     }
 
     void Update()

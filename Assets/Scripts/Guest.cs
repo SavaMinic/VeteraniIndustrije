@@ -94,7 +94,8 @@ public class Guest : MonoBehaviour
                 if (Vector3.Distance(transform.position, AI.zitoDestination.position) < 1.5f)
                 {
                     CurrentState = GuestState.WaitingForZito;
-                    followAI = false;
+                    //followAI = false;
+                    AI.Stop();
                     if (entryWish == null)
                     {
                         entryWish = new GuestWish(GuestWish.GuestWishType.Zito, 30f);
@@ -253,7 +254,7 @@ public class Guest : MonoBehaviour
                             FinishActiveWish(false, q.wrongConsumable[Random.Range(0, q.wrongConsumable.Length)]);
                     }
                 }
-                
+
                 if (CurrentState == GuestState.WaitingForZito && entryWish.IsFinished)
                 {
                     if (entryWish.IsSuccess.HasValue && entryWish.IsSuccess.Value)
@@ -298,7 +299,7 @@ public class Guest : MonoBehaviour
 
     void Sit()
     {
-        AI.Stop();
+        AI.FullStop();
         followAI = false;
 
         spriteRenderer.flipX = seat.isFlipped;
@@ -309,7 +310,7 @@ public class Guest : MonoBehaviour
     public void FinishActiveWish(bool success = true, string message = "")
     {
         var activeWish = CurrentWish;
-        if (activeWish == null 
+        if (activeWish == null
             || !(CurrentState == GuestState.WaitingForService || CurrentState == GuestState.WaitingForZito))
             return;
 
