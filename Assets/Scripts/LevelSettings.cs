@@ -33,8 +33,17 @@ public class LevelSettings : ScriptableObject
         public List<GuestWish.GuestWishType> AvailableWishes;
         public bool IsRaining;
     }
+
+    [System.Serializable]
+    public struct InteractableObjectNames
+    {
+        public string ItemName;
+        public GuestWish.GuestWishType WishType;
+    }
     
     #endregion
 
     public List<LevelData> LevelsData;
+
+    public List<InteractableObjectNames> InteractableObjectsNames;
 }
