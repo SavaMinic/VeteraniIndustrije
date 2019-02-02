@@ -21,6 +21,8 @@ public class Pivo : Interactable
 
     protected override void OnBeforeDestroy()
     {
+        Debug.Assert(InteractionControl.I, "Interaction control doesn't exist");
+        //Debug.Assert(id != null, "id is null");
         InteractionControl.I.InteractionObjectData.Remove(id);
     }
 }
