@@ -5,7 +5,8 @@ public class LevelButton : MonoBehaviour
 {
     public static LevelButton SelectedButton;
     
-    public Text levelNameLaber;
+    public Text levelNameLabel;
+    public Text highScoreLabel;
     public Image background;
 
     public Color selectedColor;
@@ -63,7 +64,8 @@ public class LevelButton : MonoBehaviour
 
     private void Refresh()
     {
-        levelNameLaber.text = LevelName.ToUpper();
+        levelNameLabel.text = LevelName.ToUpper();
+        highScoreLabel.text = GameController.I.GetHighScore(LevelName).ToString();
 
         background.color = IsSelected ? selectedColor : normalColor;
         background.sprite = IsSelected ? selectedSprite : normalSprite;

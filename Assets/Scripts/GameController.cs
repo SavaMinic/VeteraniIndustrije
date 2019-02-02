@@ -30,7 +30,9 @@ public class GameController : MonoBehaviour
 
     #region Properties
 
-    public LevelSettings.LevelData Level{ get; private set; }
+    private const string HighScoreKey = "HighScore_";
+
+    public LevelSettings.LevelData Level { get; private set; }
     
     public bool IsPaused { get; private set; }
 
@@ -53,6 +55,16 @@ public class GameController : MonoBehaviour
     #endregion
     
     #region Public
+
+    public int GetHighScore(string levelName)
+    {
+        return PlayerPrefs.GetInt(HighScoreKey + levelName, 0);
+    }
+
+    public void SetHighScore(string levelName, int score)
+    {
+        PlayerPrefs.SetInt(HighScoreKey + levelName, score);
+    }
 
     public void LoadLevel(string levelName)
     {
