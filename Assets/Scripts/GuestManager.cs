@@ -28,6 +28,7 @@ public class GuestManager : MonoBehaviour
     [SerializeField] WishQuip[] wishQuips;
 
     public Transform entrancePosition;
+    public Transform zitoPosition;
     public Seat[] guestSeats;
 
     public List<GameObject> GuestPrefabs = new List<GameObject>();
@@ -174,6 +175,8 @@ public class GuestManager : MonoBehaviour
 
         var guestAgent = Instantiate(guestAgentPrefab).GetComponent<GuestAI>();
         guestAgent.transform.position = entrancePosition.position;
+        guestAgent.exitDestination = entrancePosition;
+        guestAgent.zitoDestination = zitoPosition;
         guest.AI = guestAgent;
 
         guest.AssignSeat(index, guestSeats[index]);

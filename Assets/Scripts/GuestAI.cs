@@ -25,6 +25,18 @@ public class GuestAI : MonoBehaviour
         agent.SetDestination(seatDestination.position);
     }
 
+    public float VelocityX()
+    {
+        Debug.DrawLine(
+            transform.position,
+            transform.position + agent.desiredVelocity.normalized, Color.red);
+
+        Vector3 v = Camera.main.transform.InverseTransformDirection(agent.desiredVelocity.normalized);
+
+        Debug.Log(v.x);
+        return v.x;
+    }
+
     void Update()
     {
         Debug.DrawLine(transform.position, agent.destination);
