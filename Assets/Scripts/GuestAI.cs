@@ -17,7 +17,15 @@ public class GuestAI : MonoBehaviour
 
     void Start()
     {
-        GoToSeat();
+        GoToZito();
+    }
+
+    public void GoToZito()
+    {
+        obstacle.enabled = false;
+        agent.enabled = true;
+
+        agent.SetDestination(zitoDestination.position);
     }
 
     public void GoToSeat()

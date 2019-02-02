@@ -28,6 +28,7 @@ public class GuestManager : MonoBehaviour
     [SerializeField] WishQuip[] wishQuips;
 
     public Transform entrancePosition;
+    public Transform exitPosition;
     public Transform zitoPosition;
     public Seat[] guestSeats;
 
@@ -64,8 +65,15 @@ public class GuestManager : MonoBehaviour
     {
         new List<string> { "?!?!?", "***** ** *****", "uff zurim kuci" },
         new List<string> { "Mlaka sarma", "Vruce pivo?" },
-        new List<string> { "Vise vina", "I dogodine", "Bice bolje dogodine" },
+        new List<string> { "Bice bolje dogodine" },
+        new List<string> { "Nit' smrdi nit' mirise", "Zbogom" },
+        new List<string> { "Vise vina", "I dogodine" },
         new List<string> { "Svaka cast, domacine!", "Sve najbolje!" },
+    };
+
+    private List<string> noZitoNoPartyMessages = new List<string>
+    {
+        "Gde je zito?", "Nema zita za slavu?", "Nemam vremena za ovo"
     };
 
     private bool slavaHasStarted;
@@ -110,12 +118,19 @@ public class GuestManager : MonoBehaviour
     {
         availableSittingPositionIndex.Add(sitPositionIndex);
 
-        var numberOfStars = Mathf.Clamp(Mathf.RoundToInt(guest.NumberOfStars), 0, 3);
+        var numberOfStars = Mathf.Clamp(Mathf.RoundToInt(guest.NumberOfStars), 0, 5);
         var messages = exitMessages[numberOfStars];
         var exitMessage = messages[UnityEngine.Random.Range(0, messages.Count)];
         CanvasController.I.ShowNotification(guest, exitMessage, numberOfStars, guest.NumberOfWishes);
 
         CanvasController.I.AddStars(numberOfStars);
+    }
+
+    public void NoZitoNoParty(Guest guest)
+    {
+        var message = noZitoNoPartyMessages[UnityEngine.Random.Range(0, noZitoNoPartyMessages.Count)];
+        CanvasController.I.ShowNotification(guest, message, 0, 1);
+        CanvasController.I.AddStars(-1);
     }
 
     public WishQuip GetWishQuip(GuestWish.GuestWishType wishType)

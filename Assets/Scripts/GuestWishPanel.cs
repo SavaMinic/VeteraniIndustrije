@@ -88,14 +88,16 @@ public class GuestWishPanel : MonoBehaviour
             return;
         }
         
-        if (guestState == Guest.GuestState.WaitingForService && !isShown)
+        if ((guestState == Guest.GuestState.WaitingForService || guestState == Guest.GuestState.WaitingForZito) 
+            && !isShown)
         {
             wishImage.color = Color.white;
             wishFillImage.color = timingColor;
             isShown = true;
             StartCoroutine(FadeTo(1f, fadeDuration));
         }
-        else if (guestState != Guest.GuestState.WaitingForService && isShown)
+        else if ((guestState != Guest.GuestState.WaitingForService && guestState != Guest.GuestState.WaitingForZito)
+            && isShown)
         {
             isShown = false;
             var lastFinishedWish = guest.LastFinishedWish;
@@ -111,7 +113,8 @@ public class GuestWishPanel : MonoBehaviour
         
         // update progress
         var currentWish = guest.CurrentWish;
-        if (guestState == Guest.GuestState.WaitingForService && currentWish != null)
+        if ((guestState == Guest.GuestState.WaitingForService || guestState == Guest.GuestState.WaitingForZito)
+            && currentWish != null)
         {
             var guestWishSprite = guestWishSprites.Find(w => w.WishType == currentWish.Type);
             if (guestWishSprite != null)

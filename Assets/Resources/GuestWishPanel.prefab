@@ -152,6 +152,8 @@ MonoBehaviour:
     WishSprite: {fileID: 21300000, guid: 2251d1ca9a3dc40e49fd628da67a3ff3, type: 3}
   - WishType: 6
     WishSprite: {fileID: 21300000, guid: 53a31c36174ba48b2a282112458574be, type: 3}
+  - WishType: 13
+    WishSprite: {fileID: 21300000, guid: 5f33ecbfde259454b97d56231abf4b2b, type: 3}
   fadeDuration: 0.5
   wishImage: {fileID: 1714659734730863751}
   wishFillImage: {fileID: 6519493374307143138}

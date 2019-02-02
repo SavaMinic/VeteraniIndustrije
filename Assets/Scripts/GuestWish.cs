@@ -29,6 +29,8 @@ public class GuestWish
         // window wishes
         OpenWindow,
         CloseWindow,
+        
+        Zito,
     }
 
     // DON'T FORGET TO PUT AVAILABLE WISHES HERE!
@@ -72,7 +74,7 @@ public class GuestWish
                             || Type == GuestWishType.CrniSok
                             || Type == GuestWishType.Water;
 
-    public bool IsFoodWish => Type == GuestWishType.Sarma;
+    public bool IsFoodWish => Type == GuestWishType.Sarma || Type == GuestWishType.Zito;
 
     public GuestWish(GuestWishType type, float waitingTime)
     {

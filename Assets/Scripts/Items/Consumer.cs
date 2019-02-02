@@ -18,7 +18,8 @@ public class Consumer : Interactable
         // Gost jede
         if (foodContainer.amount > 0)
         {
-            foodContainer.amount -= Time.deltaTime * eatingSpeed;
+            var speed = foodContainer.type.wishType == GuestWish.GuestWishType.Zito ? 0.95f : eatingSpeed;
+            foodContainer.amount -= Time.deltaTime * speed;
         }
 
         // Gost pije

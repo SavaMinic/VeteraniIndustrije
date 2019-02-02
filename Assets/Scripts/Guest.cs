@@ -17,6 +17,7 @@ public class Guest : MonoBehaviour
     public enum GuestState
     {
         WaitingAtTheDoor,
+        WaitingForZito,
         WalkingIn,
         WaitingForService,
         Delay,
@@ -33,7 +34,7 @@ public class Guest : MonoBehaviour
     public GuestState CurrentState;
     public List<GuestWish> AllWishes = new List<GuestWish>();
 
-    public GuestWish CurrentWish => AllWishes.Find(w => !w.IsFinished);
+    public GuestWish CurrentWish => CurrentState == GuestState.WaitingForZito ? entryWish : AllWishes.Find(w => !w.IsFinished);
     public GuestWish LastFinishedWish => AllWishes.FindLast(w => w.IsFinished);
 
     public Consumer consumer;
@@ -56,6 +57,8 @@ public class Guest : MonoBehaviour
 
     bool followAI = true;
 
+    private GuestWish entryWish;
+
     #region Mono
 
     private void Awake()
@@ -71,7 +74,7 @@ public class Guest : MonoBehaviour
 
     void WalkIn()
     {
-        CurrentState = GuestState.WalkingIn;
+        CurrentState = GuestState.WaitingAtTheDoor;
     }
 
     private void Update()
@@ -88,6 +91,17 @@ public class Guest : MonoBehaviour
         {
             case GuestState.WaitingAtTheDoor:
                 // Wait for the domacin to open the door
+                if (Vector3.Distance(transform.position, AI.zitoDestination.position) < 1.5f)
+                {
+                    CurrentState = GuestState.WaitingForZito;
+                    followAI = false;
+                    if (entryWish == null)
+                    {
+                        entryWish = new GuestWish(GuestWish.GuestWishType.Zito, 30f);
+                        AllWishes.Insert(0, entryWish);
+                        entryWish.ActivateWish();
+                    }
+                }
                 break;
             case GuestState.WalkingIn:
                 // Check if guest is within range of the seat
@@ -123,6 +137,7 @@ public class Guest : MonoBehaviour
                     RequestingWish();
                 }
                 break;
+            case GuestState.WaitingForZito:
             case GuestState.WaitingForService:
                 var currentWish = CurrentWish;
 
@@ -238,6 +253,23 @@ public class Guest : MonoBehaviour
                             FinishActiveWish(false, q.wrongConsumable[Random.Range(0, q.wrongConsumable.Length)]);
                     }
                 }
+                
+                if (CurrentState == GuestState.WaitingForZito && entryWish.IsFinished)
+                {
+                    if (entryWish.IsSuccess.HasValue && entryWish.IsSuccess.Value)
+                    {
+                        // go in
+                        AllWishes.RemoveAt(0);
+                        AI.GoToSeat();
+                        followAI = true;
+                        CurrentState = GuestState.WalkingIn;
+                    }
+                    else
+                    {
+                        // just rage-quit
+                        GoHome(false);
+                    }
+                }
 
                 break;
         }
@@ -277,12 +309,17 @@ public class Guest : MonoBehaviour
     public void FinishActiveWish(bool success = true, string message = "")
     {
         var activeWish = CurrentWish;
-        if (activeWish == null || CurrentState != GuestState.WaitingForService)
+        if (activeWish == null 
+            || !(CurrentState == GuestState.WaitingForService || CurrentState == GuestState.WaitingForZito))
             return;
 
         Debug.Log(sittingIndex + " Finished active wish, start delay");
         activeWish.FinishWish(success);
-        Delay(DelayAfterWish);
+
+        if (CurrentState == GuestState.WaitingForService)
+        {
+            Delay(DelayAfterWish);
+        }
 
         if (!string.IsNullOrEmpty(message))
             CanvasController.I.ShowNotification(this, message);
@@ -345,11 +382,18 @@ public class Guest : MonoBehaviour
         CurrentState = GuestState.WaitingForService;
     }
 
-    private void GoHome()
+    private void GoHome(bool wasSitting = true)
     {
         Debug.Log(sittingIndex + " Going home");
         CurrentState = GuestState.GoingOut;
-        GuestManager.I.SittingPlaceAvailable(this, sittingIndex);
+        if (wasSitting)
+        {
+            GuestManager.I.SittingPlaceAvailable(this, sittingIndex);
+        }
+        else
+        {
+            GuestManager.I.NoZitoNoParty(this);
+        }
 
         if (!followAI)
         {
