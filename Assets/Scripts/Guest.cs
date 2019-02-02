@@ -101,7 +101,7 @@ public class Guest : MonoBehaviour
                 break;
             case GuestState.GoingOut:
 
-                if (Vector3.Distance(transform.position, AI.exitDestination.position) < 0.5f)
+                if (Vector3.Distance(transform.position, AI.exitDestination.position) < 1.5f)
                 {
                     CurrentState = GuestState.Exit;
                 }
