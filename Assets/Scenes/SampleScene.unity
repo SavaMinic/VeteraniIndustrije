@@ -9799,6 +9799,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 656a7bffa0db57549baf49212929cd70, type: 2}
   - {fileID: 11400000, guid: b6a50c19bbac3574f8fc488a908ee4bb, type: 2}
   - {fileID: 11400000, guid: 540c885b3994a67459228662578721b9, type: 2}
+  pivoPrefab: {fileID: 4037613508952640702, guid: 5640ca4aad75b81499d9009275eecfb3,
+    type: 3}
 --- !u!4 &1893395510
 Transform:
   m_ObjectHideFlags: 0
