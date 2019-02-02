@@ -1970,7 +1970,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496593780}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -16.88, y: 1, z: -15.2}
+  m_LocalPosition: {x: -15.4, y: 1, z: -15.2}
   m_LocalScale: {x: 2, y: 24.250721, z: 2}
   m_Children: []
   m_Father: {fileID: 1482049867}
@@ -2914,7 +2914,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653842421}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 12.04, y: 1, z: -15.2}
+  m_LocalPosition: {x: 14, y: 1, z: -15.2}
   m_LocalScale: {x: 2, y: 24.250721, z: 2}
   m_Children: []
   m_Father: {fileID: 1482049867}
@@ -3670,7 +3670,7 @@ GameObject:
   m_Layer: 0
   m_Name: ZitoPos
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5196,9 +5196,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1145266691}
   m_Layer: 0
-  m_Name: Entrance
+  m_Name: EnterPos
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5620,8 +5620,9 @@ GameObject:
   - component: {fileID: 1242927400}
   - component: {fileID: 1242927399}
   - component: {fileID: 1242927398}
+  - component: {fileID: 1242927402}
   m_Layer: 9
-  m_Name: Wall (2)
+  m_Name: Vrata Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -5635,7 +5636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242927396}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -2.41, y: 1, z: -15.2}
+  m_LocalPosition: {x: -0.34, y: 1, z: -15.2}
   m_LocalScale: {x: 2, y: 4.4429746, z: 2}
   m_Children: []
   m_Father: {fileID: 1482049867}
@@ -5668,7 +5669,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1
-  m_Height: 1.1
+  m_Height: 2.36
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1242927400
@@ -5716,6 +5717,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242927396}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1242927402
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242927396}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!4 &1251277704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8296137772411103922, guid: da474154facf68e4dae9bf667221635a,
@@ -10180,6 +10197,7 @@ MonoBehaviour:
   putClip: {fileID: 0}
   openGraphics: {fileID: 471602067}
   closedGraphics: {fileID: 403131521}
+  doorCollisionObject: {fileID: 1242927396}
 --- !u!1 &2061671341
 GameObject:
   m_ObjectHideFlags: 0

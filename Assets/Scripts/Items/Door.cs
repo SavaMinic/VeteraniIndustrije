@@ -8,6 +8,7 @@ public class Door : Interactable
 
     public GameObject openGraphics;
     public GameObject closedGraphics;
+    public GameObject doorCollisionObject;
 
     public void Toggle()
     {
@@ -15,7 +16,9 @@ public class Door : Interactable
 
         openGraphics.SetActive(IsOpen);
         closedGraphics.SetActive(!IsOpen);
-        
+
+        doorCollisionObject.SetActive(!IsOpen);
+
         Promaja.Refresh();
     }
 }
