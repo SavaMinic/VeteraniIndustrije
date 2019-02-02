@@ -93,10 +93,9 @@ public class Guest : MonoBehaviour
                 DoMoveFlipping();
 
                 // Wait for the domacin to open the door
-                if (Vector3.Distance(transform.position, AI.zitoDestination.position) < 1.5f)
+                if (IsCloseTo(AI.zitoDestination.position))
                 {
                     CurrentState = GuestState.WaitingForZito;
-                    //followAI = false;
                     AI.Stop();
                     if (entryWish == null)
                     {
@@ -107,10 +106,9 @@ public class Guest : MonoBehaviour
                 }
                 break;
             case GuestState.WalkingIn:
-                // Check if guest is within range of the seat
                 DoMoveFlipping();
 
-                if (Vector3.Distance(transform.position, seat.transform.position) < 1.5f)
+                if (IsCloseTo(seat.transform.position))
                 {
                     Sit();
                     Delay(Random.Range(0f, 2f) * InitialDelay);
@@ -416,6 +414,14 @@ public class Guest : MonoBehaviour
         }
         Destroy(gameObject);
         Destroy(AI.gameObject);
+    }
+
+    bool IsCloseTo(Vector3 point)
+    {
+        Vector2 v1 = new Vector2(transform.position.x, transform.position.z);
+        Vector2 v2 = new Vector2(point.x, point.z);
+
+        return Vector2.Distance(v1, v2) < 0.1f;
     }
 
     #endregion
