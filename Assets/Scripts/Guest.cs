@@ -43,6 +43,8 @@ public class Guest : MonoBehaviour
 
     public Consumer consumer;
 
+    const float TIME_BETWEEN_RINGS = 6;
+
     private float timeForNewWish;
     private Vector3 sittingPosition;
     private int sittingIndex;
@@ -362,7 +364,7 @@ public class Guest : MonoBehaviour
 
     void RingTillDoorIsOpen()
     {
-        if (!Door.IsOpen && Time.time - lastRingTime > 6)
+        if (!Door.IsOpen && Time.time - lastRingTime > TIME_BETWEEN_RINGS)
         {
             lastRingTime = Time.time;
             Bell.e.Ring();
