@@ -51,6 +51,8 @@ public class CanvasController : MonoBehaviour
     public CanvasGroup endGamePanel;
     public Text endGameScore;
     public Button closeButton;
+    
+    public Button mainCloseButton;
 
     #endregion
 
@@ -66,6 +68,7 @@ public class CanvasController : MonoBehaviour
     private void Start()
     {
         closeButton.onClick.AddListener(OnCloseClick);
+        mainCloseButton.onClick.AddListener(OnCloseClick);
 
         levelNameText.text = GameController.I.Level.Name ?? "NIVO TEST";
     }
@@ -82,6 +85,7 @@ public class CanvasController : MonoBehaviour
     private void OnDestroy()
     {
         closeButton.onClick.RemoveListener(OnCloseClick);
+        mainCloseButton.onClick.RemoveListener(OnCloseClick);
     }
 
     #endregion
