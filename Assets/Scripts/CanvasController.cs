@@ -102,6 +102,13 @@ public class CanvasController : MonoBehaviour
     {
         starsCount += stars;
         starsCountText.text = "SLAVA: " + starsCount;
+
+        var levelName = GameController.I.Level.Name;
+        var highScore = GameController.I.GetHighScore(levelName);
+        if (starsCount > highScore)
+        {
+            GameController.I.SetHighScore(levelName, starsCount);
+        }
     }
 
     public void AddNewGuestWish(Guest guest)
