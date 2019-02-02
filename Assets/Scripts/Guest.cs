@@ -338,7 +338,7 @@ public class Guest : MonoBehaviour
 
     void DoMoveFlipping()
     {
-        spriteRenderer.flipX = AI.VelocityX() > 0;
+        spriteRenderer.flipX = AI.VelocityX() >= -0.05f;
     }
 
     private void GenerateNewWish()
