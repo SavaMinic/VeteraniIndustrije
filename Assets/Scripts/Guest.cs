@@ -105,7 +105,7 @@ public class Guest : MonoBehaviour
                 DoMoveFlipping();
 
                 // Wait for the domacin to open the door
-                if (IsCloseTo(AI.zitoDestination.position))
+                if (IsCloseTo(AI.zitoDestination.position, 1))
                 {
                     CurrentState = GuestState.WaitingForZito;
                     AI.Stop();
@@ -447,12 +447,12 @@ public class Guest : MonoBehaviour
         flekaObject.transform.position = transform.position;
     }
 
-    bool IsCloseTo(Vector3 point)
+    bool IsCloseTo(Vector3 point, float range = 0.1f)
     {
         Vector2 v1 = new Vector2(transform.position.x, transform.position.z);
         Vector2 v2 = new Vector2(point.x, point.z);
 
-        return Vector2.Distance(v1, v2) < 0.1f;
+        return Vector2.Distance(v1, v2) < range;
     }
 
     #endregion
