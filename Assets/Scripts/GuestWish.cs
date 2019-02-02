@@ -33,6 +33,23 @@ public class GuestWish
         Zito,
     }
 
+    // DON'T FORGET TO PUT AVAILABLE WISHES HERE!
+    public readonly IReadOnlyList<GuestWishType> AvailableWishTypes = new List<GuestWishType>
+    {
+        GuestWishType.Coffee,
+        GuestWishType.Rakija,
+        GuestWishType.ZutiSok,
+        GuestWishType.CrniSok,
+        GuestWishType.Water,
+        GuestWishType.Sarma,
+        GuestWishType.TvOff,
+        GuestWishType.TvBasketball,
+        GuestWishType.TvWeather,
+        GuestWishType.TvFarma,
+        GuestWishType.OpenWindow,
+        GuestWishType.CloseWindow,
+    };
+
     public GuestWishType Type;
     public float WaitingTime;
 
@@ -64,7 +81,7 @@ public class GuestWish
         var availableWishTypes = GameController.I.Level.AvailableWishes;
         if (availableWishTypes == null || availableWishTypes.Count == 0)
         {
-            availableWishTypes = LevelSettings.I.LevelsData[0].AvailableWishes;
+            availableWishTypes = new List<GuestWishType>(AvailableWishTypes);
         }
         // if there is no wish, get random
         if (type != GuestWishType.Random && !availableWishTypes.Contains(type))
