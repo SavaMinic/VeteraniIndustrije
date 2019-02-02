@@ -299,7 +299,7 @@ public class Guest : MonoBehaviour
 
     void Sit()
     {
-        AI.FullStop();
+        AI.Stop();
         followAI = false;
 
         spriteRenderer.flipX = seat.isFlipped;

@@ -15,6 +15,8 @@ public class GuestAI : MonoBehaviour
     public Transform zitoDestination;
     public Transform seatDestination;
 
+    public bool Fullstopped { get; private set; }
+
     void Start()
     {
         GoToZito();
@@ -22,33 +24,22 @@ public class GuestAI : MonoBehaviour
 
     public void GoToZito()
     {
-        StartMoving();
-
-        agent.SetDestination(zitoDestination.position);
+        StartMoving(zitoDestination);
     }
 
     public void GoToSeat()
     {
-        StartMoving();
-
-        agent.SetDestination(seatDestination.position);
+        StartMoving(seatDestination);
     }
 
     public void GoToExit()
     {
-        StartMoving();
-        agent.SetDestination(exitDestination.position);
+        StartMoving(exitDestination);
     }
 
     public void Stop()
     {
         agent.isStopped = true;
-    }
-
-    public void FullStop()
-    {
-        agent.enabled = false;
-        obstacle.enabled = true;
     }
 
     public float VelocityX()
@@ -63,15 +54,37 @@ public class GuestAI : MonoBehaviour
         return v.x;
     }
 
-    void StartMoving()
+    void StartMoving(Transform to)
     {
         obstacle.enabled = false;
+        StartCoroutine(SkipFrameAndStartMoving(to));
+    }
+
+    IEnumerator SkipFrameAndStartMoving(Transform to)
+    {
+        yield return null;
         agent.enabled = true;
         agent.isStopped = false;
+        Fullstopped = false;
+
+        agent.SetDestination(to.position);
+    }
+
+    void FullStop()
+    {
+        agent.isStopped = true;
+        agent.enabled = false;
+        obstacle.enabled = true;
+        Fullstopped = true;
     }
 
     void Update()
     {
         Debug.DrawLine(transform.position, agent.destination);
+
+        if (!Fullstopped && agent.isStopped && agent.velocity.sqrMagnitude < 0.01f)
+        {
+            FullStop();
+        }
     }
 }
