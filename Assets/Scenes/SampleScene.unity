@@ -1424,6 +1424,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3627648595432186861, guid: 1bcfea8aab56d4eb3b1e8873aa005131,
+        type: 3}
+      propertyPath: dontRenderWhenNotHighlighted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059069452998681745, guid: 1bcfea8aab56d4eb3b1e8873aa005131,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059069452998681745, guid: 1bcfea8aab56d4eb3b1e8873aa005131,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059069452998681745, guid: 1bcfea8aab56d4eb3b1e8873aa005131,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6695532169484983582, guid: 1bcfea8aab56d4eb3b1e8873aa005131,
         type: 3}
       propertyPath: m_FlipX
