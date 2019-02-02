@@ -43,7 +43,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3441751427881646955}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 2
   m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f43c92b199f6c04089dc80f6599fd89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstacle: {fileID: 5211765090532092502}
   exitDestination: {fileID: 0}
   zitoDestination: {fileID: 0}
   seatDestination: {fileID: 0}
@@ -81,9 +82,9 @@ NavMeshObstacle:
   m_Enabled: 0
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 1, y: 2.65, z: 1}
+  m_Extents: {x: 1.5, y: 2.65, z: 1.5}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 1.37, z: 0}
   m_TimeToStationary: 0.5

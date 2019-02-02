@@ -9,7 +9,7 @@ public class GuestAI : MonoBehaviour
     NavMeshAgent _agent;
     NavMeshAgent agent { get { if (!_agent) _agent = GetComponent<NavMeshAgent>(); return _agent; } }
 
-    public bool ReachedDestination => agent.isStopped;
+    public NavMeshObstacle obstacle;
 
     public Transform exitDestination;
     public Transform zitoDestination;
@@ -17,12 +17,29 @@ public class GuestAI : MonoBehaviour
 
     void Start()
     {
-        GotoSeat();
+        GoToSeat();
     }
 
-    void GotoSeat()
+    public void GoToSeat()
     {
+        obstacle.enabled = false;
+        agent.enabled = true;
+
         agent.SetDestination(seatDestination.position);
+    }
+
+    public void GoToExit()
+    {
+        obstacle.enabled = false;
+        agent.enabled = true;
+
+        agent.SetDestination(seatDestination.position);
+    }
+
+    public void Stop()
+    {
+        agent.enabled = false;
+        obstacle.enabled = true;
     }
 
     public float VelocityX()
@@ -40,6 +57,5 @@ public class GuestAI : MonoBehaviour
     void Update()
     {
         Debug.DrawLine(transform.position, agent.destination);
-        Debug.DrawRay(transform.position, Vector3.up, ReachedDestination ? Color.yellow : Color.blue);
     }
 }

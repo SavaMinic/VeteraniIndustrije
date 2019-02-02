@@ -21,6 +21,7 @@ public class Guest : MonoBehaviour
         WaitingForService,
         Delay,
         GoingOut,
+        Exit
     }
 
     public GuestType Type;
@@ -53,6 +54,8 @@ public class Guest : MonoBehaviour
     public GuestAI AI { private get; set; }
     Seat seat;
 
+    bool followAI = true;
+
     #region Mono
 
     private void Awake()
@@ -77,7 +80,9 @@ public class Guest : MonoBehaviour
             return;
 
         // Follow guest
-        transform.position = AI.transform.position + Vector3.up;
+
+        if (followAI)
+            transform.position = AI.transform.position + Vector3.up;
 
         switch (CurrentState)
         {
@@ -95,14 +100,20 @@ public class Guest : MonoBehaviour
                 }
                 break;
             case GuestState.GoingOut:
-                // TODO: walking
+
+                if (Vector3.Distance(transform.position, AI.exitDestination.position) < 0.5f)
+                {
+                    CurrentState = GuestState.Exit;
+                }
+                return;
+            case GuestState.Exit:
                 if (!isFadeOut)
                 {
                     isFadeOut = true;
                     Debug.Log(sittingIndex + " BYE!");
                     StartCoroutine(DelayDestroy(1.2f));
                 }
-                return;
+                break;
             case GuestState.Delay:
                 // currently delayed after the wish
                 timeForNewWish -= Time.deltaTime;
@@ -250,10 +261,14 @@ public class Guest : MonoBehaviour
         this.seat = seat;
 
         AI.seatDestination = seat.transform;
+        AI.GoToSeat();
     }
 
     void Sit()
     {
+        AI.Stop();
+        followAI = false;
+
         spriteRenderer.flipX = seat.isFlipped;
         transform.position = seat.transform.position;
         Debug.Log("Sat down");
@@ -335,6 +350,11 @@ public class Guest : MonoBehaviour
         Debug.Log(sittingIndex + " Going home");
         CurrentState = GuestState.GoingOut;
         GuestManager.I.SittingPlaceAvailable(this, sittingIndex);
+
+        if (!followAI)
+            GoHome();
+
+        followAI = true;
     }
 
     private IEnumerator DelayDestroy(float delay)
