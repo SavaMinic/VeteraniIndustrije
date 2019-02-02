@@ -8,7 +8,7 @@ public abstract class Interactable : MonoBehaviour, IProximityFindable
 
     public bool isTakeable = true;
     public bool isHeld;
-    public bool PlayerCantInteract { get; private set; }
+    bool PlayerCantInteract { get; set; }
     public bool SkipProximitySearch => PlayerCantInteract;
 
     Hands inHands;

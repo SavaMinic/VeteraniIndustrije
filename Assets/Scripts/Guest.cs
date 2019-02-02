@@ -62,7 +62,7 @@ public class Guest : MonoBehaviour
     bool followAI = true;
 
     private GuestWish entryWish;
-    
+
 
     #region Mono
 
@@ -83,6 +83,7 @@ public class Guest : MonoBehaviour
 
     void WalkIn()
     {
+        consumer.EnablePlayerInteraction(false);
         CurrentState = GuestState.WaitingAtTheDoor;
     }
 
@@ -108,6 +109,8 @@ public class Guest : MonoBehaviour
                 {
                     CurrentState = GuestState.WaitingForZito;
                     AI.Stop();
+                    consumer.EnablePlayerInteraction(true);
+
                     if (entryWish == null)
                     {
                         entryWish = new GuestWish(GuestWish.GuestWishType.Zito, 30f);
@@ -274,6 +277,7 @@ public class Guest : MonoBehaviour
                         AllWishes.RemoveAt(0);
                         AI.GoToSeat();
                         followAI = true;
+                        consumer.EnablePlayerInteraction(false);
                         CurrentState = GuestState.WalkingIn;
 
                         if (hasDirtyShoes)
@@ -317,6 +321,7 @@ public class Guest : MonoBehaviour
     {
         AI.Stop();
         followAI = false;
+        consumer.EnablePlayerInteraction(true);
 
         spriteRenderer.flipX = seat.isFlipped;
         transform.position = seat.transform.position;
@@ -401,6 +406,8 @@ public class Guest : MonoBehaviour
 
     private void GoHome(bool wasSitting = true)
     {
+        consumer.EnablePlayerInteraction(false);
+
         Debug.Log(sittingIndex + " Going home");
         CurrentState = GuestState.GoingOut;
         if (wasSitting)
