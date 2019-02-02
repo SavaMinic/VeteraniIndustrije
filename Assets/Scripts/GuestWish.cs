@@ -48,6 +48,7 @@ public class GuestWish
         GuestWishType.TvFarma,
         GuestWishType.OpenWindow,
         GuestWishType.CloseWindow,
+        GuestWishType.Zito,
     };
 
     public GuestWishType Type;
