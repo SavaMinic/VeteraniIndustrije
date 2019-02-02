@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 184826496218933234}
   m_LocalRotation: {x: 0.1150751, y: -0.8811196, z: 0.27781588, w: 0.36497167}
   m_LocalPosition: {x: -7.6, y: -2.4, z: -13.6}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8060005949992570353}
   m_Father: {fileID: 0}
@@ -49,7 +49,7 @@ MonoBehaviour:
   itemInSlot: {fileID: 8060005949992570355}
   useInteractionControl: 0
   dontRenderWhenNotHighlighted: 0
-  highlightColor: {r: 1, g: 0.9082564, b: 0, a: 1}
+  highlightColor: {r: 0.7362522, g: 1, b: 0, a: 1}
 --- !u!212 &9059069452998681745
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -201,14 +201,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8060005949992570354}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.12987599, y: -0, z: -0, w: 0.99153024}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2500001, y: 1.25, z: 1.2500005}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1801138259195326583}
   m_Father: {fileID: 3759572183983673872}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 35, y: -135, z: 0}
+  m_LocalEulerAnglesHint: {x: -14.925001, y: 0, z: 0}
 --- !u!114 &8060005949992570355
 MonoBehaviour:
   m_ObjectHideFlags: 0
