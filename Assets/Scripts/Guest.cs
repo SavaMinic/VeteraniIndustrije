@@ -81,11 +81,7 @@ public class Guest : MonoBehaviour
         WalkIn();
     }
 
-    void WalkIn()
-    {
-        consumer.EnablePlayerInteraction(false);
-        CurrentState = GuestState.WaitingAtTheDoor;
-    }
+
 
     private void Update()
     {
@@ -102,6 +98,7 @@ public class Guest : MonoBehaviour
         switch (CurrentState)
         {
             case GuestState.WaitingAtTheDoor:
+                RingTillDoorIsOpen();
                 DoMoveFlipping();
 
                 // Wait for the domacin to open the door
@@ -350,6 +347,27 @@ public class Guest : MonoBehaviour
     #endregion
 
     #region Private
+
+    float lastRingTime;
+
+    void WalkIn()
+    {
+        consumer.EnablePlayerInteraction(false);
+        CurrentState = GuestState.WaitingAtTheDoor;
+
+        lastRingTime = -Mathf.Infinity;
+
+        RingTillDoorIsOpen();
+    }
+
+    void RingTillDoorIsOpen()
+    {
+        if (!Door.IsOpen && Time.time - lastRingTime > 6)
+        {
+            lastRingTime = Time.time;
+            Bell.e.Ring();
+        }
+    }
 
     private void Delay(float delayTime)
     {
