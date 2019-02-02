@@ -352,9 +352,10 @@ public class Guest : MonoBehaviour
         GuestManager.I.SittingPlaceAvailable(this, sittingIndex);
 
         if (!followAI)
-            GoHome();
-
-        followAI = true;
+        {
+            AI.GoToExit();
+            followAI = true;
+        }
     }
 
     private IEnumerator DelayDestroy(float delay)

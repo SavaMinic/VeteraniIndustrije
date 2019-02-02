@@ -33,7 +33,7 @@ public class GuestAI : MonoBehaviour
         obstacle.enabled = false;
         agent.enabled = true;
 
-        agent.SetDestination(seatDestination.position);
+        agent.SetDestination(exitDestination.position);
     }
 
     public void Stop()
