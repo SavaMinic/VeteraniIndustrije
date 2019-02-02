@@ -62,6 +62,10 @@ public class GuestWish
     public GuestWish(GuestWishType type, float waitingTime)
     {
         var availableWishTypes = GameController.I.Level.AvailableWishes;
+        if (availableWishTypes == null || availableWishTypes.Count == 0)
+        {
+            availableWishTypes = LevelSettings.I.LevelsData[0].AvailableWishes;
+        }
         // if there is no wish, get random
         if (type != GuestWishType.Random && !availableWishTypes.Contains(type))
         {
