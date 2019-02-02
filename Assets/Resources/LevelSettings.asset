@@ -15,7 +15,7 @@ MonoBehaviour:
   LevelsData:
   - Name: Jutro
     CandleDuration: 180
-    AvailableWishes: 0d00000002000000030000000400000005000000
+    AvailableWishes: 0d000000020000000300000005000000
     IsRaining: 0
   - Name: Popodne
     CandleDuration: 300
@@ -29,3 +29,22 @@ MonoBehaviour:
     CandleDuration: 360
     AvailableWishes: 0d0000000200000003000000040000000500000006000000070000000a000000010000000b0000000c000000
     IsRaining: 1
+  - Name: Finale
+    CandleDuration: 600
+    AvailableWishes: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d000000
+    IsRaining: 1
+  InteractableObjectsNames:
+  - ItemName: Coffee
+    WishType: 1
+  - ItemName: Rakija
+    WishType: 2
+  - ItemName: Item_Zuti_Sok
+    WishType: 3
+  - ItemName: Item_Crni_Sok
+    WishType: 4
+  - ItemName: Bokal
+    WishType: 5
+  - ItemName: Item_Sarma
+    WishType: 6
+  - ItemName: Dzezva
+    WishType: 1

@@ -97,6 +97,39 @@ public class GameController : MonoBehaviour
         var candle = FindObjectOfType<Candle>();
         candle.burnTime = Level.CandleDuration;
 
+        var availableWishes = Level.AvailableWishes;
+        var objectsThatCanBeDisabled = LevelSettings.I.InteractableObjectsNames;
+        for (int i = 0; i < objectsThatCanBeDisabled.Count; i++)
+        {
+            var objectThatCanBeDisabled = objectsThatCanBeDisabled[i];
+            if (!availableWishes.Contains(objectThatCanBeDisabled.WishType))
+            {
+                var objectToDisable = GameObject.Find(objectThatCanBeDisabled.ItemName);
+                if (objectToDisable != null)
+                {
+                    var interactable = objectToDisable.GetComponent<Interactable>();
+                    if (interactable != null && interactable.inSlot != null)
+                    {
+                        interactable.inSlot.itemInSlot = null;
+                        interactable.inSlot = null;
+                    }
+                    objectToDisable.gameObject.SetActive(false);
+                }
+                else
+                {
+                    Debug.LogError("can't find " + objectThatCanBeDisabled.ItemName);
+                }
+            }
+        }
+
+        if (!Level.IsRaining)
+        {
+            var metla = FindObjectOfType<Metla>();
+            metla.inSlot.itemInSlot = null;
+            metla.inSlot = null;
+            metla.gameObject.SetActive(false);
+        }
+
         IsPaused = false;
     }
     
