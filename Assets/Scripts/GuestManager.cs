@@ -190,7 +190,7 @@ public class GuestManager : MonoBehaviour
 
         var guestAgent = Instantiate(guestAgentPrefab).GetComponent<GuestAI>();
         guestAgent.transform.position = entrancePosition.position;
-        guestAgent.exitDestination = entrancePosition;
+        guestAgent.exitDestination = exitPosition;
         guestAgent.zitoDestination = zitoPosition;
         guest.AI = guestAgent;
 
