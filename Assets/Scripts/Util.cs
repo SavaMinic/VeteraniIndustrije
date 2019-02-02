@@ -17,7 +17,8 @@ public static class Util
         return parentCanvas.transform.TransformPoint(movePos);
     }
 
-    public static T FindClosest<T>(T[] array, T skip, Vector3 target, float maxRange = Mathf.Infinity, bool inViewSpace = false, Func<T, bool> skipCheck = null) where T : Component
+    public static T FindClosest<T>(T[] array, T skip, Vector3 target, float maxRange = Mathf.Infinity, bool inViewSpace = false, Func<T, bool> skipCheck = null)
+        where T : Component, IProximityFindable
     {
         if (array == null) return null;
 
@@ -31,6 +32,8 @@ public static class Util
 
         for (int i = 0; i < array.Length; i++)
         {
+            if (array[i] == skip || array[i].SkipProximitySearch) continue;
+
             if (array[i] == skip) continue;
             if (skipCheck != null && skipCheck(array[i])) continue;
 
@@ -52,7 +55,8 @@ public static class Util
         return closest;
     }
 
-    public static T FindClosest<T>(List<T> list, T skip, Vector3 target, float maxRange = Mathf.Infinity, bool inViewSpace = false) where T : Component
+    public static T FindClosest<T>(List<T> list, T skip, Vector3 target, float maxRange = Mathf.Infinity, bool inViewSpace = false)
+        where T : Component, IProximityFindable
     {
         if (list == null) return null;
 
@@ -66,7 +70,7 @@ public static class Util
 
         for (int i = 0; i < list.Count; i++)
         {
-            if (list[i] == skip) continue;
+            if (list[i] == skip || list[i].SkipProximitySearch) continue;
 
             Vector3 pos = list[i].transform.position;
             if (inViewSpace) pos = GetCameraSpacePoint(pos);

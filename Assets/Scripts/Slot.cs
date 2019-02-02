@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slot : MonoBehaviour
+public class Slot : MonoBehaviour, IProximityFindable
 {
     public static Slot[] all;
 
@@ -15,6 +15,8 @@ public class Slot : MonoBehaviour
 
     public bool dontRenderWhenNotHighlighted;
     public Color highlightColor;
+
+    public bool SkipProximitySearch => false;
 
     private void Start()
     {

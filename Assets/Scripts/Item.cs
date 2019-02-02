@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour, IProximityFindable
 {
     public static List<Interactable> all;
 
     public bool isTakeable = true;
     public bool isHeld;
+    public bool PlayerCantInteract { get; private set; }
+    public bool SkipProximitySearch => PlayerCantInteract;
 
     Hands inHands;
     public Slot inSlot;
@@ -40,6 +42,14 @@ public abstract class Interactable : MonoBehaviour
         all.Remove(this);
     }
 
+    public void EnablePlayerInteraction(bool canPlayerInteract)
+    {
+        if (!canPlayerInteract)
+            Highlight(false);
+
+        PlayerCantInteract = !canPlayerInteract;
+    }
+
     public Interactable Take(Hands hands)
     {
         if (hands.heldItem) return null; // cant take in occupied hands
@@ -67,7 +77,7 @@ public abstract class Interactable : MonoBehaviour
     {
         // cant place in occupied slot
         if (slot.itemInSlot)
-            return false; 
+            return false;
         // cant place if that slot doesn't interact with this item
         if (slot.useInteractionControl && !InteractionControl.I.CanInteract(gameObject, slot.gameObject))
             return false;
