@@ -80,6 +80,9 @@ public class GuestAI : MonoBehaviour
 
     void Update()
     {
+        if (!Application.isPlaying || GameController.I.IsPaused)
+            return;
+        
         Debug.DrawLine(transform.position, agent.destination);
 
         if (!Fullstopped && agent.isStopped && agent.velocity.sqrMagnitude < 0.01f)

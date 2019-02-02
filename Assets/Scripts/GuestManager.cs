@@ -89,7 +89,7 @@ public class GuestManager : MonoBehaviour
 
     private void Update()
     {
-        if (!Application.isPlaying)
+        if (!Application.isPlaying || GameController.I.IsPaused)
             return;
 
         if (!Candle.e.isBurning)

@@ -88,7 +88,9 @@ public class Container : MonoBehaviour
 
     private void Update()
     {
-
+        if (!Application.isPlaying || GameController.I.IsPaused)
+            return;
+        
         if (temperature >= 1)
             amount -= Time.deltaTime * boilingLossSpeed;
 

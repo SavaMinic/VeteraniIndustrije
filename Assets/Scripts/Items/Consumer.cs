@@ -12,6 +12,9 @@ public class Consumer : Interactable
 
     private void Update()
     {
+        if (!Application.isPlaying || GameController.I.IsPaused)
+            return;
+        
         foodContainer.DebugAmount(0.2f);
         drinkContainer.DebugAmount(0.4f);
 

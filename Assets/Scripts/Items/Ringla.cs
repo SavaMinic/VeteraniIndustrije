@@ -18,6 +18,9 @@ public class Ringla : Slot
 
     private void Update()
     {
+        if (!Application.isPlaying || GameController.I.IsPaused)
+            return;
+        
         var dzezva = itemInSlot as Dzezva;
 
         if (dzezva)

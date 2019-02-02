@@ -89,7 +89,7 @@ public class Guest : MonoBehaviour
 
     private void Update()
     {
-        if (!Application.isPlaying)
+        if (!Application.isPlaying || GameController.I.IsPaused)
             return;
 
         // Follow guest

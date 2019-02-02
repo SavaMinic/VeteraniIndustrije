@@ -8,6 +8,9 @@ public class Rerna : Slot
 
     private void Update()
     {
+        if (!Application.isPlaying || GameController.I.IsPaused)
+            return;
+        
         if (itemInSlot is LonacSarme)
         {
             Container container = itemInSlot.GetComponent<Container>();

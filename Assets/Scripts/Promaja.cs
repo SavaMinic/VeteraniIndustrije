@@ -15,7 +15,8 @@ public static class Promaja
 
         if (IsActive)
         {
-            Candle.e.Extinguish();
+            // sveca je tajmer, i malo mi cudno da mozes da pauziras tajmer a sve ostalo da radi
+            //Candle.e.Extinguish();
         }
     }
 }

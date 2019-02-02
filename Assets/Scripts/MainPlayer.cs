@@ -21,7 +21,7 @@ public class MainPlayer : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!Application.isPlaying)
+        if (!Application.isPlaying || GameController.I.IsPaused)
             return;
 
         float h = Input.GetAxis(HorizontalAxis);

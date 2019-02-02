@@ -18,6 +18,9 @@ public class Hands : MonoBehaviour
 
     private void Update()
     {
+        if (!Application.isPlaying || GameController.I.IsPaused)
+            return;
+        
         Slot closestSlot = Util.FindClosest(Slot.all, null, transform.position, interactRange, useViewSpaceDistance, 
             s => s.itemInSlot);
         if (closestSlot)

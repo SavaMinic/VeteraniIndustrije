@@ -13,6 +13,9 @@ public class Dzezva : Interactable
 
     private void Update()
     {
+        if (!Application.isPlaying || GameController.I.IsPaused)
+            return;
+        
         if (ringla && ringla.isOn)
             container.AddHeat(Time.deltaTime * heatingSpeed);
 

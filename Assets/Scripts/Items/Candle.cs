@@ -31,7 +31,9 @@ public class Candle : Interactable
 
     void Update()
     {
-
+        if (!Application.isPlaying || GameController.I.IsPaused)
+            return;
+        
         if (isBurning)
         {
             burnProgress += Time.deltaTime / burnTime;
@@ -40,6 +42,11 @@ public class Candle : Interactable
         }
 
         burnProgress = Mathf.Clamp01(burnProgress);
+        
+        if (burnProgress >= 1f)
+        {
+            GameController.I.EndGame();
+        }
     }
 
     public void Ignite()

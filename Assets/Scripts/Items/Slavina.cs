@@ -13,6 +13,9 @@ public class Slavina : Slot
 
     private void Update()
     {
+        if (!Application.isPlaying || GameController.I.IsPaused)
+            return;
+        
         Container c = itemInSlot?.GetComponent<Container>();
 
         if (c && c.canBeRefilledAtSlavina)

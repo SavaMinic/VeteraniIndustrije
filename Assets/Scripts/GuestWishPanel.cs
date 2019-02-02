@@ -66,7 +66,8 @@ public class GuestWishPanel : MonoBehaviour
 
     private void Update()
     {
-        if (!Application.isPlaying || guest == null)
+        
+        if (!Application.isPlaying || GameController.I.IsPaused || guest == null)
             return;
 
         if (guest == null)

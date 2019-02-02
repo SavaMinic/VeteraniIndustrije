@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CanvasController : MonoBehaviour
@@ -27,6 +28,7 @@ public class CanvasController : MonoBehaviour
     #region Properties/Fields
 
     public GameObject guestWishPanelPrefab;
+    public Transform wishPanel;
 
     public RectTransform notificationsPanel;
 
@@ -45,6 +47,10 @@ public class CanvasController : MonoBehaviour
 
     private int starsCount;
 
+    public CanvasGroup endGamePanel;
+    public Text endGameScore;
+    public Button closeButton;
+
     #endregion
 
     #region Mono
@@ -56,6 +62,11 @@ public class CanvasController : MonoBehaviour
         availableNotificationIndexes = new List<int> { 0, 1, 2, 3 };
     }
 
+    private void Start()
+    {
+        closeButton.onClick.AddListener(OnCloseClick);
+    }
+
     private void Update()
     {
         if (!Application.isPlaying)
@@ -65,9 +76,20 @@ public class CanvasController : MonoBehaviour
         flekeAlertLabel.gameObject.SetActive(Fleka.Prljavo);
     }
 
+    private void OnDestroy()
+    {
+        closeButton.onClick.RemoveListener(OnCloseClick);
+    }
+
     #endregion
 
     #region Public
+
+    public void ShowEndPanel()
+    {
+        endGameScore.text = "PROSLAVILI STE " + starsCount + " ŽELJA";
+        StartCoroutine(FadeIn(0.4f));
+    }
 
     public void AddStars(int stars)
     {
@@ -81,7 +103,7 @@ public class CanvasController : MonoBehaviour
         if (availableWishPanel == null)
         {
             var wishPanelObject = Instantiate(guestWishPanelPrefab);
-            wishPanelObject.transform.SetParent(transform);
+            wishPanelObject.transform.SetParent(wishPanel);
             wishPanelObject.transform.localScale = Vector3.one;
             availableWishPanel = wishPanelObject.GetComponent<GuestWishPanel>();
             guestWishPanels.Add(availableWishPanel);
@@ -110,5 +132,24 @@ public class CanvasController : MonoBehaviour
         availableNotificationIndexes.Sort();
     }
 
+    #endregion
+    
+    #region Private
+    
+    private IEnumerator FadeIn(float time)
+    {
+        endGamePanel.interactable = endGamePanel.blocksRaycasts = true;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / time)
+        {
+            endGamePanel.alpha = Mathf.Lerp(0f, 1f, t);
+            yield return null;
+        }
+    }
+
+    private void OnCloseClick()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+    
     #endregion
 }

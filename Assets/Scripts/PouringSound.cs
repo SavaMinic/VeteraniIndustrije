@@ -18,6 +18,9 @@ public class PouringSound : MonoBehaviour
 
     private void Update()
     {
+        if (!Application.isPlaying || GameController.I.IsPaused)
+            return;
+        
         if (pourThisFrame && !pouredLastFrame)
         {
             source.enabled = true;
