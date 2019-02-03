@@ -27,6 +27,14 @@ public class Slot : MonoBehaviour, IProximityFindable
             Highlight(false);
     }
 
+    private void OnDestroy()
+    {
+        if (all != null)
+        {
+            all = null;
+        }
+    }
+
     public void Highlight(bool b)
     {
         var sprite = GetComponent<SpriteRenderer>();
