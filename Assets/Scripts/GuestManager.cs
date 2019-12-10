@@ -216,6 +216,19 @@ public class GuestManager : MonoBehaviour
 
 #if UNITY_EDITOR
 
+    private void OnGUI()
+    {
+        GUILayout.Window(0, new Rect(10, 500, 200, 200), Window, "Debug");
+    }
+
+    void Window(int id)
+    {
+        if (GUILayout.Button("Spawn Guest"))
+        {
+            GenerateNewGuest();
+        }
+    }
+
     private void OnDrawGizmos()
     {
         var color = new Color(1f, 1f, 0f, 0.5f);
