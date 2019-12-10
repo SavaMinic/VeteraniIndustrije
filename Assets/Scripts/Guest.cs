@@ -104,7 +104,7 @@ public class Guest : MonoBehaviour
                 DoMoveFlipping();
 
                 // Wait for the domacin to open the door
-                if (IsCloseTo(AI.zitoDestination.position, 1))
+                if (IsCloseTo(AI.zitoDestination.position, 1.5f))
                 {
                     CurrentState = GuestState.WaitingForZito;
                     AI.Stop();
