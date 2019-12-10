@@ -52,6 +52,8 @@ public class GuestManager : MonoBehaviour
 
     private float timeToGenerateNewGuests;
 
+    private bool autoSpawnGuests = true;
+
     private List<int> availableSittingPositionIndex = new List<int>();
 
     private List<string> entryMessages = new List<string>
@@ -95,11 +97,10 @@ public class GuestManager : MonoBehaviour
         if (!Application.isPlaying || GameController.I.IsPaused)
             return;
 
-        if (!Candle.e.isBurning)
-        {
+        if (!Candle.e.isBurning || !autoSpawnGuests)
             return;
-        }
-        else if (!slavaHasStarted)
+
+        if (Candle.e.isBurning && !slavaHasStarted)
             StartSlava();
 
         if (timeToGenerateNewGuests > 0f)
@@ -227,6 +228,8 @@ public class GuestManager : MonoBehaviour
         {
             GenerateNewGuest();
         }
+
+        autoSpawnGuests = GUILayout.Toggle(autoSpawnGuests, "Auto Spawn Guests");
     }
 
     private void OnDrawGizmos()
