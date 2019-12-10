@@ -230,6 +230,9 @@ public class GuestManager : MonoBehaviour
         }
 
         autoSpawnGuests = GUILayout.Toggle(autoSpawnGuests, "Auto Spawn Guests");
+        GUI.enabled = false;
+        slavaHasStarted = GUILayout.Toggle(slavaHasStarted, "Slava started");
+        GUI.enabled = true;
     }
 
     private void OnDrawGizmos()
