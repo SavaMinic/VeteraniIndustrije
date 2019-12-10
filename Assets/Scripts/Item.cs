@@ -17,9 +17,22 @@ public abstract class Interactable : MonoBehaviour, IProximityFindable
     public Color highlightColor;
     public SpriteRenderer sprite;
 
+    public Transform customProximityPivot;
+
     public float soundVolume = 0.5f;
     public AudioClip pickupClip;
     public AudioClip putClip;
+
+    public Vector3 ProximityPosition
+    {
+        get
+        {
+            if (customProximityPivot)
+                return customProximityPivot.position;
+            else
+                return transform.position;
+        }
+    }
 
     protected void Start()
     {

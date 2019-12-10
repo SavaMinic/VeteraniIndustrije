@@ -16,7 +16,19 @@ public class Slot : MonoBehaviour, IProximityFindable
     public bool dontRenderWhenNotHighlighted;
     public Color highlightColor;
 
+    public Transform customProximityPivot;
     public bool SkipProximitySearch => false;
+
+    public Vector3 ProximityPosition
+    {
+        get
+        {
+            if (customProximityPivot)
+                return customProximityPivot.position;
+            else
+                return transform.position;
+        }
+    }
 
     private void Start()
     {

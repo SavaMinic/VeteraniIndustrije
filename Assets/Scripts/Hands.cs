@@ -25,7 +25,7 @@ public class Hands : MonoBehaviour
             s => s.itemInSlot);
         if (closestSlot)
         {
-            Debug.DrawLine(transform.position, closestSlot.transform.position, Color.red);
+            Debug.DrawLine(transform.position, closestSlot.ProximityPosition, Color.red);
             // if we hold item...
             if (heldItem && (!closestSlot.onlyInteractsWith || closestSlot.onlyInteractsWith == heldItem)
                 // ... and slot is either generic ...
@@ -38,7 +38,7 @@ public class Hands : MonoBehaviour
         Interactable closestItem = Util.FindClosest(Interactable.all, heldItem, transform.position, interactRange, useViewSpaceDistance);
         if (closestItem)
         {
-            Debug.DrawLine(transform.position, closestItem.transform.position, Color.green);
+            Debug.DrawLine(transform.position, closestItem.ProximityPosition, Color.green);
             // if we are not holding or if we are holding and this item is interactable
             if (!heldItem || InteractionControl.I.CanInteract(heldItem.gameObject, closestItem.gameObject))
             {

@@ -37,7 +37,7 @@ public static class Util
             if (array[i] == skip) continue;
             if (skipCheck != null && skipCheck(array[i])) continue;
 
-            Vector3 pos = array[i].transform.position;
+            Vector3 pos = array[i].ProximityPosition;
             if (inViewSpace) pos = GetCameraSpacePoint(pos);
 
             float sqrdist = (target - pos).sqrMagnitude;
@@ -72,7 +72,7 @@ public static class Util
         {
             if (list[i] == skip || list[i].SkipProximitySearch) continue;
 
-            Vector3 pos = list[i].transform.position;
+            Vector3 pos = list[i].ProximityPosition;
             if (inViewSpace) pos = GetCameraSpacePoint(pos);
 
             float sqrdist = (target - pos).sqrMagnitude;
