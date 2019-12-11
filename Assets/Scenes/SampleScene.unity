@@ -8819,11 +8819,6 @@ PrefabInstance:
       propertyPath: inSlot
       value: 
       objectReference: {fileID: 159584396}
-    - target: {fileID: 3989540018019774505, guid: 58f49b312c994724392f35fed501577b,
-        type: 3}
-      propertyPath: showAmount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4195258307340491062, guid: 58f49b312c994724392f35fed501577b,
         type: 3}
       propertyPath: m_Color.a
@@ -8833,10 +8828,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.061
-      objectReference: {fileID: 0}
-    - target: {fileID: 1950723843, guid: 58f49b312c994724392f35fed501577b, type: 3}
-      propertyPath: scaleMult
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58f49b312c994724392f35fed501577b, type: 3}
