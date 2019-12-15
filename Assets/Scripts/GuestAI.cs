@@ -49,8 +49,7 @@ public class GuestAI : MonoBehaviour
             transform.position + agent.desiredVelocity.normalized, Color.red);
 
         Vector3 v = Camera.main.transform.InverseTransformDirection(agent.desiredVelocity.normalized);
-
-        Debug.Log(v.x);
+        
         return v.x;
     }
 
@@ -82,7 +81,7 @@ public class GuestAI : MonoBehaviour
     {
         if (!Application.isPlaying || GameController.I.IsPaused)
             return;
-        
+
         Debug.DrawLine(transform.position, agent.destination);
 
         if (!Fullstopped && agent.isStopped && agent.velocity.sqrMagnitude < 0.01f)
