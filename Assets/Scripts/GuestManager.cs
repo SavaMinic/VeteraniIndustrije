@@ -99,7 +99,14 @@ public class GuestManager : MonoBehaviour
         availableSittingPositionIndex.Add(sitPositionIndex);
 
         var numberOfStars = Mathf.Clamp(Mathf.RoundToInt(guest.NumberOfStars), 0, 5);
-        var messages = generalQuips.exitMessages[numberOfStars];
+        var messages =
+            numberOfStars == 0 ? generalQuips.exitMessages1 :
+            numberOfStars == 1 ? generalQuips.exitMessages2 :
+            numberOfStars == 2 ? generalQuips.exitMessages3 :
+            numberOfStars == 3 ? generalQuips.exitMessages4 :
+            numberOfStars == 4 ? generalQuips.exitMessages5 :
+            numberOfStars == 5 ? generalQuips.exitMessages6 : null;
+
         var exitMessage = messages[UnityEngine.Random.Range(0, messages.Length)];
         CanvasController.I.ShowNotification(guest, exitMessage, numberOfStars, guest.NumberOfWishes);
 

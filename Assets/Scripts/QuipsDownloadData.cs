@@ -55,12 +55,12 @@ public class QuipsDownloadData : ScriptableObject
         GeneralQuips generalQuips = (GeneralQuips)Resources.Load("GeneralQuips");
         generalQuips.entryMessages = FindByTag("ENTRY_MESSAGES");
         generalQuips.noZitoNoParty = FindByTag("NO_ZITO_NO_PARTY");
-        generalQuips.exitMessages = new string[5][];
-        generalQuips.exitMessages[0] = FindByTag("EXIT_MESSAGES_1");
-        generalQuips.exitMessages[1] = FindByTag("EXIT_MESSAGES_2");
-        generalQuips.exitMessages[2] = FindByTag("EXIT_MESSAGES_3");
-        generalQuips.exitMessages[3] = FindByTag("EXIT_MESSAGES_4");
-        generalQuips.exitMessages[4] = FindByTag("EXIT_MESSAGES_5");
+        generalQuips.exitMessages1 = FindByTag("EXIT_MESSAGES_1");
+        generalQuips.exitMessages2 = FindByTag("EXIT_MESSAGES_2");
+        generalQuips.exitMessages3 = FindByTag("EXIT_MESSAGES_3");
+        generalQuips.exitMessages4 = FindByTag("EXIT_MESSAGES_4");
+        generalQuips.exitMessages5 = FindByTag("EXIT_MESSAGES_5");
+        UnityEditor.EditorUtility.SetDirty(generalQuips);
 
         Debug.Log("Downloaded general quips");
 
