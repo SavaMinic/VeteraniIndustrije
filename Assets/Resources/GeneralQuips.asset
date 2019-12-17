@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee2b231d6c9833419dda32e97b4b5f7, type: 3}
+  m_Name: GeneralQuips
+  m_EditorClassIdentifier: 
+  noZitoNoParty:
+  - Gde je zito?
+  - Nema zita za slavu?
+  - Zurim ali evo me!
+  - Nemam vremena za ovo
+  entryMessages:
+  - Srecna slava, domacine!
+  - Pomaze bog, komsija!
+  - Domacice, sve najbolje!
+  - Nek je srecna slava!

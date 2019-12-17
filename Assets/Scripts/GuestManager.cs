@@ -26,6 +26,7 @@ public class GuestManager : MonoBehaviour
     #region Properties
 
     [SerializeField] WishQuip[] wishQuips;
+    [SerializeField] GeneralQuips generalQuips;
 
     public Transform entrancePosition;
     public Transform exitPosition;
@@ -55,31 +56,6 @@ public class GuestManager : MonoBehaviour
     private bool autoSpawnGuests = true;
 
     private List<int> availableSittingPositionIndex = new List<int>();
-
-    private List<string> entryMessages = new List<string>
-    {
-        "Srecna slava, domacine!",
-        "Pomaze bog, komsija!",
-        "Domacice, sve najbolje!",
-        "Nek je srecna slava!",
-        //"Dajte da popijemo poneku!",
-        //"Komsinice, stavi kafu!",
-    };
-
-    private List<List<string>> exitMessages = new List<List<string>>
-    {
-        new List<string> { "?!?!?", "***** ** *****", "uff zurim kuci" },
-        new List<string> { "Mlaka sarma", "Vruce pivo?" },
-        new List<string> { "Bice bolje dogodine" },
-        new List<string> { "Nit' smrdi nit' mirise", "Zbogom" },
-        new List<string> { "Vise vina", "I dogodine" },
-        new List<string> { "Svaka cast, domacine!", "Sve najbolje!" },
-    };
-
-    private List<string> noZitoNoPartyMessages = new List<string>
-    {
-        "Gde je zito?", "Nema zita za slavu?", "Nemam vremena za ovo"
-    };
 
     private bool slavaHasStarted;
 
@@ -123,8 +99,8 @@ public class GuestManager : MonoBehaviour
         availableSittingPositionIndex.Add(sitPositionIndex);
 
         var numberOfStars = Mathf.Clamp(Mathf.RoundToInt(guest.NumberOfStars), 0, 5);
-        var messages = exitMessages[numberOfStars];
-        var exitMessage = messages[UnityEngine.Random.Range(0, messages.Count)];
+        var messages = generalQuips.exitMessages[numberOfStars];
+        var exitMessage = messages[UnityEngine.Random.Range(0, messages.Length)];
         CanvasController.I.ShowNotification(guest, exitMessage, numberOfStars, guest.NumberOfWishes);
 
         CanvasController.I.AddStars(numberOfStars);
@@ -132,7 +108,7 @@ public class GuestManager : MonoBehaviour
 
     public void NoZitoNoParty(Guest guest)
     {
-        var message = noZitoNoPartyMessages[UnityEngine.Random.Range(0, noZitoNoPartyMessages.Count)];
+        var message = generalQuips.noZitoNoParty[UnityEngine.Random.Range(0, generalQuips.noZitoNoParty.Length)];
         CanvasController.I.ShowNotification(guest, message, 0, 1);
         CanvasController.I.AddStars(-1);
     }
@@ -209,7 +185,7 @@ public class GuestManager : MonoBehaviour
 
         CanvasController.I.AddNewGuestWish(guest);
 
-        var entryMessage = entryMessages[UnityEngine.Random.Range(0, entryMessages.Count)];
+        var entryMessage = generalQuips.entryMessages[UnityEngine.Random.Range(0, generalQuips.entryMessages.Length)];
         CanvasController.I.ShowNotification(guest, entryMessage);
     }
 
