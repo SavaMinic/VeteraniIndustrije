@@ -22,3 +22,24 @@ MonoBehaviour:
   - Pomaze bog, komsija!
   - Domacice, sve najbolje!
   - Nek je srecna slava!
+  exitMessages1:
+  - ?!?!?
+  - '***** ** *****'
+  - Sramota!
+  - Bolja hrana sa donesikom?
+  exitMessages2:
+  - Uff, zurim kuci
+  - Mlaka sarma
+  - Vruce pivo?
+  - Promaja je ipak nepodnosljiva!
+  exitMessages3:
+  - Bice bolje dogodine
+  - Sledeci put donosim hranu!
+  exitMessages4:
+  - Nit' smrdi nit' mirise
+  - Zbogom
+  exitMessages5:
+  - Vise vina
+  - Zurim, zurim...
+  - I dogodine
+  exitMessages6: []
