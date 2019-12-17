@@ -33,6 +33,8 @@ public class Ringla : Slot
 
         if (dzezva)
         {
+            if (dzezva.container.type.name == "Coffee")
+
             shumiTargetVolume = shumiVolumePerTemperature.Evaluate(dzezva.container.temperature);
             vriTargetVolume = vriVolumePerTemperature.Evaluate(dzezva.container.temperature);
         }

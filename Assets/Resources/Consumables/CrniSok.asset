@@ -19,6 +19,7 @@ MonoBehaviour:
   quips:
     request:
     - Daj sok crni
+    - Bolja nego kola!
     perfect:
     - Bolja nego kola!
     - Fala fala
@@ -27,6 +28,7 @@ MonoBehaviour:
     wrongConsumable:
     - Ovo nije ono sto sam trazio.. Al aj..
     - Daj sta das..
+    - Pa nisam 'teo to!
     tooLate:
-    - Pa nisam 'teo sok!
     - Sta je ovo, kukuuuu
+    - Di ga je!?!

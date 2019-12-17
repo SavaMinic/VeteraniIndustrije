@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac0477eafa17b8b47834d94009b00b3c, type: 3}
-  m_Name: Window Open
+  m_Name: TV_Prognoza
   m_EditorClassIdentifier: 
-  wishType: 11
+  wishType: 9
   request:
-  - Daj domacine malo vazduha
-  - Al je zagusljivo
+  - Daj da vidimo hoce biti snega
+  - Sta kazu, suznezica a?
+  - Ocu stici ja kuci, daj da vidimo prognozu
   success:
-  - Uh, konacno domacine malo vazduha
-  - Vazduh
-  failure:
-  - Skuvah se!
-  tooLate:
-  - Skuvah se!
+  - Eh jos snega, to nam je trebalo
+  failure: []
+  tooLate: []

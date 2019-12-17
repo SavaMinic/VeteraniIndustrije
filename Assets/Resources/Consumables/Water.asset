@@ -18,11 +18,12 @@ MonoBehaviour:
   wishType: 5
   quips:
     request:
-    - Sipaj vode da ugasim
-    perfect:
     - Fala
     - E hvala domacine
     - E to, dugasim
+    perfect:
+    - Kaka ovo vruca voda
+    - Iju, nisam hteo vrucu
     wrongTemperature:
     - Kaka ovo vruca voda
     - Iju, nisam hteo vrucu

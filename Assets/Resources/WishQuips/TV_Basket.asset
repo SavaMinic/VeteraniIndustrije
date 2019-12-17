@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac0477eafa17b8b47834d94009b00b3c, type: 3}
-  m_Name: TV Basket
+  m_Name: TV_Basket
   m_EditorClassIdentifier: 
   wishType: 8
   request:
   - Daj prebaci da vidim rezultat
   - Domacine, aj basket okreni
   success:
-  - Idemo Teodosic!
   - Iz keca u trojku
+  - Idemo Teodosic!
   - Ajmo za tri!
   failure:
   - Puuuu, ne znam rezultat
-  tooLate: []
+  tooLate:
+  - Puuuu, ne znam rezultat
