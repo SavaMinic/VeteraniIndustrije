@@ -177,5 +177,11 @@ public class Hands : MonoBehaviour
                 }
             }
         }
+
+        if (btn_held && heldItem is Metla)
+        {
+            var metla = heldItem as Metla;
+            metla.Swipe();
+        }
     }
 }
