@@ -33,10 +33,11 @@ public class Ringla : Slot
 
         if (dzezva)
         {
-            if (dzezva.container.type.name == "Coffee")
-
-            shumiTargetVolume = shumiVolumePerTemperature.Evaluate(dzezva.container.temperature);
-            vriTargetVolume = vriVolumePerTemperature.Evaluate(dzezva.container.temperature);
+            if (dzezva.container.amount > 0)
+            {
+                shumiTargetVolume = shumiVolumePerTemperature.Evaluate(dzezva.container.temperature);
+                vriTargetVolume = vriVolumePerTemperature.Evaluate(dzezva.container.temperature);
+            }
         }
 
         shumiSource.volume = Mathf.SmoothDamp(shumiSource.volume, shumiTargetVolume, ref shumiVolumeVelo, audioSmoothing);
