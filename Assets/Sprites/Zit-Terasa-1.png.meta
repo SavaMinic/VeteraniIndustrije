@@ -1,7 +1,15 @@
 fileFormatVersion: 2
 guid: 0025172a19c3bcb4b94a50296a99cfd8
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Zit-Terasa-1_0
+    21300002: Zit-Terasa-1_2
+    21300004: Zit-Terasa-1_4
+    21300006: Zit-Terasa-1_6
+    21300008: Zit-Terasa-1_1
+    21300010: Zit-Terasa-1_3
+    21300012: Zit-Terasa-1_5
+    21300014: Zit-Terasa-1_7
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -40,7 +48,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -82,7 +90,167 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Zit-Terasa-1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 56
+        height: 669
+      alignment: 9
+      pivot: {x: 0.48932287, y: 0.3630938}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08f4ff9b75703847b3aa5535ad59eed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zit-Terasa-1_2
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 0
+        width: 53
+        height: 669
+      alignment: 9
+      pivot: {x: 0.48890224, y: 0.2634824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b414b87643ec76045a094d2485ed5b10
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zit-Terasa-1_4
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 0
+        width: 51
+        height: 669
+      alignment: 9
+      pivot: {x: 0.4894816, y: 0.17152804}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101e9c0e8ae12634b8ccff62e4d2ef41
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zit-Terasa-1_6
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 52
+        height: 669
+      alignment: 9
+      pivot: {x: 0.5048611, y: 0.07983487}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40bf88d944f9a694aadb369ffac954b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zit-Terasa-1_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 59
+        height: 669
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31236488}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf8a444b6ef2c6446a81efb890d06c97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zit-Terasa-1_3
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 54
+        height: 669
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2169436}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 262f5880c23597a40b865d3648ae91e5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zit-Terasa-1_5
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 0
+        width: 53
+        height: 669
+      alignment: 9
+      pivot: {x: 0.50000113, y: 0.12541142}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7002a50ba8cba724cb31175b17fb4afe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zit-Terasa-1_7
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 0
+        width: 54
+        height: 669
+      alignment: 9
+      pivot: {x: 0.4875963, y: 0.0348992}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeb5d11b3f79d994ab15f86a9153ee90
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

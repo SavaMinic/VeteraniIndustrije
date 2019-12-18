@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: e5da03c395c33c741a2c4325fee072aa
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Vrata-Terasa-Zatvorena_0
+    21300002: Vrata-Terasa-Zatvorena_1
+    21300004: Vrata-Terasa-Zatvorena_2
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -40,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -82,7 +85,67 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Vrata-Terasa-Zatvorena_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 57
+        height: 461
+      alignment: 9
+      pivot: {x: 0.5326446, y: 0.19349854}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a781cf2528e4a5045947dd58bd8c53ac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vrata-Terasa-Zatvorena_1
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 0
+        width: 56
+        height: 461
+      alignment: 9
+      pivot: {x: 0.49999985, y: 0.12004017}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eeead7134beb0a40998c3a31ef7b83d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vrata-Terasa-Zatvorena_2
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 0
+        width: 60
+        height: 461
+      alignment: 9
+      pivot: {x: 0.4937355, y: 0.04459117}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d17fb281f14b55e48b21f7a553935f6e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
