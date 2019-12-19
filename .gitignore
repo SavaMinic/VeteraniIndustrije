@@ -46,3 +46,6 @@ build_info.txt.meta
 Assets/Plugins/Editor
 Editor.meta
 Plugins.meta
+
+Assets/TextMesh Pro/
+Assets/TextMesh Pro.meta
