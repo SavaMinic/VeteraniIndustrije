@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class MenuInput : MonoBehaviour
 {
+    public static MenuInput e;
+
     public MenuNavigation menuNavigation;
-
-
 
     MenuInputActions input;
 
     private void Awake()
     {
+        e = this;
+
         input = new MenuInputActions();
         input.Enable();
+    }
+
+    public void EnableInput(bool b)
+    {
+        if (b)
+            input.Enable();
+        else
+            input.Disable();
     }
 
     Vector2Int lastMove;
