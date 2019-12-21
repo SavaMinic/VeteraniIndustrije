@@ -71,11 +71,13 @@ public class Hands : MonoBehaviour
         {
             Pivo pivo = heldItem as Pivo;
             pivo.Remove();
+            (closestItem as Gajba).putClip.Play2D(0.5f);
             Debug.Log("Pivo removed!");
         }
         else if (closestItem is Gajba && !heldItem && btn_down)
         {
             Interactable pivo = Database.e.CreatePivo();
+            (closestItem as Gajba).pickupClip.Play2D(0.5f);
             heldItem = pivo.Take(this);
         }
         // Sibice

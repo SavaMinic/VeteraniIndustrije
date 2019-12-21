@@ -10,6 +10,9 @@ public class Door : Interactable
     public GameObject closedGraphics;
     public GameObject doorCollisionObject;
 
+    public AudioClip openClip;
+    public AudioClip closeClip;
+
     public void Toggle()
     {
         IsOpen = !IsOpen;
@@ -20,5 +23,14 @@ public class Door : Interactable
         doorCollisionObject.SetActive(!IsOpen);
 
         Promaja.Refresh();
+
+        if (IsOpen)
+        {
+            if (openClip) openClip.Play2D(0.5f);
+        }
+        else
+        {
+            if (closeClip) closeClip.Play2D(0.5f);
+        }
     }
 }

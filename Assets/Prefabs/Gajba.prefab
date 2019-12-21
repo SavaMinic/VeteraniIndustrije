@@ -77,6 +77,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -88,6 +89,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -130,5 +132,5 @@ MonoBehaviour:
   sprite: {fileID: 0}
   customProximityPivot: {fileID: 1199214938338058428}
   soundVolume: 0.5
-  pickupClip: {fileID: 0}
-  putClip: {fileID: 0}
+  pickupClip: {fileID: 8300000, guid: be8861726f285e144a833d8b94857bf2, type: 3}
+  putClip: {fileID: 8300000, guid: ada07cb2ff4165a479b9dca67975b509, type: 3}
