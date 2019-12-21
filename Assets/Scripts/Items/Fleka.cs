@@ -22,7 +22,7 @@ public class Fleka : Interactable
         Count++;
     }
 
-    public void Remove()
+    new public void Remove()
     {
         if (isFading)
             return;

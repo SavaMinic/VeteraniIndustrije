@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
     private const string HighScoreKey = "HighScore_";
 
     public LevelSettings.LevelData Level { get; private set; }
-    
+
     public bool IsPaused { get; private set; }
 
     #endregion
@@ -47,13 +47,13 @@ public class GameController : MonoBehaviour
             DestroyImmediate(gameObject);
             return;
         }
-        
+
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     #endregion
-    
+
     #region Public
 
     public int GetHighScore(string levelName)
@@ -77,7 +77,7 @@ public class GameController : MonoBehaviour
             Debug.LogError("No level " + levelName);
             Level = LevelSettings.I.LevelsData[0];
         }
-        
+
         // load the game scene
         SceneManager.LoadScene("SampleScene");
     }
@@ -87,9 +87,9 @@ public class GameController : MonoBehaviour
         IsPaused = true;
         CanvasController.I.ShowEndPanel();
     }
-    
+
     #endregion
-    
+
     #region Events
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -99,7 +99,7 @@ public class GameController : MonoBehaviour
             InitializeLevel();
         }
     }
-    
+
     #endregion
 
     #region Private
@@ -112,6 +112,7 @@ public class GameController : MonoBehaviour
         GuestManager.I.LimitGuestNumber = Level.LimitGuestNumber;
 
         var availableWishes = Level.AvailableWishes;
+        Debug.Assert(availableWishes != null, "Available wishes are null");
         var objectsThatCanBeDisabled = LevelSettings.I.InteractableObjectsNames;
         for (int i = 0; i < objectsThatCanBeDisabled.Count; i++)
         {
@@ -146,7 +147,7 @@ public class GameController : MonoBehaviour
 
         IsPaused = false;
     }
-    
+
 
     #endregion
 }

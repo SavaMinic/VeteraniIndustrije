@@ -54,7 +54,7 @@ public class MenuInput : MonoBehaviour
 
     void Move(int x, int y)
     {
-        Debug.Log("" + x + " " + y);
+        //Debug.Log("" + x + " " + y);
         menuNavigation.Move(x, y);
     }
 

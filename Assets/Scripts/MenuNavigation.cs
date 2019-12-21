@@ -24,10 +24,22 @@ public class MenuNavigation : MonoBehaviour
     public TMP_Text[] player1RebindTexts;
     public TMP_Text[] player2RebindTexts;
 
+    public RectTransform ingameMenu;
+    public TMP_Text[] ingameMenuTexts;
+
+    public RectTransform lineSelector;
+
+    public Color selectedTextColor;
+    public Color unselectedTextColor;
+
+    public RectTransform credits;
+
     // private
 
-    enum State { MainMenu, InputMenu, HowTo, None }
+    enum State { MainMenu, InputMenu, IngameMenu, Credits, HowTo, Ingame, None }
     State state;
+
+    bool gameStarted;
 
     int cx, cy;
 
@@ -40,6 +52,7 @@ public class MenuNavigation : MonoBehaviour
     private void Awake()
     {
         rebinder.OnBindingComplete += BindingComplete;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnDestroy()
@@ -66,6 +79,12 @@ public class MenuNavigation : MonoBehaviour
             Debug.Log($"{cx}, {cy}");
             InputOptionsSelectItem(cx, cy);
         }
+        if (state == State.IngameMenu)
+        {
+            cy = wrap(cy - y, 4);
+
+            IngameMenuSelectItem(cy);
+        }
     }
 
     int wrap(int i, int max)
@@ -87,7 +106,7 @@ public class MenuNavigation : MonoBehaviour
             {
                 case 0: StartGame(); break; // start game
                 case 1: DisableMainMenu(); ShowOptions(); break; // open options
-                case 2: break; // open credits
+                case 2: DisableMainMenu(); ShowCredits(); break; // open credits
                 case 3: Application.Quit(); break; // quit
                 default: break;
             }
@@ -100,6 +119,18 @@ public class MenuNavigation : MonoBehaviour
                 MenuInput.e.EnableInput(false);
             }
         }
+        else if (state == State.IngameMenu)
+        {
+            switch (cy)
+            {
+                case 0: StartGame(); break; // restart game
+                case 1: break; // how to play
+                case 2: break; // input options
+                case 3: DisableIngameMenu(); ShowCredits(); break; // open credits
+                case 4: Application.Quit(); break; // quit
+                default: break;
+            }
+        }
     }
 
     void StartGame()
@@ -108,6 +139,8 @@ public class MenuNavigation : MonoBehaviour
         Camera.main.transform.DOMoveY(Camera.main.transform.position.y - 30, 1)
             .SetEase(Ease.InCubic);
         StartCoroutine(LoadLevel());
+        gameStarted = true;
+        state = State.Ingame;
     }
 
     IEnumerator LoadLevel()
@@ -118,10 +151,24 @@ public class MenuNavigation : MonoBehaviour
 
     public void Cancel()
     {
-        if (state == State.InputMenu)
+        switch (state)
         {
-            DisableOptions();
-            ShowMainMenu();
+            case State.MainMenu: break;
+            case State.InputMenu:
+                DisableOptions();
+                if (!gameStarted)
+                    ShowMainMenu();
+                else ShowIngameMenu(); break;
+            case State.Credits:
+                DisableCredits();
+                if (!gameStarted)
+                    ShowMainMenu();
+                else ShowIngameMenu(); break;
+            case State.HowTo: break;
+            case State.Ingame: ShowIngameMenu(); Pause(); break;
+            case State.IngameMenu: DisableIngameMenu(); Unpause(); break;
+            case State.None: break;
+            default: break;
         }
     }
 
@@ -141,6 +188,7 @@ public class MenuNavigation : MonoBehaviour
         InputOptionsSelectItem(0, 0);
 
         inputOptions.DOAnchorPos(Vector2.zero, 0.5f)
+            .SetUpdate(true)
             .SetEase(Ease.OutExpo, 1)
             .SetDelay(0.3f);
     }
@@ -151,6 +199,7 @@ public class MenuNavigation : MonoBehaviour
         state = State.MainMenu;
 
         inputOptions.DOAnchorPos(inputOptionsStartPos, 0.5f)
+            .SetUpdate(true)
             .SetEase(Ease.InCubic);
 
         cx = 0;
@@ -170,6 +219,47 @@ public class MenuNavigation : MonoBehaviour
              .SetEase(Ease.InCubic);
     }
 
+    void ShowCredits()
+    {
+        Debug.Log("Show credits");
+        state = State.Credits;
+        credits.gameObject.SetActive(true);
+        credits.DOAnchorPos(Vector2.zero, 0.5f)
+            .SetUpdate(true)
+            .SetEase(Ease.OutExpo, 1)
+            .SetDelay(0.3f);
+    }
+
+    void DisableCredits()
+    {
+        credits.DOAnchorPos(inputOptionsStartPos, 0.5f)
+            .SetUpdate(true)
+            .SetEase(Ease.InCubic);
+
+        MainMenuSelectItem(2);
+        state = State.MainMenu;
+    }
+
+    void ShowIngameMenu()
+    {
+        state = State.IngameMenu;
+        ingameMenu.gameObject.SetActive(true);
+        ingameMenu.DOAnchorPos(Vector2.zero, 0.5f)
+            .SetUpdate(true)
+            .SetEase(Ease.OutExpo, 1)
+            .SetDelay(0.3f);
+
+        IngameMenuSelectItem(0);
+    }
+
+    void DisableIngameMenu()
+    {
+        state = State.Ingame;
+        ingameMenu.DOAnchorPos(inputOptionsStartPos, 0.5f)
+            .SetUpdate(true)
+            .SetEase(Ease.InCubic);
+    }
+
     void InputOptionsSelectItem(int x, int y)
     {
         if (lastSelected)
@@ -186,7 +276,11 @@ public class MenuNavigation : MonoBehaviour
             t = inputOptionsPlayer2Transforms[y];
         }
 
-        t.localScale = Vector3.one * 1.5f;
+        var text = t.GetComponent<TMP_Text>();
+        SelectText(text);
+        MoveLineSelectorTo(text, 1.5f);
+
+        //t.localScale = Vector3.one * 1.5f;
         lastSelected = t;
     }
 
@@ -217,7 +311,7 @@ public class MenuNavigation : MonoBehaviour
 
     string GetBindingString(int player, int index)
     {
-        var binding = rebinder.inputActionsAsset.actionMaps[player].actions[index].bindings[0];
+        var binding = DomacinInputManager.e.inputActionsAsset.actionMaps[player].actions[index].bindings[0];
         return InputControlPath.ToHumanReadableString(binding.effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
     }
 
@@ -228,8 +322,68 @@ public class MenuNavigation : MonoBehaviour
 
         if (y < 0) return;
 
-        mainMenuTransforms[y].localScale = Vector3.one * 1.3f;
+        var textT = mainMenuTransforms[y];
+        var text = textT.GetComponent<TMP_Text>();
+
+        SelectText(text);
+        MoveLineSelectorTo(text);
+
+        //mainMenuTransforms[y].localScale = Vector3.one * 1.3f;
         lastSelected = mainMenuTransforms[y];
+    }
+
+    void IngameMenuSelectItem(int y)
+    {
+        var text = ingameMenuTexts[y];
+        SelectText(text);
+        MoveLineSelectorTo(text, 1.5f);
+
+        lastSelected = ingameMenuTexts[y].rectTransform;
+    }
+
+    void MoveLineSelectorTo(TMP_Text text, float scale = 1)
+    {
+        var textT = text.rectTransform;
+
+        lineSelector.SetParent(textT.parent);
+        float textWidth = text.textBounds.extents.x;
+        Vector2 corner = text.textBounds.min;
+        corner = textT.TransformPoint(corner);
+        //lineSelector.position = corner;
+
+        var sd = lineSelector.sizeDelta;
+        var sd0 = sd;
+        sd0.x = 0;
+        sd.x = textWidth * 11 * scale;
+
+        const float speed = 0.1f;
+
+        lineSelector.DOSizeDelta(sd0, speed)
+            .SetUpdate(true)
+            .OnComplete(() => { lineSelector.position = corner; });
+
+        lineSelector.DOSizeDelta(sd, speed)
+            .SetUpdate(true)
+            .SetDelay(speed);
+        //lineSelector.sizeDelta = sd;
+    }
+
+    void SelectText(TMP_Text text)
+    {
+        if (lastSelected)
+            lastSelected.GetComponent<TMP_Text>().color = unselectedTextColor;
+
+        text.color = selectedTextColor;
+    }
+
+    void Pause()
+    {
+        Time.timeScale = 0;
+    }
+
+    void Unpause()
+    {
+        Time.timeScale = 1;
     }
 
     private void Update()

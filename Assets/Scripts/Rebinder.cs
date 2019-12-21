@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class Rebinder : MonoBehaviour
 {
-    public InputActionAsset inputActionsAsset;
+
 
     Vector2 moveInput;
     bool interactInput;
@@ -16,7 +16,7 @@ public class Rebinder : MonoBehaviour
 
     private void Awake()
     {
-        
+
     }
 
     public bool bindingInProgress { get; private set; }
@@ -108,6 +108,6 @@ public class Rebinder : MonoBehaviour
     {
         Debug.Log("Changed binding to " + keyPath);
         Debug.Log("Bindings " + rebindingOp.action.bindings[0]);
-        inputActionsAsset.Enable();
+        DomacinInputManager.e.inputActionsAsset.Enable();
     }
 }
