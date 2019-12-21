@@ -4,6 +4,8 @@ using UnityEngine;
 
 using TMPro;
 using UnityEngine.InputSystem;
+using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class MenuNavigation : MonoBehaviour
 {
@@ -11,8 +13,11 @@ public class MenuNavigation : MonoBehaviour
 
     public Rebinder rebinder;
 
+    public RectTransform tepihOutTarget;
+    public RectTransform mainMenu;
     public RectTransform[] mainMenuTransforms;
 
+    public RectTransform inputOptions;
     public RectTransform[] inputOptionsPlayer1Transforms;
     public RectTransform[] inputOptionsPlayer2Transforms;
 
@@ -27,6 +32,10 @@ public class MenuNavigation : MonoBehaviour
     int cx, cy;
 
     RectTransform lastSelected;
+
+    Vector2 inputOptionsStartPos;
+    Vector2 tepihInPos;
+    Vector2 tepihOutPos;
 
     private void Awake()
     {
@@ -76,8 +85,8 @@ public class MenuNavigation : MonoBehaviour
         {
             switch (cy)
             {
-                case 0: Application.LoadLevel(0); break; // start game
-                case 1: ShowOptions(); break; // open options
+                case 0: StartGame(); break; // start game
+                case 1: DisableMainMenu(); ShowOptions(); break; // open options
                 case 2: break; // open credits
                 case 3: Application.Quit(); break; // quit
                 default: break;
@@ -93,11 +102,26 @@ public class MenuNavigation : MonoBehaviour
         }
     }
 
+    void StartGame()
+    {
+        DisableMainMenu();
+        Camera.main.transform.DOMoveY(Camera.main.transform.position.y - 30, 1)
+            .SetEase(Ease.InCubic);
+        StartCoroutine(LoadLevel());
+    }
+
+    IEnumerator LoadLevel()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(1);
+    }
+
     public void Cancel()
     {
         if (state == State.InputMenu)
         {
             DisableOptions();
+            ShowMainMenu();
         }
     }
 
@@ -114,12 +138,36 @@ public class MenuNavigation : MonoBehaviour
         cy = 0;
         MainMenuSelectItem(-1);
         state = State.InputMenu;
+        InputOptionsSelectItem(0, 0);
+
+        inputOptions.DOAnchorPos(Vector2.zero, 0.5f)
+            .SetEase(Ease.OutExpo, 1)
+            .SetDelay(0.3f);
     }
 
     void DisableOptions()
     {
         MainMenuSelectItem(1);
         state = State.MainMenu;
+
+        inputOptions.DOAnchorPos(inputOptionsStartPos, 0.5f)
+            .SetEase(Ease.InCubic);
+
+        cx = 0;
+        cy = 1;
+    }
+
+    void ShowMainMenu()
+    {
+        mainMenu.DOAnchorPos(tepihInPos, 0.5f)
+            .SetEase(Ease.OutExpo, 1)
+            .SetDelay(0.3f);
+    }
+
+    void DisableMainMenu()
+    {
+        mainMenu.DOAnchorPos(tepihOutPos, 0.5f)
+             .SetEase(Ease.InCubic);
     }
 
     void InputOptionsSelectItem(int x, int y)
@@ -145,6 +193,11 @@ public class MenuNavigation : MonoBehaviour
     private void Start()
     {
         SetKeyTexts();
+        inputOptionsStartPos = inputOptions.anchoredPosition;
+        tepihInPos = mainMenu.anchoredPosition;
+        tepihOutPos = tepihOutTarget.anchoredPosition;
+
+        MainMenuSelectItem(0);
     }
 
     void SetKeyTexts()
@@ -175,7 +228,7 @@ public class MenuNavigation : MonoBehaviour
 
         if (y < 0) return;
 
-        mainMenuTransforms[y].localScale = Vector3.one * 1.5f;
+        mainMenuTransforms[y].localScale = Vector3.one * 1.3f;
         lastSelected = mainMenuTransforms[y];
     }
 
