@@ -38,8 +38,8 @@ public class Rebinder : MonoBehaviour
             float y = p.moveDownAction.ReadValue<float>() == 1 ? -1 : p.moveUpAction.ReadValue<float>() == 1 ? 1 : 0;
             moveInput = new Vector2(x, y);
 
-            if (interactInput)
-                Debug.Log("Interacted");
+            //if (interactInput)
+            //Debug.Log("Interacted");
         }
 
         /*

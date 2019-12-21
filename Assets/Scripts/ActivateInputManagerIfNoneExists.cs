@@ -6,7 +6,7 @@ public class ActivateInputManagerIfNoneExists : MonoBehaviour
 {
     public GameObject inputManager;
 
-    void Start()
+    void Awake()
     {
         if (FindObjectsOfType<DomacinInputManager>().Length == 0)
             inputManager.SetActive(true);

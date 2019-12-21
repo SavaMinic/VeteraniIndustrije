@@ -15,7 +15,9 @@ public class MenuInput : MonoBehaviour
         e = this;
 
         input = new MenuInputActions();
-        input.Enable();
+
+        if (menuNavigation)
+            input.Enable();
     }
 
     public void EnableInput(bool b)

@@ -14,6 +14,7 @@ public class Database : MonoBehaviour
     public Consumable[] drinks;
 
     public GameObject pivoPrefab;
+    public GameObject termometarPrefab;
 
     public Interactable CreatePivo()
     {

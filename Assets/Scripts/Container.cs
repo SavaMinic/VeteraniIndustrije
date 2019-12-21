@@ -22,6 +22,15 @@ public class Container : MonoBehaviour
 
     const float boilingLossSpeed = 0.05f;
 
+    private void Start()
+    {
+        if (showTemperature)
+        {
+            GameObject tgo = Instantiate(Database.e.termometarPrefab);
+            tgo.GetComponent<Termometar>().container = this;
+        }
+    }
+
     public bool TransferTo(Container toContainer)
     {
         return TransferTo(toContainer, pouringSpeed * Time.deltaTime);
@@ -90,7 +99,7 @@ public class Container : MonoBehaviour
     {
         if (!Application.isPlaying || GameController.I.IsPaused)
             return;
-        
+
         if (temperature >= 1)
             amount -= Time.deltaTime * boilingLossSpeed;
 
@@ -105,8 +114,8 @@ public class Container : MonoBehaviour
         if (showAmount && amount > 0)
             DebugUtils.InGameMeter(amount / maxAmount, transform.position, 20, type.color);
 
-        if (showTemperature && temperature > 0)
-            DebugUtils.InGameMeter(temperature, transform.position, 30, Color.red);
+        //if (showTemperature && temperature > 0)
+        //DebugUtils.InGameMeter(temperature, transform.position, 30, Color.red);
     }
 
     public void DebugAmount(float offset)
