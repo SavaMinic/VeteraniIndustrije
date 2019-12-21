@@ -36,7 +36,7 @@ public class MenuNavigation : MonoBehaviour
 
     // private
 
-    enum State { MainMenu, InputMenu, IngameMenu, Credits, HowTo, Ingame, None }
+    enum State { MainMenu, InputMenu, IngameMenu, Credits, HowToPlay, Ingame, None }
     State state;
 
     bool gameStarted;
@@ -125,7 +125,7 @@ public class MenuNavigation : MonoBehaviour
             {
                 case 0: StartGame(); break; // restart game
                 case 1: break; // how to play
-                case 2: break; // input options
+                case 2: DisableIngameMenu(); ShowOptions(); break; // input options
                 case 3: DisableIngameMenu(); ShowCredits(); break; // open credits
                 case 4: Application.Quit(); break; // quit
                 default: break;
@@ -158,13 +158,23 @@ public class MenuNavigation : MonoBehaviour
                 DisableOptions();
                 if (!gameStarted)
                     ShowMainMenu();
-                else ShowIngameMenu(); break;
+                else
+                {
+                    ShowIngameMenu();
+                    IngameMenuSelectItem(2);
+                }
+                break;
             case State.Credits:
                 DisableCredits();
                 if (!gameStarted)
                     ShowMainMenu();
-                else ShowIngameMenu(); break;
-            case State.HowTo: break;
+                else
+                {
+                    ShowIngameMenu();
+                    IngameMenuSelectItem(3);
+                }
+                break;
+            case State.HowToPlay: break;
             case State.Ingame: ShowIngameMenu(); Pause(); break;
             case State.IngameMenu: DisableIngameMenu(); Unpause(); break;
             case State.None: break;
@@ -334,6 +344,8 @@ public class MenuNavigation : MonoBehaviour
 
     void IngameMenuSelectItem(int y)
     {
+        cy = y;
+
         var text = ingameMenuTexts[y];
         SelectText(text);
         MoveLineSelectorTo(text, 1.5f);
