@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hands : MonoBehaviour
 {
-    public string interactionKey = "Fire1";
+    public int player = 1;
     public Interactable heldItem;
 
     public Vector3 holdOffset;
@@ -60,8 +60,12 @@ public class Hands : MonoBehaviour
         lastClosestItem = closestItem;
         lastClosestSlot = closestSlot;
 
-        bool btn_down = Input.GetButtonDown(interactionKey);
-        bool btn_held = Input.GetAxis(interactionKey) > 0f;
+        DomacinInputManager.Actions p = player == 1 ?
+            DomacinInputManager.e.p1 :
+            DomacinInputManager.e.p2;
+
+        bool btn_down = p.interactAction.triggered;
+        bool btn_held = p.interactAction.ReadValue<float>() == 1;
 
         if (closestItem is Gajba && heldItem is Pivo && btn_down)
         {

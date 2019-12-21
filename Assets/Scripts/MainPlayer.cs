@@ -2,21 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.InputSystem;
+
 public class MainPlayer : MonoBehaviour
 {
     public float speed;
-    public string HorizontalAxis;
-    public string VerticalAxis;
 
     private Rigidbody rb;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+
+    public int player = 1;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        DomacinInputManager.e.inputActionsAsset.Enable();
     }
 
     void FixedUpdate()
@@ -24,8 +28,20 @@ public class MainPlayer : MonoBehaviour
         if (!Application.isPlaying || GameController.I.IsPaused)
             return;
 
-        float h = Input.GetAxis(HorizontalAxis);
-        float v = Input.GetAxis(VerticalAxis);
+        DomacinInputManager.Actions p = player == 1 ?
+            DomacinInputManager.e.p1 :
+            DomacinInputManager.e.p2;
+
+        float h =
+            p.moveLeftAction.ReadValue<float>() == 1 ? -1 :
+            p.moveRightAction.ReadValue<float>() == 1 ? 1 : 0;
+
+        float v =
+            p.moveDownAction.ReadValue<float>() == 1 ? -1 :
+            p.moveUpAction.ReadValue<float>() == 1 ? 1 : 0;
+
+        //float h = Input.GetAxis(HorizontalAxis);
+        //float v = Input.GetAxis(VerticalAxis);
 
         if (Mathf.Abs(h) > 0)
         {
