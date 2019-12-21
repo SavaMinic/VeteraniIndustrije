@@ -27,12 +27,19 @@ public class MenuNavigation : MonoBehaviour
     public RectTransform ingameMenu;
     public TMP_Text[] ingameMenuTexts;
 
+    public RectTransform howToPlay;
+
     public RectTransform lineSelector;
 
     public Color selectedTextColor;
     public Color unselectedTextColor;
 
     public RectTransform credits;
+
+    const int INGAME_RESTART_INDEX = 0;
+    const int INGAME_HOW_TO_PLAY_INDEX = 1;
+    const int INGAME_INPUT_OPTIONS_INDEX = 2;
+    const int INGAME_CREDITS_INDEX = 3;
 
     // private
 
@@ -124,7 +131,7 @@ public class MenuNavigation : MonoBehaviour
             switch (cy)
             {
                 case 0: StartGame(); break; // restart game
-                case 1: break; // how to play
+                case 1: DisableIngameMenu(); ShowHowToPlay(); break;  // how to play
                 case 2: DisableIngameMenu(); ShowOptions(); break; // input options
                 case 3: DisableIngameMenu(); ShowCredits(); break; // open credits
                 case 4: Application.Quit(); break; // quit
@@ -161,7 +168,7 @@ public class MenuNavigation : MonoBehaviour
                 else
                 {
                     ShowIngameMenu();
-                    IngameMenuSelectItem(2);
+                    IngameMenuSelectItem(INGAME_INPUT_OPTIONS_INDEX);
                 }
                 break;
             case State.Credits:
@@ -171,10 +178,10 @@ public class MenuNavigation : MonoBehaviour
                 else
                 {
                     ShowIngameMenu();
-                    IngameMenuSelectItem(3);
+                    IngameMenuSelectItem(INGAME_CREDITS_INDEX);
                 }
                 break;
-            case State.HowToPlay: break;
+            case State.HowToPlay: DisableHowToPlay(); ShowIngameMenu(); IngameMenuSelectItem(INGAME_HOW_TO_PLAY_INDEX); break;
             case State.Ingame: ShowIngameMenu(); Pause(); break;
             case State.IngameMenu: DisableIngameMenu(); Unpause(); break;
             case State.None: break;
@@ -270,6 +277,23 @@ public class MenuNavigation : MonoBehaviour
             .SetEase(Ease.InCubic);
     }
 
+    void ShowHowToPlay()
+    {
+        state = State.HowToPlay;
+        howToPlay.gameObject.SetActive(true);
+        howToPlay.DOAnchorPos(Vector2.zero, 0.5f)
+            .SetUpdate(true)
+            .SetEase(Ease.OutExpo, 1)
+            .SetDelay(0.3f);
+    }
+
+    void DisableHowToPlay()
+    {
+        howToPlay.DOAnchorPos(inputOptionsStartPos, 0.5f)
+            .SetUpdate(true)
+            .SetEase(Ease.InCubic);
+    }
+
     void InputOptionsSelectItem(int x, int y)
     {
         if (lastSelected)
@@ -294,14 +318,19 @@ public class MenuNavigation : MonoBehaviour
         lastSelected = t;
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
         SetKeyTexts();
         inputOptionsStartPos = inputOptions.anchoredPosition;
         tepihInPos = mainMenu.anchoredPosition;
         tepihOutPos = tepihOutTarget.anchoredPosition;
 
+        yield return null;
+        yield return null;
+        yield return null;
+
         MainMenuSelectItem(0);
+        //MoveLineSelectorTo(mainMenuTransforms[0].GetComponent<TMP_Text>(), 1.5f);
     }
 
     void SetKeyTexts()
