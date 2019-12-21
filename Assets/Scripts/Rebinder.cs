@@ -12,37 +12,11 @@ public class Rebinder : MonoBehaviour
     Vector2 moveInput;
     bool interactInput;
 
-    public class PlayerInputAction
-    {
-        public InputAction moveLeftAction;
-        public InputAction moveRightAction;
-        public InputAction moveUpAction;
-        public InputAction moveDownAction;
-        public InputAction interactAction;
-    }
-
-    public PlayerInputAction p1;
-    public PlayerInputAction p2;
-
     public Transform inputPreview;
 
     private void Awake()
     {
-        var playerActionmap = inputActionsAsset.actionMaps[0]; // player 1
-        p1 = new PlayerInputAction();
-        p1.moveLeftAction = playerActionmap.FindAction("Move Left");
-        p1.moveRightAction = playerActionmap.FindAction("Move Right");
-        p1.moveUpAction = playerActionmap.FindAction("Move Up");
-        p1.moveDownAction = playerActionmap.FindAction("Move Down");
-        p1.interactAction = playerActionmap.FindAction("Interact");
-
-        playerActionmap = inputActionsAsset.actionMaps[1]; // player 2
-        p2 = new PlayerInputAction();
-        p2.moveLeftAction = playerActionmap.FindAction("Move Left");
-        p2.moveRightAction = playerActionmap.FindAction("Move Right");
-        p2.moveUpAction = playerActionmap.FindAction("Move Up");
-        p2.moveDownAction = playerActionmap.FindAction("Move Down");
-        p2.interactAction = playerActionmap.FindAction("Interact");
+        
     }
 
     public bool bindingInProgress { get; private set; }
@@ -53,7 +27,9 @@ public class Rebinder : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            PlayerInputAction p = i == 0 ? p1 : p2;
+            DomacinInputManager.Actions p = i == 0 ?
+                DomacinInputManager.e.p1 :
+                DomacinInputManager.e.p2;
 
             //moveInput = moveLeftAction.ReadValue<Vector2>();
             interactInput = p.interactAction.triggered;
@@ -80,7 +56,9 @@ public class Rebinder : MonoBehaviour
 
     public void StartRebindDirection(int player, int dir)
     {
-        PlayerInputAction p = player == 0 ? p1 : p2;
+        DomacinInputManager.Actions p = player == 0 ?
+            DomacinInputManager.e.p1 :
+            DomacinInputManager.e.p2;
 
         if (!bindingInProgress)
         {
