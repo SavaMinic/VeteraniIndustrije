@@ -21,7 +21,7 @@ public class Promaja : MonoBehaviour
 
     public static void Refresh()
     {
-        int openCount = Prozor.IsOpen ? 1 : 0;
+        int openCount = Prozor.IsProzorOpen ? 1 : 0;
         for (int i = 0; i < e.doors.Length; i++)
         {
             if (e.doors[i].IsOpen)

@@ -101,8 +101,8 @@ public class GuestWish
         }
         // check if wish is already fullfillable
         if (type == TV.SelectedChannel
-            || (Prozor.IsOpen && type == GuestWishType.OpenWindow)
-            || (!Prozor.IsOpen && type == GuestWishType.CloseWindow)
+            || (Prozor.IsProzorOpen && type == GuestWishType.OpenWindow)
+            || (!Prozor.IsProzorOpen && type == GuestWishType.CloseWindow)
         )
         {
             // pick any other

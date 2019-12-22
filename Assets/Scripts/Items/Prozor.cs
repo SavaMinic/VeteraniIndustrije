@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Prozor : Interactable
+public interface IOpenable
 {
-    public static bool IsOpen { get; private set; }
+    bool IsOpen { get; }
+}
+
+public class Prozor : Interactable, IOpenable
+{
+    public static bool IsProzorOpen { get; private set; }
+    public bool IsOpen => IsProzorOpen;
 
     public GameObject openGraphics;
     public GameObject closedGraphics;
 
     public void Toggle()
     {
-        IsOpen = !IsOpen;
+        IsProzorOpen = !IsProzorOpen;
 
-        openGraphics.SetActive(IsOpen);
-        closedGraphics.SetActive(!IsOpen);
-        
+        openGraphics.SetActive(IsProzorOpen);
+        closedGraphics.SetActive(!IsProzorOpen);
+
         Promaja.Refresh();
     }
 }

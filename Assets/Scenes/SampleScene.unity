@@ -1205,6 +1205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8588a630db4e696478153e3ece348bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openableObject: {fileID: 2075588053}
 --- !u!1 &256808574
 GameObject:
   m_ObjectHideFlags: 0
@@ -11900,6 +11901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1893395510}
   - component: {fileID: 1893395509}
+  - component: {fileID: 1893395511}
   m_Layer: 0
   m_Name: Database
   m_TagString: Untagged
@@ -11957,6 +11959,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 69b8b7e9da691764b871e23b6d0a458c, type: 3}
   - {fileID: 8300000, guid: bee9657f0ec537b48b1e643e01ce2ce2, type: 3}
   - {fileID: 8300000, guid: 29a8f7e26cfa47f4e9e564b9bed2b871, type: 3}
+  entranceDoor: {fileID: 0}
 --- !u!4 &1893395510
 Transform:
   m_ObjectHideFlags: 0
@@ -11971,6 +11974,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1893395511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893395508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df212b7c209274e68aaf18ea567778d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1899624987
 GameObject:
   m_ObjectHideFlags: 0
@@ -13298,6 +13313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8588a630db4e696478153e3ece348bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openableObject: {fileID: 1257972210}
 --- !u!95 &2057293632
 Animator:
   serializedVersion: 3
@@ -13358,8 +13374,8 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 71c3f9027a33e1e4ea25716612a8c342, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
-  m_FlipY: 1
+  m_FlipX: 0
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.42, y: 4.3}
   m_AdaptiveModeThreshold: 0.5
