@@ -4255,9 +4255,11 @@ MonoBehaviour:
   - {fileID: 678084647}
   - {fileID: 1892693714}
   GuestPrefabs:
-  - {fileID: 660202925908225519, guid: 9bc0c46c267514722946ff6e28342aae, type: 3}
-  - {fileID: 660202925908225519, guid: ba526797e4bfd4f6f87443ad6bed7eac, type: 3}
-  - {fileID: 660202925908225519, guid: 2d0a5e3265d4a4da9bc7bd79f37495ad, type: 3}
+  - {fileID: 6029214433723126773, guid: cc9de2d07eecdc34d8cf42980096018c, type: 3}
+  - {fileID: 5961329576944853781, guid: 4da9a506affd46a4f99d5b6b63acb4a6, type: 3}
+  - {fileID: 3866458681928790170, guid: a07da8600741226499a6f8271189ab9b, type: 3}
+  - {fileID: 9138903008006683327, guid: 40a64d05148354745b9bafa1cf06af6e, type: 3}
+  - {fileID: 5684661661426664347, guid: ac4d835009932da40902c59ed38f480e, type: 3}
   guestAgentPrefab: {fileID: 3441751427881646955, guid: 0cadd0f9512583c4b8e2db5b89e254ef,
     type: 3}
   InitialGuestCount: 1
@@ -4789,7 +4791,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828891786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.02, y: 0, z: -9.71}
+  m_LocalPosition: {x: -1.91, y: 0, z: -10.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7193,7 +7195,7 @@ GameObject:
   - component: {fileID: 1257972211}
   - component: {fileID: 1257972212}
   m_Layer: 0
-  m_Name: Vrata (1)
+  m_Name: Vrata Balkon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11959,7 +11961,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 69b8b7e9da691764b871e23b6d0a458c, type: 3}
   - {fileID: 8300000, guid: bee9657f0ec537b48b1e643e01ce2ce2, type: 3}
   - {fileID: 8300000, guid: 29a8f7e26cfa47f4e9e564b9bed2b871, type: 3}
-  entranceDoor: {fileID: 0}
+  entranceDoor: {fileID: 2061271154}
 --- !u!4 &1893395510
 Transform:
   m_ObjectHideFlags: 0
@@ -13394,7 +13396,7 @@ GameObject:
   - component: {fileID: 2061271153}
   - component: {fileID: 2061271154}
   m_Layer: 0
-  m_Name: Vrata
+  m_Name: Vrata Ulazna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

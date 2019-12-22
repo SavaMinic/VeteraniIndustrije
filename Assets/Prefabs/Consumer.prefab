@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02164751485c90141b48ca9379b8542f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containsType: 0
+  containsType: 1
   type: {fileID: 11400000, guid: 656a7bffa0db57549baf49212929cd70, type: 2}
   amount: 0
   maxAmount: 1
