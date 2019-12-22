@@ -207,9 +207,19 @@ public static class NAudio
     }
 
     public static AudioSource Play2D(
-        this AudioClip[] clips, float volume = 1)
+        this AudioClip[] clips, bool shuffle = false, float volume = 1)
     {
-        source2D.PlayOneShot(clips[Random.Range(0, clips.Length)], volume);
+        if (shuffle && clips.Length > 1)
+        {
+            int randi = Random.Range(1, clips.Length);
+            var clip = clips[randi];
+            clips[randi] = clips[0];
+            clips[0] = clip;
+
+            source2D.PlayOneShot(clip, volume);
+        }
+        else
+            source2D.PlayOneShot(clips[Random.Range(0, clips.Length)], volume);
 
         return source2D;
     }

@@ -44,6 +44,8 @@ public class FootMotion : MonoBehaviour
 
     Vector3 velo;
 
+    float progress;
+
     void Update()
     {
         velo = Camera.main.transform.InverseTransformDirection(rb.velocity);
@@ -51,6 +53,14 @@ public class FootMotion : MonoBehaviour
 
         UpdateLeg(left, 0);
         UpdateLeg(right, 0.5f);
+
+        progress += Mathf.Max(Mathf.Abs(velo.x), Mathf.Abs(velo.y * 1f)) * Time.deltaTime * 60 * 7;
+        if (progress > 1)
+        {
+            Database.e.stepClips.Play2D(true, 0.3f);
+            progress = 0;
+            Debug.Log("step");
+        }
     }
 
     void UpdateLeg(Leg leg, float offset)

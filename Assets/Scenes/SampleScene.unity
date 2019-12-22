@@ -11543,6 +11543,15 @@ MonoBehaviour:
     type: 3}
   termometarPrefab: {fileID: 1696586703156643467, guid: a9b5e8432fb73344eb2fddc0c5b71701,
     type: 3}
+  stepClips:
+  - {fileID: 8300000, guid: c302b480a901c884b9d11bc6d70a105a, type: 3}
+  - {fileID: 8300000, guid: a2011e053e8e7604c8b32b846631fd26, type: 3}
+  - {fileID: 8300000, guid: fdd1ea4386a440b4aaefec2101027310, type: 3}
+  - {fileID: 8300000, guid: 678326e711f684743bc34be0832a8b62, type: 3}
+  - {fileID: 8300000, guid: 58d83b9db99add5499afa801aa550954, type: 3}
+  - {fileID: 8300000, guid: 16176bbfb1171f542923e8c2a7933009, type: 3}
+  - {fileID: 8300000, guid: 9275b99f11a476d448964ba52017ce67, type: 3}
+  - {fileID: 8300000, guid: 375ee6f514129a94d9556c7159a0f222, type: 3}
 --- !u!4 &1893395510
 Transform:
   m_ObjectHideFlags: 0

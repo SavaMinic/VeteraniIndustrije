@@ -16,6 +16,8 @@ public class Database : MonoBehaviour
     public GameObject pivoPrefab;
     public GameObject termometarPrefab;
 
+    public AudioClip[] stepClips;
+
     public Interactable CreatePivo()
     {
         GameObject go = Instantiate(pivoPrefab);
