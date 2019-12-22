@@ -77,7 +77,6 @@ public class Rebinder : MonoBehaviour
                 .WithControlsExcluding("Mouse")
                 .WithCancelingThrough("<Keyboard>/escape")
                 .OnMatchWaitForAnother(0.1f)
-                .OnCancel(RebindCancel)
                 .OnApplyBinding((op, keyPath) =>
                 {
                     Debug.Log("End binding");
@@ -92,6 +91,15 @@ public class Rebinder : MonoBehaviour
                     bindingInProgress = false;
                     OnBindingComplete?.Invoke();
                 })
+                .OnCancel((op) =>
+                {
+                    op.Dispose();
+                    Debug.Log("Canceled binding");
+                    bindingInProgress = false;
+                    action.Enable();
+
+                    OnBindingComplete?.Invoke();
+                })
                 .Start();
 
             bindingInProgress = true;
@@ -102,6 +110,8 @@ public class Rebinder : MonoBehaviour
     {
         Debug.Log("Canceled binding");
         bindingInProgress = false;
+
+        OnBindingComplete?.Invoke();
     }
 
     private void RebindSuccess(InputActionRebindingExtensions.RebindingOperation rebindingOp, string keyPath)

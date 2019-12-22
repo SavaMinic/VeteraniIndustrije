@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Downloader")]
 public class QuipsDownloadData : ScriptableObject
 {
+#if UNITY_EDITOR
     public string address;
 
     List<string[]> all;
@@ -138,4 +139,5 @@ public class QuipsDownloadData : ScriptableObject
 
         return found.ToArray();
     }
+#endif
 }

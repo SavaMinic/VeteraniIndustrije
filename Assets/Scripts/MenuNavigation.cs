@@ -83,7 +83,7 @@ public class MenuNavigation : MonoBehaviour
         {
             cy = wrap(cy - y, 4);
             cx = wrap(cx + x, 1);
-            Debug.Log($"{cx}, {cy}");
+            //Debug.Log($"{cx}, {cy}");
             InputOptionsSelectItem(cx, cy);
         }
         if (state == State.IngameMenu)
@@ -124,6 +124,10 @@ public class MenuNavigation : MonoBehaviour
             {
                 rebinder.StartRebindDirection(cx, cy);
                 MenuInput.e.EnableInput(false);
+
+                var text = cx == 0 ? player1RebindTexts[cy] : player2RebindTexts[cy];
+                text.text = "<PRESS>";
+                StartCoroutine(MoveLineSelectorDelayed(text, 1.5f));
             }
         }
         else if (state == State.IngameMenu)
@@ -163,6 +167,9 @@ public class MenuNavigation : MonoBehaviour
         {
             case State.MainMenu: break;
             case State.InputMenu:
+                if (rebinder.bindingInProgress)
+                    break;
+
                 DisableOptions();
                 if (!gameStarted)
                     ShowMainMenu();
@@ -193,7 +200,22 @@ public class MenuNavigation : MonoBehaviour
     void BindingComplete()
     {
         SetKeyTexts();
-        Debug.Log("Refresh texts!");
+        //Debug.Log("Refresh texts!");
+
+        var textT = cx == 0 ?
+            inputOptionsPlayer1Transforms[cy] :
+            inputOptionsPlayer2Transforms[cy];
+
+        var text = textT.GetComponent<TMP_Text>();
+        MoveLineSelectorTo(text, 1.5f);
+        SelectText(text);
+
+        StartCoroutine(DelayEnableInput());
+    }
+
+    IEnumerator DelayEnableInput()
+    {
+        yield return null;
         MenuInput.e.EnableInput(true);
     }
 
@@ -381,6 +403,12 @@ public class MenuNavigation : MonoBehaviour
         MoveLineSelectorTo(text, 1.5f);
 
         lastSelected = ingameMenuTexts[y].rectTransform;
+    }
+
+    IEnumerator MoveLineSelectorDelayed(TMP_Text text, float scale = 1)
+    {
+        yield return null;
+        MoveLineSelectorTo(text, scale);
     }
 
     void MoveLineSelectorTo(TMP_Text text, float scale = 1)
