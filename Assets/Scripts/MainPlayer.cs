@@ -34,13 +34,20 @@ public class MainPlayer : MonoBehaviour
             DomacinInputManager.e.p1 :
             DomacinInputManager.e.p2;
 
+        float deadzone = 0.1f;
+
+        float left = p.moveLeftAction.ReadValue<float>();
+        float right = p.moveRightAction.ReadValue<float>();
+        float down = p.moveDownAction.ReadValue<float>();
+        float up = p.moveUpAction.ReadValue<float>();
+
         float h =
-            p.moveLeftAction.ReadValue<float>() == 1 ? -1 :
-            p.moveRightAction.ReadValue<float>() == 1 ? 1 : 0;
+            left > deadzone ? -left :
+            right > deadzone ? right : 0;
 
         float v =
-            p.moveDownAction.ReadValue<float>() == 1 ? -1 :
-            p.moveUpAction.ReadValue<float>() == 1 ? 1 : 0;
+            down > deadzone ? -down :
+            up > deadzone ? up : 0;
 
         //float h = Input.GetAxis(HorizontalAxis);
         //float v = Input.GetAxis(VerticalAxis);

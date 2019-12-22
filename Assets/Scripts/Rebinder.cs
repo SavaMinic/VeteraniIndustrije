@@ -105,19 +105,4 @@ public class Rebinder : MonoBehaviour
             bindingInProgress = true;
         }
     }
-
-    private void RebindCancel(InputActionRebindingExtensions.RebindingOperation obj)
-    {
-        Debug.Log("Canceled binding");
-        bindingInProgress = false;
-
-        OnBindingComplete?.Invoke();
-    }
-
-    private void RebindSuccess(InputActionRebindingExtensions.RebindingOperation rebindingOp, string keyPath)
-    {
-        Debug.Log("Changed binding to " + keyPath);
-        Debug.Log("Bindings " + rebindingOp.action.bindings[0]);
-        DomacinInputManager.e.inputActionsAsset.Enable();
-    }
 }

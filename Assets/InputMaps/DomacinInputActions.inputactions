@@ -25,7 +25,7 @@
                     "name": "Move Up",
                     "type": "Button",
                     "id": "f45e5ed6-9440-4ae2-ae59-98635633af46",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
@@ -33,7 +33,7 @@
                     "name": "Move Down",
                     "type": "Button",
                     "id": "6bb32f93-9535-4947-9b82-47286fab349c",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
@@ -41,7 +41,7 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "2e6eae31-8cef-46d2-adf9-0c5b92e75c75",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -128,7 +128,7 @@
                     "name": "Move Up",
                     "type": "Button",
                     "id": "73eb7b45-c9da-4cfd-a62d-819b6116a69e",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
@@ -136,7 +136,7 @@
                     "name": "Move Down",
                     "type": "Button",
                     "id": "19beb719-ad47-4fae-bd40-2e1922fbe1d1",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
@@ -144,7 +144,7 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "8e9d0fc1-9055-4eba-858f-4a84f9fdcbc9",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
