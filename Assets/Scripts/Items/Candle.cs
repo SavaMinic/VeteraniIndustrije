@@ -21,6 +21,8 @@ public class Candle : Interactable
     public Vector3 flameStartPosition;
     public Vector3 flameEndPosition;
 
+    public AudioClip igniteClip;
+
     protected override void OnStart()
     {
         if (isBurning)
@@ -33,7 +35,7 @@ public class Candle : Interactable
     {
         if (!Application.isPlaying || GameController.I.IsPaused)
             return;
-        
+
         if (isBurning && burnTime > 0)
         {
             burnProgress += Time.deltaTime / burnTime;
@@ -42,7 +44,7 @@ public class Candle : Interactable
         }
 
         burnProgress = Mathf.Clamp01(burnProgress);
-        
+
         if (burnProgress >= 1f)
         {
             GameController.I.EndGame();
@@ -58,6 +60,7 @@ public class Candle : Interactable
         }
         flame.SetActive(true);
         isBurning = true;
+        igniteClip.Play2D(1);
     }
 
     public void Extinguish()

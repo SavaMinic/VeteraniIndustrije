@@ -46,6 +46,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -57,6 +58,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -97,6 +99,7 @@ MonoBehaviour:
   inSlot: {fileID: 0}
   highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
   sprite: {fileID: 0}
+  customProximityPivot: {fileID: 0}
   soundVolume: 0.5
-  pickupClip: {fileID: 0}
-  putClip: {fileID: 0}
+  pickupClip: {fileID: 8300000, guid: 5ba0429a60bb9e84084be85b7a0e540f, type: 3}
+  putClip: {fileID: 8300000, guid: 0645266e4b612e649877403cd1d9be3c, type: 3}
