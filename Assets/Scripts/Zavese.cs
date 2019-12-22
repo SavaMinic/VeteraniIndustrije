@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Zavese : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Animator _animator;
+    Animator animator { get { if (!_animator) _animator = GetComponent<Animator>(); return _animator; } }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Promaja.IsActive)
+            animator.SetBool("Promaja", true);
+        else
+            animator.SetBool("Promaja", false);
     }
 }
