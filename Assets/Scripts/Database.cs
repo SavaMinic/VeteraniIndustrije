@@ -20,6 +20,8 @@ public class Database : MonoBehaviour
     public AudioClip[] stepClips;
     public AudioClip[] broomSweepClips;
 
+    public Door entranceDoor;
+
     public Interactable CreatePivo()
     {
         GameObject go = Instantiate(pivoPrefab);

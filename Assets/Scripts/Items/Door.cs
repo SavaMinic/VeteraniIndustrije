@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : Interactable
 {
-    public static bool IsOpen { get; private set; }
+    public bool IsOpen { get; private set; }
 
     public GameObject openGraphics;
     public GameObject closedGraphics;

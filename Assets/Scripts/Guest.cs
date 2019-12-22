@@ -363,7 +363,7 @@ public class Guest : MonoBehaviour
 
     void RingTillDoorIsOpen()
     {
-        if (!Door.IsOpen && Time.time - lastRingTime > TIME_BETWEEN_RINGS)
+        if (!Database.e.entranceDoor.IsOpen && Time.time - lastRingTime > TIME_BETWEEN_RINGS)
         {
             lastRingTime = Time.time;
             Bell.e.Ring();
