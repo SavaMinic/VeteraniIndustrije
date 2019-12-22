@@ -23,6 +23,8 @@ public class MainPlayer : MonoBehaviour
         DomacinInputManager.e.inputActionsAsset.Enable();
     }
 
+    Vector3 lastPos;
+
     void FixedUpdate()
     {
         if (!Application.isPlaying || GameController.I.IsPaused)
@@ -43,11 +45,17 @@ public class MainPlayer : MonoBehaviour
         //float h = Input.GetAxis(HorizontalAxis);
         //float v = Input.GetAxis(VerticalAxis);
 
+        Vector3 diffPos = lastPos - transform.position;
+        float diff = diffPos.magnitude;
+
+        bool walkingInput = Mathf.Abs(h) > 0 || Mathf.Abs(v) > 0;
+        bool speedThres = diff > 0.05f;
+
         if (Mathf.Abs(h) > 0)
         {
             spriteRenderer.flipX = h > 0f;
         }
-        animator.SetBool("walking", Mathf.Abs(h) > 0 || Mathf.Abs(v) > 0);
+        animator.SetBool("walking", walkingInput && speedThres);
 
         // Move player relative to camera, but projected to ground
         Vector3 inputV = Vector3.ClampMagnitude(new Vector3(h, v), 1);
@@ -65,5 +73,7 @@ public class MainPlayer : MonoBehaviour
         Vector3 forceV = ray.GetPoint(enter) * speed;
 
         rb.AddForce(forceV);
+
+        lastPos = transform.position;
     }
 }
