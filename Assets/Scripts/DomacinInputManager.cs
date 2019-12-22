@@ -6,8 +6,6 @@ using UnityEngine.InputSystem;
 
 public class DomacinInputManager : MonoBehaviour
 {
-    
-
     public static DomacinInputManager e;
     void Awake()
     {
