@@ -39,6 +39,11 @@ public class Hands : MonoBehaviour
         if (closestItem)
         {
             Debug.DrawLine(transform.position, closestItem.ProximityPosition, Color.green);
+            // Door is always highlighted
+            if (closestItem is Door)
+            {
+                closestItem.Highlight(true);
+            }
             // if we are not holding or if we are holding and this item is interactable
             if (!heldItem || InteractionControl.I.CanInteract(heldItem.gameObject, closestItem.gameObject))
             {
@@ -118,7 +123,7 @@ public class Hands : MonoBehaviour
             tv.SwitchChannel();
         }
         // Otvaranje vrata i prozora:
-        else if (!heldItem && closestItem is Door && btn_down)
+        else if (closestItem is Door && btn_down)
         {
             var door = closestItem as Door;
             door.Toggle();
