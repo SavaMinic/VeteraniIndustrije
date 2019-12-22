@@ -20,9 +20,10 @@ public class MenuNavigation : MonoBehaviour
     public RectTransform inputOptions;
     public RectTransform[] inputOptionsPlayer1Transforms;
     public RectTransform[] inputOptionsPlayer2Transforms;
-
     public TMP_Text[] player1RebindTexts;
     public TMP_Text[] player2RebindTexts;
+    public RectTransform resolutionOption;
+    public RectTransform windowedOption;
 
     public RectTransform ingameMenu;
     public TMP_Text[] ingameMenuTexts;
@@ -56,6 +57,10 @@ public class MenuNavigation : MonoBehaviour
     Vector2 tepihInPos;
     Vector2 tepihOutPos;
 
+    int currentResolutionIndex;
+    Resolution[] resolutions;
+    int isWindowed = 0;
+
     private void Awake()
     {
         rebinder.OnBindingComplete += BindingComplete;
@@ -81,10 +86,40 @@ public class MenuNavigation : MonoBehaviour
         }
         else if (state == State.InputMenu)
         {
-            cy = wrap(cy - y, 4);
+            cy = wrap(cy - y, 6);
             cx = wrap(cx + x, 1);
             //Debug.Log($"{cx}, {cy}");
             InputOptionsSelectItem(cx, cy);
+
+            if (cy == 5)
+            {
+                if (resolutions == null)
+                {
+                    resolutions = Screen.resolutions;
+
+                    for (int i = 0; i < resolutions.Length; i++)
+                    {
+                        Resolution cur = Screen.currentResolution;
+                        if (resolutions[i].width == cur.width &&
+                            resolutions[i].height == cur.height &&
+                            resolutions[i].refreshRate == cur.refreshRate)
+                        {
+                            currentResolutionIndex = i;
+                            break;
+                        }
+                    }
+                }
+
+                currentResolutionIndex =
+                    wrap(currentResolutionIndex + x, resolutions.Length - 1);
+                resolutionOption.GetComponent<TMP_Text>().text = $"Resolution {resolutions[currentResolutionIndex].ToString()}";
+            }
+            else if (cy == 6)
+            {
+                isWindowed = wrap(isWindowed + x, 1);
+                windowedOption.GetComponent<TMP_Text>().text = isWindowed == 1 ? "Windowed" : "Fullscreen";
+                //Screen.fullScreen = isWindowed == 0 ? true : false;
+            }
         }
         if (state == State.IngameMenu)
         {
@@ -128,6 +163,12 @@ public class MenuNavigation : MonoBehaviour
                 var text = cx == 0 ? player1RebindTexts[cy] : player2RebindTexts[cy];
                 text.text = "<PRESS>";
                 StartCoroutine(MoveLineSelectorDelayed(text, 1.5f));
+
+                resolutions = Screen.resolutions;
+            }
+            else if (cy == 5 || cy == 6)
+            {
+                SetResolution(resolutions[currentResolutionIndex], isWindowed == 0 ? true : false);
             }
         }
         else if (state == State.IngameMenu)
@@ -142,6 +183,14 @@ public class MenuNavigation : MonoBehaviour
                 default: break;
             }
         }
+    }
+
+    void SetResolution(Resolution res, bool fullscreen)
+    {
+        Screen.SetResolution(
+            res.width, res.height, fullscreen);
+
+        Debug.Log($"Setting resolution to {res.ToString()}, windowed: {fullscreen}");
     }
 
     void StartGame()
@@ -324,13 +373,24 @@ public class MenuNavigation : MonoBehaviour
 
         RectTransform t = null;
 
-        if (x == 0)
+        if (y < 5)
         {
-            t = inputOptionsPlayer1Transforms[y];
+            if (x == 0)
+            {
+                t = inputOptionsPlayer1Transforms[y];
+            }
+            else if (x == 1)
+            {
+                t = inputOptionsPlayer2Transforms[y];
+            }
         }
-        else if (x == 1)
+        else if (y == 5)
         {
-            t = inputOptionsPlayer2Transforms[y];
+            t = resolutionOption;
+        }
+        else if (y == 6)
+        {
+            t = windowedOption;
         }
 
         var text = t.GetComponent<TMP_Text>();
