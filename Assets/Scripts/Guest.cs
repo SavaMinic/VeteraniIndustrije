@@ -31,7 +31,6 @@ public class Guest : MonoBehaviour
     public float DelayAfterWish;
     public float InitialDelay = 5f;
 
-    public GameObject flekaPrefab;
     private bool hasDirtyShoes;
     public float dirtyShoesChance;
 
@@ -463,8 +462,7 @@ public class Guest : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(delay);
 
-        var flekaObject = Instantiate(flekaPrefab);
-        flekaObject.transform.position = transform.position;
+        Database.e.CreateFleka(transform.position);
     }
 
     bool IsCloseTo(Vector3 point, float range = 0.1f)

@@ -15,12 +15,21 @@ public class Database : MonoBehaviour
 
     public GameObject pivoPrefab;
     public GameObject termometarPrefab;
+    public GameObject flekaPrefab;
 
     public AudioClip[] stepClips;
+    public AudioClip[] broomSweepClips;
 
     public Interactable CreatePivo()
     {
         GameObject go = Instantiate(pivoPrefab);
         return go.GetComponent<Pivo>();
+    }
+
+    public Fleka CreateFleka(Vector3 position)
+    {
+        var flekaObject = Instantiate(flekaPrefab);
+        flekaObject.transform.position = position;
+        return flekaObject.GetComponent<Fleka>();
     }
 }

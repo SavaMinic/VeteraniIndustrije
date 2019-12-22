@@ -226,12 +226,32 @@ public static class NAudio
 
     public static AudioSource Play2D(
         this AudioClip[] clips,
+        bool shuffle = false,
         float volume = 1, float pitch = 1,
         float spread = DEFAULT_SPREAD,
         float minDistance = DEFAULT_MIN_DISTANCE,
         AudioMixerGroup mixerGroup = null)
     {
-        return Play(clips[Random.Range(0, clips.Length)], Vector3.zero, volume, pitch, spread, minDistance, mixerGroup);
+        if (shuffle && clips.Length > 1)
+        {
+            int randi = Random.Range(1, clips.Length);
+            var clip = clips[randi];
+            clips[randi] = clips[0];
+            clips[0] = clip;
+
+            //source2D.PlayOneShot(clip, volume);
+            var source = Play(clip, Vector3.zero, volume, pitch, spread, minDistance, mixerGroup);
+            source.spatialBlend = 0;
+            return source;
+        }
+        else
+        {
+            var clip = clips[Random.Range(0, clips.Length)];
+            var source = Play(clip, Vector3.zero, volume, pitch, spread, minDistance, mixerGroup);
+            source.spatialBlend = 0;
+            return source;
+            //return Play(clips[Random.Range(0, clips.Length)], Vector3.zero, volume, pitch, spread, minDistance, mixerGroup);
+        }
     }
 
     #endregion

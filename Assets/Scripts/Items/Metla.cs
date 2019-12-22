@@ -44,6 +44,8 @@ public class Metla : Interactable
         Debug.Log("Swiping");
     }
 
+    float progress;
+
     private void Update()
     {
         Vector3 targetPos = new Vector3(0.62f, 0, 0.68f); //Vector3.forward * 0.5f;//Vector3.forward;
@@ -56,6 +58,13 @@ public class Metla : Interactable
                 //targetPos =
                 //Vector3.right * (0.4f * Mathf.Cos(Time.time * 20)) -
                 //Vector3.forward * (0.4f * Mathf.Cos(Time.time * 20) - 1);
+
+                progress += Time.deltaTime * 20 / Mathf.PI;
+                if (progress > 1)
+                {
+                    Database.e.broomSweepClips.Play2D(true, 0.2f, pitch: 2);
+                    progress = 0;
+                }
 
 
                 targetAngle = 34.11f + Mathf.Sin(Time.time * 20) * 60;

@@ -16,10 +16,14 @@ public class Ringla : Slot
     public AudioClip turnOnClip;
     public AudioClip turnOffClip;
 
+    public Transform flekaFloorPoint;
+
     float shumiVolumeVelo;
     float vriVolumeVelo;
 
     const float audioSmoothing = 0.5f;
+
+    float lastFlekaTime = 0;
 
     private void Update()
     {
@@ -37,6 +41,18 @@ public class Ringla : Slot
             {
                 shumiTargetVolume = shumiVolumePerTemperature.Evaluate(dzezva.container.temperature);
                 vriTargetVolume = vriVolumePerTemperature.Evaluate(dzezva.container.temperature);
+
+                if (dzezva.container.type.name == "Kafa"
+                    && dzezva.container.amount > 0.7f
+                    && dzezva.container.temperature >= 1
+                    && Time.time - lastFlekaTime > 0)
+                {
+                    Vector3 r = Random.insideUnitSphere;
+                    r.y = 0;
+                    Database.e.CreateFleka(flekaFloorPoint.position + r);
+
+                    lastFlekaTime = Time.time + Random.Range(1, 3);
+                }
             }
         }
 
