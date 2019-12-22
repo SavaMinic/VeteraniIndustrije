@@ -147,6 +147,9 @@ public abstract class Interactable : MonoBehaviour, IProximityFindable
         {
             for (int i = 0; i < childSprites.Length; i++)
             {
+                if (childSprites[i].name == "Liquid")
+                    continue;
+
                 childSprites[i].color = b ? highlightColor : Color.white;
             }
         }
