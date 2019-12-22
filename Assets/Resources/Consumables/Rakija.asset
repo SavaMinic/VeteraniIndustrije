@@ -20,13 +20,14 @@ MonoBehaviour:
     request:
     - Ajmo po jednu
     perfect:
-    - Dooooobraaa dooomaca!
-    - Kida radza
+    - "Dooooobraaa doooma\xC4\x87a!"
+    - "Kida rad\xC5\xBEa"
+    - 'Da li je iz Vranja? '
     - Kakva rakija, bravo majstore
     wrongTemperature:
-    - Vruca rakija??? Boze mili cuda velikoga
+    - "Vruca rakija??? Bo\xC5\xBEe mili \xC4\x8Duda velikoga"
     wrongConsumable:
-    - Pa nisam ti ja za zestinu
+    - "Pa nisam ti ja za \xC5\xBEestinu"
     - Iju, pa nije sad red na rakiju
     tooLate:
     - Slava je, a nigde rakije?!

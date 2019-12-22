@@ -13,33 +13,39 @@ MonoBehaviour:
   m_Name: GeneralQuips
   m_EditorClassIdentifier: 
   noZitoNoParty:
-  - Gde je zito?
-  - Nema zita za slavu?
-  - Zurim ali evo me!
+  - "Gde je \xC5\xBEito?"
+  - "Nema \xC5\xBEita za slavu?"
+  - "\xC5\xBDurim ali evo me!"
   - Nemam vremena za ovo
   entryMessages:
-  - Srecna slava, domacine!
-  - Pomaze bog, komsija!
-  - Domacice, sve najbolje!
-  - Nek je srecna slava!
+  - "Sre\xC4\x87na slava, doma\xC4\x87ine!"
+  - "Pomaze bog, kom\xC5\xA1ija!"
+  - "Doma\xC4\x87ice, sve najbolje!"
+  - "Nek je sre\xC4\x87na slava!"
   exitMessages1:
   - ?!?!?
   - '***** ** *****'
   - Sramota!
-  - Bolja hrana sa donesikom?
+  - Bolja hrana sa donesi kom?
+  - "\xC5\xBDena me zove"
   exitMessages2:
-  - Uff, zurim kuci
+  - "Uff, \xC5\xBEurim ku\xC4\x87i"
   - Mlaka sarma
-  - Vruce pivo?
-  - Promaja je ipak nepodnosljiva!
+  - "Vru\xC4\x87e pivo?"
+  - "Promaja je ipak nepodno\xC5\xA1ljiva!"
+  - "Idem ja sprat ni\xC5\xBEe!"
   exitMessages3:
-  - Bice bolje dogodine
-  - Sledeci put donosim hranu!
+  - "Bi\xC4\x87e bolje dogodine"
+  - "Slede\xC4\x87i put donosim hranu!"
+  - "\xC5\_tedelo se, video sam... "
   exitMessages4:
-  - Nit' smrdi nit' mirise
+  - "Nit' smrdi nit' miri\xC5\xA1e"
   - Zbogom
+  - "Samo da pro\xC5\xA1etam pse"
   exitMessages5:
-  - Vise vina
-  - Zurim, zurim...
+  - "Vi\xC5\xA1e vina"
+  - "\xC5\xBDurim, \xC5\xBDurim..."
   - I dogodine
+  - "Salata je bila \xC5\xBEasu"
+  - "Sve sve ali ovo da do\xC5\xBEivim"
   exitMessages6: []

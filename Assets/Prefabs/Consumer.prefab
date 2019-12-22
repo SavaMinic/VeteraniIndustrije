@@ -50,6 +50,10 @@ MonoBehaviour:
   inSlot: {fileID: 0}
   highlightColor: {r: 1, g: 0, b: 0, a: 1}
   sprite: {fileID: 0}
+  customProximityPivot: {fileID: 0}
+  soundVolume: 0.5
+  pickupClip: {fileID: 0}
+  putClip: {fileID: 0}
   foodContainer: {fileID: 4317523304716961204}
   drinkContainer: {fileID: 8561803754790095187}
   drinkingSpeed: 0.1
@@ -72,9 +76,10 @@ MonoBehaviour:
   maxAmount: 1
   temperature: 0
   coolingSpeed: 0.01
+  pouringSpeed: 1
   canBeRefilledAtSlavina: 0
   showAmount: 1
-  showTemperature: 1
+  showTemperature: 0
 --- !u!114 &8561803754790095187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +98,7 @@ MonoBehaviour:
   maxAmount: 1
   temperature: 0
   coolingSpeed: 0.01
+  pouringSpeed: 1
   canBeRefilledAtSlavina: 0
   showAmount: 1
-  showTemperature: 1
+  showTemperature: 0

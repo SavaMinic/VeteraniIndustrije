@@ -4093,7 +4093,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c7e5a80ab8d1ac847980915adc10a525, type: 2}
   - {fileID: 11400000, guid: 743332b3a0cb2924298a857debe76525, type: 2}
   - {fileID: 11400000, guid: b31abd91ef6def74aaaee2ecbb8d4cf1, type: 2}
-  generalQuips: {fileID: 0}
+  generalQuips: {fileID: 11400000, guid: 2343bea6e127d9044b4e7e56e1b0caf2, type: 2}
   entrancePosition: {fileID: 1145266691}
   exitPosition: {fileID: 1558262013}
   zitoPosition: {fileID: 828891787}
@@ -11612,6 +11612,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0111ff78089df144fa9aae2f4dcccc4d, type: 2}
   - {fileID: 11400000, guid: 656a7bffa0db57549baf49212929cd70, type: 2}
   - {fileID: 11400000, guid: 540c885b3994a67459228662578721b9, type: 2}
+  - {fileID: 11400000, guid: 1991053566831004880da9e9f2e3989b, type: 2}
   foods:
   - {fileID: 11400000, guid: 0111ff78089df144fa9aae2f4dcccc4d, type: 2}
   drinks:

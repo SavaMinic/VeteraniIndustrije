@@ -15,12 +15,14 @@ MonoBehaviour:
   wishType: 12
   request:
   - Daj zatvori prozor, smrzoh se
-  - Ce mi otpadnu bubrezi!
+  - "\xC4\x86e mi otpadnu bubrezi!"
   success:
-  - Hvala domacine, ubise me zima
+  - "Hvala doma\xC4\x87ine, ubi me zima"
+  - E tako, da se malo zagrejem
   failure:
   - Smrzoh se!
   - Ijaaooo otpali mi bubrezi!
   tooLate:
   - Smrzoh se!
   - Ijaaooo otpali mi bubrezi!
+  - Oladih se

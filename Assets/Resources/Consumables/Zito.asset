@@ -18,14 +18,14 @@ MonoBehaviour:
   wishType: 13
   quips:
     request:
-    - Daj da probam zito.
+    - "Daj da probam \xC5\xBEito."
     perfect:
-    - Savrseno zito.
+    - "Savr\xC5\xA1eno \xC5\xBEito."
     - Uff, al' je slatko.
     wrongTemperature:
-    - Previse je vruce zito.
+    - "Previ\xC5\xA1e je vru\xC4\x87e \xC5\xBEito."
     wrongConsumable:
-    - Ovo nije ono sto sam trazio.. Al aj..
-    - Daj sta das..
+    - "Ovo nije ono \xC5\xA1to sam tra\xC5\xBEio.. Al aj.."
+    - "Daj \xC5\xA1ta da\xC5\xA1.."
     tooLate:
-    - Nigde zita, odoh ja
+    - "Nigde \xC5\xBEita, odoh ja"

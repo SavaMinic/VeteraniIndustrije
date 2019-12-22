@@ -18,16 +18,17 @@ MonoBehaviour:
   wishType: 3
   quips:
     request:
-    - Moze zuti slok?
+    - "Moze \xC5\xBEuti slok?"
+    - "\xC5\xBDuti sok, ne fantu! "
     perfect:
     - Skoro ko fanta!
     - Fala
     wrongTemperature:
-    - Nije ladan sok uopste...
+    - "Nije ladan sok uop\xC5\xA1te..."
     - Uh al je ladna kafa
-    - Sta je bre ovo, losa kafa
+    - "\xC5\_ta je bre ovo, lo\xC5\xA1a kafa"
     wrongConsumable:
-    - Ovo nije ono sto sam trazio.. Al aj..
-    - Daj sta das..
+    - "Ovo nije ono \xC5\xA1to sam tra\xC5\xBEio.. Al aj.."
+    - "Daj \xC5\xA1ta da\xC5\xA1.."
     tooLate:
-    - Nidje soka
+    - "Ni\xC4\x91e soka"

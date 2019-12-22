@@ -59,7 +59,6 @@ public class FootMotion : MonoBehaviour
         {
             Database.e.stepClips.Play2D(true, 0.3f);
             progress = 0;
-            Debug.Log("step");
         }
     }
 

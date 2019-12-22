@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4770e45cfa17cf7478a94d1a76157a80, type: 3}
+  m_Name: Pivo
+  m_EditorClassIdentifier: 
+  color: {r: 0.6792453, g: 0.35728976, b: 0.08009967, a: 1}
+  goodTemperatureLevel: 0.5
+  goodTemperatureSide: 0
+  wishType: 14
+  quips:
+    request:
+    - "Mo\xC5\xBEe pivo jedno, a?"
+    - Daj vopi
+    - Jedno 'ladno
+    - Daj pivo al samo ako je 'ladno!
+    - Daj jedno 'ladno da se ugrejem
+    perfect:
+    - Ladno, kida
+    - "Uf ba\xC5\xA1 je ladno. Savr\xC5\xA1eno"
+    - Dobro ovo. Jel to bipovo?
+    wrongTemperature:
+    - "Vru\xC4\x87e pivo! Sramota!"
+    - "Fuj!! Mlako pivo mi daje\xC5\xA1, pa de to ima!?"
+    - "Mlako pivo! To samo kod tebe mo\xC5\xBEe!"
+    - "Jarane, zar si meni na\xC5\xA1o d'uvalis vru\xC4\x87e pivo"
+    wrongConsumable:
+    - "Tra\xC5\xBEio pivo, a \xC5\xA1ta je ovo?"
+    - "Pa pivo sam tra\xC5\xBEio... Sineee.."
+    - "\xC5\_ta si mi ovo uvalio"
+    tooLate:
+    - "Ni\xC4\x91e pive"
+    - "Osu\xC5\xA1ilo mi se grlo. Stra\xC5\xA1no"
+    - Zar bez piva da ostanem. C, c, c

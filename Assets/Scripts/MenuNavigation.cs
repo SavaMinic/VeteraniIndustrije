@@ -153,7 +153,8 @@ public class MenuNavigation : MonoBehaviour
     IEnumerator LoadLevel()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(1);
+        GameController.I.LoadLevel("Endless");
+        //SceneManager.LoadScene(1);
     }
 
     public void Cancel()

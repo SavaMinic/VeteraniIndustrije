@@ -15,6 +15,12 @@ MonoBehaviour:
   wishType: 10
   request:
   - Daj prebaci na farmu
-  success: []
-  failure: []
-  tooLate: []
+  - "Farma ili idem ku\xC4\x87i"
+  success:
+  - Ovo mi je trebalo!
+  - Sad sam miran
+  - "HAHAHA Prasi\xC4\x87i moji! "
+  failure:
+  - "Oti\xC4\x87i\xC4\x87u ku\xC4\x87i... "
+  tooLate:
+  - "Pro\xC5\xA1lo... gotovo sad "

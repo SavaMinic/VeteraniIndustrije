@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wishType: 9
   request:
-  - Daj da vidimo hoce biti snega
-  - Sta kazu, suznezica a?
-  - Ocu stici ja kuci, daj da vidimo prognozu
+  - "Daj da vidimo ho\xC4\x87e biti snega"
+  - "Sta ka\xC5\xBEu, susne\xC5\xBEica a?"
+  - "O\xC4\x87u stici ja ku\xC4\x87i, daj da vidimo prognozu"
   success:
   - Eh jos snega, to nam je trebalo
-  failure: []
-  tooLate: []
+  failure:
+  - Sad cu da ti ostanem na gajbi
+  tooLate:
+  - "Otoplilo dok ti okrene\xC5\xA1 kanal"
+  - "Do\xC4\x91e prole\xC4\x87e dok ti okrene\xC5\xA1 kanal"

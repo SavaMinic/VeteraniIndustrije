@@ -90,6 +90,18 @@ public class Hands : MonoBehaviour
         {
             (closestItem as Candle).Ignite();
         }
+        // Davanje flase piva
+        else if (closestItem is Consumer && heldItem is Pivo && btn_down)
+        {
+            var gost = closestItem as Consumer;
+            Consumable pivoType = null;
+            foreach (var consumable in Database.e.consumables)
+                if (consumable.wishType == GuestWish.GuestWishType.Pivo)
+                    pivoType = consumable;
+            gost.drinkContainer.AddDrink(pivoType, 1);
+            Pivo pivo = heldItem as Pivo;
+            pivo.Remove();
+        }
         // Sipanje hrane i pica u gosta
         else if (closestItem is Consumer && heldItem?.GetComponent<Container>())
         {

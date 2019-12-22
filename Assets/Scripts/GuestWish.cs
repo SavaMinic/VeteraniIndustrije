@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[System.Serializable]
+[Serializable]
 public class GuestWish
 {
 
@@ -31,6 +31,7 @@ public class GuestWish
         CloseWindow,
         
         Zito,
+        Pivo
     }
 
     // DON'T FORGET TO PUT AVAILABLE WISHES HERE!
@@ -41,6 +42,7 @@ public class GuestWish
         GuestWishType.ZutiSok,
         GuestWishType.CrniSok,
         GuestWishType.Water,
+        GuestWishType.Pivo,
         GuestWishType.Sarma,
         GuestWishType.TvOff,
         GuestWishType.TvBasketball,
@@ -73,7 +75,8 @@ public class GuestWish
                             || Type == GuestWishType.Rakija
                             || Type == GuestWishType.ZutiSok
                             || Type == GuestWishType.CrniSok
-                            || Type == GuestWishType.Water;
+                            || Type == GuestWishType.Water
+                            || Type == GuestWishType.Pivo;
 
     public bool IsFoodWish => Type == GuestWishType.Sarma || Type == GuestWishType.Zito;
 

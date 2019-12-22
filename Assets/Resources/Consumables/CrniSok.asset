@@ -19,16 +19,19 @@ MonoBehaviour:
   quips:
     request:
     - Daj sok crni
-    - Bolja nego kola!
+    - "Daj mi jedan crni da me pukne \xC5\xA1e\xC4\x87er!"
     perfect:
     - Bolja nego kola!
     - Fala fala
+    - "Crn ko moja du\xC5\xA1a!"
     wrongTemperature:
     - Nije ladan sok uopste...
+    - "Ne radi fri\xC5\xBEider?"
     wrongConsumable:
     - Ovo nije ono sto sam trazio.. Al aj..
-    - Daj sta das..
+    - "Daj \xC5\xA1ta das.."
     - Pa nisam 'teo to!
+    - "Nisam ja ovo tra\xC5\xBEio"
     tooLate:
-    - Sta je ovo, kukuuuu
+    - "\xC5\_ta je ovo, kukuuuu"
     - Di ga je!?!

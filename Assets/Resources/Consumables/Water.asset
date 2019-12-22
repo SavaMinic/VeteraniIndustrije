@@ -19,16 +19,16 @@ MonoBehaviour:
   quips:
     request:
     - Fala
-    - E hvala domacine
+    - "E hvala doma\xC4\x87ine"
     - E to, dugasim
     perfect:
-    - Kaka ovo vruca voda
-    - Iju, nisam hteo vrucu
+    - "Kaka ovo vru\xC4\x87a voda"
+    - "Iju, nisam hteo vru\xC4\x87u"
     wrongTemperature:
-    - Kaka ovo vruca voda
-    - Iju, nisam hteo vrucu
+    - "Kaka ovo vru\xC4\x87a voda"
+    - "Iju, nisam hteo vru\xC4\x87u"
     wrongConsumable:
-    - Slava je a ti meni vodu dajes. Bozeee...
-    - Nit smrdi nit mirise..
+    - "Slava je a ti meni vodu daje\xC5\xA1. Bo\xC5\xBEeee..."
+    - "Nit smrdi nit miri\xC5\xA1e.."
     tooLate:
     - Nije valjda da nema vode?
