@@ -31,6 +31,8 @@ public class MenuNavigation : MonoBehaviour
     public RectTransform ingameMenu;
     public TMP_Text[] ingameMenuTexts;
 
+    public TMP_Text helpText;
+
     public RectTransform howToPlay;
 
     public RectTransform lineSelector;
@@ -44,6 +46,10 @@ public class MenuNavigation : MonoBehaviour
     const int INGAME_HOW_TO_PLAY_INDEX = 1;
     const int INGAME_INPUT_OPTIONS_INDEX = 2;
     const int INGAME_CREDITS_INDEX = 3;
+
+    const string HELP_TEXT_INPUT = "Accept to rebind, cancel to go back";
+    const string HELP_TEXT_INPUT_BINDING = "Press a key to bind, esc to cancel";
+    const string HELP_TEXT_RESOLUTION = "< > to pick, accept to apply, cancel to go back";
 
     // private
 
@@ -98,22 +104,7 @@ public class MenuNavigation : MonoBehaviour
 
             if (cy == 5)
             {
-                if (resolutions == null)
-                {
-                    resolutions = Screen.resolutions;
 
-                    for (int i = 0; i < resolutions.Length; i++)
-                    {
-                        Resolution cur = Screen.currentResolution;
-                        if (resolutions[i].width == cur.width &&
-                            resolutions[i].height == cur.height &&
-                            resolutions[i].refreshRate == cur.refreshRate)
-                        {
-                            currentResolutionIndex = i;
-                            break;
-                        }
-                    }
-                }
 
                 currentResolutionIndex =
                     wrap(currentResolutionIndex + x, resolutions.Length - 1);
@@ -179,6 +170,8 @@ public class MenuNavigation : MonoBehaviour
                 StartCoroutine(MoveLineSelectorDelayed(text, 1.5f));
 
                 resolutions = Screen.resolutions;
+
+                helpText.text = HELP_TEXT_INPUT_BINDING;
             }
             else if (cy == 5 || cy == 6)
             {
@@ -273,6 +266,8 @@ public class MenuNavigation : MonoBehaviour
         MoveLineSelectorTo(text, 1.5f);
         SelectText(text);
 
+        helpText.text = HELP_TEXT_INPUT;
+
         StartCoroutine(DelayEnableInput());
     }
 
@@ -284,6 +279,25 @@ public class MenuNavigation : MonoBehaviour
 
     void ShowOptions()
     {
+        if (resolutions == null)
+        {
+            resolutions = Screen.resolutions;
+
+            for (int i = 0; i < resolutions.Length; i++)
+            {
+                Resolution cur = Screen.currentResolution;
+                if (resolutions[i].width == cur.width &&
+                    resolutions[i].height == cur.height &&
+                    resolutions[i].refreshRate == cur.refreshRate)
+                {
+                    currentResolutionIndex = i;
+                    break;
+                }
+            }
+        }
+
+        resolutionOption.GetComponent<TMP_Text>().text = $"Resolution {resolutions[currentResolutionIndex].ToString()}";
+
         cx = 0;
         cy = 0;
         MainMenuSelectItem(-1);
@@ -296,6 +310,8 @@ public class MenuNavigation : MonoBehaviour
             .SetDelay(0.3f);
 
         pageTurnClips.Play2D(true, 1);
+
+        helpText.text = HELP_TEXT_INPUT;
     }
 
     void DisableOptions()
@@ -324,8 +340,6 @@ public class MenuNavigation : MonoBehaviour
     {
         mainMenu.DOAnchorPos(tepihOutPos, 0.5f)
              .SetEase(Ease.InCubic);
-
-
     }
 
     void ShowCredits()
@@ -411,14 +425,18 @@ public class MenuNavigation : MonoBehaviour
             {
                 t = inputOptionsPlayer2Transforms[y];
             }
+
+            helpText.text = HELP_TEXT_INPUT;
         }
         else if (y == 5)
         {
             t = resolutionOption;
+            helpText.text = HELP_TEXT_RESOLUTION;
         }
         else if (y == 6)
         {
             t = windowedOption;
+            helpText.text = HELP_TEXT_RESOLUTION;
         }
 
         var text = t.GetComponent<TMP_Text>();
