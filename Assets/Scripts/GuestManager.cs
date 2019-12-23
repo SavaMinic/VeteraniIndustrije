@@ -155,13 +155,20 @@ public class GuestManager : MonoBehaviour
     {
         timeToGenerateNewGuests = DelayForGeneratingGuests;
 
+        StartCoroutine(WaitASecond());
+
+        slavaHasStarted = true;
+    }
+
+    IEnumerator WaitASecond()
+    {
+        yield return new WaitForSeconds(1);
+
         // generate initial guests
         for (int i = 0; i < InitialGuestCount; i++)
         {
             GenerateNewGuest();
         }
-
-        slavaHasStarted = true;
     }
 
     private void GenerateNewGuest()
