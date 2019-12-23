@@ -64,7 +64,7 @@ public class Guest : MonoBehaviour
 
     private GuestWish entryWish;
 
-    const float ZITO_RANGE = 2;
+    const float ZITO_RANGE = 3;
 
     #region Mono
 

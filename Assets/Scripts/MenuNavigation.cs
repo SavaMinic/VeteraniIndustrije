@@ -449,10 +449,13 @@ public class MenuNavigation : MonoBehaviour
 
     private IEnumerator Start()
     {
-        SetKeyTexts();
         inputOptionsStartPos = inputOptions.anchoredPosition;
         tepihInPos = mainMenu.anchoredPosition;
         tepihOutPos = tepihOutTarget.anchoredPosition;
+
+        yield return null;
+
+        SetKeyTexts();
 
         yield return null;
         yield return null;
