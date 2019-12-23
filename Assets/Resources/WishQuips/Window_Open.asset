@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wishType: 11
   request:
-  - "Daj doma\xC4\x87ine malo vazduha"
-  - "Al je zagu\xC5\xA1ljivo"
+  - "Daj doma\u0107ine malo vazduha"
+  - "Al je zagu\u0161ljivo"
   success:
-  - "Uh, kona\xC4\x8Dno doma\xC4\x87ine malo vazduha"
+  - "Uh, kona\u010Dno doma\u0107ine malo vazduha"
   - Vaaazduh!
   failure:
   - Skuvah se!

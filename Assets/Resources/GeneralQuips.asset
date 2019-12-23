@@ -13,39 +13,39 @@ MonoBehaviour:
   m_Name: GeneralQuips
   m_EditorClassIdentifier: 
   noZitoNoParty:
-  - "Gde je \xC5\xBEito?"
-  - "Nema \xC5\xBEita za slavu?"
-  - "\xC5\xBDurim ali evo me!"
+  - "Gde je \u017Eito?"
+  - "Nema \u017Eita za slavu?"
+  - "\u017Durim ali evo me!"
   - Nemam vremena za ovo
   entryMessages:
-  - "Sre\xC4\x87na slava, doma\xC4\x87ine!"
-  - "Pomaze bog, kom\xC5\xA1ija!"
-  - "Doma\xC4\x87ice, sve najbolje!"
-  - "Nek je sre\xC4\x87na slava!"
+  - "Sre\u0107na slava, doma\u0107ine!"
+  - "Pomaze bog, kom\u0161ija!"
+  - "Doma\u0107ice, sve najbolje!"
+  - "Nek je sre\u0107na slava!"
   exitMessages1:
   - ?!?!?
   - '***** ** *****'
   - Sramota!
   - Bolja hrana sa donesi kom?
-  - "\xC5\xBDena me zove"
+  - "\u017Dena me zove"
   exitMessages2:
-  - "Uff, \xC5\xBEurim ku\xC4\x87i"
+  - "Uff, \u017Eurim ku\u0107i"
   - Mlaka sarma
-  - "Vru\xC4\x87e pivo?"
-  - "Promaja je ipak nepodno\xC5\xA1ljiva!"
-  - "Idem ja sprat ni\xC5\xBEe!"
+  - "Vru\u0107e pivo?"
+  - "Promaja je ipak nepodno\u0161ljiva!"
+  - "Idem ja sprat ni\u017Ee!"
   exitMessages3:
-  - "Bi\xC4\x87e bolje dogodine"
-  - "Slede\xC4\x87i put donosim hranu!"
-  - "\xC5\_tedelo se, video sam... "
+  - "Bi\u0107e bolje dogodine"
+  - "Slede\u0107i put donosim hranu!"
+  - "\u0160tedelo se, video sam... "
   exitMessages4:
-  - "Nit' smrdi nit' miri\xC5\xA1e"
+  - "Nit' smrdi nit' miri\u0161e"
   - Zbogom
-  - "Samo da pro\xC5\xA1etam pse"
+  - "Samo da pro\u0161etam pse"
   exitMessages5:
-  - "Vi\xC5\xA1e vina"
-  - "\xC5\xBDurim, \xC5\xBDurim..."
+  - "Vi\u0161e vina"
+  - "\u017Durim, \u017Durim..."
   - I dogodine
-  - "Salata je bila \xC5\xBEasu"
-  - "Sve sve ali ovo da do\xC5\xBEivim"
+  - "Salata je bila \u017Easu"
+  - "Sve sve ali ovo da do\u017Eivim"
   exitMessages6: []

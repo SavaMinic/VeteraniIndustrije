@@ -18,20 +18,20 @@ MonoBehaviour:
   wishType: 1
   quips:
     request:
-    - "Stavi kafu doma\xC4\x87ine!"
+    - "Stavi kafu doma\u0107ine!"
     perfect:
     - Dobraaaaa kaaafaaaa
-    - "Uf, dobra doma\xC4\x87a"
-    - "Kafa, ba\xC5\xA1 kako treba"
-    - "Doma\xC4\x87ine, kafa kida"
-    - "Ba\xC5\xA1 onaka kaku volim"
+    - "Uf, dobra doma\u0107a"
+    - "Kafa, ba\u0161 kako treba"
+    - "Doma\u0107ine, kafa kida"
+    - "Ba\u0161 onaka kaku volim"
     wrongTemperature:
     - Brate, ladna kafa
     - Uh al je ladna kafa
-    - "\xC5\_ta je bre ovo, lo\xC5\xA1a kafa"
+    - "\u0160ta je bre ovo, lo\u0161a kafa"
     wrongConsumable:
     - Alo bre ovo nije kafa
     - Nisam reko kafu...
     - Pa nisam ovo trazio...??
     tooLate:
-    - "\xC4\x8Cekam kafu 300 godina.."
+    - "\u010Cekam kafu 300 godina.."

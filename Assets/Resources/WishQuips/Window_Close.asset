@@ -15,9 +15,9 @@ MonoBehaviour:
   wishType: 12
   request:
   - Daj zatvori prozor, smrzoh se
-  - "\xC4\x86e mi otpadnu bubrezi!"
+  - "\u0106e mi otpadnu bubrezi!"
   success:
-  - "Hvala doma\xC4\x87ine, ubi me zima"
+  - "Hvala doma\u0107ine, ubi me zima"
   - E tako, da se malo zagrejem
   failure:
   - Smrzoh se!

@@ -15,10 +15,10 @@ MonoBehaviour:
   wishType: 8
   request:
   - Daj prebaci da vidim rezultat
-  - "Doma\xC4\x87ine, aj basket okreni"
+  - "Doma\u0107ine, aj basket okreni"
   success:
   - Iz keca u trojku
-  - "Idemo Teodosi\xC4\x87!"
+  - "Idemo Teodosi\u0107!"
   - Ajmo za tri!
   failure:
   - Puuuu, ne znam rezultat

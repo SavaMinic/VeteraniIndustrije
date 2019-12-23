@@ -18,21 +18,21 @@ MonoBehaviour:
   wishType: 6
   quips:
     request:
-    - "Jel to sarma miri\xC5\xA1e? Pa mooo\xC5\xBEe jedna"
-    - "Daj ono uvijeno, ako me razume\xC5\xA1"
+    - "Jel to sarma miri\u0161e? Pa mooo\u017Ee jedna"
+    - "Daj ono uvijeno, ako me razume\u0161"
     perfect:
     - Sarma kida
     - Mmmmm miris sarme
-    - "Vru\xC4\x87a sarma, najbolja"
+    - "Vru\u0107a sarma, najbolja"
     - Kako ste zavili, vrhunski
     wrongTemperature:
     - Ladna sarma, kuku lele
     - Ijaaaaaoooo al je ladnaaaa sarma
-    - "Ladna sarma ko \xC5\xA1pricer"
+    - "Ladna sarma ko \u0161pricer"
     wrongConsumable:
-    - "Nije ba\xC5\xA1 da obo\xC5\xBEavam sarmu.."
+    - "Nije ba\u0161 da obo\u017Eavam sarmu.."
     - Fuj! Mrzim sarmu!
     tooLate:
     - Nema sarme, a?
     - Slava a nema sarme!? C, c, c
-    - "Ceo stan miri\xC5\xA1e na sarmu, a neda\xC5\xA1! Cicijo!"
+    - "Ceo stan miri\u0161e na sarmu, a neda\u0161! Cicijo!"

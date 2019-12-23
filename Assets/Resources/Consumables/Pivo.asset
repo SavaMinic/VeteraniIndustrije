@@ -18,25 +18,25 @@ MonoBehaviour:
   wishType: 14
   quips:
     request:
-    - "Mo\xC5\xBEe pivo jedno, a?"
+    - "Mo\u017Ee pivo jedno, a?"
     - Daj vopi
     - Jedno 'ladno
     - Daj pivo al samo ako je 'ladno!
     - Daj jedno 'ladno da se ugrejem
     perfect:
     - Ladno, kida
-    - "Uf ba\xC5\xA1 je ladno. Savr\xC5\xA1eno"
+    - "Uf ba\u0161 je ladno. Savr\u0161eno"
     - Dobro ovo. Jel to bipovo?
     wrongTemperature:
-    - "Vru\xC4\x87e pivo! Sramota!"
-    - "Fuj!! Mlako pivo mi daje\xC5\xA1, pa de to ima!?"
-    - "Mlako pivo! To samo kod tebe mo\xC5\xBEe!"
-    - "Jarane, zar si meni na\xC5\xA1o d'uvalis vru\xC4\x87e pivo"
+    - "Vru\u0107e pivo! Sramota!"
+    - "Fuj!! Mlako pivo mi daje\u0161, pa de to ima!?"
+    - "Mlako pivo! To samo kod tebe mo\u017Ee!"
+    - "Jarane, zar si meni na\u0161o d'uvalis vru\u0107e pivo"
     wrongConsumable:
-    - "Tra\xC5\xBEio pivo, a \xC5\xA1ta je ovo?"
-    - "Pa pivo sam tra\xC5\xBEio... Sineee.."
-    - "\xC5\_ta si mi ovo uvalio"
+    - "Tra\u017Eio pivo, a \u0161ta je ovo?"
+    - "Pa pivo sam tra\u017Eio... Sineee.."
+    - "\u0160ta si mi ovo uvalio"
     tooLate:
-    - "Ni\xC4\x91e pive"
-    - "Osu\xC5\xA1ilo mi se grlo. Stra\xC5\xA1no"
+    - "Ni\u0111e pive"
+    - "Osu\u0161ilo mi se grlo. Stra\u0161no"
     - Zar bez piva da ostanem. C, c, c
