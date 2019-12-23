@@ -102,7 +102,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   customProximityPivot: {fileID: 0}
   soundVolume: 0.5
-  pickupClip: {fileID: 0}
+  pickupClip: {fileID: 8300000, guid: e56d4aa291d392342930ee39dd17dbce, type: 3}
   putClip: {fileID: 8300000, guid: 9174b228a0f4b6c49817de3b911c0fbe, type: 3}
 --- !u!114 &7681031699381208422
 MonoBehaviour:

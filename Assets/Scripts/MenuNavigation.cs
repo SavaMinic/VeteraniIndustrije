@@ -11,6 +11,9 @@ public class MenuNavigation : MonoBehaviour
 {
     // Text assignments
 
+    public AudioClip[] menuMoveClips;
+    public AudioClip[] pageTurnClips;
+
     public Rebinder rebinder;
 
     public RectTransform tepihOutTarget;
@@ -83,6 +86,8 @@ public class MenuNavigation : MonoBehaviour
             cy = wrap(cy - y, 3);
 
             MainMenuSelectItem(cy);
+
+            PlaySound();
         }
         else if (state == State.InputMenu)
         {
@@ -120,13 +125,22 @@ public class MenuNavigation : MonoBehaviour
                 windowedOption.GetComponent<TMP_Text>().text = isWindowed == 1 ? "Windowed" : "Fullscreen";
                 //Screen.fullScreen = isWindowed == 0 ? true : false;
             }
+
+            PlaySound();
         }
         if (state == State.IngameMenu)
         {
             cy = wrap(cy - y, 4);
 
             IngameMenuSelectItem(cy);
+
+            PlaySound();
         }
+    }
+
+    void PlaySound()
+    {
+        menuMoveClips.Play2D(true, 1);
     }
 
     int wrap(int i, int max)
@@ -280,6 +294,8 @@ public class MenuNavigation : MonoBehaviour
             .SetUpdate(true)
             .SetEase(Ease.OutExpo, 1)
             .SetDelay(0.3f);
+
+        pageTurnClips.Play2D(true, 1);
     }
 
     void DisableOptions()
@@ -293,6 +309,8 @@ public class MenuNavigation : MonoBehaviour
 
         cx = 0;
         cy = 1;
+
+        pageTurnClips.Play2D(true, 1);
     }
 
     void ShowMainMenu()
@@ -306,6 +324,8 @@ public class MenuNavigation : MonoBehaviour
     {
         mainMenu.DOAnchorPos(tepihOutPos, 0.5f)
              .SetEase(Ease.InCubic);
+
+        
     }
 
     void ShowCredits()
@@ -327,6 +347,8 @@ public class MenuNavigation : MonoBehaviour
 
         MainMenuSelectItem(2);
         state = State.MainMenu;
+
+        pageTurnClips.Play2D(true, 1);
     }
 
     void ShowIngameMenu()
@@ -339,6 +361,8 @@ public class MenuNavigation : MonoBehaviour
             .SetDelay(0.3f);
 
         IngameMenuSelectItem(0);
+
+        pageTurnClips.Play2D(true, 1);
     }
 
     void DisableIngameMenu()
@@ -347,6 +371,8 @@ public class MenuNavigation : MonoBehaviour
         ingameMenu.DOAnchorPos(inputOptionsStartPos, 0.5f)
             .SetUpdate(true)
             .SetEase(Ease.InCubic);
+
+        pageTurnClips.Play2D(true, 1);
     }
 
     void ShowHowToPlay()
@@ -357,6 +383,8 @@ public class MenuNavigation : MonoBehaviour
             .SetUpdate(true)
             .SetEase(Ease.OutExpo, 1)
             .SetDelay(0.3f);
+
+        pageTurnClips.Play2D(true, 1);
     }
 
     void DisableHowToPlay()

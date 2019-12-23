@@ -10,6 +10,11 @@ public class Rerna : Slot
     public SpriteRenderer overlaySprite;
     public SpriteRenderer openSprite;
 
+    public AudioClip rernaOpen;
+    public AudioClip rernaClose;
+
+    public float openCloseVolume = 0.2f;
+
     private void Update()
     {
         if (!Application.isPlaying || GameController.I.IsPaused)
@@ -28,6 +33,8 @@ public class Rerna : Slot
         overlaySprite.enabled = false;
 
         openSprite.enabled = true;
+
+        rernaOpen?.Play2D(openCloseVolume);
     }
 
     public override void OnItemPlaced()
@@ -36,5 +43,7 @@ public class Rerna : Slot
         overlaySprite.enabled = true;
 
         openSprite.enabled = false;
+
+        rernaClose?.Play2D(openCloseVolume);
     }
 }
