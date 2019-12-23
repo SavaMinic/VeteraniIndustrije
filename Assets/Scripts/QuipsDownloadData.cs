@@ -13,7 +13,7 @@ public class QuipsDownloadData : ScriptableObject
     [ContextMenu("Download")]
     public void DownloadQuips()
     {
-        string csv = DownloadCSV.FromSheets(address, "tsv");
+        string csv = SheetsDownloader.Download(address, "tsv");
 
 #if DEBUG_TEXT
         Debug.Log(csv);

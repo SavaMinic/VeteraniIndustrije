@@ -3563,6 +3563,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdd7636ae2f7dc458a945012b0f8fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuMoveClips:
+  - {fileID: 8300000, guid: 9923cbe37dad7954fb19d34591374607, type: 3}
+  - {fileID: 8300000, guid: 9c9a2d8996e4cae4bbb6451897d43557, type: 3}
+  - {fileID: 8300000, guid: c0678ecbb478bf94cb7e78e79cd1b8d0, type: 3}
+  - {fileID: 8300000, guid: c98c91f1e8f88e84e8ba7b4f4c81279a, type: 3}
+  pageTurnClips:
+  - {fileID: 8300000, guid: 6e456a9e74f1659479fbaa267cbd1599, type: 3}
+  - {fileID: 8300000, guid: dad12d137933c5142a8b564e4aaea917, type: 3}
+  - {fileID: 8300000, guid: 42075a2d1783aba4ba8550fff34cd160, type: 3}
   rebinder: {fileID: 415793091}
   tepihOutTarget: {fileID: 771300222}
   mainMenu: {fileID: 71652060}
