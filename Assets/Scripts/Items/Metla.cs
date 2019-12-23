@@ -38,8 +38,16 @@ public class Metla : Interactable
     float angleVelo;
     float angle;
 
-    public void Swipe()
+    Fleka fleka;
+
+    public void Swipe(Interactable closestItem)
     {
+        if (!closestItem) fleka = null;
+        else if (closestItem is Fleka)
+            fleka = closestItem as Fleka;
+        else fleka = null;
+
+
         isSwiping = true;
         Debug.Log("Swiping");
     }
@@ -64,6 +72,9 @@ public class Metla : Interactable
                 {
                     Database.e.broomSweepClips.Play2D(true, 0.2f, pitch: 2);
                     progress = 0;
+
+                    if (fleka)
+                        fleka.Sweep();
                 }
 
 

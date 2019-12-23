@@ -189,7 +189,7 @@ public class MenuNavigation : MonoBehaviour
         {
             switch (cy)
             {
-                case 0: Unpause(); StartGame(); break; // restart game
+                case 0: Unpause(); DisableIngameMenu(); StartGame(); break; // restart game
                 case 1: DisableIngameMenu(); ShowHowToPlay(); break;  // how to play
                 case 2: DisableIngameMenu(); ShowOptions(); break; // input options
                 case 3: DisableIngameMenu(); ShowCredits(); break; // open credits

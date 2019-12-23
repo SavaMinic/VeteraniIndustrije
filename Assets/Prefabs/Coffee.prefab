@@ -100,7 +100,7 @@ MonoBehaviour:
   highlightColor: {r: 1, g: 0, b: 0.50090647, a: 1}
   sprite: {fileID: 0}
   customProximityPivot: {fileID: 0}
-  soundVolume: 0
-  pickupClip: {fileID: 0}
-  putClip: {fileID: 0}
+  soundVolume: 0.5
+  pickupClip: {fileID: 8300000, guid: e56d4aa291d392342930ee39dd17dbce, type: 3}
+  putClip: {fileID: 8300000, guid: 36558c0523b2e8047922aaf11bb046f5, type: 3}
   coffeeConsumable: {fileID: 11400000, guid: dec9825596b45094d96e5a6719f2aeca, type: 2}

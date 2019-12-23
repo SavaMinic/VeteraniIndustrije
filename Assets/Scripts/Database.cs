@@ -31,6 +31,7 @@ public class Database : MonoBehaviour
     public Fleka CreateFleka(Vector3 position)
     {
         var flekaObject = Instantiate(flekaPrefab);
+        position.y = -1;
         flekaObject.transform.position = position;
         return flekaObject.GetComponent<Fleka>();
     }

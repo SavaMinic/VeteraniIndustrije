@@ -14,6 +14,12 @@ public class Termometar : MonoBehaviour
 
     private void Update()
     {
+        if (container == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         if (container.temperature <= 0)
             transform.position = Vector3.one * 1000;
         else

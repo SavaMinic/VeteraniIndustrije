@@ -47,13 +47,15 @@ public class Hands : MonoBehaviour
             // if we are not holding or if we are holding and this item is interactable
             if (!heldItem || InteractionControl.I.CanInteract(heldItem.gameObject, closestItem.gameObject))
             {
-                closestItem.Highlight(true);
+                if (!(closestItem is Fleka))
+                    closestItem.Highlight(true);
             }
+            /*
             // FLEKA IS SPECIAL
             if (closestItem is Fleka)
             {
                 closestItem.Highlight(heldItem is Metla);
-            }
+            }*/
         }
 
         if (closestItem != lastClosestItem && lastClosestItem)
@@ -188,8 +190,8 @@ public class Hands : MonoBehaviour
             {
                 if (closestItem is Fleka && heldItem is Metla)
                 {
-                    var fleka = closestItem as Fleka;
-                    fleka.Remove();
+                    //var fleka = closestItem as Fleka;
+                    //fleka.Remove();
                 }
                 else if (closestSlot)
                 {
@@ -205,7 +207,7 @@ public class Hands : MonoBehaviour
         if (btn_held && heldItem is Metla)
         {
             var metla = heldItem as Metla;
-            metla.Swipe();
+            metla.Swipe(closestItem);
         }
     }
 }

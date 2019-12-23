@@ -14594,6 +14594,11 @@ PrefabInstance:
       propertyPath: inSlot
       value: 
       objectReference: {fileID: 261795758}
+    - target: {fileID: 6518964781582767086, guid: 73cc5269465837140870b2e3640c60ed,
+        type: 3}
+      propertyPath: putClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c80aeff6b577b7b468c8a588705f83a5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73cc5269465837140870b2e3640c60ed, type: 3}
 --- !u!1001 &6631990319067369030

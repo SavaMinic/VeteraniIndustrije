@@ -224,6 +224,11 @@ public class GuestManager : MonoBehaviour
         GUI.enabled = false;
         slavaHasStarted = GUILayout.Toggle(slavaHasStarted, "Slava started");
         GUI.enabled = true;
+        if (GUILayout.Button("Spawn Fleka"))
+        {
+            var player = GameObject.Find("Player 1");
+            Database.e.CreateFleka(player.transform.position);
+        }
     }
 
     private void OnDrawGizmos()
