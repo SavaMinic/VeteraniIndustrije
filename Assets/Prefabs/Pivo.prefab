@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7844881322884310302}
   - component: {fileID: 3462961114210424650}
   - component: {fileID: 8079006353749120167}
+  - component: {fileID: 7469454961168607455}
   m_Layer: 0
   m_Name: Pivo
   m_TagString: Untagged
@@ -103,3 +104,25 @@ MonoBehaviour:
   soundVolume: 0.5
   pickupClip: {fileID: 8300000, guid: e56d4aa291d392342930ee39dd17dbce, type: 3}
   putClip: {fileID: 8300000, guid: c80aeff6b577b7b468c8a588705f83a5, type: 3}
+--- !u!114 &7469454961168607455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037613508952640702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02164751485c90141b48ca9379b8542f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  containsType: 0
+  type: {fileID: 11400000, guid: 1991053566831004880da9e9f2e3989b, type: 2}
+  amount: 0
+  maxAmount: 1
+  temperature: 0
+  coolingSpeed: -0.01
+  pouringSpeed: 1
+  canBeRefilledAtSlavina: 0
+  showAmount: 0
+  showTemperature: 1

@@ -64,6 +64,7 @@ public class Guest : MonoBehaviour
 
     private GuestWish entryWish;
 
+    const float ZITO_RANGE = 2;
 
     #region Mono
 
@@ -103,7 +104,7 @@ public class Guest : MonoBehaviour
                 DoMoveFlipping();
 
                 // Wait for the domacin to open the door
-                if (IsCloseTo(AI.zitoDestination.position, 1.5f))
+                if (IsCloseTo(AI.zitoDestination.position, ZITO_RANGE))
                 {
                     CurrentState = GuestState.WaitingForZito;
                     AI.Stop();
