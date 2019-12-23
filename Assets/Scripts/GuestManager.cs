@@ -186,6 +186,7 @@ public class GuestManager : MonoBehaviour
         var guestPrefab = GuestPrefabs[UnityEngine.Random.Range(0, GuestPrefabs.Count)];
         var guestObject = Instantiate(guestPrefab);
         guestObject.transform.SetParent(transform);
+        guestObject.transform.position = entrancePosition.position;
 
         var guest = guestObject.GetComponent<Guest>();
 

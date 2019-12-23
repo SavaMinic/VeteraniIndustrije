@@ -86,9 +86,10 @@ public class Hands : MonoBehaviour
             heldItem = pivo.Take(this);
         }
         // Sibice
-        else if (heldItem is Matches && closestItem is Candle && btn_down)
+        else if (heldItem is Matches && closestItem is Candle candle && btn_down)
         {
-            (closestItem as Candle).Ignite();
+            if (!candle.isBurning)
+                candle.Ignite();
         }
         // Davanje flase piva
         else if (closestItem is Consumer && heldItem is Pivo && btn_down)
