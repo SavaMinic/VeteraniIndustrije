@@ -302,9 +302,9 @@ public class Guest : MonoBehaviour
     public void AssignSeat(int sitIndex, Seat seat)
     {
         // keep the y position
-        Vector3 v = seat.transform.position;
-        v.y = transform.position.y;
-        seat.transform.position = v;
+        //Vector3 v = seat.transform.position;
+        //v.y = transform.position.y;
+        //seat.transform.position = v;
 
         // save data
         sittingPosition = seat.transform.position;
