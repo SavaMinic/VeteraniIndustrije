@@ -237,6 +237,9 @@ public class MenuNavigation : MonoBehaviour
         yield return new WaitForSeconds(1);
         GameController.I.LoadLevel("Endless");
         //SceneManager.LoadScene(1);
+
+        yield return new WaitForSeconds(1);
+        ShowCandleTut();
     }
 
     Tween musicTween;
@@ -598,6 +601,36 @@ public class MenuNavigation : MonoBehaviour
         musicTarget = 0;
     }
 
+    public RectTransform candleTut;
+    bool showingCandleTut;
+
+    public RectTransform currentTut;
+
+    void ShowCandleTut()
+    {
+        ShowTut(candleTut);
+
+        showingCandleTut = true;
+    }
+
+    void ShowTut(RectTransform elem)
+    {
+        elem.DOAnchorPos(new Vector2(0, -20f), 0.5f)
+            .SetUpdate(true)
+            .SetEase(Ease.OutExpo, 1)
+            .SetDelay(0.3f);
+
+        currentTut = elem;
+    }
+
+    void DisableTut()
+    {
+        currentTut.DOAnchorPos(new Vector2(0, -1000), 0.5f)
+            .SetUpdate(true)
+            .SetEase(Ease.InExpo, 1)
+            .SetDelay(0.3f);
+    }
+
     float musicVolume = 1;
     float musicTarget = 1;
     float musicVelo;
@@ -614,5 +647,11 @@ public class MenuNavigation : MonoBehaviour
         //Debug.Log($"{musicVolume}, {musicTarget}");
         mixer.SetFloat("Music Volume", NAudio.GetLogVolume(musicVolume));
         mixer.SetFloat("Music Lowpass", lowPass);
+
+        if (showingCandleTut && Candle.e.isBurning)
+        {
+            showingCandleTut = false;
+            DisableTut();
+        }
     }
 }

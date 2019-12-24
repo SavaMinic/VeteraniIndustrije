@@ -193,7 +193,16 @@ public class Hands : MonoBehaviour
                     //var fleka = closestItem as Fleka;
                     //fleka.Remove();
                 }
-                else if (closestSlot)
+                // Special case with metla slot to prevent placing anywhere else
+                else if (closestSlot && heldItem is Metla && closestSlot.name == "MetlaSlot")
+                {
+                    if (heldItem.PlaceInSlot(closestSlot))
+                    {
+                        closestSlot.Highlight(false);
+                        heldItem = null;
+                    }
+                }
+                else if (closestSlot && !(heldItem is Metla))
                 {
                     if (heldItem.PlaceInSlot(closestSlot))
                     {
