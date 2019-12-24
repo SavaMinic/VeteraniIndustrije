@@ -29,7 +29,9 @@ public class Promaja : MonoBehaviour
         }
 
         IsActive = openCount >= 2;
-        Debug.LogWarning("PROMAJA IS " + IsActive);
+        //Debug.LogWarning("PROMAJA IS " + IsActive);
+        if (IsActive)
+            Debug.Log("Promaja started!");
 
         if (IsActive)
         {

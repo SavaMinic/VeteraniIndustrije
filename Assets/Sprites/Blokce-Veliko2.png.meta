@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: 7777b35a0700135459e3895d11d8e25c
+guid: 74e73dd2680dc2a4b8d07cc3c273f6dd
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4845175615755787089
+    second: Blokce-Veliko2_0
+  - first:
+      213: 3664658964289748182
+    second: Blokce-Veliko2_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,11 +46,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.4931352, y: 0.14081317}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -84,11 +90,53 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Blokce-Veliko2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 279
+        width: 1380
+        height: 809
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef0d08dd2abb194e87c508c45aece27
+      internalID: 4845175615755787089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blokce-Veliko2_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1380
+        height: 918
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feaf20fa04d42bc40b65bde41d34d086
+      internalID: 3664658964289748182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ee4598ea6aa69b247aa96573e21f6040
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

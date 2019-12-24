@@ -313,4 +313,10 @@ public static class NAudio
         source.time = Random.Range(0, source.clip.length);
         source.Play();
     }
+
+    public static float GetLogVolume(float normalizedValue)
+    {
+        float value = Mathf.Clamp(normalizedValue, 0.001f, 1);
+        return Mathf.Log10(value) * 20;
+    }
 }

@@ -37,6 +37,10 @@ public class Candle : Interactable
 
     float timeExtinguished;
 
+    float timeOfPromaja;
+    bool lastPromaja;
+    const float EXTINGUISH_IF_PROMAJA_LASTS_FOR = 2;
+
     void Update()
     {
         if (!Application.isPlaying || GameController.I.IsPaused)
@@ -60,6 +64,19 @@ public class Candle : Interactable
         {
             SetMaskScale((Time.time - timeExtinguished) * 7);
         }
+
+        if (Promaja.IsActive && isBurning)
+        {
+            if (!lastPromaja)
+                timeOfPromaja = Time.time;
+
+            if (Time.time - timeOfPromaja > EXTINGUISH_IF_PROMAJA_LASTS_FOR)
+            {
+                Extinguish();
+            }
+        }
+
+        lastPromaja = Promaja.IsActive;
     }
 
     void SetMaskScale(float y)

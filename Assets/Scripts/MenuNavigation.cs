@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
+using UnityEngine.Audio;
+
 public class MenuNavigation : MonoBehaviour
 {
     // Text assignments
@@ -41,6 +43,8 @@ public class MenuNavigation : MonoBehaviour
     public Color unselectedTextColor;
 
     public RectTransform credits;
+
+    public AudioMixer mixer;
 
     const int INGAME_RESTART_INDEX = 0;
     const int INGAME_HOW_TO_PLAY_INDEX = 1;
@@ -87,7 +91,7 @@ public class MenuNavigation : MonoBehaviour
         {
             return;
         }
-        if (state == State.MainMenu)
+        else if (state == State.MainMenu)
         {
             cy = wrap(cy - y, 3);
 
@@ -119,7 +123,7 @@ public class MenuNavigation : MonoBehaviour
 
             PlaySound();
         }
-        if (state == State.IngameMenu)
+        else if (state == State.IngameMenu)
         {
             cy = wrap(cy - y, 4);
 
@@ -127,6 +131,22 @@ public class MenuNavigation : MonoBehaviour
 
             PlaySound();
         }
+        else if (state == State.HowToPlay)
+        {
+            cy = wrap(cy - y, 1);
+            MoveHowToPlay(cy == 1);
+        }
+    }
+
+    Vector2 howToUpperTarget = new Vector2(0, -30);
+    Vector2 howToLowerTarget = new Vector2(0, 210);
+
+    void MoveHowToPlay(bool down)
+    {
+        if (!down)
+            howToPlay.DOAnchorPos(howToUpperTarget, 0.7f).SetUpdate(true);
+        else
+            howToPlay.DOAnchorPos(howToLowerTarget, 0.7f).SetUpdate(true);
     }
 
     void PlaySound()
@@ -212,10 +232,21 @@ public class MenuNavigation : MonoBehaviour
 
     IEnumerator LoadLevel()
     {
+        musicTarget = 0;
+
         yield return new WaitForSeconds(1);
         GameController.I.LoadLevel("Endless");
         //SceneManager.LoadScene(1);
     }
+
+    Tween musicTween;
+
+    /*
+    void MusicTo(float to)
+    {
+        musicTween?.Kill();
+        musicTween = DOTween.To(() => musicVolume, x => musicVolume = x, to, 2);
+    }*/
 
     public void Cancel()
     {
@@ -393,7 +424,7 @@ public class MenuNavigation : MonoBehaviour
     {
         state = State.HowToPlay;
         howToPlay.gameObject.SetActive(true);
-        howToPlay.DOAnchorPos(Vector2.zero, 0.5f)
+        howToPlay.DOAnchorPos(howToUpperTarget, 0.5f)
             .SetUpdate(true)
             .SetEase(Ease.OutExpo, 1)
             .SetDelay(0.3f);
@@ -558,14 +589,30 @@ public class MenuNavigation : MonoBehaviour
     void Pause()
     {
         Time.timeScale = 0;
+        musicTarget = 1;
     }
 
     void Unpause()
     {
         Time.timeScale = 1;
+        musicTarget = 0;
     }
+
+    float musicVolume = 1;
+    float musicTarget = 1;
+    float musicVelo;
+
+    float musicLowpass = 1;
+    float musicLowpassTarget = 1;
+    float musicLowpassVelo;
 
     private void Update()
     {
+        musicVolume = Mathf.SmoothDamp(musicVolume, musicTarget, ref musicVelo, 1, 1000, 1.0f / 60f);
+        //musicLowpass = Mathf.SmoothDamp(musicLowpass, musicLowpassTarget, ref musicLowpassVelo, 1, 1000, 1.0f / 60f);
+        float lowPass = Mathf.Lerp(200, 22000, musicVolume);
+        //Debug.Log($"{musicVolume}, {musicTarget}");
+        mixer.SetFloat("Music Volume", NAudio.GetLogVolume(musicVolume));
+        mixer.SetFloat("Music Lowpass", lowPass);
     }
 }
