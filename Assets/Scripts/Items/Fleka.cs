@@ -23,7 +23,7 @@ public class Fleka : Interactable
 
         Count++;
 
-        step = Random.Range(2, 4);
+        step = Random.Range(2, 5);
 
         UpdateSprite();
     }

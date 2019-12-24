@@ -14,6 +14,8 @@ public class Candle : Interactable
     public GameObject top;
     public GameObject body;
     public GameObject flame;
+    public GameObject smoke;
+    public Transform smokeMask;
 
     [Range(0, 1)]
     public float burnProgress;
@@ -25,11 +27,15 @@ public class Candle : Interactable
 
     protected override void OnStart()
     {
+        SetMaskScale(0);
+
         if (isBurning)
             Ignite();
         else
-            Extinguish();
+            flame.SetActive(false);
     }
+
+    float timeExtinguished;
 
     void Update()
     {
@@ -49,6 +55,18 @@ public class Candle : Interactable
         {
             GameController.I.EndGame();
         }
+
+        if (smoke.activeSelf)
+        {
+            SetMaskScale((Time.time - timeExtinguished) * 7);
+        }
+    }
+
+    void SetMaskScale(float y)
+    {
+        Vector3 maskScale = smokeMask.localScale;
+        maskScale.y = Mathf.Clamp(y, 0, 9.682078f);
+        smokeMask.localScale = maskScale;
     }
 
     public void Ignite()
@@ -61,11 +79,15 @@ public class Candle : Interactable
         flame.SetActive(true);
         isBurning = true;
         igniteClip.Play2D(1);
+
+        smoke.SetActive(false);
     }
 
     public void Extinguish()
     {
         flame.SetActive(false);
         isBurning = false;
+        smoke.SetActive(true);
+        timeExtinguished = Time.time;
     }
 }

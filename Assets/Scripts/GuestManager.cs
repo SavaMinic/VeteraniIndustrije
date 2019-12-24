@@ -229,6 +229,10 @@ public class GuestManager : MonoBehaviour
             var player = GameObject.Find("Player 1");
             Database.e.CreateFleka(player.transform.position);
         }
+        if (GUILayout.Button("Extinguish Candle"))
+        {
+            Candle.e.Extinguish();
+        }
     }
 
     private void OnDrawGizmos()

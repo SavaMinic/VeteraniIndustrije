@@ -49,7 +49,7 @@ public class Metla : Interactable
 
 
         isSwiping = true;
-        Debug.Log("Swiping");
+        //Debug.Log("Swiping");
     }
 
     float progress;
