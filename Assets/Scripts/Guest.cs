@@ -5,18 +5,10 @@ using UnityEngine;
 
 public class Guest : MonoBehaviour
 {
-    public enum GuestType
-    {
-        Default,
-        // just testing
-        DrunkGuy,
-        Priest,
-        CrazyAunt
-    }
-
     public enum GuestState
     {
         WaitingAtTheDoor,
+        Entered,
         WaitingForZito,
         WalkingIn,
         WaitingForService,
@@ -25,7 +17,6 @@ public class Guest : MonoBehaviour
         Exit
     }
 
-    public GuestType Type;
     public int NumberOfWishes;
     public float WaitingTimePerWish;
     public float DelayAfterWish;
@@ -103,6 +94,15 @@ public class Guest : MonoBehaviour
                 RingTillDoorIsOpen();
                 DoMoveFlipping();
 
+                if (Database.e.entranceDoor.IsOpen)
+                {
+                    GuestManager.I.ShowEntryMessage(this);
+                    CurrentState = GuestState.Entered;
+                }
+                break;
+            case GuestState.Entered:
+                DoMoveFlipping();
+
                 // Wait for the domacin to open the door
                 if (IsCloseTo(AI.zitoDestination.position, ZITO_RANGE))
                 {
@@ -118,6 +118,7 @@ public class Guest : MonoBehaviour
                     }
                 }
                 break;
+
             case GuestState.WalkingIn:
                 DoMoveFlipping();
 

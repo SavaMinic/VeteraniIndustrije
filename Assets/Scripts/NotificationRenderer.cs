@@ -63,7 +63,7 @@ public class NotificationRenderer : MonoBehaviour
         //iconImage.sprite = iconImageSprites[(int)guest.Type];
 
         SetVerticalPosition(-sizePerIndex);
-        StartCoroutine(AnimateNotification(0, 1200f));
+
         StartCoroutine(AnimateNotification(sizePerIndex * index, 1200f));
     }
 

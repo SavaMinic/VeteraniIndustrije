@@ -199,7 +199,10 @@ public class GuestManager : MonoBehaviour
         guest.AssignSeat(index, guestSeats[index]);
 
         CanvasController.I.AddNewGuestWish(guest);
+    }
 
+    public void ShowEntryMessage(Guest guest)
+    {
         var entryMessage = generalQuips.entryMessages[UnityEngine.Random.Range(0, generalQuips.entryMessages.Length)];
         CanvasController.I.ShowNotification(guest, entryMessage);
     }
