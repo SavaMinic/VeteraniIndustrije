@@ -48,7 +48,7 @@ public class Guest : MonoBehaviour
     private Vector3 sittingPosition;
     private int sittingIndex;
 
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer { get; private set; }
 
     private float timeForTvWish = -1f;
     private float timeForWindowWish = -1f;
@@ -70,7 +70,7 @@ public class Guest : MonoBehaviour
 
     private void Awake()
     {
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
         spriteRenderer.transform.localScale = Vector3.one;
 
         hasDirtyShoes = GameController.I.Level.IsRaining && Random.value <= dirtyShoesChance;

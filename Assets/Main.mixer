@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-1426057523125026950
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 58c6a1d42f5bc3745a5866c81e56296a
+  m_EffectName: Attenuation
+  m_MixLevel: 5d8d698764c10674a8af892064ea1cdf
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Main
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300002}
+  m_Snapshots:
+  - {fileID: 24500006}
+  m_StartSnapshot: {fileID: 24500006}
+  m_SuspendThreshold: -80
+  m_EnableSuspend: 1
+  m_UpdateMode: 0
+  m_ExposedParameters:
+  - guid: 295c4a039dc1e7141b4d358f53308405
+    name: City Volume
+  - guid: c310d12dfbf49b040bf4e8773c66582f
+    name: City Lowpass
+  m_AudioMixerGroupViews:
+  - guids:
+    - 9319aea16b020df4190e36d26b83c913
+    - c7bd1b456b6f04e49a2572aa63df2ea4
+    name: View
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: 24500006}
+--- !u!243 &24300002
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 9319aea16b020df4190e36d26b83c913
+  m_Children:
+  - {fileID: 2912927668227492059}
+  m_Volume: b4b34f5c719d1d94da498f3459c5264e
+  m_Pitch: 1081ce54854ffd54c9449cf60882d73f
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 24400004}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400004
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: ad14872b1bb6f1d41be9552a4e3b4b2c
+  m_EffectName: Attenuation
+  m_MixLevel: dbd15a49eba5f10429f894a100c891a8
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &24500006
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Snapshot
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: d5df8c87a7fd0d94184a891f2b1ec1ef
+  m_FloatValues:
+    295c4a039dc1e7141b4d358f53308405: -5
+    43f3d7bb4984ebf41a61feec3736bc9c: 1
+    c310d12dfbf49b040bf4e8773c66582f: 200
+  m_TransitionOverrides: {}
+--- !u!243 &2912927668227492059
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: City Ambiance
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: c7bd1b456b6f04e49a2572aa63df2ea4
+  m_Children: []
+  m_Volume: 295c4a039dc1e7141b4d358f53308405
+  m_Pitch: 43f3d7bb4984ebf41a61feec3736bc9c
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -1426057523125026950}
+  - {fileID: 5131154584877755383}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &5131154584877755383
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 718a6898065d3024f8e9c08b993a362f
+  m_EffectName: Lowpass Simple
+  m_MixLevel: f3d646d0c330c8f45b6ae0c09ba3fb69
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: c310d12dfbf49b040bf4e8773c66582f
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0

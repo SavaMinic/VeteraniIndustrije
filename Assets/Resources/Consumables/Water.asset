@@ -20,7 +20,7 @@ MonoBehaviour:
     request:
     - Daj vode majstore!
     - E daj d'ugasim
-    - Domacine, napuni bokal!
+    - "Doma\u0107ine, napuni bokal!"
     perfect:
     - Fala
     - "E hvala doma\u0107ine"

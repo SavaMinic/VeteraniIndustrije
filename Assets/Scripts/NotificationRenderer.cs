@@ -16,9 +16,10 @@ public class NotificationRenderer : MonoBehaviour
     public float stayDuration = 4f;
     public float sizePerIndex = 200f;
     public Image iconImage;
+    public Image guestIcon;
     public float sizeOffset = -100f;
 
-    public Sprite[] iconImageSprites;
+    //public Sprite[] iconImageSprites;
 
     public AnimationCurve MoveAnimation;
     public AnimationCurve MoveOutAnimation;
@@ -56,10 +57,14 @@ public class NotificationRenderer : MonoBehaviour
             starImages[i].gameObject.SetActive(i < maxStars);
         }
 
-        iconImage.sprite = iconImageSprites[(int)guest.Type];
+        Debug.Assert(guest, "Guest is null");
+        Debug.Assert(guest.spriteRenderer, "Guest renderer is null");
+        guestIcon.sprite = guest.spriteRenderer.sprite;
+        //iconImage.sprite = iconImageSprites[(int)guest.Type];
 
         SetVerticalPosition(-sizePerIndex);
-        StartCoroutine(AnimateNotification(sizePerIndex * (index + 1) + sizeOffset, 1200f));
+        StartCoroutine(AnimateNotification(0, 1200f));
+        StartCoroutine(AnimateNotification(sizePerIndex * index, 1200f));
     }
 
     #endregion
@@ -85,7 +90,7 @@ public class NotificationRenderer : MonoBehaviour
             yield return null;
         }
     }
-    
+
     IEnumerator FadeOutAndMove(float endPos, float aTime)
     {
         float alpha = mainCanvasGroup.alpha;
@@ -101,18 +106,18 @@ public class NotificationRenderer : MonoBehaviour
     IEnumerator AnimateNotification(float stayPos, float endPos)
     {
         yield return new WaitForSecondsRealtime(initialDelay * Random.Range(0.8f, 1.2f));
-        
+
         // fade and move
         yield return FadeInAddMove(stayPos, moveTime);
-        
+
         // stay there
         yield return new WaitForSecondsRealtime(stayDuration);
-        
+
         CanvasController.I.NotificationEnded(myIndex);
 
         // fade out
         yield return FadeOutAndMove(endPos, fadeOutTime);
-        
+
         // bye
         Destroy(gameObject);
     }

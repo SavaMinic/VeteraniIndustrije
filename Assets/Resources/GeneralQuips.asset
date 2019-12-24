@@ -19,9 +19,13 @@ MonoBehaviour:
   - Nemam vremena za ovo
   entryMessages:
   - "Sre\u0107na slava, doma\u0107ine!"
-  - "Pomaze bog, kom\u0161ija!"
+  - "Poma\u017Ee bog, kom\u0161ija!"
   - "Doma\u0107ice, sve najbolje!"
   - "Nek je sre\u0107na slava!"
+  - "Vaistin.. Hris.. Kako se ono ka\u017Ee za slavu?"
+  - "Eee pa sre\u0107na slava!"
+  - "Sre\u0107na slava! Cmok, cmok, cmok "
+  - "Dobrooo miri\u0161e kod tebe bogati"
   exitMessages1:
   - ?!?!?
   - '***** ** *****'
