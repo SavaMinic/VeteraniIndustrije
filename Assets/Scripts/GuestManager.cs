@@ -173,6 +173,11 @@ public class GuestManager : MonoBehaviour
 
     private void GenerateNewGuest()
     {
+        GenerateNewGuest(GetRandomGuest());
+    }
+
+    private void GenerateNewGuest(GameObject guestPrefab)
+    {
         if (availableSittingPositionIndex.Count == 0)
         {
             Debug.Log("No sitting position");
@@ -183,7 +188,6 @@ public class GuestManager : MonoBehaviour
         var index = availableSittingPositionIndex[UnityEngine.Random.Range(0, availableSittingPositionIndex.Count)];
         availableSittingPositionIndex.Remove(index);
 
-        var guestPrefab = GuestPrefabs[UnityEngine.Random.Range(0, GuestPrefabs.Count)];
         var guestObject = Instantiate(guestPrefab);
         guestObject.transform.SetParent(transform);
         guestObject.transform.position = entrancePosition.position;
@@ -199,6 +203,22 @@ public class GuestManager : MonoBehaviour
         guest.AssignSeat(index, guestSeats[index]);
 
         CanvasController.I.AddNewGuestWish(guest);
+    }
+
+    GameObject GetRandomGuest()
+    {
+        return GuestPrefabs[UnityEngine.Random.Range(0, GuestPrefabs.Count)];
+    }
+
+    GameObject GetMarina()
+    {
+        foreach (var guest in GuestPrefabs)
+        {
+            if (guest.GetComponent<Guest>().isMarina)
+                return guest;
+        }
+
+        return null;
     }
 
     public void ShowEntryMessage(Guest guest)
@@ -221,6 +241,10 @@ public class GuestManager : MonoBehaviour
         if (GUILayout.Button("Spawn Guest"))
         {
             GenerateNewGuest();
+        }
+        if (GUILayout.Button("Spawn Marina"))
+        {
+            GenerateNewGuest(GetMarina());
         }
 
         autoSpawnGuests = GUILayout.Toggle(autoSpawnGuests, "Auto Spawn Guests");

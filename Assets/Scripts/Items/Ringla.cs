@@ -24,6 +24,7 @@ public class Ringla : Slot
     const float audioSmoothing = 0.5f;
 
     float lastFlekaTime = 0;
+    bool wasBrbotjing;
 
     private void Update()
     {
@@ -44,15 +45,25 @@ public class Ringla : Slot
 
                 if (dzezva.container.type.name == "Kafa"
                     && dzezva.container.amount > 0.7f
-                    && dzezva.container.temperature >= 1
-                    && Time.time - lastFlekaTime > 0)
+                    && dzezva.container.temperature >= 1)
                 {
-                    Vector3 r = Random.insideUnitSphere;
-                    r.y = 0;
-                    Database.e.CreateFleka(flekaFloorPoint.position + r);
+                    if (!wasBrbotjing)
+                    {
+                        lastFlekaTime = Time.time + 3;
+                        wasBrbotjing = true;
+                    }
+                    else if (Time.time - lastFlekaTime > 0)
+                    {
 
-                    lastFlekaTime = Time.time + Random.Range(1, 3);
+                        Vector3 r = Random.insideUnitSphere;
+                        r.y = 0;
+                        Database.e.CreateFleka(flekaFloorPoint.position + r);
+
+                        lastFlekaTime = Time.time + Random.Range(3.0f, 5.0f);
+                    }
                 }
+                else
+                    wasBrbotjing = false;
             }
         }
 

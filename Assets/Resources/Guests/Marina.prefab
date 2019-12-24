@@ -13,6 +13,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 58a6c30179f10cb469973696ecccd322,
         type: 3}
+    - target: {fileID: 5684661661426664326, guid: ac4d835009932da40902c59ed38f480e,
+        type: 3}
+      propertyPath: isMarina
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684661661426664326, guid: ac4d835009932da40902c59ed38f480e,
+        type: 3}
+      propertyPath: InitialDelay
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684661661426664326, guid: ac4d835009932da40902c59ed38f480e,
+        type: 3}
+      propertyPath: NumberOfWishes
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684661661426664346, guid: ac4d835009932da40902c59ed38f480e,
         type: 3}
       propertyPath: m_LocalPosition.x

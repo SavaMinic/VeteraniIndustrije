@@ -46,6 +46,8 @@ public class Guest : MonoBehaviour
 
     public int NumberOfStars => AllWishes.Count(w => w.IsSuccess.HasValue && w.IsSuccess.Value);
 
+    public bool isMarina;
+
     private bool isFadeOut;
 
     public GuestAI AI { private get; set; }
@@ -74,8 +76,6 @@ public class Guest : MonoBehaviour
         WalkIn();
     }
 
-
-
     private void Update()
     {
         if (!Application.isPlaying || GameController.I.IsPaused)
@@ -96,15 +96,21 @@ public class Guest : MonoBehaviour
 
                 if (Database.e.entranceDoor.IsOpen)
                 {
-                    GuestManager.I.ShowEntryMessage(this);
+                    if (!isMarina)
+                        GuestManager.I.ShowEntryMessage(this);
                     CurrentState = GuestState.Entered;
                 }
                 break;
             case GuestState.Entered:
                 DoMoveFlipping();
 
+                if (isMarina)
+                {
+                    AI.GoToSeat();
+                    CurrentState = GuestState.WalkingIn;
+                }
                 // Wait for the domacin to open the door
-                if (IsCloseTo(AI.zitoDestination.position, ZITO_RANGE))
+                else if (IsCloseTo(AI.zitoDestination.position, ZITO_RANGE))
                 {
                     CurrentState = GuestState.WaitingForZito;
                     AI.Stop();
