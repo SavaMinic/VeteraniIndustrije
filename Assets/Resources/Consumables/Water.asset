@@ -18,12 +18,13 @@ MonoBehaviour:
   wishType: 5
   quips:
     request:
+    - Daj vode majstore!
+    - E daj d'ugasim
+    - Domacine, napuni bokal!
+    perfect:
     - Fala
     - "E hvala doma\u0107ine"
     - E to, dugasim
-    perfect:
-    - "Kaka ovo vru\u0107a voda"
-    - "Iju, nisam hteo vru\u0107u"
     wrongTemperature:
     - "Kaka ovo vru\u0107a voda"
     - "Iju, nisam hteo vru\u0107u"
