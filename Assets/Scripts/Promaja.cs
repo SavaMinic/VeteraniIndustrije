@@ -26,7 +26,7 @@ public class Promaja : MonoBehaviour
     {
         e = this;
         doors = FindObjectsOfType<Door>();
-        Debug.Log($"Found {doors.Length} doors");
+        //Debug.Log($"Found {doors.Length} doors");
     }
 
     public static void Refresh()

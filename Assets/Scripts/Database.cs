@@ -10,9 +10,6 @@ public class Database : MonoBehaviour
 
     public Consumable[] consumables;
 
-    public Consumable[] foods;
-    public Consumable[] drinks;
-
     public GameObject pivoPrefab;
     public GameObject termometarPrefab;
     public GameObject flekaPrefab;

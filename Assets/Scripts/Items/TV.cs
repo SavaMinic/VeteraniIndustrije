@@ -18,6 +18,7 @@ public class TV : Interactable
         GuestWish.GuestWishType.TvBasketball,
         GuestWish.GuestWishType.TvWeather,
         GuestWish.GuestWishType.TvFarma,
+        GuestWish.GuestWishType.TvMuzika
     };
 
     // there is only one tv, no need to get references

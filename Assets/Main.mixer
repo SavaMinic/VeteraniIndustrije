@@ -28,6 +28,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &-6195013230501556037
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Grand TV
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: a4645d70c93c9a046868a8ef07e3b339
+  m_Children: []
+  m_Volume: e048d02cc4c665b4e80f12852226fd7f
+  m_Pitch: 39858e9d2a16efc42b48f4e091f15123
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 6198403177116242359}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &-5122588573185030384
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -90,6 +109,7 @@ AudioMixerController:
     - c7bd1b456b6f04e49a2572aa63df2ea4
     - 09d63d2e314bfec49aa27c1bc5f25b3c
     - 0fc119f2528b91c429e144ff63a38510
+    - a4645d70c93c9a046868a8ef07e3b339
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -154,6 +174,7 @@ AudioMixerGroupController:
   m_GroupID: 0fc119f2528b91c429e144ff63a38510
   m_Children:
   - {fileID: 2912927668227492059}
+  - {fileID: -6195013230501556037}
   m_Volume: 26ae3eb2c596ea944b8beff3128d11e3
   m_Pitch: 7c77914e168168b45a9164ac93a639d9
   m_Send: 00000000000000000000000000000000
@@ -219,3 +240,17 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &6198403177116242359
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: b97668aaefa080a44abcd157021311d9
+  m_EffectName: Attenuation
+  m_MixLevel: d75777d601a26224ab959f4339f0aba5
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0

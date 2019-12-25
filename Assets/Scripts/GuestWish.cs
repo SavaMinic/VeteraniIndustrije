@@ -31,7 +31,8 @@ public class GuestWish
         CloseWindow,
         
         Zito,
-        Pivo
+        Pivo,
+        TvMuzika,
     }
 
     // DON'T FORGET TO PUT AVAILABLE WISHES HERE!
@@ -51,6 +52,7 @@ public class GuestWish
         GuestWishType.OpenWindow,
         GuestWishType.CloseWindow,
         GuestWishType.Zito,
+        GuestWishType.TvMuzika
     };
 
     public GuestWishType Type;
@@ -66,7 +68,8 @@ public class GuestWish
     public bool IsTvWish => Type == GuestWishType.TvOff
                             || Type == GuestWishType.TvBasketball
                             || Type == GuestWishType.TvWeather
-                            || Type == GuestWishType.TvFarma;
+                            || Type == GuestWishType.TvFarma
+                            || Type == GuestWishType.TvMuzika;
 
     public bool IsWindowWish => Type == GuestWishType.OpenWindow
                             || Type == GuestWishType.CloseWindow;
