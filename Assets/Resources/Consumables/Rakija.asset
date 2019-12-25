@@ -19,15 +19,29 @@ MonoBehaviour:
   quips:
     request:
     - Ajmo po jednu
+    - "Daj \u017Eestinu!"
+    - "Sipaj jednu doma\u0107u"
+    - "Ajmo jednu za zdravlje, \u0161to ka\u017Eu"
     perfect:
     - "Dooooobraaa doooma\u0107a!"
     - "Kida rad\u017Ea"
     - 'Da li je iz Vranja? '
     - Kakva rakija, bravo majstore
+    - Dobra, ljuta
+    - "Ala \u017Ee\u017Ee!"
+    - Na eks!
+    - Udri!
+    - "\u017Diveli!"
     wrongTemperature:
-    - "Vruca rakija??? Bo\u017Ee mili \u010Duda velikoga"
+    - "Vru\u010Da rakija??? Bo\u017Ee mili \u010Duda velikoga"
+    - Gde ti je ovo stajalo?
+    - "Kakav je ovo bu\u0107kuri\u0161?"
     wrongConsumable:
     - "Pa nisam ti ja za \u017Eestinu"
     - Iju, pa nije sad red na rakiju
+    - Polako kume, pretera ga
     tooLate:
     - Slava je, a nigde rakije?!
+    - "A gde je \u017Eestina?"
+    - "\u0160ta bi s tom rakijom, doma\u0107ine?"
+    - "Ni\u0161ta od pi\u0107a..."

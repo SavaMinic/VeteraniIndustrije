@@ -26,30 +26,48 @@ MonoBehaviour:
   - "Eee pa sre\u0107na slava!"
   - "Sre\u0107na slava! Cmok, cmok, cmok "
   - "Dobrooo miri\u0161e kod tebe bogati"
+  - "Nek bog \u010Duva ku\u0107u!"
+  - "Da ne do\u0111em praznih ruku"
+  - Jel treba se izuvam?
+  - Svi na okupu!
+  - "Bog vam pomogao, doma\u0107ine"
+  - "Deder meti jaknu na \u010Diviluk"
+  - "Miri\u0161e sarma!"
   exitMessages1:
   - ?!?!?
   - '***** ** *****'
   - Sramota!
-  - Bolja hrana sa donesi kom?
-  - "\u017Dena me zove"
+  - Ovo slava nije!
+  - Ju ju, ne ponovilo se!
+  - Ovo... Nedo Bog nikom!
+  - "Sve sve, ali ovo da do\u017Eivim..."
+  - "E sva\u0161ta ima na ovom svetu..."
+  - Svakakvih ljudi ima...
+  - "E sva\u010Dega ima..."
   exitMessages2:
-  - "Uff, \u017Eurim ku\u0107i"
-  - Mlaka sarma
-  - "Vru\u0107e pivo?"
+  - "Vru\u0107e pivo? Pa gde to ima"
   - "Promaja je ipak nepodno\u0161ljiva!"
   - "Idem ja sprat ni\u017Ee!"
-  exitMessages3:
-  - "Bi\u0107e bolje dogodine"
-  - "Slede\u0107i put donosim hranu!"
-  - "\u0160tedelo se, video sam... "
-  exitMessages4:
-  - "Nit' smrdi nit' miri\u0161e"
   - Zbogom
-  - "Samo da pro\u0161etam pse"
+  exitMessages3:
+  - "Slede\u0107i put donosim hranu!"
+  - "Bi\u0107e bolje dogodine"
+  - "\u0160tedelo se, video sam... "
+  - Zakino si ga, kume
+  exitMessages4:
+  - "Hladno pe\u010Denje"
+  - "Nit' smrdi nit' miri\u0161e"
+  - "Vi\u0161e vina slede\u0107i put"
+  - Mlaka sarma
+  - "Salata je bila \u017Easu"
   exitMessages5:
-  - "Vi\u0161e vina"
+  - "Samo da pro\u0161etam pse"
+  - "\u017Durim, pozlilo babi"
+  - Moram da jurim neke papire...
   - "\u017Durim, \u017Durim..."
   - I dogodine
-  - "Salata je bila \u017Easu"
-  - "Sve sve ali ovo da do\u017Eivim"
+  - Pozdrav
+  - "Uff, \u017Eurim ku\u0107i"
+  - Idem na cigaru
+  - "Ne planiram da se zadr\u017Eavam"
   exitMessages6: []

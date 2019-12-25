@@ -19,7 +19,9 @@ MonoBehaviour:
   success:
   - "Uh, kona\u010Dno doma\u0107ine malo vazduha"
   - Vaaazduh!
-  failure:
-  - Skuvah se!
+  - "Da malo prodi\u0161e \u010Dovek"
+  failure: []
   tooLate:
   - Skuvah se!
+  - Unutra pakao!
+  - "Ugu\u0161ih se od dima!"

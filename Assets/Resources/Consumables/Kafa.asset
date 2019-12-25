@@ -19,19 +19,30 @@ MonoBehaviour:
   quips:
     request:
     - "Stavi kafu doma\u0107ine!"
+    - "Mo\u017Ee jedna kafica?"
+    - Crnu tursku kume
+    - "Pristavi lon\u010De"
     perfect:
     - Dobraaaaa kaaafaaaa
     - "Uf, dobra doma\u0107a"
     - "Kafa, ba\u0161 kako treba"
     - "Doma\u0107ine, kafa kida"
     - "Ba\u0161 onaka kaku volim"
+    - Uf, prava je
+    - Srk, srrrrrk
     wrongTemperature:
     - Brate, ladna kafa
     - Uh al je ladna kafa
     - "\u0160ta je bre ovo, lo\u0161a kafa"
+    - Ko vodu da pijem!
+    - Otkad je ova kafa?
     wrongConsumable:
     - Alo bre ovo nije kafa
-    - Nisam reko kafu...
-    - Pa nisam ovo trazio...??
+    - A gde je kafa?
+    - "Pa ne tra\u017Eih ovo...??"
+    - "Kuku kume, pa kafu tra\u017Eih"
     tooLate:
     - "\u010Cekam kafu 300 godina.."
+    - "Ume\u0161 li ti kafu da skuva\u0161?"
+    - "\u0160ta bi s tom kafom?"
+    - "Ni\u0161ta od kafe?"

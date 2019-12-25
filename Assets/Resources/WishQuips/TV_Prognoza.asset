@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wishType: 9
   request:
-  - "Daj da vidimo ho\u0107e biti snega"
+  - "Daj da vidimo ho\u0107e l' biti snega"
   - "Sta ka\u017Eu, susne\u017Eica a?"
   - "O\u0107u stici ja ku\u0107i, daj da vidimo prognozu"
   success:
   - Eh jos snega, to nam je trebalo
-  failure:
-  - Sad cu da ti ostanem na gajbi
+  - Samo nam je to falilo
+  - "Ovo vreme je oti\u0161lo bestraga"
+  failure: []
   tooLate:
   - "Otoplilo dok ti okrene\u0161 kanal"
   - "Do\u0111e prole\u0107e dok ti okrene\u0161 kanal"
+  - "Sad \u0107u da ti ostanem na gajbi"

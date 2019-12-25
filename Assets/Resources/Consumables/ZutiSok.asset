@@ -18,17 +18,25 @@ MonoBehaviour:
   wishType: 3
   quips:
     request:
-    - "Moze \u017Euti slok?"
+    - "Mo\u017Ee \u017Euti slok?"
     - "\u017Duti sok, ne fantu! "
+    - "Sok, \u017Euti"
     perfect:
     - Skoro ko fanta!
     - Fala
+    - Bolje od fante
+    - Ko iz uvoza, a upola cene!
     wrongTemperature:
     - "Nije ladan sok uop\u0161te..."
-    - Uh al je ladna kafa
-    - "\u0160ta je bre ovo, lo\u0161a kafa"
+    - "Pu, ko pi\u0161a\u0107a"
+    - Topao sok, fuj
+    - "Pa nismo supu tra\u017Eili"
     wrongConsumable:
-    - "Ovo nije ono \u0161to sam tra\u017Eio.. Al aj.."
-    - "Daj \u0161ta da\u0161.."
+    - "Ovo nije ono \u0161to tra\u017Eih.. Al' aj.."
+    - "Daj \u0161ta da\u0161..."
+    - "Ne\u0107u \u017Euti sok"
+    - "\u0160to mi \u017Euti sok donese?"
     tooLate:
     - "Ni\u0111e soka"
+    - "Ako nema \u017Euti mogli ste crni da mi date"
+    - Nema soka? Pii je

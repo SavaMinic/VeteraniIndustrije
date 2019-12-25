@@ -16,12 +16,11 @@ MonoBehaviour:
   request:
   - Daj zatvori prozor, smrzoh se
   - "\u0106e mi otpadnu bubrezi!"
+  - "Sve bije u le\u0111a, zatvori deder"
   success:
   - "Hvala doma\u0107ine, ubi me zima"
   - E tako, da se malo zagrejem
-  failure:
-  - Smrzoh se!
-  - Ijaaooo otpali mi bubrezi!
+  failure: []
   tooLate:
   - Smrzoh se!
   - Ijaaooo otpali mi bubrezi!

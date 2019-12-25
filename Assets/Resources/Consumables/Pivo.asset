@@ -21,17 +21,20 @@ MonoBehaviour:
     - "Mo\u017Ee pivo jedno, a?"
     - Daj vopi
     - Jedno 'ladno
-    - Daj pivo al samo ako je 'ladno!
+    - Daj pivo al' samo ako je 'ladno!
     - Daj jedno 'ladno da se ugrejem
     perfect:
     - Ladno, kida
     - "Uf ba\u0161 je ladno. Savr\u0161eno"
     - Dobro ovo. Jel to bipovo?
+    - "\u017Diveli!"
     wrongTemperature:
     - "Vru\u0107e pivo! Sramota!"
     - "Fuj!! Mlako pivo mi daje\u0161, pa de to ima!?"
     - "Mlako pivo! To samo kod tebe mo\u017Ee!"
     - "Jarane, zar si meni na\u0161o d'uvalis vru\u0107e pivo"
+    - "Pu je, ovo ko pi\u0161a\u0107a!"
+    - "Pa jel ovo me\u0111' sarmama le\u017Ealo, ovako vru\u0107o?"
     wrongConsumable:
     - "Tra\u017Eio pivo, a \u0161ta je ovo?"
     - "Pa pivo sam tra\u017Eio... Sineee.."
@@ -40,3 +43,5 @@ MonoBehaviour:
     - "Ni\u0111e pive"
     - "Osu\u0161ilo mi se grlo. Stra\u0161no"
     - Zar bez piva da ostanem. C, c, c
+    - A gde je pivo za mene?
+    - "\u0160ta bi s tim pivom?"

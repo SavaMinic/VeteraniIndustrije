@@ -20,18 +20,27 @@ MonoBehaviour:
     request:
     - Daj sok crni
     - "Daj mi jedan crni da me pukne \u0161e\u0107er!"
+    - "Daj mi crni sok, \u0161to ka\u017Eu"
+    - Crni sok
     perfect:
     - Bolja nego kola!
     - Fala fala
     - "Crn ko moja du\u0161a!"
+    - Kao nekad...
     wrongTemperature:
     - Nije ladan sok uopste...
     - "Ne radi fri\u017Eider?"
+    - Oladi sokove keve ti
+    - "Radi li taj fri\u017Eider uop\u0161te?"
     wrongConsumable:
-    - Ovo nije ono sto sam trazio.. Al aj..
-    - "Daj \u0161ta das.."
+    - Ovo nije ono sto sam trazio.. Al' aj..
+    - "Daj \u0161ta da\u0161.."
     - Pa nisam 'teo to!
     - "Nisam ja ovo tra\u017Eio"
+    - "\u0160ta si mi ovo doneo, 'leba ti?"
     tooLate:
-    - "\u0160ta je ovo, kukuuuu"
+    - Kukuuuu majko, pa gde je sok
     - Di ga je!?!
+    - A moj sok?
+    - Pa ima li tog soka?
+    - A gde je sok?

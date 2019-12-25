@@ -20,19 +20,33 @@ MonoBehaviour:
     request:
     - "Jel to sarma miri\u0161e? Pa mooo\u017Ee jedna"
     - "Daj ono uvijeno, ako me razume\u0161"
+    - Daj te sarme!
+    - Jel spremna sarma?
+    - "Ima li se \u0161to pojesti?"
+    - "O\u0107e l' ta sarma?"
+    - Sipaj sarmu
     perfect:
     - Sarma kida
     - Mmmmm miris sarme
     - "Vru\u0107a sarma, najbolja"
     - Kako ste zavili, vrhunski
+    - "Odli\u010Dan kupus, Futo\u0161ki"
+    - Mljac, mljac
+    - "Kao moja prabaka \u0161to je pravila!"
     wrongTemperature:
     - Ladna sarma, kuku lele
-    - Ijaaaaaoooo al je ladnaaaa sarma
+    - Ijaaaaaoooo 'al je ladnaaaa sarma
     - "Ladna sarma ko \u0161pricer"
+    - Oladila ti se sarma, kume
+    - "Jel ova sarma od ju\u010De?"
     wrongConsumable:
     - "Nije ba\u0161 da obo\u017Eavam sarmu.."
     - Fuj! Mrzim sarmu!
+    - "Gde \u0107u sarmu sada? Jedno po jedno!"
+    - To je neko drugi hteo sarmu
     tooLate:
     - Nema sarme, a?
     - Slava a nema sarme!? C, c, c
     - "Ceo stan miri\u0161e na sarmu, a neda\u0161! Cicijo!"
+    - Alo gde je sarma?
+    - "\u0160ta bi sa tom sarmom na kraju?"

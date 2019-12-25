@@ -21,15 +21,25 @@ MonoBehaviour:
     - Daj vode majstore!
     - E daj d'ugasim
     - "Doma\u0107ine, napuni bokal!"
+    - "Daj ne\u0161to ladno da sperem"
+    - "Ima\u0161 izvorsku?"
+    - "Daj vode da utolim \u017Ee\u0111"
+    - "Daj jednu \u010Desmova\u010Du!"
     perfect:
     - Fala
     - "E hvala doma\u0107ine"
-    - E to, dugasim
+    - E to, d'ugasim
+    - Glu, glu, glu
+    - Falavi
+    - Dobra, ladna!
     wrongTemperature:
     - "Kaka ovo vru\u0107a voda"
     - "Iju, nisam hteo vru\u0107u"
+    - "Ovo mlako ko mokra\u0107a"
     wrongConsumable:
     - "Slava je a ti meni vodu daje\u0161. Bo\u017Eeee..."
-    - "Nit smrdi nit miri\u0161e.."
+    - "\u0160ta ste mi vodu doneli?"
+    - "Mani me vode, ne znam ko ti je to tra\u017Eio"
     tooLate:
     - Nije valjda da nema vode?
+    - "Umre\u0107u od \u017Ee\u0111i"

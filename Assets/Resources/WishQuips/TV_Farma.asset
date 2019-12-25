@@ -18,9 +18,14 @@ MonoBehaviour:
   - "Farma ili idem ku\u0107i"
   success:
   - Ovo mi je trebalo!
-  - Sad sam miran
+  - E sad sam dobro
   - "HAHAHA Prasi\u0107i moji! "
-  failure:
-  - "Oti\u0107i\u0107u ku\u0107i... "
+  - "Da vidim ho\u0107e li se uzeti"
+  - "Ovaj je te\u0161ka slina, ali volim ga"
+  failure: []
   tooLate:
   - "Pro\u0161lo... gotovo sad "
+  - "E ni\u0161ta, zaboravi"
+  - "Jel vi gledate farmu uop\u0161te?"
+  - Ne gledate farmu?
+  - "Oti\u0107i \u0107u ku\u0107i da gledam farmu"

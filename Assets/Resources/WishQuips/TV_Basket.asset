@@ -16,11 +16,18 @@ MonoBehaviour:
   request:
   - Daj prebaci da vidim rezultat
   - "Doma\u0107ine, aj basket okreni"
+  - Jel vodimo?
+  - Koji smo?
   success:
   - Iz keca u trojku
+  - Iz dvojke u iks
   - "Idemo Teodosi\u0107!"
   - Ajmo za tri!
   failure:
   - Puuuu, ne znam rezultat
+  - "Pa jel vi gledate ko\u0161arku?"
+  - "Pratite li vi sport uop\u0161te?"
   tooLate:
   - Puuuu, ne znam rezultat
+  - "Pa jel vi gledate ko\u0161arku?"
+  - "Pratite li vi sport uop\u0161te?"
