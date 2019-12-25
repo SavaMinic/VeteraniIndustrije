@@ -13,31 +13,11 @@ MonoBehaviour:
   m_Name: LevelSettings
   m_EditorClassIdentifier: 
   LevelsData:
-  - Name: Jutro
-    CandleDuration: 180
-    LimitGuestNumber: 3
-    AvailableWishes: 0d000000020000000300000005000000
-    IsRaining: 0
-  - Name: Popodne
-    CandleDuration: 300
-    LimitGuestNumber: 0
-    AvailableWishes: 0d00000002000000030000000400000005000000060000000700000009000000
-    IsRaining: 1
-  - Name: "Predve\u010De"
-    CandleDuration: 600
-    LimitGuestNumber: 0
-    AvailableWishes: 0d000000020000000300000004000000050000000600000007000000090000000a00000008000000
-    IsRaining: 0
-  - Name: "Uve\u010De"
-    CandleDuration: 600
-    LimitGuestNumber: 0
-    AvailableWishes: 0d0000000200000003000000040000000500000006000000070000000a000000010000000b0000000c000000
-    IsRaining: 1
-  - Name: Endless
-    CandleDuration: -1
-    LimitGuestNumber: 0
-    AvailableWishes: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000
-    IsRaining: 1
+  - {fileID: 11400000, guid: f9ad8151a02c9a145b7e4e8a32e18740, type: 2}
+  - {fileID: 11400000, guid: c8db31797ae4f204fa5aef16ad0ea845, type: 2}
+  - {fileID: 11400000, guid: c6b085c0a0215fe42b74ed1051a2a9bb, type: 2}
+  - {fileID: 11400000, guid: 48bae827feaa7084fad3f6cab3df51b6, type: 2}
+  - {fileID: 11400000, guid: a3a6cfb1d1c45fe439fad328b6bccd3e, type: 2}
   InteractableObjectsNames:
   - ItemName: Coffee
     WishType: 1

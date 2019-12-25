@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
 
     private const string HighScoreKey = "HighScore_";
 
-    public LevelSettings.LevelData Level { get; private set; }
+    public LevelAsset Level { get; private set; }
 
     public bool IsPaused { get; private set; }
 

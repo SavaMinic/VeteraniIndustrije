@@ -26,16 +26,6 @@ public class LevelSettings : ScriptableObject
     #region Definition
 
     [System.Serializable]
-    public struct LevelData
-    {
-        public string Name;
-        public int CandleDuration;
-        public int LimitGuestNumber;
-        public List<GuestWish.GuestWishType> AvailableWishes;
-        public bool IsRaining;
-    }
-
-    [System.Serializable]
     public struct InteractableObjectNames
     {
         public string ItemName;
@@ -44,7 +34,7 @@ public class LevelSettings : ScriptableObject
     
     #endregion
 
-    public List<LevelData> LevelsData;
+    public List<LevelAsset> LevelsData;
 
     public List<InteractableObjectNames> InteractableObjectsNames;
 }

@@ -9,4 +9,6 @@ public class LevelAsset : ScriptableObject
     public int LimitGuestNumber;
     public List<GuestWish.GuestWishType> AvailableWishes;
     public bool IsRaining;
+
+    public string Name => name;
 }
