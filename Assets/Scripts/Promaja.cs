@@ -12,6 +12,16 @@ public class Promaja : MonoBehaviour
 
     Door[] doors;
 
+    public AudioSource promajaSource;
+
+    float promajaSoundVelo;
+
+    private void Update()
+    {
+        promajaSource.volume =
+            Mathf.SmoothDamp(promajaSource.volume, IsActive ? 1 : 0, ref promajaSoundVelo, 0.2f);
+    }
+
     private void Awake()
     {
         e = this;

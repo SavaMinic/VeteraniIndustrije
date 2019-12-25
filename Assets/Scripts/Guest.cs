@@ -185,13 +185,48 @@ public class Guest : MonoBehaviour
                 {
                     // if current wish is finished, delay the next one
                     Debug.Log(sittingIndex + " Timeout active wish, start delay");
-                    Delay(DelayAfterWish);
+
+                    if (CurrentState == GuestState.WaitingForZito && entryWish.IsFinished)
+                    {
+                        //if (entryWish.IsSuccess.HasValue) // && entryWish.IsSuccess.Value
+                        //{
+                        Debug.Log("Completed! " + entryWish.IsSuccess.Value);
+
+                        // go in
+                        //AllWishes.RemoveAt(0);
+                        /*
+                        if (!entryWish.IsSuccess.Value)
+                        {
+                            //entryWish.FinishWish(false);
+                            WishQuip quip = GuestManager.I.GetWishQuip(currentWish.Type);
+                            string quipText = quip ? quip.GetSuccess() : "";
+
+                            FinishActiveWish(message: quipText);
+                        }*/
+
+                        AI.GoToSeat();
+                        followAI = true;
+                        consumer.EnablePlayerInteraction(false);
+                        CurrentState = GuestState.WalkingIn;
+
+                        if (hasDirtyShoes)
+                        {
+                            StartCoroutine(MakeFleka(Random.Range(1.2f, 3f)));
+                        }
+                        //}
+                        //else
+                        //{
+                        // just rage-quit
+                        //GoHome(false);
+                        //}
+                    }
+                    else
+                        Delay(DelayAfterWish);
                 }
                 // if the current wish is not active, activate it
                 else if (!currentWish.IsActive)
                 {
                     currentWish.ActivateWish();
-
                 }
                 else if (currentWish.IsTvWish)
                 {
@@ -275,28 +310,9 @@ public class Guest : MonoBehaviour
                     }
                 }
 
-                if (CurrentState == GuestState.WaitingForZito && entryWish.IsFinished)
-                {
-                    if (entryWish.IsSuccess.HasValue && entryWish.IsSuccess.Value)
-                    {
-                        // go in
-                        AllWishes.RemoveAt(0);
-                        AI.GoToSeat();
-                        followAI = true;
-                        consumer.EnablePlayerInteraction(false);
-                        CurrentState = GuestState.WalkingIn;
+                //Debug.Log($"Happening! {CurrentState}, {entryWish.IsFinished}");
 
-                        if (hasDirtyShoes)
-                        {
-                            StartCoroutine(MakeFleka(Random.Range(1.2f, 3f)));
-                        }
-                    }
-                    else
-                    {
-                        // just rage-quit
-                        GoHome(false);
-                    }
-                }
+
 
                 break;
         }

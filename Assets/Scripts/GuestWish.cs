@@ -129,6 +129,7 @@ public class GuestWish
         RemainingWaitingTime -= dt * Promaja.GuestWishModifier * Fleka.GuestWishModifier;
         if (RemainingWaitingTime <= 0)
         {
+            Debug.Log("UPDATE WISH FAIL");
             IsSuccess = false;
         }
     }

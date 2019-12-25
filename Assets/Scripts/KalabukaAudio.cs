@@ -12,7 +12,5 @@ public class KalabukaAudio : MonoBehaviour
         float targetVolume = GuestManager.I.GuestCountRatio;
 
         source.volume = Mathf.Lerp(source.volume, targetVolume, Time.deltaTime);
-
-        Debug.Log(source.volume);
     }
 }

@@ -23,5 +23,10 @@ public class Prozor : Interactable, IOpenable
         closedGraphics.SetActive(!IsProzorOpen);
 
         Promaja.Refresh();
+
+        if (IsOpen)
+            pickupClip?.Play2D(soundVolume);
+        else
+            putClip?.Play2D(soundVolume);
     }
 }

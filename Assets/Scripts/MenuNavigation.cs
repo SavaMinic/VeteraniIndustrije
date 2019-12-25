@@ -644,9 +644,11 @@ public class MenuNavigation : MonoBehaviour
         musicVolume = Mathf.SmoothDamp(musicVolume, musicTarget, ref musicVelo, 1, 1000, 1.0f / 60f);
         //musicLowpass = Mathf.SmoothDamp(musicLowpass, musicLowpassTarget, ref musicLowpassVelo, 1, 1000, 1.0f / 60f);
         float lowPass = Mathf.Lerp(200, 22000, musicVolume);
+
         //Debug.Log($"{musicVolume}, {musicTarget}");
         mixer.SetFloat("Music Volume", NAudio.GetLogVolume(musicVolume));
         mixer.SetFloat("Music Lowpass", lowPass);
+        mixer.SetFloat("Diegetic Volume", NAudio.GetLogVolume(1 - musicVolume));
 
         if (showingCandleTut && Candle.e.isBurning)
         {
