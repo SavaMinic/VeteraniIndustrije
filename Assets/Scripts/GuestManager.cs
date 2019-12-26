@@ -218,7 +218,7 @@ public class GuestManager : MonoBehaviour
 
     private void GenerateNewGuest()
     {
-        GenerateNewGuest(GetRandomGuest());
+        GenerateNewGuest(GetRandomUniqueGuest());
     }
 
     private void GenerateNewGuest(GameObject guestPrefab)
@@ -234,6 +234,7 @@ public class GuestManager : MonoBehaviour
         availableSittingPositionIndex.Remove(index);
 
         var guestObject = Instantiate(guestPrefab);
+        guestObject.name = guestPrefab.name;
         guestObject.transform.SetParent(transform);
         guestObject.transform.position = entrancePosition.position;
 
@@ -248,6 +249,30 @@ public class GuestManager : MonoBehaviour
         guest.AssignSeat(index, guestSeats[index]);
 
         CanvasController.I.AddNewGuestWish(guest);
+    }
+
+    GameObject GetRandomUniqueGuest()
+    {
+        Guest[] guestsInScene = FindObjectsOfType<Guest>();
+        List<Guest> guestsInSceneList = new List<Guest>(guestsInScene);
+        while (true)
+        {
+            int rand = UnityEngine.Random.Range(0, GuestPrefabs.Count);
+            GameObject randGuest = GuestPrefabs[rand];
+
+            bool exists = false;
+            for (int i = 0; i < guestsInScene.Length; i++)
+            {
+                if (guestsInScene[i].name == randGuest.name)
+                {
+                    exists = true;
+                    break;
+                }
+            }
+
+            if (!exists)
+                return randGuest;
+        }
     }
 
     GameObject GetRandomGuest()

@@ -17,6 +17,9 @@ public class Candle : Interactable
     public GameObject smoke;
     public Transform smokeMask;
 
+    public float svecaBaseScale = 0.692f;
+    public float svecaLength = 2;
+
     [Range(0, 1)]
     public float burnProgress;
 
@@ -45,6 +48,7 @@ public class Candle : Interactable
     bool lastPromaja;
     const float EXTINGUISH_IF_PROMAJA_LASTS_FOR = 2;
 
+
     void Update()
     {
         if (!Application.isPlaying || GameController.I.IsPaused)
@@ -53,8 +57,9 @@ public class Candle : Interactable
         if (isBurning && burnTime > 0)
         {
             burnProgress += Time.deltaTime / burnTime;
-            top.transform.localPosition = Vector3.Lerp(flameStartPosition, flameEndPosition, burnProgress);
-            body.transform.localScale = new Vector3(1, 1 - burnProgress, 1);
+            top.transform.localPosition = new Vector3(0, (1 - burnProgress) * svecaBaseScale * svecaLength, 0);
+            //top.transform.localPosition = Vector3.Lerp(flameStartPosition, flameEndPosition, burnProgress);
+            body.transform.localScale = new Vector3(1, (1 - burnProgress) * svecaLength, 1);
         }
 
         burnProgress = Mathf.Clamp01(burnProgress);

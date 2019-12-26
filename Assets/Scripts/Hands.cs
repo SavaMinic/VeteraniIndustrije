@@ -66,6 +66,8 @@ public class Hands : MonoBehaviour
             if (interactable is Fleka && (!heldItem || (heldItem && !(heldItem is Metla)))) continue;
             // with metla interact only with doors and flekas
             if (heldItem && heldItem is Metla && !(interactable is Fleka || interactable is Door)) continue;
+            if (!(interactable is Door || interactable is Fleka))
+                if (heldItem && !InteractionControl.I.CanInteract(heldItem.gameObject, interactable.gameObject)) continue;
             interactablesToSearch.Add(interactable);
         }
 

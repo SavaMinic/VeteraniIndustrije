@@ -20,6 +20,7 @@ public class Database : MonoBehaviour
     public AudioClip[] broomSweepClips;
 
     public Door entranceDoor;
+    public Door balkonDoor;
 
     public Interactable CreatePivo()
     {

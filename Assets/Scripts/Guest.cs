@@ -309,7 +309,7 @@ public class Guest : MonoBehaviour
                 }
                 else if (currentWish.IsWindowWish)
                 {
-                    var isWindowOpen = Prozor.IsProzorOpen;
+                    var isWindowOpen = Prozor.IsProzorOpen || Database.e.balkonDoor.IsOpen;
                     // windows is as we like it
                     if ((currentWish.Type == GuestWish.GuestWishType.OpenWindow && isWindowOpen)
                         || (currentWish.Type == GuestWish.GuestWishType.CloseWindow && !isWindowOpen))

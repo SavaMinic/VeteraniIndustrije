@@ -452,6 +452,8 @@ public class MenuNavigation : MonoBehaviour
 
     public void ShowEndGame(GameController.Results results)
     {
+        DisableTut();
+
         state = State.EndGame;
         endGame.gameObject.SetActive(true);
         endGame.DOAnchorPos(Vector2.zero, 0.5f)
