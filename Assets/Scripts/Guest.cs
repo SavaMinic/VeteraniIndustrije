@@ -60,6 +60,7 @@ public class Guest : MonoBehaviour
     const float ZITO_RANGE = 3;
 
     float lastPromajaReaction;
+    float timeBetweenPromajaReactions = 10;
 
     #region Mono
 
@@ -92,7 +93,14 @@ public class Guest : MonoBehaviour
 
         if (!isMarina && Promaja.IsActive)
         {
-            lastPromajaReaction = Time.time;
+            if (Time.time - lastPromajaReaction > timeBetweenPromajaReactions)
+            {
+                lastPromajaReaction = Time.time;
+                timeBetweenPromajaReactions = Random.Range(8.0f, 15.0f);
+                if (Random.value > 0.5f) // not all guests should react
+                    GuestManager.I.ShowPromajaQuip(this);
+            }
+
             //lastPromajaReaction 1
         }
 
@@ -514,16 +522,9 @@ public class Guest : MonoBehaviour
         {
             GuestManager.I.SittingPlaceAvailable(this, sittingIndex);
         }
-        else
-        {
-            //GuestManager.I.NoZitoNoParty(this);
-        }
 
-        //if (!followAI)
-        //{
         AI.GoToExit();
         followAI = true;
-        //}
     }
 
     private IEnumerator DelayDestroy(float delay)

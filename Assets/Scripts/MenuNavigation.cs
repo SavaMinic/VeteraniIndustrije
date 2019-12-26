@@ -49,6 +49,10 @@ public class MenuNavigation : MonoBehaviour
 
     public AudioMixer mixer;
 
+    const int MAIN_HOW_TO_PLAY_INDEX = 1;
+    const int MAIN_INPUT_OPTIONS_INDEX = 2;
+    const int MAIN_CREDITS_INDEX = 3;
+
     const int INGAME_RESTART_INDEX = 0;
     const int INGAME_HOW_TO_PLAY_INDEX = 1;
     const int INGAME_INPUT_OPTIONS_INDEX = 2;
@@ -175,9 +179,10 @@ public class MenuNavigation : MonoBehaviour
             switch (cy)
             {
                 case 0: StartGame(); break; // start game
-                case 1: DisableMainMenu(); ShowOptions(); break; // open options
-                case 2: DisableMainMenu(); ShowCredits(); break; // open credits
-                case 3: Application.Quit(); break; // quit
+                case 1: DisableMainMenu(); ShowHowToPlay(); break;
+                case 2: DisableMainMenu(); ShowOptions(); break; // open options
+                case 3: DisableMainMenu(); ShowCredits(); break; // open credits
+                case 4: Application.Quit(); break; // quit
                 default: break;
             }
         }
@@ -268,30 +273,39 @@ public class MenuNavigation : MonoBehaviour
                     break;
 
                 DisableOptions();
-                if (!gameStarted)
-                    ShowMainMenu();
-                else
-                {
-                    ShowIngameMenu();
-                    IngameMenuSelectItem(INGAME_INPUT_OPTIONS_INDEX);
-                }
+                BackToMenu(MAIN_INPUT_OPTIONS_INDEX, INGAME_INPUT_OPTIONS_INDEX);
                 break;
             case State.Credits:
                 DisableCredits();
-                if (!gameStarted)
-                    ShowMainMenu();
-                else
-                {
-                    ShowIngameMenu();
-                    IngameMenuSelectItem(INGAME_CREDITS_INDEX);
-                }
+                BackToMenu(MAIN_CREDITS_INDEX, INGAME_CREDITS_INDEX);
                 break;
-            case State.HowToPlay: DisableHowToPlay(); ShowIngameMenu(); IngameMenuSelectItem(INGAME_HOW_TO_PLAY_INDEX); break;
+            case State.HowToPlay:
+                DisableHowToPlay();
+
+                BackToMenu(MAIN_HOW_TO_PLAY_INDEX, INGAME_HOW_TO_PLAY_INDEX);
+                break;
+            //ShowIngameMenu(); IngameMenuSelectItem(INGAME_HOW_TO_PLAY_INDEX); break;
             case State.Ingame: ShowIngameMenu(); Pause(); break;
             case State.IngameMenu: DisableIngameMenu(); Unpause(); break;
             case State.EndGame: Unpause(); DisableEndGame(); StartGame(); break;
             case State.None: break;
             default: break;
+        }
+    }
+
+    void BackToMenu(int mainY, int ingameY)
+    {
+        if (!gameStarted)
+        {
+            ShowMainMenu();
+            MainMenuSelectItem(mainY);
+            state = State.MainMenu;
+        }
+        else
+        {
+            ShowIngameMenu();
+            IngameMenuSelectItem(ingameY);
+            state = State.IngameMenu;
         }
     }
 
@@ -401,8 +415,8 @@ public class MenuNavigation : MonoBehaviour
             .SetUpdate(true)
             .SetEase(Ease.InCubic);
 
-        MainMenuSelectItem(2);
-        state = State.MainMenu;
+        //MainMenuSelectItem(2);
+        //state = State.MainMenu;
 
         pageTurnClips.Play2D(true, 1);
     }
@@ -433,6 +447,8 @@ public class MenuNavigation : MonoBehaviour
 
     void ShowHowToPlay()
     {
+        cy = 0;
+
         state = State.HowToPlay;
         howToPlay.gameObject.SetActive(true);
         howToPlay.DOAnchorPos(howToUpperTarget, 0.5f)
@@ -467,8 +483,9 @@ public class MenuNavigation : MonoBehaviour
 Total guests served: {results.totalGuestsServed},
 Success wishes: {results.totalSuccessWishes},
 Failed wishes: {results.totalFailedWishes},
-Success ratio: {ratio}%,
-Score: {results.totalScore}";
+Success ratio: {ratio}%";
+
+//Score: {results.totalScore}";
 
         musicTarget = 1;
     }
@@ -564,6 +581,8 @@ Score: {results.totalScore}";
             lastSelected.localScale = Vector3.one;
 
         if (y < 0) return;
+
+        cy = y;
 
         var textT = mainMenuTransforms[y];
         var text = textT.GetComponent<TMP_Text>();

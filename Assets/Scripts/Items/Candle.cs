@@ -34,6 +34,7 @@ public class Candle : Interactable
 
     protected override void OnStart()
     {
+        UpdateCandleLength();
         SetMaskScale(0);
 
         if (isBurning)
@@ -57,9 +58,7 @@ public class Candle : Interactable
         if (isBurning && burnTime > 0)
         {
             burnProgress += Time.deltaTime / burnTime;
-            top.transform.localPosition = new Vector3(0, (1 - burnProgress) * svecaBaseScale * svecaLength, 0);
-            //top.transform.localPosition = Vector3.Lerp(flameStartPosition, flameEndPosition, burnProgress);
-            body.transform.localScale = new Vector3(1, (1 - burnProgress) * svecaLength, 1);
+            UpdateCandleLength();
         }
 
         burnProgress = Mathf.Clamp01(burnProgress);
@@ -92,6 +91,13 @@ public class Candle : Interactable
         }
 
         lastPromaja = Promaja.IsActive;
+    }
+
+    void UpdateCandleLength()
+    {
+        top.transform.localPosition = new Vector3(0, (1 - burnProgress) * svecaBaseScale * svecaLength, 0);
+        //top.transform.localPosition = Vector3.Lerp(flameStartPosition, flameEndPosition, burnProgress);
+        body.transform.localScale = new Vector3(1, (1 - burnProgress) * svecaLength, 1);
     }
 
     void SetMaskScale(float y)

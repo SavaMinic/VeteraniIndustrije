@@ -591,6 +591,7 @@ MonoBehaviour:
   smoke: {fileID: 2023375579000933975}
   smokeMask: {fileID: 4265173346427525467}
   svecaBaseScale: 0.692
+  svecaLength: 1.6
   burnProgress: 0
   flameStartPosition: {x: 0.02121305, y: 0.75, z: 0.2551156}
   flameEndPosition: {x: 0.02121305, y: 0.14, z: 0.2551156}

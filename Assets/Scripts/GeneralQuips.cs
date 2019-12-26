@@ -6,6 +6,7 @@ using UnityEngine;
 public class GeneralQuips : ScriptableObject
 {
     public string[] noZitoNoParty;
+    public string[] promaja;
     public string[] entryMessages;
     public string[] exitMessages1;
     public string[] exitMessages2;

@@ -39,6 +39,7 @@ public class GuestManager : MonoBehaviour
     public int InitialGuestCount;
     public float DelayForGeneratingGuestsSlow = 10f;
     public float DelayForGeneratingGuestsFast = 25f;
+    public float DelayForGeneratingGuestsFuzz = 10f;
 
     // if != 0, then it will limit sitting position to this
     public int LimitGuestNumber;
@@ -49,7 +50,8 @@ public class GuestManager : MonoBehaviour
     public float DelayForGeneratingGuests =>
         availableSittingPositionIndex.Count > 3
         ? DelayForGeneratingGuestsFast
-        : DelayForGeneratingGuestsSlow;
+        : DelayForGeneratingGuestsSlow
+        + (-0.5f + UnityEngine.Random.value) * 2 * DelayForGeneratingGuestsFuzz;
 
     private float timeToGenerateNewGuests;
 
@@ -158,6 +160,12 @@ public class GuestManager : MonoBehaviour
         CanvasController.I.AddStars(numberOfStars);
     }
 
+    public void ShowPromajaQuip(Guest guest)
+    {
+        CanvasController.I.ShowNotification(guest,
+            generalQuips.promaja[UnityEngine.Random.Range(0, generalQuips.promaja.Length)]);
+    }
+
     public void NoZitoNoParty(Guest guest)
     {
         var message = generalQuips.noZitoNoParty[UnityEngine.Random.Range(0, generalQuips.noZitoNoParty.Length)];
@@ -198,6 +206,12 @@ public class GuestManager : MonoBehaviour
 
     private void StartSlava()
     {
+        if (GameController.I.Level)
+        {
+            DelayForGeneratingGuestsSlow = GameController.I.Level.DelayForGeneratingGuestsSlow;
+            DelayForGeneratingGuestsFast = GameController.I.Level.DelayForGeneratingGuestsFast;
+        }
+
         timeToGenerateNewGuests = DelayForGeneratingGuests;
 
         StartCoroutine(WaitASecond());
