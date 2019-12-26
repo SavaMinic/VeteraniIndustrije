@@ -11,6 +11,15 @@ public class ContainerMeter : MonoBehaviour
     public Container container;
     public Image maskingImage;
 
+    public Vector3 offset;
+
+    Canvas canvas;
+
+    private void Start()
+    {
+        canvas = CanvasController.I.GetComponent<Canvas>();
+    }
+
     private void Update()
     {
         if (container == null)
@@ -19,11 +28,13 @@ public class ContainerMeter : MonoBehaviour
             return;
         }
 
-        if (container.temperature <= 0)
+        if (container.amount <= 0)
             rectTransform.anchoredPosition = Vector3.one * 10000;
         else
         {
-            rectTransform.anchoredPosition = container.transform.position; // offset
+            Vector3 pos = Util.WorldToUISpace(canvas, container.transform.position);
+            //Vector3 pos = Camera.main.WorldToScreenPoint(container.transform.position);
+            rectTransform.position = pos + offset;
 
             maskingImage.color = container.type.color;
             maskingImage.fillAmount = container.amount;

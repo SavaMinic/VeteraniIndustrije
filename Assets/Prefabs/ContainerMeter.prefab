@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 942.43005, y: 355.80002}
-  m_SizeDelta: {x: 25.94, y: 102.8}
+  m_SizeDelta: {x: 22.9, y: 87.5}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &3064922442852717209
 CanvasRenderer:
@@ -90,6 +90,7 @@ MonoBehaviour:
   rectTransform: {fileID: 3064922442852717207}
   container: {fileID: 0}
   maskingImage: {fileID: 357039000939809707}
+  offset: {x: 30, y: 0, z: 0}
 --- !u!1 &8259486419283137936
 GameObject:
   m_ObjectHideFlags: 0
