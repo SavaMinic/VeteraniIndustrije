@@ -18,6 +18,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c6b085c0a0215fe42b74ed1051a2a9bb, type: 2}
   - {fileID: 11400000, guid: 48bae827feaa7084fad3f6cab3df51b6, type: 2}
   - {fileID: 11400000, guid: a3a6cfb1d1c45fe439fad328b6bccd3e, type: 2}
+  - {fileID: 11400000, guid: 1706dde776939b341a07d2832efd4fc7, type: 2}
+  - {fileID: 11400000, guid: 113f63c67d6863a458f45674f0999c3a, type: 2}
   InteractableObjectsNames:
   - ItemName: Coffee
     WishType: 1

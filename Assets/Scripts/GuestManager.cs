@@ -58,9 +58,12 @@ public class GuestManager : MonoBehaviour
     private List<int> availableSittingPositionIndex = new List<int>();
 
     private bool slavaHasStarted;
+    bool slavaHasEnded;
 
     public int guestsServedCount = 0;
     public List<GuestWish> allCompletedWishes = new List<GuestWish>();
+
+    public static bool showDebugWindow;
 
     #endregion
 
@@ -73,8 +76,30 @@ public class GuestManager : MonoBehaviour
 
     private void Update()
     {
+        if (!Application.isEditor)
+        {
+            if (Input.GetKeyDown(KeyCode.F12) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
+                showDebugWindow = !showDebugWindow;
+        }
+
         if (!Application.isPlaying || GameController.I.IsPaused)
             return;
+
+        // Slava has ended
+        if (Candle.e.burnProgress >= 1 && !slavaHasEnded)
+        {
+            EndSlava();
+            return;
+        }
+
+        if (slavaHasEnded)
+        {
+            Guest[] guests = FindObjectsOfType<Guest>();
+            if (guests.Length <= 0)
+                GameController.I.EndGame();
+
+            return;
+        }
 
         if (!Candle.e.isBurning || !autoSpawnGuests)
             return;
@@ -91,6 +116,23 @@ public class GuestManager : MonoBehaviour
                 GenerateNewGuest();
             }
         }
+    }
+
+    void EndSlava()
+    {
+        Debug.Log("End of slava, FAJRONT!");
+        AllGuestsLeave();
+
+        slavaHasEnded = true;
+
+        FindObjectOfType<MenuNavigation>().ShowSlavaEndedTut();
+    }
+
+    void AllGuestsLeave()
+    {
+        Guest[] guests = FindObjectsOfType<Guest>();
+        foreach (var guest in guests)
+            guest.GoHomeImmediatelly();
     }
 
     #endregion
@@ -232,10 +274,10 @@ public class GuestManager : MonoBehaviour
 
     #endregion
 
-#if UNITY_EDITOR
-
     private void OnGUI()
     {
+        if (!Application.isEditor && !showDebugWindow) return;
+
         GUILayout.Window(0, new Rect(10, 10, 300, 500), Window, "Debug");
     }
 
@@ -264,8 +306,20 @@ public class GuestManager : MonoBehaviour
             Candle.e.Extinguish();
         }
 
+        if (GUILayout.Button("Set test level"))
+            GameController.I.LoadLevel("TestLevel");
+
+        if (GUILayout.Button("FAJRONT"))
+            AllGuestsLeave();
+
+        if (GUILayout.Button("End Slava"))
+            EndSlava();
+
         if (GUILayout.Button("End game NOW"))
             GameController.I.EndGame();
+
+        GUILayout.Label("Loaded level: " + GameController.I.Level.name);
+        GUILayout.Label("Time left: " + Candle.e.TimeLeft.ToString("F1"));
 
         var guests = FindObjectsOfType<Guest>();
         foreach (var guest in guests)
@@ -289,6 +343,7 @@ public class GuestManager : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         var color = new Color(1f, 1f, 0f, 0.5f);
@@ -300,6 +355,5 @@ public class GuestManager : MonoBehaviour
                 UnityEditor.Handles.Label(guestSeats[i].transform.position, (i + 1).ToString());
             }
     }
-
 #endif
 }

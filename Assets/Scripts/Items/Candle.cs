@@ -20,10 +20,14 @@ public class Candle : Interactable
     [Range(0, 1)]
     public float burnProgress;
 
+    public float TimeLeft { get { return (1 - burnProgress) * burnTime; } }
+
     public Vector3 flameStartPosition;
     public Vector3 flameEndPosition;
 
     public AudioClip igniteClip;
+
+    bool isDone;
 
     protected override void OnStart()
     {
@@ -55,9 +59,15 @@ public class Candle : Interactable
 
         burnProgress = Mathf.Clamp01(burnProgress);
 
-        if (burnProgress >= 1f)
+        //if (burnProgress >= 1f)
+        //{
+        //GameController.I.EndGame();
+        //}
+
+        if (burnProgress >= 1f && !isDone)
         {
-            GameController.I.EndGame();
+            Extinguish();
+            isDone = true;
         }
 
         if (smoke.activeSelf)

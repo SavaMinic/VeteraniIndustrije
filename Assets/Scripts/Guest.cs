@@ -59,6 +59,8 @@ public class Guest : MonoBehaviour
 
     const float ZITO_RANGE = 3;
 
+    float lastPromajaReaction;
+
     #region Mono
 
     private void Awake()
@@ -86,6 +88,12 @@ public class Guest : MonoBehaviour
         if (followAI)
         {
             transform.position = AI.transform.position + Vector3.up;
+        }
+
+        if (!isMarina && Promaja.IsActive)
+        {
+            lastPromajaReaction = Time.time;
+            //lastPromajaReaction 1
         }
 
         switch (CurrentState)
@@ -190,7 +198,7 @@ public class Guest : MonoBehaviour
                     // Timeout
                     if (currentWish.IsSuccess.Value == false)
                     {
-                        Debug.LogError($"Wish {currentWish.Type} has timed out!");
+                        Debug.LogWarning($"Wish {currentWish.Type} has timed out!");
 
                         string quipText = "";
                         if (currentWish.IsWindowWish || currentWish.IsTvWish)
@@ -221,10 +229,9 @@ public class Guest : MonoBehaviour
                             quipText = q.tooLate[Random.Range(0, q.tooLate.Length)];
                         }
 
-
-
+                        Debug.Assert(currentWish != null, "Current wish is null before");
                         Debug.Assert(!string.IsNullOrEmpty(quipText), "No quip text");
-                        FinishActiveWish(success: false, message: quipText);
+                        FinishActiveWish(success: false, message: quipText, currentWish);
                         Delay(DelayAfterWish);
                     }
 
@@ -393,15 +400,16 @@ public class Guest : MonoBehaviour
         Debug.Log("Sat down");
     }
 
-    public void FinishActiveWish(bool success = true, string message = "")
+    public void FinishActiveWish(bool success = true, string message = "", GuestWish wish = null)
     {
-        var activeWish = CurrentWish;
+        var activeWish = wish ?? CurrentWish;
 
         //if (activeWish == null
         //  || !(CurrentState == GuestState.WaitingForService || CurrentState == GuestState.WaitingForZito))
         //return;
 
         Debug.Log(sittingIndex + " Finished active wish, start delay");
+        Debug.Assert(activeWish != null, "Active wish is null");
         activeWish.FinishWish(success);
 
         if (CurrentState == GuestState.WaitingForService)
@@ -491,6 +499,11 @@ public class Guest : MonoBehaviour
         CurrentState = GuestState.WaitingForService;
     }
 
+    public void GoHomeImmediatelly()
+    {
+        GoHome();
+    }
+
     private void GoHome(bool wasSitting = true)
     {
         consumer.EnablePlayerInteraction(false);
@@ -503,19 +516,27 @@ public class Guest : MonoBehaviour
         }
         else
         {
-            GuestManager.I.NoZitoNoParty(this);
+            //GuestManager.I.NoZitoNoParty(this);
         }
 
-        if (!followAI)
-        {
-            AI.GoToExit();
-            followAI = true;
-        }
+        //if (!followAI)
+        //{
+        AI.GoToExit();
+        followAI = true;
+        //}
     }
 
     private IEnumerator DelayDestroy(float delay)
     {
         GuestManager.I.guestsServedCount++;
+
+        // remove unfinished wishes
+        for (int i = AllWishes.Count - 1; i >= 0; i--)
+        {
+            if (!AllWishes[i].IsFinished)
+                AllWishes.RemoveAt(i);
+        }
+
         GuestManager.I.allCompletedWishes.AddRange(AllWishes);
 
         var startColor = Color.white;

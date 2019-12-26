@@ -71,9 +71,6 @@ public class Hands : MonoBehaviour
 
         Interactable closestItem = Util.FindClosest(interactablesToSearch, myPos, interactRange, useViewSpaceDistance);
 
-        if (closestItem)
-            Debug.Log(closestItem.name);
-
         // Give priority to slot or item depending what's closer
         if (closestSlot && closestItem)
         {
@@ -152,7 +149,7 @@ public class Hands : MonoBehaviour
             if (drc.containsType == Container.ContainsType.Food && btn_down)
                 drc.TransferTo(gost.foodContainer, 1);
 
-            if (drc.containsType == Container.ContainsType.Drink && btn_held)
+            if (drc.containsType == Container.ContainsType.Drink && drc.amount > 0 && btn_held)
             {
                 pouringSound?.Pour();
                 drc.TransferTo(gost.drinkContainer); // TODO: Tweak speed

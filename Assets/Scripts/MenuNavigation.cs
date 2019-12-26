@@ -213,6 +213,10 @@ public class MenuNavigation : MonoBehaviour
                 default: break;
             }
         }
+        else if (state == State.EndGame)
+        {
+            Unpause(); DisableEndGame(); StartGame();
+        }
     }
 
     void SetResolution(Resolution res, bool fullscreen)
@@ -238,7 +242,7 @@ public class MenuNavigation : MonoBehaviour
         musicTarget = 0;
 
         yield return new WaitForSeconds(1);
-        GameController.I.LoadLevel("Endless");
+        GameController.I.LoadLevel("Dugacak");
         //SceneManager.LoadScene(1);
 
         yield return new WaitForSeconds(1);
@@ -285,6 +289,7 @@ public class MenuNavigation : MonoBehaviour
             case State.HowToPlay: DisableHowToPlay(); ShowIngameMenu(); IngameMenuSelectItem(INGAME_HOW_TO_PLAY_INDEX); break;
             case State.Ingame: ShowIngameMenu(); Pause(); break;
             case State.IngameMenu: DisableIngameMenu(); Unpause(); break;
+            case State.EndGame: Unpause(); DisableEndGame(); StartGame(); break;
             case State.None: break;
             default: break;
         }
@@ -634,6 +639,7 @@ Score: {results.totalScore}";
 
     public RectTransform candleTut;
     bool showingCandleTut;
+    public RectTransform slavaEndedTut;
 
     RectTransform currentTut;
 
@@ -644,12 +650,20 @@ Score: {results.totalScore}";
         showingCandleTut = true;
     }
 
+    public void ShowSlavaEndedTut()
+    {
+        ShowTut(slavaEndedTut);
+    }
+
     void ShowTut(RectTransform elem)
     {
+        if (currentTut)
+            DisableTut();
+
         elem.DOAnchorPos(new Vector2(0, -20f), 0.5f)
             .SetUpdate(true)
             .SetEase(Ease.OutExpo, 1)
-            .SetDelay(0.3f);
+            .SetDelay(0.4f);
 
         currentTut = elem;
     }
