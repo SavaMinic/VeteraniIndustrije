@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTakeable: 0
-  isHeld: 1
+  isHeld: 0
   inSlot: {fileID: 0}
   highlightColor: {r: 1, g: 1, b: 1, a: 0.4745098}
   sprite: {fileID: 0}

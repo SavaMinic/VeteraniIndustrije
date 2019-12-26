@@ -17,6 +17,55 @@ public static class Util
         return parentCanvas.transform.TransformPoint(movePos);
     }
 
+    public static T FindClosest<T>(List<T> list, Vector3 target, float maxRange = Mathf.Infinity, bool inViewSpace = false)
+        where T : Component, IProximityFindable
+    {
+        if (list == null || list.Count == 0) return null;
+
+        float closestDistance = Mathf.Infinity;
+        T closest = null;
+
+        if (inViewSpace)
+        {
+            target = GetCameraSpacePoint(target);
+        }
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i].SkipProximitySearch) continue;
+
+            Vector3 pos = list[i].ProximityPosition;
+            if (inViewSpace) pos = GetCameraSpacePoint(pos);
+
+            float sqrdist = (target - pos).sqrMagnitude;
+
+            if (sqrdist < closestDistance)
+            {
+                closestDistance = sqrdist;
+                closest = list[i];
+            }
+        }
+
+        if (closestDistance > maxRange * maxRange)
+            return null;
+
+        return closest;
+    }
+
+    public static bool IsCloserThan<T>(this T tis, T other, Vector3 target, bool inViewSpace = false)
+        where T : IProximityFindable
+    {
+        target = inViewSpace ? GetCameraSpacePoint(target) : target;
+        Vector3 tisPos = inViewSpace ? GetCameraSpacePoint(tis.ProximityPosition) : tis.ProximityPosition;
+        Vector3 otherPos = inViewSpace ? GetCameraSpacePoint(other.ProximityPosition) : other.ProximityPosition;
+
+        float tisDist = (target - tisPos).sqrMagnitude;
+        float otherDist = (target - otherPos).sqrMagnitude;
+
+        return tisDist < otherDist;
+    }
+
+    [System.Obsolete]
     public static T FindClosest<T>(T[] array, T skip, Vector3 target, float maxRange = Mathf.Infinity, bool inViewSpace = false, Func<T, bool> skipCheck = null)
         where T : Component, IProximityFindable
     {
@@ -55,6 +104,7 @@ public static class Util
         return closest;
     }
 
+    [System.Obsolete]
     public static T FindClosest<T>(List<T> list, T skip, Vector3 target, float maxRange = Mathf.Infinity, bool inViewSpace = false)
         where T : Component, IProximityFindable
     {
@@ -96,11 +146,13 @@ public static class Util
         v3.z = 0;
         return v3;
     }
-    
-    public static void Shuffle<T>(this IList<T> ts) {
+
+    public static void Shuffle<T>(this IList<T> ts)
+    {
         var count = ts.Count;
         var last = count - 1;
-        for (var i = 0; i < last; ++i) {
+        for (var i = 0; i < last; ++i)
+        {
             var r = UnityEngine.Random.Range(i, count);
             var tmp = ts[i];
             ts[i] = ts[r];

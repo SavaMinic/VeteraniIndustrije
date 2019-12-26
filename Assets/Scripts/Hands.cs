@@ -16,54 +16,84 @@ public class Hands : MonoBehaviour
 
     public PouringSound pouringSound;
 
+    List<Slot> slotsToSearch = new List<Slot>();
+    List<Interactable> interactablesToSearch = new List<Interactable>();
+
     private void Update()
     {
         if (!Application.isPlaying || GameController.I.IsPaused)
             return;
 
+        Vector3 myPos = transform.position;
 
+        slotsToSearch.Clear();
 
-
-
-        Slot closestSlot = Util.FindClosest(Slot.all, null, transform.position, interactRange, useViewSpaceDistance,
-            s => s.itemInSlot);
-        if (closestSlot)
+        if (heldItem)
         {
-            Debug.DrawLine(transform.position, closestSlot.ProximityPosition, Color.red);
-            // if we hold item...
-            if (heldItem && (!closestSlot.onlyInteractsWith || closestSlot.onlyInteractsWith == heldItem)
-                // ... and slot is either generic ...
-                && (!closestSlot.useInteractionControl ||
-                 // or it can interact with the item
-                 InteractionControl.I.CanInteract(heldItem.gameObject, closestSlot.gameObject)))
-                closestSlot.Highlight(true);
+            for (int i = 0; i < Slot.all.Length; i++)
+            {
+                Slot slot = Slot.all[i];
+
+                // skip if slot is occupied
+                if (slot.itemInSlot) continue;
+                // skip if slot only interacts with an item and this item is not held
+                if (slot.onlyInteractsWith && slot.onlyInteractsWith != heldItem) continue;
+                // skip if slot uses interaction control and held item does not correspond
+                if (slot.useInteractionControl && !InteractionControl.I.CanInteract(heldItem.gameObject, slot.gameObject)) continue;
+                // special metla slot
+                if (heldItem is Metla && slot.name != "MetlaSlot") continue;
+
+                slotsToSearch.Add(Slot.all[i]);
+            }
         }
 
-        Interactable closestItem = Util.FindClosest(Interactable.all, heldItem, transform.position, interactRange, useViewSpaceDistance);
+        Slot closestSlot = Util.FindClosest(slotsToSearch, myPos, interactRange, useViewSpaceDistance);
+
+
+        interactablesToSearch.Clear();
+        for (int i = 0; i < Interactable.all.Count; i++)
+        {
+            Interactable interactable = Interactable.all[i];
+            // skip held item
+            if (interactable == heldItem) continue;
+            // don't interact with other player's item
+            if (interactable.isHeld) continue;
+            // prevent coffee interacting with dzezva if dzezva is empty
+            if (interactable is Dzezva && heldItem is Coffee && interactable.GetComponent<Container>().amount == 0) continue;
+            // don't interact with guests if nothing in hands
+            if (!heldItem && interactable is Consumer) continue;
+            // skip flekas if nothing is held or not a metla is held
+            if (interactable is Fleka && (!heldItem || (heldItem && !(heldItem is Metla)))) continue;
+            // with metla interact only with doors and flekas
+            if (heldItem && heldItem is Metla && !(interactable is Fleka || interactable is Door)) continue;
+            interactablesToSearch.Add(interactable);
+        }
+
+        Interactable closestItem = Util.FindClosest(interactablesToSearch, myPos, interactRange, useViewSpaceDistance);
+
+        if (closestItem)
+            Debug.Log(closestItem.name);
+
+        // Give priority to slot or item depending what's closer
+        if (closestSlot && closestItem)
+        {
+            if (closestItem.IsCloserThan((IProximityFindable)closestSlot, myPos, true))
+                closestSlot = null;
+            else
+                closestItem = null;
+        }
+
         if (closestItem)
         {
-            Debug.DrawLine(transform.position, closestItem.ProximityPosition, Color.green);
-            // Door is always highlighted
-            if (closestItem is Door)
-            {
-                closestItem.Highlight(true);
-            }
-            // if we are not holding or if we are holding and this item is interactable
-            if (!heldItem || InteractionControl.I.CanInteract(heldItem.gameObject, closestItem.gameObject))
-            {
-                if (!(closestItem is Fleka) &&
-                    !(heldItem is Dzezva && closestItem is Coffee) &&
-                    !(heldItem is Coffee && closestItem is Dzezva && (closestItem as Dzezva).container.amount <= 0))
-                {
-                    closestItem.Highlight(true);
-                }
-            }
-            /*
-            // FLEKA IS SPECIAL
-            if (closestItem is Fleka)
-            {
-                closestItem.Highlight(heldItem is Metla);
-            }*/
+            Debug.DrawLine(myPos, closestItem.ProximityPosition, Color.green);
+
+            closestItem.Highlight(true);
+        }
+        else if (closestSlot)
+        {
+            Debug.DrawLine(transform.position, closestSlot.ProximityPosition, Color.red);
+
+            closestSlot.Highlight(true);
         }
 
         if (closestItem != lastClosestItem && lastClosestItem)
