@@ -7,14 +7,14 @@ public class Bell : MonoBehaviour
     public static Bell e;
     void Awake() { e = this; }
 
-    [SerializeField] AudioSource ring;
+    [SerializeField] AudioSource ring = null;
 
     public float ringingTime;
 
     bool isRinging;
 
-    [SerializeField] GameObject ringingSprite;
-    [SerializeField] GameObject staticSprite;
+    [SerializeField] GameObject ringingSprite = null;
+    [SerializeField] GameObject staticSprite = null;
 
     public void Ring()
     {

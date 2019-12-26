@@ -29,6 +29,11 @@ public class Container : MonoBehaviour
             GameObject tgo = Instantiate(Database.e.termometarPrefab);
             tgo.GetComponent<Termometar>().container = this;
         }
+
+        if (showAmount)
+        {
+            Database.e.CreateContainerMeter(this);
+        }
     }
 
     public bool TransferTo(Container toContainer)
@@ -111,8 +116,8 @@ public class Container : MonoBehaviour
         temperature = Mathf.Clamp01(temperature);
 
         // show meters
-        if (showAmount && amount > 0)
-            DebugUtils.InGameMeter(amount / maxAmount, transform.position, 20, type.color);
+        //if (showAmount && amount > 0)
+        //DebugUtils.InGameMeter(amount / maxAmount, transform.position, 20, type.color);
 
         //if (showTemperature && temperature > 0)
         //DebugUtils.InGameMeter(temperature, transform.position, 30, Color.red);

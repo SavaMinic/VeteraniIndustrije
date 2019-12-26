@@ -15,29 +15,16 @@ public class GuestWishPanel : MonoBehaviour
     }
 
     #endregion
-    
+
     #region Properties/Fields
 
-    [SerializeField]
-    private Vector3 offset;
-
-    [SerializeField]
-    private List<GuestWishSprite> guestWishSprites;
-
-    [SerializeField]
-    private float fadeDuration;
-
-    [SerializeField]
-    private Image wishImage;
-
-    [SerializeField]
-    private Image wishFillImage;
-
-    [SerializeField]
-    private Color successColor;
-
-    [SerializeField]
-    private Color failureColor;
+    [SerializeField] private Vector3 offset = default;
+    [SerializeField] private List<GuestWishSprite> guestWishSprites = null;
+    [SerializeField] private float fadeDuration = 0;
+    [SerializeField] private Image wishImage = null;
+    [SerializeField] private Image wishFillImage = null;
+    [SerializeField] private Color successColor = default;
+    [SerializeField] private Color failureColor = default;
 
     private Color timingColor;
 
@@ -66,7 +53,7 @@ public class GuestWishPanel : MonoBehaviour
 
     private void Update()
     {
-        
+
         if (!Application.isPlaying || GameController.I.IsPaused || guest == null)
             return;
 
@@ -75,11 +62,11 @@ public class GuestWishPanel : MonoBehaviour
             gameObject.SetActive(false);
             return;
         }
-        
+
         // update position
         var worldPos = guest.transform.position + offset;
         transform.position = Util.WorldToUISpace(CanvasController.I.MainCanvas, worldPos);
-        
+
         // fade in/fade out
         var guestState = guest.CurrentState;
         if (guestState == Guest.GuestState.GoingOut)
@@ -88,8 +75,8 @@ public class GuestWishPanel : MonoBehaviour
             gameObject.SetActive(false);
             return;
         }
-        
-        if ((guestState == Guest.GuestState.WaitingForService || guestState == Guest.GuestState.WaitingForZito) 
+
+        if ((guestState == Guest.GuestState.WaitingForService || guestState == Guest.GuestState.WaitingForZito)
             && !isShown)
         {
             wishImage.color = Color.white;
@@ -111,7 +98,7 @@ public class GuestWishPanel : MonoBehaviour
             }
             StartCoroutine(FadeTo(0f, fadeDuration, delay));
         }
-        
+
         // update progress
         var currentWish = guest.CurrentWish;
         if ((guestState == Guest.GuestState.WaitingForService || guestState == Guest.GuestState.WaitingForZito)
@@ -150,7 +137,7 @@ public class GuestWishPanel : MonoBehaviour
         float alpha = canvasGroup.alpha;
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
         {
-            canvasGroup.alpha = Mathf.Lerp(alpha,aValue,t);
+            canvasGroup.alpha = Mathf.Lerp(alpha, aValue, t);
             yield return null;
         }
         canvasGroup.alpha = aValue;

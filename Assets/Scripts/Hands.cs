@@ -47,8 +47,12 @@ public class Hands : MonoBehaviour
             // if we are not holding or if we are holding and this item is interactable
             if (!heldItem || InteractionControl.I.CanInteract(heldItem.gameObject, closestItem.gameObject))
             {
-                if (!(closestItem is Fleka))
+                if (!(closestItem is Fleka) &&
+                    !(heldItem is Dzezva && closestItem is Coffee) &&
+                    !(heldItem is Coffee && closestItem is Dzezva && (closestItem as Dzezva).container.amount <= 0))
+                {
                     closestItem.Highlight(true);
+                }
             }
             /*
             // FLEKA IS SPECIAL
@@ -190,8 +194,7 @@ public class Hands : MonoBehaviour
             {
                 if (closestItem is Fleka && heldItem is Metla)
                 {
-                    //var fleka = closestItem as Fleka;
-                    //fleka.Remove();
+
                 }
                 // Special case with metla slot to prevent placing anywhere else
                 else if (closestSlot && heldItem is Metla && closestSlot.name == "MetlaSlot")

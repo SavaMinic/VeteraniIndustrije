@@ -6,7 +6,7 @@ public class PouringSound : MonoBehaviour
 {
     public AudioSource source;
 
-    float targetVolume = 1;
+    //float targetVolume = 1;
 
     bool pouredLastFrame = false;
     bool pourThisFrame = false;

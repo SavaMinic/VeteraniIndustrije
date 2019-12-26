@@ -37,6 +37,9 @@ public class MenuNavigation : MonoBehaviour
 
     public RectTransform howToPlay;
 
+    public RectTransform endGame;
+    public TMP_Text endGameScoreText;
+
     public RectTransform lineSelector;
 
     public Color selectedTextColor;
@@ -57,7 +60,7 @@ public class MenuNavigation : MonoBehaviour
 
     // private
 
-    enum State { MainMenu, InputMenu, IngameMenu, Credits, HowToPlay, Ingame, None }
+    enum State { MainMenu, InputMenu, IngameMenu, Credits, HowToPlay, Ingame, EndGame, None }
     State state;
 
     bool gameStarted;
@@ -442,6 +445,34 @@ public class MenuNavigation : MonoBehaviour
             .SetEase(Ease.InCubic);
     }
 
+    public void ShowEndGame(GameController.Results results)
+    {
+        state = State.EndGame;
+        endGame.gameObject.SetActive(true);
+        endGame.DOAnchorPos(Vector2.zero, 0.5f)
+            .SetUpdate(true)
+            .SetEase(Ease.OutExpo, 1)
+            .SetDelay(0.3f);
+
+        string ratio = float.IsNaN(results.successRatio) ? "Uncomputable" : results.successRatio.ToString("F1");
+
+        endGameScoreText.text = $@"
+Total guests served: {results.totalGuestsServed},
+Success wishes: {results.totalSuccessWishes},
+Failed wishes: {results.totalFailedWishes},
+Success ratio: {ratio}%,
+Score: {results.totalScore}";
+
+        musicTarget = 1;
+    }
+
+    void DisableEndGame()
+    {
+        endGame.DOAnchorPos(inputOptionsStartPos, 0.5f)
+            .SetUpdate(true)
+            .SetEase(Ease.InCubic);
+    }
+
     void InputOptionsSelectItem(int x, int y)
     {
         if (lastSelected)
@@ -604,7 +635,7 @@ public class MenuNavigation : MonoBehaviour
     public RectTransform candleTut;
     bool showingCandleTut;
 
-    public RectTransform currentTut;
+    RectTransform currentTut;
 
     void ShowCandleTut()
     {
@@ -635,14 +666,13 @@ public class MenuNavigation : MonoBehaviour
     float musicTarget = 1;
     float musicVelo;
 
-    float musicLowpass = 1;
-    float musicLowpassTarget = 1;
-    float musicLowpassVelo;
+    //float musicLowpass = 1;
+    //float musicLowpassTarget = 1;
+    //float musicLowpassVelo;
 
     private void Update()
     {
         musicVolume = Mathf.SmoothDamp(musicVolume, musicTarget, ref musicVelo, 1, 1000, 1.0f / 60f);
-        //musicLowpass = Mathf.SmoothDamp(musicLowpass, musicLowpassTarget, ref musicLowpassVelo, 1, 1000, 1.0f / 60f);
         float lowPass = Mathf.Lerp(200, 22000, musicVolume);
 
         //Debug.Log($"{musicVolume}, {musicTarget}");

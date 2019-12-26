@@ -32,7 +32,17 @@ public class GameController : MonoBehaviour
 
     private const string HighScoreKey = "HighScore_";
 
-    public LevelAsset Level { get; private set; }
+    LevelAsset level;
+    public LevelAsset Level
+    {
+        get
+        {
+            if (!level) level = Resources.Load<LevelAsset>("Levels/Endless");
+            return level;
+        }
+
+        set => level = value;
+    }
 
     public bool IsPaused { get; private set; }
 
@@ -85,7 +95,50 @@ public class GameController : MonoBehaviour
     public void EndGame()
     {
         IsPaused = true;
-        CanvasController.I.ShowEndPanel();
+        var results = CalculateResults();
+
+        FindObjectOfType<MenuNavigation>().ShowEndGame(results);
+        //CanvasController.I.ShowEndPanel();
+    }
+
+    public class Results
+    {
+        public float totalSlavaTime;
+        public int totalSuccessWishes;
+        public int totalWishes;
+        public int totalFailedWishes;
+        public float successRatio;
+        public int totalGuestsServed;
+
+        public int totalScore;
+    }
+
+
+
+    Results CalculateResults()
+    {
+        Results results = new Results();
+
+        results.totalGuestsServed = GuestManager.I.guestsServedCount;
+
+        foreach (var wish in GuestManager.I.allCompletedWishes)
+        {
+            if (!wish.IsFinished)
+                continue;
+
+            if (wish.IsSuccess.Value)
+                results.totalSuccessWishes++;
+            else
+                results.totalFailedWishes++;
+        }
+
+        results.totalWishes = GuestManager.I.allCompletedWishes.Count;
+        results.successRatio = ((float)results.totalSuccessWishes / results.totalWishes) * 100f;
+
+        results.totalScore =
+            (int)(results.totalGuestsServed * results.totalSlavaTime * results.successRatio);
+
+        return results;
     }
 
     #endregion

@@ -183,14 +183,56 @@ public class Guest : MonoBehaviour
                 }
                 else if (currentWish.IsFinished)
                 {
-                    // if current wish is finished, delay the next one
                     Debug.Log(sittingIndex + " Timeout active wish, start delay");
 
-                    if (CurrentState == GuestState.WaitingForZito && entryWish.IsFinished)
+                    bool wasWaitingForZito = CurrentState == GuestState.WaitingForZito;
+
+                    // Timeout
+                    if (currentWish.IsSuccess.Value == false)
+                    {
+                        Debug.LogError($"Wish {currentWish.Type} has timed out!");
+
+                        string quipText = "";
+                        if (currentWish.IsWindowWish || currentWish.IsTvWish)
+                        {
+                            Debug.Log("Was window tv wish");
+
+                            WishQuip quip = GuestManager.I.GetWishQuip(currentWish.Type);
+                            Debug.Assert(quip != null, "Quip is null");
+                            quipText = quip ? quip.GetToolate() : "";
+                        }
+                        else if (currentWish.IsFoodWish || currentWish.IsDrinkWish)
+                        {
+                            Debug.Log("Was drink food wish");
+
+                            //var container = currentWish.IsDrinkWish ? consumer.drinkContainer : consumer.foodContainer;
+                            Consumable.Quips q = null;
+                            foreach (var consumable in Database.e.consumables)
+                            {
+                                if (consumable.wishType == currentWish.Type)
+                                {
+                                    q = consumable.quips;
+                                    break;
+                                }
+                            }
+
+                            //Consumable.Quips q = container.type.quips;
+                            Debug.Assert(q != null, "Quip is null");
+                            quipText = q.tooLate[Random.Range(0, q.tooLate.Length)];
+                        }
+
+
+
+                        Debug.Assert(!string.IsNullOrEmpty(quipText), "No quip text");
+                        FinishActiveWish(success: false, message: quipText);
+                        Delay(DelayAfterWish);
+                    }
+
+                    if (wasWaitingForZito)
                     {
                         //if (entryWish.IsSuccess.HasValue) // && entryWish.IsSuccess.Value
                         //{
-                        Debug.Log("Completed! " + entryWish.IsSuccess.Value);
+                        Debug.Log($"Waiting for zito completed with {entryWish.IsSuccess.Value}");
 
                         // go in
                         //AllWishes.RemoveAt(0);
@@ -220,8 +262,9 @@ public class Guest : MonoBehaviour
                         //GoHome(false);
                         //}
                     }
-                    else
-                        Delay(DelayAfterWish);
+
+                    //else
+                    //Delay(DelayAfterWish);
                 }
                 // if the current wish is not active, activate it
                 else if (!currentWish.IsActive)
@@ -353,9 +396,10 @@ public class Guest : MonoBehaviour
     public void FinishActiveWish(bool success = true, string message = "")
     {
         var activeWish = CurrentWish;
-        if (activeWish == null
-            || !(CurrentState == GuestState.WaitingForService || CurrentState == GuestState.WaitingForZito))
-            return;
+
+        //if (activeWish == null
+        //  || !(CurrentState == GuestState.WaitingForService || CurrentState == GuestState.WaitingForZito))
+        //return;
 
         Debug.Log(sittingIndex + " Finished active wish, start delay");
         activeWish.FinishWish(success);
@@ -471,6 +515,9 @@ public class Guest : MonoBehaviour
 
     private IEnumerator DelayDestroy(float delay)
     {
+        GuestManager.I.guestsServedCount++;
+        GuestManager.I.allCompletedWishes.AddRange(AllWishes);
+
         var startColor = Color.white;
         var endColor = new Color(1f, 1f, 1f, 0f);
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / delay)

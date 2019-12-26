@@ -25,8 +25,8 @@ public class GuestManager : MonoBehaviour
 
     #region Properties
 
-    [SerializeField] WishQuip[] wishQuips;
-    [SerializeField] GeneralQuips generalQuips;
+    [SerializeField] WishQuip[] wishQuips = null;
+    [SerializeField] GeneralQuips generalQuips = null;
 
     public Transform entrancePosition;
     public Transform exitPosition;
@@ -58,6 +58,9 @@ public class GuestManager : MonoBehaviour
     private List<int> availableSittingPositionIndex = new List<int>();
 
     private bool slavaHasStarted;
+
+    public int guestsServedCount = 0;
+    public List<GuestWish> allCompletedWishes = new List<GuestWish>();
 
     #endregion
 
@@ -233,7 +236,7 @@ public class GuestManager : MonoBehaviour
 
     private void OnGUI()
     {
-        GUILayout.Window(0, new Rect(10, 500, 200, 200), Window, "Debug");
+        GUILayout.Window(0, new Rect(10, 10, 300, 500), Window, "Debug");
     }
 
     void Window(int id)
@@ -259,6 +262,30 @@ public class GuestManager : MonoBehaviour
         if (GUILayout.Button("Extinguish Candle"))
         {
             Candle.e.Extinguish();
+        }
+
+        if (GUILayout.Button("End game NOW"))
+            GameController.I.EndGame();
+
+        var guests = FindObjectsOfType<Guest>();
+        foreach (var guest in guests)
+        {
+            GUILayout.Label($"Guest: {guest.name}");
+            for (int w = 0; w < guest.AllWishes.Count; w++)
+            {
+                GuestWish wish = guest.AllWishes[w];
+                string success = wish.IsSuccess.HasValue ? wish.IsSuccess.Value ? "Success" : "Failure" : "Active";
+                GUILayout.Label($"      W{w}: {guest.AllWishes[w].Type}, {success}");
+            }
+        }
+
+        GUILayout.Label($"All completed wishes");
+
+        for (int w = 0; w < allCompletedWishes.Count; w++)
+        {
+            GuestWish wish = allCompletedWishes[w];
+            string success = wish.IsSuccess.HasValue ? wish.IsSuccess.Value ? "Success" : "Failure" : "Active";
+            GUILayout.Label($"      W{w}: {wish.Type}, {success}");
         }
     }
 

@@ -12,6 +12,8 @@ public class Database : MonoBehaviour
 
     public GameObject pivoPrefab;
     public GameObject termometarPrefab;
+    public RectTransform containerMeterParent;
+    public GameObject containerMeterPrefab;
     public GameObject flekaPrefab;
 
     public AudioClip[] stepClips;
@@ -31,5 +33,12 @@ public class Database : MonoBehaviour
         position.y = -1;
         flekaObject.transform.position = position;
         return flekaObject.GetComponent<Fleka>();
+    }
+
+    public void CreateContainerMeter(Container container)
+    {
+        GameObject ago = Instantiate(containerMeterPrefab);
+        ago.transform.SetParent(containerMeterParent);
+        ago.GetComponent<ContainerMeter>().container = container;
     }
 }

@@ -70,7 +70,7 @@ public class CanvasController : MonoBehaviour
         closeButton.onClick.AddListener(OnCloseClick);
         mainCloseButton.onClick.AddListener(OnCloseClick);
 
-        levelNameText.text = GameController.I.Level.Name ?? "NIVO TEST";
+        //levelNameText.text = GameController.I.Level.Name ?? "NIVO TEST";
     }
 
     private void Update()
