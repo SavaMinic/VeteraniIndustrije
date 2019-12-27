@@ -100,7 +100,7 @@ public class MenuNavigation : MonoBehaviour
         }
         else if (state == State.MainMenu)
         {
-            cy = wrap(cy - y, 3);
+            cy = wrap(cy - y, 4);
 
             MainMenuSelectItem(cy);
 
@@ -479,13 +479,16 @@ public class MenuNavigation : MonoBehaviour
 
         string ratio = float.IsNaN(results.successRatio) ? "Uncomputable" : results.successRatio.ToString("F1");
 
-        endGameScoreText.text = $@"
-Total guests served: {results.totalGuestsServed},
+        endGameScoreText.text = $@"Total guests served: {results.totalGuestsServed},
 Success wishes: {results.totalSuccessWishes},
 Failed wishes: {results.totalFailedWishes},
-Success ratio: {ratio}%";
+Success ratio: {ratio}%,
+Promaja time: {results.promajaTime},
+Dirt complaints time: {results.prljavoTime},
 
-//Score: {results.totalScore}";
+Total Score: {results.totalScore}";
+
+        //Score: {results.totalScore}";
 
         musicTarget = 1;
     }

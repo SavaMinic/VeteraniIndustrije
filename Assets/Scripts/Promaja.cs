@@ -16,6 +16,11 @@ public class Promaja : MonoBehaviour
 
     float promajaSoundVelo;
 
+    private void Start()
+    {
+        IsActive = false;
+    }
+
     private void Update()
     {
         promajaSource.volume =

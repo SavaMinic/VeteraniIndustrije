@@ -65,6 +65,9 @@ public class GuestManager : MonoBehaviour
     public int guestsServedCount = 0;
     public List<GuestWish> allCompletedWishes = new List<GuestWish>();
 
+    [System.NonSerialized] public float totalPrljavoTime;
+    [System.NonSerialized] public float totalPromajaTime;
+
     public static bool showDebugWindow;
 
     #endregion
@@ -73,16 +76,16 @@ public class GuestManager : MonoBehaviour
 
     private void Start()
     {
+        if (Application.isEditor)
+            showDebugWindow = true;
+
         InitializeSeatingPositions();
     }
 
     private void Update()
     {
-        if (!Application.isEditor)
-        {
-            if (Input.GetKeyDown(KeyCode.F12) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
-                showDebugWindow = !showDebugWindow;
-        }
+        if (Input.GetKeyDown(KeyCode.F12) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
+            showDebugWindow = !showDebugWindow;
 
         if (!Application.isPlaying || GameController.I.IsPaused)
             return;
@@ -102,6 +105,12 @@ public class GuestManager : MonoBehaviour
 
             return;
         }
+
+        if (Fleka.Prljavo)
+            totalPrljavoTime += Time.deltaTime;
+
+        if (Promaja.IsActive)
+            totalPromajaTime += Time.deltaTime;
 
         if (!Candle.e.isBurning || !autoSpawnGuests)
             return;
@@ -164,6 +173,12 @@ public class GuestManager : MonoBehaviour
     {
         CanvasController.I.ShowNotification(guest,
             generalQuips.promaja[UnityEngine.Random.Range(0, generalQuips.promaja.Length)]);
+    }
+
+    public void ShowPrljavoQuip(Guest guest)
+    {
+        CanvasController.I.ShowNotification(guest,
+            generalQuips.prljavo[UnityEngine.Random.Range(0, generalQuips.prljavo.Length)]);
     }
 
     public void NoZitoNoParty(Guest guest)
@@ -315,7 +330,7 @@ public class GuestManager : MonoBehaviour
 
     private void OnGUI()
     {
-        if (!Application.isEditor && !showDebugWindow) return;
+        if (!showDebugWindow) return;
 
         GUILayout.Window(0, new Rect(10, 10, 300, 500), Window, "Debug");
     }

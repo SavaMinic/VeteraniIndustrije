@@ -7,6 +7,7 @@ public class GeneralQuips : ScriptableObject
 {
     public string[] noZitoNoParty;
     public string[] promaja;
+    public string[] prljavo;
     public string[] entryMessages;
     public string[] exitMessages1;
     public string[] exitMessages2;

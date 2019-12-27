@@ -2474,7 +2474,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2061271153}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 35, y: -135, z: 0}
 --- !u!212 &403131523
 SpriteRenderer:
@@ -2717,7 +2717,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2061271153}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 35, y: -135, z: 0}
 --- !u!212 &471602069
 SpriteRenderer:
@@ -3239,7 +3239,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.83921576, g: 0.654902, b: 0.5882353, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -4455,6 +4455,7 @@ MonoBehaviour:
   InitialGuestCount: 1
   DelayForGeneratingGuestsSlow: 10
   DelayForGeneratingGuestsFast: 15
+  DelayForGeneratingGuestsFuzz: 10
   LimitGuestNumber: 0
   guestsServedCount: 0
   allCompletedWishes: []
@@ -5459,7 +5460,7 @@ AudioHighPassFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880281053}
   m_Enabled: 1
-  m_CutoffFrequency: 1000
+  m_CutoffFrequency: 500
   m_HighpassResonanceQ: 1
 --- !u!82 &880281056
 AudioSource:
@@ -5474,7 +5475,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 2b059818cb9de9240a0b73511c4b7b25, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6851,6 +6852,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1124647347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1124647348}
+  m_Layer: 0
+  m_Name: Prox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1124647348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124647347}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.36, y: -1.13, z: -3.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2061271153}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1126234826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13941,6 +13972,7 @@ Transform:
   m_LocalPosition: {x: -1.63, y: 2.44, z: -17.3}
   m_LocalScale: {x: 2, y: 2, z: 1.0000004}
   m_Children:
+  - {fileID: 1124647348}
   - {fileID: 471602068}
   - {fileID: 403131522}
   m_Father: {fileID: 1069036236}
@@ -13963,7 +13995,7 @@ MonoBehaviour:
   inSlot: {fileID: 0}
   highlightColor: {r: 0.7362522, g: 1, b: 0, a: 1}
   sprite: {fileID: 0}
-  customProximityPivot: {fileID: 0}
+  customProximityPivot: {fileID: 1124647348}
   soundVolume: 0
   pickupClip: {fileID: 0}
   putClip: {fileID: 0}

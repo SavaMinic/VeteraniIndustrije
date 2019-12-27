@@ -103,21 +103,25 @@ public class GameController : MonoBehaviour
 
     public class Results
     {
-        public float totalSlavaTime;
+        public float targetSlavaTime;
+        public float actualSlavaTime;
         public int totalSuccessWishes;
         public int totalWishes;
         public int totalFailedWishes;
         public float successRatio;
         public int totalGuestsServed;
+        public float promajaTime;
+        public float prljavoTime;
 
         public int totalScore;
     }
 
-
-
     Results CalculateResults()
     {
         Results results = new Results();
+
+        results.targetSlavaTime = level.CandleDuration;
+        results.actualSlavaTime = Candle.e.TimeSinceStart;
 
         results.totalGuestsServed = GuestManager.I.guestsServedCount;
 
@@ -135,8 +139,13 @@ public class GameController : MonoBehaviour
         results.totalWishes = GuestManager.I.allCompletedWishes.Count;
         results.successRatio = ((float)results.totalSuccessWishes / results.totalWishes) * 100f;
 
+        results.promajaTime = GuestManager.I.totalPromajaTime;
+        results.prljavoTime = GuestManager.I.totalPrljavoTime;
+
         results.totalScore =
-            (int)(results.totalGuestsServed * results.totalSlavaTime * results.successRatio);
+            (int)(1000 * results.totalSuccessWishes / results.actualSlavaTime
+            * Mathf.Clamp01(1 - results.promajaTime * 0.01f)
+            * Mathf.Clamp01(1 - results.prljavoTime * 0.01f));
 
         return results;
     }

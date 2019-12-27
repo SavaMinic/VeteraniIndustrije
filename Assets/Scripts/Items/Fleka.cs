@@ -49,10 +49,16 @@ public class Fleka : Interactable
         //return;
 
         //isFading = true;
-        Count--;
+        //Count--;
         Destroy(gameObject);
         //StartCoroutine(DelayDestroy(0.8f));
     }
+
+    protected override void OnBeforeDestroy()
+    {
+        Count--;
+    }
+
     /*
 
     private IEnumerator DelayDestroy(float delay)

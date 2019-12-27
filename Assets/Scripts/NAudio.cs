@@ -67,6 +67,14 @@ public static class NAudio
         return source;
     }
 
+    public static bool PoolIsValid()
+    {
+        if (sourcePool == null) return false;
+        if (sourcePool.Count == 0) return false;
+        if (sourcePool.Peek() == null) return false;
+        return true;
+    }
+
     public static void InitializePool(int size = POOL_SIZE)
     {
         sourcePool = new Queue<AudioSource>(size);
@@ -102,14 +110,18 @@ public static class NAudio
         AudioMixerGroup mixerGroup = null,
         Transform parent = null)
     {
+        Debug.Assert(volume > 0, "Volume is zero");
+        Debug.Assert(pitch > 0, "Pitch is zero");
 
         if (volume == 0) return null;
         if (pitch == 0) return null;
         Debug.Assert(clip != null, "No AudioClip was passed");
 
 #if POOLING
-        if (sourcePool == null)
+        if (!PoolIsValid())
             InitializePool();
+        //if (sourcePool == null)
+        //InitializePool();
 
         AudioSource source = GetNextSource();
 
@@ -232,6 +244,9 @@ public static class NAudio
         float minDistance = DEFAULT_MIN_DISTANCE,
         AudioMixerGroup mixerGroup = null)
     {
+        Debug.Assert(clips != null, "NAudio: Clips array is null");
+        Debug.Assert(clips.Length != 0, "NAudio: No clips in array");
+
         if (shuffle && clips.Length > 1)
         {
             int randi = Random.Range(1, clips.Length);
@@ -240,15 +255,18 @@ public static class NAudio
             clips[0] = clip;
 
             //source2D.PlayOneShot(clip, volume);
+            Debug.Assert(volume > 0, "Volume is zero");
+            Debug.Assert(pitch > 0, "Pitch is zero");
+
             var source = Play(clip, Vector3.zero, volume, pitch, spread, minDistance, mixerGroup);
-            source.spatialBlend = 0;
+            if (source) source.spatialBlend = 0;
             return source;
         }
         else
         {
             var clip = clips[Random.Range(0, clips.Length)];
             var source = Play(clip, Vector3.zero, volume, pitch, spread, minDistance, mixerGroup);
-            source.spatialBlend = 0;
+            if (source) source.spatialBlend = 0;
             return source;
             //return Play(clips[Random.Range(0, clips.Length)], Vector3.zero, volume, pitch, spread, minDistance, mixerGroup);
         }

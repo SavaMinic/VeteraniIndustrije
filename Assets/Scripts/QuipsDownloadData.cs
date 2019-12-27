@@ -56,6 +56,7 @@ public class QuipsDownloadData : ScriptableObject
         GeneralQuips generalQuips = (GeneralQuips)Resources.Load("GeneralQuips");
         generalQuips.entryMessages = FindByTag("ENTRY_MESSAGES");
         generalQuips.promaja = FindByTag("PROMAJA");
+        generalQuips.prljavo = FindByTag("PRLJAVO");
         generalQuips.noZitoNoParty = FindByTag("NO_ZITO_NO_PARTY");
         generalQuips.exitMessages1 = FindByTag("EXIT_MESSAGES_1");
         generalQuips.exitMessages2 = FindByTag("EXIT_MESSAGES_2");

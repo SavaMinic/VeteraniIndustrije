@@ -70,6 +70,9 @@ public class Metla : Interactable
                 progress += Time.deltaTime * 20 / Mathf.PI;
                 if (progress > 1)
                 {
+                    Debug.Assert(Database.e != null, "Database.e is null");
+                    Debug.Assert(Database.e.broomSweepClips != null, "Database.e.broomSweepClips is null");
+                    Debug.Assert(Database.e.broomSweepClips.Length > 0, "No broomSweepClips");
                     Database.e.broomSweepClips.Play2D(true, 0.2f, pitch: 2);
                     progress = 0;
 

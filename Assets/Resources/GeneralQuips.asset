@@ -26,6 +26,16 @@ MonoBehaviour:
   - Duva promaja!!
   - "Spa\u0161avaj se ko moze, duva promaja!"
   - "Ko\u0161ava ti u stanu!"
+  - Jel to severac? Kukuu
+  prljavo:
+  - "Ijuuuu \u0161to je prljavo"
+  - "Kako mo\u017Eete da \u017Eivite u ovako prljavom stanu?!"
+  - Al je sve ukaljano
+  - "\u0106u isprljam d\u017Eordanke"
+  - Al ste kaljavi ko ovi na farmi
+  - "Iju tolka prljav\u0161tina"
+  - "Mo\u017Ee konak izgradimo kolko blata ima"
+  - "Treba na \u0161tule d'idem d'izbegnem ovu prljav\u0161tinu"
   entryMessages:
   - "Sre\u0107na slava, doma\u0107ine!"
   - "Poma\u017Ee bog, kom\u0161ija!"
@@ -42,6 +52,7 @@ MonoBehaviour:
   - "Bog vam pomogao, doma\u0107ine"
   - "Deder meti mi jaknu na \u010Diviluk"
   - "Al' miri\u0161e sarma!"
+  - "E kom\u0161o da si mi \u017Eiv i zdrav 100 godina"
   exitMessages1:
   - ?!?!?
   - '***** ** *****'
@@ -53,30 +64,49 @@ MonoBehaviour:
   - "E sva\u0161ta ima na ovom svetu..."
   - Svakakvih ljudi ima...
   - "E sva\u010Dega ima..."
+  - Kukuuu leleeeee!
+  - "Bo\u017Ee moj cuda velikoga"
   exitMessages2:
   - "Vru\u0107e pivo? Pa gde to ima"
-  - "Promaja je ipak nepodno\u0161ljiva!"
+  - Nepodnosljivo!
   - "Idem ja sprat ni\u017Ee!"
-  - Zbogom
+  - Zbogom...
+  - E pa ovo mi je bila poslednja slava kod vas.
+  - Ajd, dvojka za trud
+  - "E kotku\u0107e sam treb'o ostati"
+  - "Slede\u0107i put donesikom"
+  - "Dal \u0107u doci ja jos jednom.. Pitanje je."
+  - Uf, nije mi dobro..
   exitMessages3:
   - "Slede\u0107i put donosim hranu!"
   - "Bi\u0107e bolje dogodine"
   - "\u0160tedelo se, video sam... "
   - Zakino si ga, kume
+  - "Dal \u0107u doci ja jos jednom.. Pitanje je."
   exitMessages4:
-  - "Hladno pe\u010Denje"
+  - "Sledeci put pe\u010Denje"
   - "Nit' smrdi nit' miri\u0161e"
   - "Vi\u0161e vina slede\u0107i put"
   - Mlaka sarma
-  - "Salata je bila \u017Easu"
+  - "Sarma je bila \u017Easu"
+  - Uf mora trcim na poslednji bus!
+  - Nako
+  - Sta da ti kazem..
+  - Mis'im ono
+  - "Slaba troj\u010Dica"
+  - Eee treba ustati sutra za posao
   exitMessages5:
   - "Samo da pro\u0161etam pse"
   - "\u017Durim, pozlilo babi"
   - Moram da jurim neke papire...
+  - Uf mora trcim na poslednji bus!
   - "\u017Durim, \u017Durim..."
   - I dogodine
   - Pozdrav
   - "Uff, \u017Eurim ku\u0107i"
   - Idem na cigaru
   - "Ne planiram da se zadr\u017Eavam"
+  - Ok, aj, potrudili ste se
+  - Dobro je, al moglo to i bolje
+  - Pet minus
   exitMessages6: []

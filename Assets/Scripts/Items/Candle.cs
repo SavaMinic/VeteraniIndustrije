@@ -25,6 +25,9 @@ public class Candle : Interactable
 
     public float TimeLeft { get { return (1 - burnProgress) * burnTime; } }
 
+    float initialTime = -1;
+    public float TimeSinceStart { get; private set; }
+
     public Vector3 flameStartPosition;
     public Vector3 flameEndPosition;
 
@@ -72,6 +75,7 @@ public class Candle : Interactable
         {
             Extinguish();
             isDone = true;
+            TimeSinceStart = Time.time - initialTime;
         }
 
         if (smoke.activeSelf)
@@ -111,9 +115,13 @@ public class Candle : Interactable
     {
         if (Promaja.IsActive)
         {
-            Debug.LogWarning("AL DUVA PROMAJA");
+            Debug.LogWarning("Can't ignite cuz promaja");
             return;
         }
+
+        if (initialTime == -1)
+            initialTime = Time.time;
+
         flame.SetActive(true);
         isBurning = true;
         igniteClip.Play2D(1);

@@ -62,6 +62,9 @@ public class Guest : MonoBehaviour
     float lastPromajaReaction;
     float timeBetweenPromajaReactions = 10;
 
+    float lastPrljavoReaction;
+    float timeBetweenPrljavoReactions = 10;
+
     #region Mono
 
     private void Awake()
@@ -91,17 +94,31 @@ public class Guest : MonoBehaviour
             transform.position = AI.transform.position + Vector3.up;
         }
 
-        if (!isMarina && Promaja.IsActive)
+        if (!isMarina)
         {
-            if (Time.time - lastPromajaReaction > timeBetweenPromajaReactions)
+            if (Promaja.IsActive)
             {
-                lastPromajaReaction = Time.time;
-                timeBetweenPromajaReactions = Random.Range(8.0f, 15.0f);
-                if (Random.value > 0.5f) // not all guests should react
-                    GuestManager.I.ShowPromajaQuip(this);
+                if (Time.time - lastPromajaReaction > timeBetweenPromajaReactions)
+                {
+                    lastPromajaReaction = Time.time;
+                    timeBetweenPromajaReactions = Random.Range(5.0f, 10.0f);
+                    if (Random.value > 0.5f) // not all guests should react
+                        GuestManager.I.ShowPromajaQuip(this);
+                }
+
+                //lastPromajaReaction 1
             }
 
-            //lastPromajaReaction 1
+            if (Fleka.Prljavo)
+            {
+                if (Time.time - lastPrljavoReaction > timeBetweenPrljavoReactions)
+                {
+                    lastPrljavoReaction = Time.time;
+                    timeBetweenPrljavoReactions = Random.Range(5.0f, 10.0f);
+                    if (Random.value > 0.5f)
+                        GuestManager.I.ShowPrljavoQuip(this);
+                }
+            }
         }
 
         switch (CurrentState)

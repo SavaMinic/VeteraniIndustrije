@@ -8,6 +8,12 @@ public class Database : MonoBehaviour
     public static Database e;
     private void Awake() { e = this; }
 
+    private void Start()
+    {
+        if (e == null)
+            e = this;
+    }
+
     public Consumable[] consumables;
 
     public GameObject pivoPrefab;
